@@ -1,63 +1,68 @@
 <app-breadcrumb [breadcrumbs]=breadcrumbs></app-breadcrumb>
 <div class="row">
   <div class="col">
-    <div class="card mb-4">
+    <div class="card">
       <div class="card-header indigo white-text">
         <i class="fa fa-language prefix"></i>
         Séléctionner une ou plusieurs langues
       </div>
       <div class="card-body">
-        <div class="btn-group checkbox-list" data-toggle="buttons">
+        <div class="btn-group checkbox-list" id="checkbox-languages" data-toggle="buttons">
           <label *ngFor="let language of languages" class="btn btn-secondary form-check-label mb-1" [ngClass]="{'active': language.selected}">
-            <input class="form-check-input d-none" type="checkbox" [attr.checked]="language.selected ? 'checked' : null" autocomplete="off" (change)="language.selected = !language.selected" [value]="language.abbr" > {{language.title}} ({{language.abbr}})
+            <input class="form-check-input d-none" type="checkbox" [checked]="language.selected ? 'checked' : null" autocomplete="off" (change)="onCheckBoxChange(language)" [value]="language.code" > {{ language.name }} ({{ language.code }})
           </label>
         </div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="card-header indigo white-text">
-        <i class="fa fa-plus-circle prefix"></i>
-        Ajouter une nouvelle langue
-      </div>
-      <div class="card-body">
-        <form [formGroup]="newLangForm">
-          <div class="md-form">
-            <input mdbInputDirective type="text" id="inputLanguageTitle" class="form-control form-control-sm" required minLength="2" maxLength="30" data-error="Nom incorrect." data-success="Nom valide." formControlName="title">
-            <label for="inputLanguageTitle">Nom de la langue</label>
-          </div>
-          <div class="md-form">
-            <input mdbInputDirective type="text" id="inputLanguageAbbr" class="form-control form-control-sm" required minLength="2" maxLength="2" data-error="Abbréviation incorrecte." data-success="Abbréviation valide." formControlName="abbr">
-            <label for="inputLanguageAbbr">Abbréviation</label>
-          </div>
-          <div class="text-center">
-            <button type="button" class="btn btn-indigo btn-sm" data-dismiss="modal" mdbWavesEffect>Réinitialiser</button>
-            <button type="button" class="btn btn-green btn-sm" (click)="addNewLang()" mdbWavesEffect>Ajouter</button>
-          </div>
-        </form>
       </div>
     </div>
   </div>
 
   <div class="col">
-    <div class="card">
+    <div class="card mb-4">
       <div class="card-header indigo white-text">
         <i class="fa fa-info-circle prefix"></i>
         Informations générales
       </div>
       <div class="card-body">
         
-        <form #campaignOptionsForm='ngForm' (ngSubmit)="onOptionsSubmit(campaignOptionsForm)">
+        <form #campaignOptionsForm='ngForm' (ngSubmit)="onOptionsFormSubmit(campaignOptionsForm)">
+          <div class="alert alert-danger" role="alert" *ngIf="campaignOptionsForm.invalid && !campaignOptionsForm.pristine">
+            Veuillez renseigner tous les champs du formulaire.
+          </div>
           <div class="md-form">
-              <input [mdbValidate]="false" mdbInputDirective type="text" id="campaignName" name="campaignName" class="form-control form-control-sm" required min-length="2" max-length="30">
+              <input ngModel mdbInputDirective type="text" id="campaignName" name="campaignName" class="form-control form-control-sm" required min-length="2" max-length="30" data-error="Nom invalide.">
               <label for="campaignName">Nom de la campagne</label>
           </div>
           <div class="md-form" *ngFor="let language of languagesSelected()">
-            <input [mdbValidate]="false" mdbInputDirective type="text" [attr.id]="'subject' + language.abbr" [attr.name]="'subject' + language.abbr" class="form-control form-control-sm" required min-length="2" max-length="30">
-            <label [attr.for]="'subject' + language.attr">Sujet {{ language.abbr | uppercase }}</label>
+            <input ngModel mdbInputDirective type="text" [id]="'subject' + language.code" [name]="'subject' + language.code" class="form-control form-control-sm" required min-length="2" max-length="30" data-error="Sujet invalide.">
+            <label [attr.for]="'subject' + language.code">Sujet {{ language.code | uppercase }}</label>
           </div>
           <div class="text-center">
-            <button [mdbValidate]="false" mdbInputDirective type="submit" class="btn btn-green btn-sm" [disabled]="campaignOptionsForm.invalid">Enregistrer</button>
+            <button mdbInputDirective type="submit" class="btn btn-green btn-sm" [disabled]="campaignOptionsForm.invalid">Enregistrer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header indigo white-text">
+        <i class="fa fa-plus-circle prefix"></i>
+        Ajouter une nouvelle langue
+      </div>
+      <div class="card-body">
+        <form #newLangForm='ngForm' (ngSubmit)="onNewLangFormSubmit(newLangForm)">
+          <div class="alert alert-danger" role="alert" *ngIf="newLangForm.invalid && !newLangForm.pristine">
+            Veuillez renseigner tous les champs du formulaire et vérifier que le code soit unique.
+          </div>
+          <div class="md-form">
+            <input ngModel mdbInputDirective type="text" id="inputLanguageName" name="name" class="form-control form-control-sm" required minLength="2" maxLength="30" data-error="Nom invalide.">
+            <label for="inputLanguageName">Nom de la langue</label>
+          </div>
+          <div class="md-form">
+            <input ngModel mdbInputDirective type="text" id="inputLanguageCode" name="code" class="form-control form-control-sm" required minLength="2" maxLength="2" data-error="Code invalide.">
+            <label for="inputLanguageCode">Code</label>
+          </div>
+          <div class="text-center">
+            <button type="button" class="btn btn-indigo btn-sm" data-dismiss="modal" mdbWavesEffect>Réinitialiser</button>
+            <button type="submit" class="btn btn-green btn-sm" mdbWavesEffect [disabled]="newLangForm.invalid">Ajouter</button>
           </div>
         </form>
       </div>

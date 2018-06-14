@@ -1,7 +1,6 @@
 import { ApiHelperService } from './api-helper.service';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { config } from './../config';
@@ -10,6 +9,7 @@ import { Brand } from '../models/brand';
 import { Campaign } from '../models/campaign';
 import { Block } from '../models/block';
 import { BlockPosition } from './../models/block-position';
+import { Lang } from './../models/lang';
 
 const httpOptions = {
   headers: new HttpHeaders({

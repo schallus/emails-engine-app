@@ -64,7 +64,8 @@ router.route('/brands/:brandSlug/blocks')
     .get(timeout('5s'), campaignCtrl.readCampaigns, campaignCtrl.getBrandBlocks);
 
 router.route('/brands/:brandSlug/campaigns/:campaignSlug')
-    .get(timeout('5s'), campaignCtrl.readCampaigns, campaignCtrl.getCampaignConfig);
+    .get(timeout('5s'), campaignCtrl.readCampaigns, campaignCtrl.getCampaignConfig)
+    .post(timeout('5s'), campaignCtrl.readCampaigns, campaignCtrl.setCampaignConfig);
 
 router.route('/brands/:brandSlug/campaigns/:campaignSlug/structure')
     .get(timeout('5s'), campaignCtrl.readCampaigns, campaignCtrl.getCampaignStructure)

@@ -143,6 +143,27 @@ campaign.getCampaignConfig = (req, res, next) => {
     res.status(200).json(campaignConfig);
 };
 
+campaign.setCampaignConfig = (req, res, next) => {
+
+    const newCampaignConfig = req.body;
+
+    try {
+        fs.writeFileSync(`${res.brandPath}/${req.params.campaignSlug}/config.json`, JSON.stringify(newCampaignConfig, null, "\t"), 'utf8');
+    } catch (err) {
+        if (err.code === 'ENOENT') {
+            return next({
+                status: 500,
+                message: "Something unexpected happened while writing the campaign configuration file."
+            });
+        } else {
+            console.log(err);
+            return next();
+        }
+    }
+
+    res.status(200).json(newCampaignConfig);
+};
+
 campaign.getCampaignStructure = (req, res, next) => {
     try {
         campaignStructure = JSON.parse(fs.readFileSync(`${res.brandPath}/${req.params.campaignSlug}/pages/structure.json`, 'utf8'));
