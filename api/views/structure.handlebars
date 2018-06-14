@@ -1,0 +1,11 @@
+---
+layout: {{data.emailLayout}}
+subject: {{data.subject}}
+lang: {{data.lang}}
+---
+
+{{#each data.structure}}
+{{#ifIn ../data.lang this.lang}}
+\{{> {{this.blockType}} data=lang-{{../data.lang}}.{{this.name}} }}
+{{/ifIn}}
+{{/each}}

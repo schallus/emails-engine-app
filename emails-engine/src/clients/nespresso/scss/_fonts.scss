@@ -1,0 +1,27 @@
+//
+// Fonts
+//
+
+@media screen {
+  @font-face {
+    font-family: 'Nespresso Lucas';
+    src: url('fonts/Regular/NespressoLucas-Regular.woff2') format('woff2');
+    src: url('fonts/Regular/NespressoLucas-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal
+  }
+  @font-face {
+    font-family: 'Nespresso Lucas Light';
+    src: url('fonts/Light/NespressoLucas-Light.woff2') format('woff2');
+    src: url('fonts/Light/NespressoLucas-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal
+  }
+  @font-face {
+    font-family: 'Nespresso Lucas XtraBd';
+    src: url('fonts/XtraBd/NespressoLucas-XtraBd.woff2') format('woff2');
+    src: url('fonts/XtraBd/NespressoLucas-XtraBd.woff') format('woff');
+    font-weight: normal;
+    font-style: normal
+  }
+}

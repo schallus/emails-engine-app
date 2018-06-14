@@ -1,0 +1,59 @@
+{
+  "litmus": {
+    "username": "emarketing@wideagency.com",
+    "password": "rac4cap9c",
+    "url": "https://wideagency1.litmus.com",
+    "applications": ["ol2003","ol2007","ol2010","ol2011","ol2013","chromegmailnew","chromeyahoo","appmail9","iphone5s","ipad","android4","androidgmailapp"]
+  },
+  "ftp" : {
+    "host": "172.16.32.37",
+    "port": 22,
+    "user": "cross",
+    "pass": "1+password",
+    "remotePath" : "/media/data/cloud/w/emails/",
+    "url": "https://cloud.cross-systems.ch/w/emails",
+    "urlBuild": "http://image.email.salomon.com/lib/fe8c12737362017574/m/8"
+  },
+  "mail": {
+    "to": [
+      "Anthony BOUVIER <abouvier@wideagency.com>",
+      "Anthony BOUVIER <bouvier.anthony@gmail.com>",
+      "Renaud DURIER <rdurier@wideagency.com>",
+      "Brahim SOURNY <bsourny@wideagency.com>",
+      "Aymeric ASSIER <aassier@wideagency.com>",
+      "Benjamin BOUVIER <bbouvier@wideagency.com>",
+	  "Florian AESCHLIMANN <faeschlimann@wideagency.com>",
+      "Florian CERDA <fcerda@wideagency.com>",
+      "Julien COLSON <jcolson@wideagency.com>",
+      "Julien MOULIS <jmoulis@wideagency.com>",
+      "Julien MUNCH <jmunch@wideagency.com>",
+      "Karim AMMAR <kammar@wideagency.com>",
+      "Kévin POCCARD SOUDARD <kpoccardsoudard@wideagency.com>",
+      "Lionel GAILLARD <lgaillard@wideagency.com>",
+      "Matthieu THIEVENT <mthievent@wideagency.com>",
+      "Nicolas REINE-DITE-REINETTE <nreine@wideagency.com>",
+      "Philippe BONNOT <pbonnot@wideagency.com>",
+      "Quentin DUBORPER <qduborper@wideagency.com>",
+      "Sebastien MOUCHET <smouchet@wideagency.com>",
+      "Sebastien ROBILLARD <srobillard@wideagency.com>",
+      "Stephane LEGER <sleger@wideagency.com>",
+      "Tiffany PECAUD <tpecaud@wideagency.com>",
+      "Yohan TAMBE <ytambe@wideagency.com>",
+
+      "Pauline GOURGAUD <pgourgaud@wideagency.com>",
+
+      "Benjamin DIÉ <bdie@wideagency.com>",
+      "Benjamin DIÉ <benjamin.die@hotmail.fr>",
+      "Benjamin DIÉ <rtbfbyob@gmail.com>",
+
+      "CLIENT | NESPRESSO | <vithushan.pathmanathan@nespresso.com>",
+      "CLIENT | NESPRESSO | <Giuseppe.Balduzzi@nespresso.com>",
+      "CLIENT | NESPRESSO | <Matthieu.bodecher@gmail.com>",
+      "CLIENT | NESPRESSO | <Cedric.maffli@gmail.com>",
+      "CLIENT | NESPRESSO | <novanne@hotmail.com>",
+      "CLIENT | NESPRESSO | <AnneCatherine.Rameau@nespresso.com>",
+      "CLIENT | NESPRESSO | <Vanessa.genoud@nespresso.com>"
+    ],
+    "from": "Wide Agency <no-reply@wideagency.com>"
+  }
+}

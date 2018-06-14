@@ -1,0 +1,82 @@
+<!-- footer 01 -->
+<table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+        <td align="center" valign="top" bgcolor="#f8f7f3" style="padding: 20px 0 20px 0;"><table role="presentation" width="670" border="0" align="center" cellpadding="0" cellspacing="0" class="w100pc">
+            <tr>
+                <td width="15"></td>
+                <td valign="top" align="center">
+                    <table role="presentation" border="0" align="center" cellpadding="0" cellspacing="0" width="100%">
+                        <tr>
+                            <td valign="top" align="center" style="font-size: 24px; font-family: 'Nespresso Lucas', Helvetica, Arial, sans-serif; line-height: 28px; color: #231f20; text-decoration: none; padding: 0 0 10px 0; text-transform: uppercase;" class="fontsize16">
+                              <span class="fontArial">{{{data.title}}}</span>
+                            </td>
+                        </tr>
+                    </table>
+                    <table width="640" border="0" cellspacing="0" cellpadding="0" class="w200px">
+                        <tr>
+                        {{#each data.items}}
+                            {{#if @first}}
+                                <td width="100" align="center" valign="top" class="colsplit">
+                                    <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                                        <tr class="col w49pc">
+                                            <td align="center" valign="middle" style="padding: 10px 0 10px 0;">
+                                                <a href="{{this.url}}"><img src="{{this.img}}" width="{{{this.width}}}" height="{{{this.height}}}" border="0" style="display:block;" /></a>
+                                            </td>
+                                        </tr>
+                                        <tr class="col w49pc">
+                                            <td align="left" valign="middle" class="h80">
+                                                <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                    <tr>
+                                                        <td align="center" valign="middle" style="font-size: 11px; font-family: 'Nespresso Lucas XtraBd', Helvetica, Arial, sans-serif; line-height: 16px; color: #231f20; text-decoration: none; font-weight: bold!important;" class="left"><a href="{{this.url}}" style="color: #231f20; text-decoration: none; font-weight: bold!important;"><span class="fontArial">{{{this.title}}}</span></a></td>
+                                                    </tr>
+                                                    {{#if this.text}}
+                                                    <tr>
+                                                        <td align="center" valign="middle" style="font-size: 12px; font-family: 'Nespresso Lucas Light', Helvetica, Arial, sans-serif; line-height: 17px; color: #231f20; text-decoration: none;" class="left"><a href="{{this.url}}" style="color: #231f20; text-decoration: none;"><span class="fontArial">{{{this.text}}}</span></a></td>
+                                                    </tr>
+                                                    {{/if}}
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            {{else}}
+                                <td width="135" align="center" valign="top" class="colsplit">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="w100pc">
+                                        <tr>
+                                            <td align="center" valign="top" class="colsplitborder"><img src="images/sp.gif" height="10" width="20" /></td>
+                                            <td align="center" valign="top" class="colsplit"><img src="images/sp.gif" height="10" width="15" /></td>
+                                            <td width="100" align="center" valign="top" class="colsplit">
+                                                <table width="100" class="w100pc" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                    <tr class="col w49pc">
+                                                        <td align="center" valign="middle" style="padding: 10px 0 10px 0;"><a href="{{this.url}}"><img src="{{this.img}}" width="{{{this.width}}}" height="{{{this.height}}}" border="0" style="display:block;" /></a></td>
+                                                    </tr>
+                                                    <tr class="col w49pc">
+                                                        <td align="left" valign="middle" class="h80">
+                                                            <table width="100%" border="0" align="left" cellpadding="0" cellspacing="0">
+                                                                <tr>
+                                                                    <td align="center" valign="middle" style="font-size: 11px; font-family: 'Nespresso Lucas XtraBd', Helvetica, Arial, sans-serif; line-height: 16px; color: #231f20; text-decoration: none; font-weight: bold!important;" class="left"><a href="{{this.url}}" style="color: #231f20; text-decoration: none; font-weight: bold!important;"><span class="fontArial">{{{this.title}}}</span></a></td>
+                                                                </tr>
+                                                                {{#if this.text}}
+                                                                <tr>
+                                                                    <td align="center" valign="middle" style="font-size: 12px; font-family: 'Nespresso Lucas Light', Helvetica, Arial, sans-serif; line-height: 17px; color: #231f20; text-decoration: none;" class="left"><a href="{{this.url}}" style="color: #231f20; text-decoration: none;"><span class="fontArial">{{{this.text}}}</span></a></td>
+                                                                </tr>
+                                                                {{/if}}
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            {{/if}}
+                        {{/each}}
+                        </tr>
+                    </table>
+                </td>
+                <td width="15"></td>
+            </tr>
+        </table></td>
+    </tr>
+</table>
+<!-- /footer 01 -->

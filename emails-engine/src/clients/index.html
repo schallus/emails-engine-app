@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+<style>
+  body,
+  html {
+    background: #ffffff !important;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 0;
+    margin: 0;
+  }
+
+  .content {
+    background: #ffffff;
+    color: #eb2c3a;
+    display: block;
+    position: relative;
+    padding: 50px;
+    margin: 0 20%;
+  }
+
+  .icon-wide-logo{
+    width: 100px;
+    display: block;
+    float: left;
+  }
+
+  h1{
+    text-align: right;
+    display: block;
+    width: 100%;
+  }
+
+  fieldset{
+    border: 1px solid #eb2c3a;
+    margin-bottom: 50px;
+  }
+
+  legend{
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  a{
+    color: #eb2c3a;
+  }
+  a:hover{
+    color: #eb2c3a;
+  }
+  a:visited{
+    color:#eb2c3a;
+  }
+
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width">
+<title>Wide Emails Engine</title>
+<script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+$.getJSON("urls.json", function(data) {
+  var items = [];
+  var projets = [];
+  var html = '';
+
+  $.each(data, function(index,val) {
+    var client = val.split(/\\|\//);
+    var projet = client[1]+' - '+client[2];
+    var pageName = client.slice(3).join('/');
+
+    if(typeof(client[2])!='undefined'){
+      if(!projets[projet]){
+        projets[projet] = [];
+        html += '</ul></fieldset><fieldset><legend>'+projet+'</legend><ul>';
+
+        projets[projet].push(val);
+        html += '<li><a href="'+val+'" target="_blank">'+pageName+'</a></li>';
+
+      }else{
+        projets[projet].push(val);
+        html += '<li><a href="'+val+'" target="_blank">'+pageName+'</a></li>';
+      }
+    }
+  });
+
+ console.log(projets)
+
+$('.fieldsets').append(html);
+});
+
+</script>
+</head>
+
+<body>
+<div class="content">
+    <svg class="icon icon-wide-logo" version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-316 252.3 207.3 92" style="enable-background:new -316 252.3 207.3 92;" xml:space="preserve">
+      <style type="text/css">
+        .st0{fill:none;stroke:#1D1D1B;stroke-width:3.4;stroke-linecap:round;stroke-miterlimit:10;}
+        .st1{fill:none;stroke:#1D1D1B;stroke-width:2.5;stroke-linecap:round;stroke-miterlimit:10;}
+        .st2{fill:none;stroke:#1D1D1B;stroke-width:2.21;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+        .st3{fill:none;stroke:#1D1D1B;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10;}
+      </style>
+      <path d="M-291.9,286.9 -277.3,318.4 -262.6,286.8 -277.1,286.8 -262.3,318.4 -247.8,286.9 " class="st0 icon-wide-path icon-wide-logo-w" style="stroke-dashoffset: 0px; stroke-dasharray: 153.642, 153.642; stroke: #eb2c3a;"></path>
+      <path d="M-269.9, 298.7 m-38.7, 0 a 38.7, 38.7 0 1,0 77.4,0 a 38.7, 38.7 0 1,0 -77.4,0 " class="st1 icon-wide-path icon-wide-logo-circle" style="stroke-dashoffset: 0px; stroke-dasharray: 243.194, 243.194; stroke: #eb2c3a;"></path>
+      <path d="M-212.3,293.8 -206.7,313.7 -205.5,313.7 -199.8,293.8 -193.9,313.7 -192.8,313.7 -187,293.9 " class="st2 icon-wide-path icon-wide-text-w" style="stroke-dashoffset: 0px; stroke-dasharray: 85.0615, 85.0615; stroke: #eb2c3a;"></path>
+      <path d="M-172.9,293.8 -172.9,313.8" class="st2 icon-wide-path icon-wide-text-i" style="stroke-dashoffset: 0px; stroke-dasharray: 20, 20; stroke: #eb2c3a;"></path>
+      <path class="st2 icon-wide-path icon-wide-text-d" d="M-141.1,303.9c0-10.8-12.1-10.1-12.1-10.1h-4.5v20h5.8C-152,313.8-141.1,314.2-141.1,303.9z" style="stroke-dashoffset: 0px; stroke-dasharray: 64.7305, 64.7305; stroke: #eb2c3a;"></path>
+      <path d="M-118,293.7 -127.9,293.7 -127.9,313.9 -118,313.9 " class="st3 icon-wide-path icon-wide-text-e" style="stroke-dashoffset: 0px; stroke-dasharray: 40, 40; stroke: #eb2c3a;"></path>
+      <path d="M-127.8,303.8 -118.2,303.8" class="st3 icon-wide-path icon-wide-text-e2" style="stroke-dashoffset: 0px; stroke-dasharray: 9.60001, 9.60001; stroke: #eb2c3a;"></path>
+    </svg>
+  <h1>
+    Wide Emails Engine</h1>
+    <div class="fieldsets">
+
+    </div>
+</div>
+</body>
+
+</html>

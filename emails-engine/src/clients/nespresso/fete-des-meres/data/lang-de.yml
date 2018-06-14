@@ -1,0 +1,168 @@
+
+header-02:
+  img: images/logo.png
+  url: http://www.nespresso.com/
+
+header-03:
+  text: "Club-Mitgliedsnummer: <strong>50012532</strong>"
+
+# HEADERS
+
+header-01:
+  text: Ihre Mama ist einzigartig... sagen Sie es ihr mit Nespresso
+  link:
+    text: Diese E-Mail online ansehen.
+    url: http://www.nespresso.com/
+
+block-04:
+  bgcolor: '#ffffff'
+  color: '#231f20'
+  text: Ein köstliches Angebot zum Muttertag
+
+######
+######
+
+block-02-OFFER300:
+  bgcolor: '#ffffff'
+  img: images/bloc1-OFFER300-de.jpg
+  img-w: 640
+  img-h: 360
+  img-mobile: images/bloc1-OFFER200-de.jpg
+  link:
+    url: http://www.nespresso.com/ch/de/secure/login?destination-redirect=/ch/de/order/capsules&&utm_id=6fa08d4d-218b-4d66-815e-4c1425e35ce7
+    url-mobile: http://www.nespresso.com/ch/de/secure/login?destination-redirect=/ch/de/order/capsules&&utm_id=6fa08d4d-218b-4d66-815e-4c1425e35ce7
+
+block-02-OFFER200:
+  bgcolor: '#ffffff'
+  img: images/bloc1-OFFER200-de.jpg
+  img-w: 640
+  img-h: 360
+  img-mobile: images/bloc1-OFFER200-de.jpg
+  link:
+    url: http://www.nespresso.com/ch/de/secure/login?destination-redirect=/ch/de/order/capsules&&utm_id=6fa08d4d-218b-4d66-815e-4c1425e35ce7
+    url-mobile: http://www.nespresso.com/ch/de/secure/login?destination-redirect=/ch/de/order/capsules&&utm_id=6fa08d4d-218b-4d66-815e-4c1425e35ce7
+
+######
+######
+
+block-06-OFFER300:
+  bgcolor: '#ffffff'
+  color: '#231f20'
+  text: >
+    Der Muttertag ist die ideale Gelegenheit, um Zeit mit der Familie zu verbringen. Geniessen Sie einen ganz besonderen Moment mit einem köstlichen Kaffee und einem Stück Schokolade als süssen Liebesbeweis...
+    <br><br>
+    Damit Sie voll und ganz von diesen Augenblicken profitieren können, <strong class="fontsize16">schenken wir Ihnen zwei Schokoladenpackungen beim Kauf von 300&nbsp;Kaffees Ihrer Wahl</strong>*.
+    
+block-06-OFFER200:
+  bgcolor: '#ffffff'
+  color: '#231f20'
+  text: >
+    Der Muttertag ist die ideale Gelegenheit, um Zeit mit der Familie zu verbringen. Geniessen Sie einen ganz besonderen Moment mit einem köstlichen Kaffee und einem Stück Schokolade als süssen Liebesbeweis...
+    <br><br>
+    Damit Sie voll und ganz von diesen Augenblicken profitieren können, <strong class="fontsize16">schenken wir Ihnen eine Schokoladenpackung beim Kauf von 200&nbsp;Kaffees Ihrer Wahl</strong>*.
+
+######
+######
+
+block-05-OFFER300:
+  text: >
+      PROMO CODE: <strong class="fontArial fontsize22" style="color: #d84561;">MUM18</strong>
+
+block-05-OFFER200:
+  text: >
+      PROMO CODE: <strong class="fontArial fontsize22" style="color: #a27055;">MUM</strong>
+
+######
+######
+
+block-07:
+  bgcolor: '#ffffff'
+  color: '#231f20'
+  text: LASSEN SIE SICH VERFÜHREN
+  url: http://www.nespresso.com/ch/de/secure/login?destination-redirect=/ch/de/order/capsules&&utm_id=6fa08d4d-218b-4d66-815e-4c1425e35ce7
+  url-mobile: http://www.nespresso.com/ch/de/secure/login?destination-redirect=/ch/de/order/capsules&&utm_id=6fa08d4d-218b-4d66-815e-4c1425e35ce7
+
+######
+######
+
+block-19:
+  title: WUSSTEN SIE SCHON?
+  text: >
+    <strong class="fontsize16">Nespresso</strong> setzt sich für die Ausbildung von Frauen in Agrarwissenschaften ein. Kebebushe ist eine von 79&nbsp;Agronominnen, die in Äthiopien mit <strong class="fontsize16">Nespresso</strong> zusammenarbeiten. Sie unterstützt mehr als 40'000&nbsp;Kaffeebauern, indem sie ihnen die besten Praktiken zeigt.
+  img: images/bloc2.jpg
+  color: '#231f20'
+  link:
+    text: ENTDECKEN SIE IHRE GESCHICHTE
+    url: https://www.nespresso.com/ch/de/our-choices/nachhaltige-kaffee-qualitat/agronominnen-gleichstellung?utm_id=2afaa1df-0ed3-4d74-b84b-290d2ef0e94c
+    url-mobile: https://www.nespresso.com/ch/de/our-choices/nachhaltige-kaffee-qualitat/agronominnen-gleichstellung?utm_id=2afaa1df-0ed3-4d74-b84b-290d2ef0e94c
+
+
+# FOOTER
+
+_footer:
+  title: ENTDECKEN SIE DIE WELT<br>DER <strong>NESPRESSO</strong> SERVICES
+  items:
+    - title: NESPRESSO APP
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=aa7d89d7-3158-43bc-954c-bd4ec138d276&did=#!/order/on-mobile-app
+    - title: INTERNET
+      width: 60
+      height: 60
+      img: images/footer-web.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=aa7d89d7-3158-43bc-954c-bd4ec138d276&did=#!/order/by-internet
+    - title: TELEFON 24/7
+      text:
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=aa7d89d7-3158-43bc-954c-bd4ec138d276&did=#!/order/by-phone
+    - title: LIEFERUNG
+      width: 60
+      height: 60
+      img: images/footer-delivery.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=aa7d89d7-3158-43bc-954c-bd4ec138d276&did=#!/delivery/24h-delivery
+    - title: DIENSTE
+      width: 60
+      height: 60
+      img: images/footer-service.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=aa7d89d7-3158-43bc-954c-bd4ec138d276&did=#!/customer-care/assistance-24-7
+
+_terms-OFFER300:
+  socials:
+    - img: images/socialiconfacebook.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicontwitter.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconyoutube.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconinstagram.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicongoogleplus.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+  logo:
+    url: http://www.nespresso.com/
+  text: >
+    * 1 Kaffee = 1 Kapsel. Angebot gültig telefonisch über die Nummer <a href="tel:0800555253" style="color: #f9f7f3; font-size: 12px; line-height: 18px; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (kostenlose Nummer), auf <a href="http://www.nespresso.com" style="color: #f9f7f3; font-size: 12px; line-height: 18px;">www.nespresso.com</a> oder über die Mobilanwendung von <strong class="bold" style="font-weight: bold;">Nespresso</strong>: verfügbar für <em>iPhone®</em>, <em>iPad®</em> und <em>Android™</em> bis zum 13.05.2018. Nicht mit anderen Angeboten kumulierbar und solange Vorrat.
+    <br><br>
+    Sie haben diese E-Mail als <strong class="bold">Nespresso</strong> Clubmitglied erhalten. Wenn Sie diese Informationen abbestellen möchten, <a href="[[UNSUB_LINK_FR]]" style="color:#f9f7f3; font-family: Arial, sans-serif;" target="_blank">klicken Sie bitte hier</a>. Um eine E-Mail an den <strong class="bold">Nespresso</strong> Club zu schicken, verwenden Sie bitte unser Kontaktformular auf unserer Webseite <a href="http://www.nespresso.com" style="color:#f9f7f3; font-family: Arial, sans-serif;">www.nespresso.com</a> oder kontaktieren Sie uns unter <a href="tel:0800555253" style="color:#f9f7f3; font-family: Arial, sans-serif; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (kostenlose Nummer). Nestlé Nespresso S.A.
+
+_terms-OFFER200:
+  socials:
+    - img: images/socialiconfacebook.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicontwitter.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconyoutube.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconinstagram.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicongoogleplus.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+  logo:
+    url: http://www.nespresso.com/
+  text: >
+    * 1 Kaffee = 1 Kapsel. Angebot gültig in den <strong class="bold" style="font-weight: bold;">Nespresso</strong> Boutiquen, telefonisch über die Nummer <a href="tel:0800555253" style="color: #f9f7f3; font-size: 12px; line-height: 18px; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (kostenlose Nummer), auf <a href="http://www.nespresso.com" style="color: #f9f7f3; font-size: 12px; line-height: 18px;">www.nespresso.com</a> oder über die Mobilanwendung von <strong class="bold" style="font-weight: bold;">Nespresso</strong>: verfügbar für <em>iPhone®</em>, <em>iPad®</em> und <em>Android™</em> bis zum 13.05.2018. Nicht mit anderen Angeboten kumulierbar und solange Vorrat.
+    <br><br>
+    Sie haben diese E-Mail als <strong class="bold">Nespresso</strong> Clubmitglied erhalten. Wenn Sie diese Informationen abbestellen möchten, <a href="[[UNSUB_LINK_FR]]" style="color:#f9f7f3; font-family: Arial, sans-serif;" target="_blank">klicken Sie bitte hier</a>. Um eine E-Mail an den <strong class="bold">Nespresso</strong> Club zu schicken, verwenden Sie bitte unser Kontaktformular auf unserer Webseite <a href="http://www.nespresso.com" style="color:#f9f7f3; font-family: Arial, sans-serif;">www.nespresso.com</a> oder kontaktieren Sie uns unter <a href="tel:0800555253" style="color:#f9f7f3; font-family: Arial, sans-serif; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (kostenlose Nummer). Nestlé Nespresso S.A.

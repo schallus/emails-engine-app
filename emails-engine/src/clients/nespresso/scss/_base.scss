@@ -1,0 +1,87 @@
+//
+// Base compatibility
+//
+
+* {
+  mso-line-height-rule: exactly;
+}
+
+* {
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+}
+
+table td {
+  border-collapse: collapse;
+}
+
+html,
+body,
+p,
+div {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+.ExternalClass {
+  width: 100%;
+}
+
+.ExternalClass * {
+  line-height: 110%
+}
+
+img {
+  -ms-interpolation-mode: bicubic;
+  display: block;
+  border: 0;
+}
+
+body {
+  margin: 0!important;
+  padding: 0!important;
+  width: 100%!important;
+}
+
+.hvr-fade {
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: color, background-color;
+  transition-property: color, background-color;
+}
+
+.hvr-fade:hover,
+.hvr-fade:focus,
+.hvr-fade:active {
+  background-color: #d9caaf;
+  color: white;
+}
+
+div[style*="margin: 16px 0"] {
+  margin: 0!important;
+}
+
+.applelinkswhite {
+  color: #ffffff!important;
+  text-decoration: none!important;
+}
+
+a[x-apple-data-detectors] {
+  color: inherit!important;
+  text-decoration: none!important;
+  font-size: inherit!important;
+  font-family: inherit!important;
+  font-weight: inherit!important;
+  line-height: inherit!important;
+}

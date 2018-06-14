@@ -1,0 +1,17 @@
+#
+# brand: {{data.brand}}
+# campaign: {{data.campaign}}
+# lang: {{data.lang}}
+#
+
+{{#each data.dataLang}}
+{{#each this.languages}}
+{{#ifEquals ../../data.lang this.lang}}
+{{{../this.blockName}}}:
+{{#each this.properties}}
+    {{{@key}}}: {{{this}}}    
+{{/each}}
+{{/ifEquals}}
+{{/each}}
+
+{{/each}}

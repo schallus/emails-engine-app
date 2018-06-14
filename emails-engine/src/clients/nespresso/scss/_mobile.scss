@@ -1,0 +1,117 @@
+//
+// Responsiveness
+//
+
+@media screen and (max-device-width: $mobile-width),
+       screen and (max-width: $mobile-width) {
+
+  table tbody tr {
+    width: 100%!important;
+    display: table!important;
+  }
+  .w100pc {
+    width: 100%!important;
+	max-width: 1200px!important;
+    height: auto!important;
+  }
+  .w49pc {
+    width: 49%!important;
+    max-width: 1000px!important;
+    height: auto!important;
+  }
+  .w200px {
+    width: 200px!important;
+    max-width: 1000px!important;
+    height: auto!important;
+  }
+  .nomob {
+    display: none!important;
+    width: 0px!important;
+    height: 0px!important;
+  }
+  .showmob {
+    display: block!important;
+    width: 100%!important;
+    height: auto!important;
+	max-width: 1000px!important;
+  }
+  .mobilecontent {
+    width: 100%!important;
+    display: block!important;
+    max-height: none!important;
+    max-width: 100%!important;
+  }
+  .showmob-ib {
+    display: inline-block!important;
+    height: auto!important;
+  }
+  .colsplit {
+    width: 100%!important;
+    float: left!important;
+    display: block!important;
+  }
+  .col {
+    float: left!important;
+    display: block!important;
+  }
+  .colsplit-top {
+    width: 100%!important;
+    display: table-row-group!important;
+  }
+  .colsplit-bottom {
+    width: 100%!important;
+    display: table-footer-group!important;
+  }
+  .colsplitborder {
+    width: 100%!important;
+    float: left!important;
+    display: block!important;
+    border-bottom: 1px solid #eae9e5;
+  }
+  .center {
+    text-align: center!important;
+  }
+  .left {
+    text-align: left!important;
+  }
+  .h80 {
+    height: 80px!important;
+  }
+  .fontsize52 {
+    font-size: 52px!important;
+    line-height: 56px!important;
+    text-align: center!important;
+  }
+  .fontsize22 {
+    font-size: 22px!important;
+    line-height: 26px!important;
+    text-align: center!important;
+  }
+  .fontsize12 {
+    font-size: 12px!important;
+    line-height: 18px!important;
+  }
+  .fontsize25 {
+    font-size: 25px!important;
+    line-height: 28px!important;
+  }
+  .fontsize30 {
+    font-size: 30px!important;
+    line-height: 34px!important;
+  }
+  .fontsize16 {
+    font-size: 16px!important;
+    line-height: 20px!important;
+    text-align: center!important;
+  }
+  .padl20 {
+    padding-left: 20px!important;
+  }
+  .padb20 {
+    padding-bottom: 20px!important;
+  }
+  .clearheight {
+    height: auto;
+  }
+
+}

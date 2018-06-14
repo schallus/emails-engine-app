@@ -1,0 +1,99 @@
+#
+# HEADERS
+#
+
+header-01:
+  text: KÖSTLICHKEITEN IM BÜRO
+  link:
+    text: Diese E-Mail online ansehen.
+    url: http://www.nespresso.com/
+
+header-02:
+  img: images/logo.png
+  url: http://www.nespresso.com/
+
+header-03:
+  text: "Club-Mitgliedsnummer: <strong>50012532</strong>"
+
+#
+# BLOCKS
+#
+
+block-02:
+  img: images/header-de.jpg
+  img-mobile: images/header-de.jpg
+  img-w: 640
+  img-h: 350
+  link:
+    url: https://www.nespresso.com/ch/de/order/accessories?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84
+    url-mobile: https://www.nespresso.com/ch/de/order/accessories?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84
+
+block-05:
+  text: ENTDECKEN SIE UNSERE <strong>NESPRESSO</strong> KÖSTLICHKEITEN<br>EXKLUSIVES ANGEBOT
+
+block-06:
+  text: Fügen Sie 3 Packungen Biscuits Ihrer Wahl zum Einkaufskorb hinzu und die dritte Packung wird Ihnen offeriert. Angebot gültig bis zum 1. April 2018, solange Vorrat*.
+
+_block-07:
+  text: PROFITIEREN SIE VON DIESEM ANGEBOT
+  url: https://www.nespresso.com/ch/de/order/accessories?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84
+  url-mobile: https://www.nespresso.com/ch/de/order/accessories?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84
+  button_bgcolor: "#992238"
+  border_color: "#992238"
+  color: "#ffffff"
+
+#
+# FOOTER
+#
+
+_footer:
+  title: Entdecken sie die <strong>Nespresso</strong> Services
+  items:
+    - title: <strong>NESPRESSO</strong> APP
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84#!/order/on-mobile-app
+    - title: INTERNET
+      width: 60
+      height: 60
+      img: images/footer-web.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84#!/order/by-internet
+    - title: TELEFON 24/7
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84#!/order/by-phone
+    - title: LIEFERUNG
+      width: 60
+      height: 60
+      img: images/footer-delivery.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84#!/delivery/24h-delivery
+    - title: DIENSTE
+      width: 60
+      height: 60
+      img: images/footer-service.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84#!/customer-care/assistance-24-7
+
+_terms:
+  socials:
+    - img: images/socialiconfacebook.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicontwitter.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconyoutube.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconinstagram.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicongoogleplus.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+  logo:
+    url: http://www.nespresso.com/
+  text: >
+    *Angebot gültig in den <strong class="bold" style="font-weight: bold;">Nespresso</strong> Boutiquen, auf <a href="http://www.nespresso.com" style="color:#b2b2b2">www.nespresso.com</a>, telefonisch über die Nummer <a href="tel:0800555253" style="color:#b2b2b2; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (kostenlose Nummer) oder über die Mobilanwendung von <strong class="bold" style="font-weight: bold;">Nespresso</strong>: verfügbar für <strong class="bold" style="font-weight: bold;">iPhone®</strong>, <strong class="bold" style="font-weight: bold;">iPad®</strong> et <strong class="bold" style="font-weight: bold;">Android™</strong>. Angebot gültig bis zum 01.04.2018, solange Vorrat. Angebot nicht übertragbar und nicht mit anderen Angeboten kumulierbar.
+    <br><br>
+    Sie haben diese E-Mail als <strong class="bold" style="font-weight: bold;">Nespresso</strong> Clubmitglied erhalten. Wenn Sie diese Informationen abbestellen möchten, klicken Sie bitte hier.
+    <br><br>
+    Um eine E-Mail an den <strong class="bold" style="font-weight: bold;">Nespresso</strong> Club zu schicken, verwenden Sie bitte unser Kontaktformular auf unserer Webseite  <a href="http://www.nespresso.com" style="color:#b2b2b2">www.nespresso.com</a> oder kontaktieren Sie uns unter <a href="tel:0800555253" style="color:#b2b2b2; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (kostenlose Nummer).
+    <br><br>
+    Nestlé <strong class="bold" style="font-weight: bold;">Nespresso</strong> S.A.

@@ -1,0 +1,161 @@
+
+header-02:
+  img: images/logo.png
+  url: http://www.nespresso.com/
+
+header-03:
+  text: "Club-Mitgliedsnummer: <strong>50012532</strong>"
+
+# HEADERS
+
+header-01:
+  text: Ein seltener Genuss, den man sich nicht entgehen lassen sollte
+  link:
+    text: Diese E-Mail online ansehen.
+    url: http://www.nespresso.com/
+
+######
+######
+
+block-04-1:
+  bgcolor: '#ffffff'
+  color: '#231f20'
+  text: DER KAFFEE DES JAHRES<br>UNSERER EXPERTEN
+
+block-02-1:
+  bgcolor: '#ffffff'
+  img: images/bloc1.jpg
+  img-w: 640
+  img-h: 495
+  img-mobile: images/bloc1-m.jpg
+  link:
+    url: https://www.nespresso.com/ch/fr/order/capsules?utm_id=c29a4786-56fb-4bb4-9191-28305181c3ad
+    url-mobile: https://www.nespresso.com/ch/fr/order/capsules?utm_id=c29a4786-56fb-4bb4-9191-28305181c3ad
+
+block-06-1:
+  bgcolor: '#FFFFFF'
+  color: '#231f20'
+  text: >
+    Die aussergewöhnlichsten Dinge findet man oft dort, wo man sie am wenigsten erwartet.<br>
+    Für unsere neueste Ausgabe von EXPLORATIONS haben wir die abgelegenen Galapagosinseln besucht. Dieser an Vulkanhängen angebaute Arabica überrascht mit einem Espresso mit süssen Getreidenoten, der so einzigartig ist wie diese Inselwelt selbst.
+    Lassen Sie sich diese exklusive Limited Edition nicht entgehen.
+
+block-07-1:
+  bgcolor: '#ffffff'
+  color: '#231f20'
+  text: JETZT BESTELLEN
+  url: https://www.nespresso.com/ch/de/order/capsules?utm_id=c29a4786-56fb-4bb4-9191-28305181c3ad
+  url-mobile: https://www.nespresso.com/ch/de/order/capsules?utm_id=c29a4786-56fb-4bb4-9191-28305181c3ad
+
+######
+######
+
+block-04-2:
+  bgcolor: '#ffffff'
+  color: '#231f20'
+  text: WO DAS<br>AUSSERGEWÖHNLICHE<br>DIE NORM IST
+
+block-02-2:
+  bgcolor: '#ffffff'
+  img: images/bloc2.jpg
+  img-w: 640
+  img-h: 310
+  img-mobile: images/bloc2-m.jpg
+  link:
+    url: https://www.nespresso.com/ch/de/order/capsules/explorations-galapagos-santa-cruz-kaffee-kapseln?utm_id=c29a4786-56fb-4bb4-9191-28305181c3ad
+    url-mobile: https://www.nespresso.com/ch/de/order/capsules/explorations-galapagos-santa-cruz-kaffee-kapseln?utm_id=c29a4786-56fb-4bb4-9191-28305181c3ad
+
+block-06-2:
+  bgcolor: '#ffffff'
+  color: '#231f20'
+  text: >
+    Mutter Natur zieht hier alle Register, von einem seltenen Ökosystem bis zu einem einzigartigen Mikroklima, und ermöglicht so das Wachsen der Kaffeekirschen an den erstaunlichsten Orten. Entdecken Sie den <strong class="fontsize16">Galapagos&nbsp;Santa&nbsp;Cruz</strong>.
+
+block-07-2:
+  bgcolor: '#ffffff'
+  color: '#231f20'
+  text: ENTDECKEN SIE IHN
+  url: https://www.nespresso.com/ch/de/order/capsules/explorations-galapagos-santa-cruz-kaffee-kapseln?utm_id=c29a4786-56fb-4bb4-9191-28305181c3ad
+  url-mobile: https://www.nespresso.com/ch/de/order/capsules/explorations-galapagos-santa-cruz-kaffee-kapseln?utm_id=c29a4786-56fb-4bb4-9191-28305181c3ad
+
+######
+######
+
+block-04-blue:
+  bgcolor: '#0090bc'
+  color: '#FFFFFF'
+  colorSep: '#FFFFFF'
+  text: WUSSTEN SIE SCHON?
+
+block-06-blue:
+  bgcolor: '#0090bc'
+  color: '#FFFFFF'
+  text: >
+    Was macht die Insel Santa Cruz zu einem derart einzigartigen Kaffeeanbaugebiet? Der Arabica gedeiht in der Regel in hoch gelegenen Gebieten, während die Kaffeeplantagen auf Santa Cruz an der Küste liegen, wo eine Kombination aus kalten Meeresströmungen und warmen vulkanischen Böden die Kaffeesträucher gedeihen lässt und einen der seltensten Kaffees der Welt ergibt.
+
+######
+######
+
+block-blue:
+  bgcolor: '#0090bc'
+
+
+block-sep:
+  bgcolor: '#ffffff'
+  img: images/separateur.jpg
+  img-w: 47
+  img-h: 80
+  img-mobile: images/separateur-m.jpg
+  link:
+    url: http://www.nespresso.com/ch/fr/secure/login?destination-redirect=/ch/fr/order/capsules&&utm_id=6fa08d4d-218b-4d66-815e-4c1425e35ce7
+    url-mobile: http://www.nespresso.com/ch/fr/secure/login?destination-redirect=/ch/fr/order/capsules&&utm_id=6fa08d4d-218b-4d66-815e-4c1425e35ce7
+
+
+# FOOTER
+
+_footer:
+  title: ENTDECKEN SIE DIE WELT<br>DER <strong>NESPRESSO</strong> SERVICES
+  items:
+    - title: NESPRESSO APP
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=c29a4786-56fb-4bb4-9191-28305181c3ad&did=#!/order/on-mobile-app
+    - title: INTERNET
+      width: 60
+      height: 60
+      img: images/footer-web.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=c29a4786-56fb-4bb4-9191-28305181c3ad&did=#!/order/by-internet
+    - title: TELEFON 24/7
+      text:
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=c29a4786-56fb-4bb4-9191-28305181c3ad&did=#!/order/by-phone
+    - title: LIEFERUNG
+      width: 60
+      height: 60
+      img: images/footer-delivery.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=c29a4786-56fb-4bb4-9191-28305181c3ad&did=#!/delivery/24h-delivery
+    - title: DIENSTE
+      width: 60
+      height: 60
+      img: images/footer-service.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=c29a4786-56fb-4bb4-9191-28305181c3ad&did=#!/customer-care/assistance-24-7
+
+_terms:
+  socials:
+    - img: images/socialiconfacebook.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicontwitter.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconyoutube.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconinstagram.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicongoogleplus.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+  logo:
+    url: http://www.nespresso.com/
+  text: >
+    Sie haben diese E-Mail als <strong class="bold">Nespresso</strong> Clubmitglied erhalten. Wenn Sie diese Informationen abbestellen möchten, <a href="[[UNSUB_LINK_FR]]" style="color:#f9f7f3; font-family: Arial, sans-serif;" target="_blank">klicken Sie bitte hier</a>. Um eine E-Mail an den <strong class="bold">Nespresso</strong> Club zu schicken, verwenden Sie bitte unser Kontaktformular auf unserer Webseite <a href="http://www.nespresso.com" style="color:#f9f7f3; font-family: Arial, sans-serif;">www.nespresso.com</a> oder kontaktieren Sie uns unter <a href="tel:0800555253" style="color:#f9f7f3; font-family: Arial, sans-serif; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (kostenlose Nummer). Nestlé Nespresso S.A.

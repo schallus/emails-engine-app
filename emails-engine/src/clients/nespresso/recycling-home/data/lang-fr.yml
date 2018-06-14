@@ -1,0 +1,142 @@
+#
+# HEADERS
+#
+
+header-01:
+  text: Encore plus simple, toujours plus efficace
+  link:
+    text: Consulter la version en ligne
+    url: http://www.nespresso.com/
+
+header-02:
+  img: images/logo.png
+  url: http://www.nespresso.com/
+
+header-03:
+  text: "N° de Membre du Club : <strong>50012532</strong>"
+
+header-04-menu:
+  links:
+    - text: COFFEE
+      url: http://www.nespresso.com
+    - text: MACHINES
+      url: http://www.nespresso.com
+    - text: ACCESSORIES
+      url: http://www.nespresso.com
+    - text: SERVICES
+      url: http://www.nespresso.com
+    - text: THE POSITIVE CUP
+      url: http://www.nespresso.com
+    - text: ORDER
+      url: http://www.nespresso.com
+
+
+#
+# BLOCKS
+#
+
+block-04:
+  text: NOUVEAU SERVICE<br>"RECYCLING AT HOME"
+
+block-05:
+  text: UNE BONNE RÉSOLUTION<br>POUR UNE BELLE RÉVOLUTION
+
+block-02:
+  img: images/header.jpg
+  img-w: 640
+  img-h: 360
+  link:
+    url: https://www.nespresso.com/ch/fr/sustainable-packaging?utm_id=9119af32-8aef-436b-af9b-838fa0df134
+    url-mobile: https://www.nespresso.com/mobile/ch/fr/sustainable-packaging?utm_id=9119af32-8aef-436b-af9b-838fa0df134
+
+block-06:
+  text: >
+    Merci pour votre confiance et tous nos vœux pour 2018 !<br>
+    En ce début d’année, votre service «&nbsp;Recycling at Home&nbsp;» se renouvelle et vous simplifie la vie.<br>
+    Grâce au nouveau sac de recyclage <strong class="fontsize16">Nespresso</strong> et à sa languette détachable, vous pouvez déposer
+    vos capsules usagées à tout moment dans votre boîte à lait. Le facteur s’occupe du reste...
+
+block-07:
+  text: VOIR LA VIDÉO
+  url: https://www.nespresso.com/ch/fr/sustainable-packaging?utm_id=9119af32-8aef-436b-af9b-838fa0df134
+  url-mobile: https://www.nespresso.com/mobile/ch/fr/sustainable-packaging?utm_id=9119af32-8aef-436b-af9b-838fa0df134
+
+block-06b:
+  text: >
+    Les sacs de recyclage et le service de récupération
+    à domicile sont gratuits pour les Membres du Club <strong class="fontsize16">Nespresso</strong>.
+
+
+block-19:
+  img: images/step-1.jpg
+  titleBig: 1
+  title: Remplir le sac blanc
+  text: avec vos capsules <strong class="fontsize16">Nespresso</strong> usagées et bien le fermer.
+  noBtn: true
+
+block-20:
+  img: images/step-2.jpg
+  titleBig: 2
+  title: Détacher la languette
+  text: de la partie supérieure du sac et déposer le sac dans la boîte à lait.
+  noBtn: true
+
+block-19b:
+  img: images/step-3.jpg
+  titleBig: 3
+  title: Laisser dépasser la languette
+  text: de la boîte à lait de manière bien visible. Le facteur récupérera votre sac lors de la prochaine distribution de courrier.
+  noBtn: true
+
+block-07b:
+  text: COMMANDER LES NOUVEAUX SACS DE RECYCLAGE
+  url: https://www.nespresso.com/ch/fr/order/accessories/recycling-at-home-sac?utm_id=f02d5efe-3817-4908-bcf7-0f633956294c
+  url-mobile: https://www.nespresso.com/mobile/ch/fr/catalog?utm_id=f02d5efe-3817-4908-bcf7-0f633956294c#accessoriesRecyclingoriginal
+
+
+block-05b:
+  img: images/recycling.jpg
+  text: MAIN DANS LA MAIN POUR L'ENVIRONNEMENT
+
+block-06c:
+  text: >
+    Depuis plus de 25 ans, nous nous engageons à revaloriser chaque capsule collectée.
+    En recyclant vos capsules en aluminium, vous participez vous aussi à la préservation de l’environnement.
+
+block-07c:
+  text: EN SAVOIR PLUS
+  url: https://www.nespresso.com/ch/fr/sustainability?utm_id=f3687d0e-8996-4ccd-ab9d-8e0592cb4283
+  url-mobile: https://www.nespresso.com/mobile/ch/fr/sustainability?utm_id=f3687d0e-8996-4ccd-ab9d-8e0592cb4283
+
+
+
+_footer:
+  title: DÉCOUVREZ LES SERVICES <strong class="footer-title fontArial">NESPRESSO</strong>
+  commander: COMMANDER
+  commanderlink: https://www.nespresso.com/ch/fr/services?utm_id=87d94f22-e63a-4f13-8f38-f11d3cafdfc9&did=#!/order/by-internet
+  mobile: Applications <span class="bold">Nespresso</span>
+  mobilelink: https://www.nespresso.com/ch/fr/services?utm_id=87d94f22-e63a-4f13-8f38-f11d3cafdfc9&did=#!/order/on-mobile-app
+  internet: INTERNET
+  internetlink: https://www.nespresso.com/ch/fr/services?utm_id=87d94f22-e63a-4f13-8f38-f11d3cafdfc9&did=#!/order/by-internet
+  support: TÉLÉPHONE 24h24, 7J/7
+  supportlink: https://www.nespresso.com/ch/fr/services?utm_id=87d94f22-e63a-4f13-8f38-f11d3cafdfc9&did=#!/order/by-phone
+  livraison: LIVRAISON
+  livraisonlink: https://www.nespresso.com/ch/fr/services?utm_id=87d94f22-e63a-4f13-8f38-f11d3cafdfc9&did=#!/delivery/24h-delivery
+  service: SERVICE
+  servicelink: https://www.nespresso.com/ch/fr/services?utm_id=87d94f22-e63a-4f13-8f38-f11d3cafdfc9&did=#!/customer-care/assistance-24-7
+  recycler: RECYCLER
+  recyclerlink: https://www.nespresso.com/ch/fr/services?utm_id=87d94f22-e63a-4f13-8f38-f11d3cafdfc9&did=#!/recycling/capsules-recycling
+  facebooklink: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+  twitterlink: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77057
+  youtubelink: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77058
+  instagramlink: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77059
+  googlepluslink: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa7705a
+
+_terms:
+  text: >
+    Vous avez reçu cet e-mail en tant que Membre du Club <span class="bold" style="font-weight: bold;">Nespresso</span>.
+    Si vous ne souhaitez plus recevoir d'e-mails, <a href="[[UNSUB_LINK_FR]]" style="color:#b2b2b2" target="_blank">cliquez ici</a>.
+    Si vous désirez contacter votre Club <span class="bold" style="font-weight: bold;">Nespresso</span>,
+    utilisez notre formulaire de contact disponible sur notre site <a href="http://www.nespresso.com" style="color:#b2b2b2">www.nespresso.com</a>
+    ou appelez le <a href="tel:0800555253" style="color:#b2b2b2; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (numéro gratuit).
+    Nestlé Nespresso S.A.

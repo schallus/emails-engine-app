@@ -1,0 +1,62 @@
+[
+    {
+        "blockType": "header-01",
+        "position": 0,
+        "name": "header-01-1",
+        "lang": [
+            "fr",
+            "de",
+            "it"
+        ]
+    },
+    {
+        "blockType": "header-02",
+        "position": 1,
+        "name": "header-02-1",
+        "lang": [
+            "fr",
+            "de",
+            "it"
+        ]
+    },
+    {
+        "blockType": "header-03",
+        "position": 2,
+        "name": "header-03-1",
+        "lang": [
+            "fr",
+            "de",
+            "it"
+        ]
+    },
+    {
+        "blockType": "spacer",
+        "position": 3,
+        "name": "spacer-1",
+        "lang": [
+            "fr",
+            "de",
+            "it"
+        ]
+    },
+    {
+        "blockType": "block-02",
+        "position": 5,
+        "name": "block-02-1",
+        "lang": [
+            "fr",
+            "de",
+            "it"
+        ]
+    },
+    {
+        "blockType": "block-04",
+        "position": 4,
+        "name": "block-04-1",
+        "lang": [
+            "fr",
+            "de",
+            "it"
+        ]
+    }
+]

@@ -1,0 +1,138 @@
+#
+# HEADERS
+#
+
+header-01:
+  text: Une attention particulière pour la Saint-Valentin
+  link:
+    text: Consulter la version en ligne
+    url: http://www.nespresso.com/
+
+header-02:
+  img: images/logo.png
+  url: http://www.nespresso.com/
+
+header-03:
+  text: "N° de Membre du Club : <strong>50012532</strong>"
+
+
+#
+# BLOCKS
+#
+
+spacera:
+  bgcolor: "#9a321d"
+
+spacerb:
+  bgcolor: "#f3e1c0"
+
+block-02a:
+  img: images/frise.jpg
+  img-w: 640
+  img-h: 91
+  bgcolor: '#9a321d'
+
+block-04a:
+  bgcolor: '#9a321d'
+  color: '#ffffff'
+  text: Pour une Saint-Valentin<br>pleine de douceur&nbsp;!
+
+block-02b:
+  img: images/bloc1.jpg
+  img-w: 640
+  img-h: 350
+  bgcolor: '#9a321d'
+  link:
+    url: https://www.nespresso.com/ch/fr/order/capsules?utm_id=e10a2e91-04c8-427a-964a-4d157cd60938
+    url-mobile: https://www.nespresso.com/mobile/ch/fr/catalog?utm_id=e10a2e91-04c8-427a-964a-4d157cd60938
+
+block-06a:
+  bgcolor: '#9a321d'
+  color: '#ffffff'
+  text: >
+    Irrésistiblement craquants, délicieusement fondants.<br>
+    Deux boîtes de chocolats vous sont offertes à l’achat de 250 capsules de votre choix. En voilà une jolie preuve d’amour...
+    <br><br>
+    Votre Promo Code : <strong class="fontsize16">LOVE2018</strong>
+
+block-07a:
+  bgcolor: '#9a321d'
+  color: '#ffffff'
+  text: J’EN PROFITE !
+  url: https://www.nespresso.com/ch/fr/order/capsules?utm_id=e10a2e91-04c8-427a-964a-4d157cd60938
+  url-mobile: https://www.nespresso.com/mobile/ch/fr/catalog?utm_id=e10a2e91-04c8-427a-964a-4d157cd60938
+
+
+block-02c:
+  img: images/frise.jpg
+  img-w: 640
+  img-h: 91
+  bgcolor: '#9a321d'
+
+
+block-04b:
+  bgcolor: '#f3e1c0'
+  color: '#231f20'
+  text: SERVEZ VOTRE CAFÉ<br>AVEC ÉLÉGANCE
+
+block-10:
+  text: Découvrez ce coffret conçu en exclusivité pour <strong class="fontsize16">Nespresso</strong>, composé de deux tasses Espresso <strong class="fontsize16">View</strong> et d'un plateau inspiré des rituels africains de partage du café. <br class="nomob"> Faites voyagez vos sens&nbsp;!
+  link: JE LE VEUX
+  img: images/bloc2.jpg
+  color: '#231f20'
+  url: https://www.nespresso.com/ch/fr/order/accessories/view-espresso-cups-kit?utm_id=f8d89f9a-61ee-4882-84ac-fdca98a23164
+  url-mobile: https://www.nespresso.com/mobile/ch/fr/Mosaic-categories/Accessory/Kit-View-Espresso-en-Édition-Limitée/p/view-espresso-cups-kit/viewCups?utm_id=f8d89f9a-61ee-4882-84ac-fdca98a23164
+
+
+#
+# FOOTER
+#
+
+_footer:
+  title: DÉCOUVREZ LES SERVICES <strong>NESPRESSO</strong>
+  items:
+    - title: MOBILE
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=48926f8f-49f2-4626-bce3-815bb44795da&did=#!/order/on-mobile-app
+    - title: INTERNET
+      width: 60
+      height: 60
+      img: images/footer-web.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=48926f8f-49f2-4626-bce3-815bb44795da&did=#!/order/by-internet
+    - title: TÉLÉPHONE
+      text: 24 H/24, 7 J/7
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=48926f8f-49f2-4626-bce3-815bb44795da&did=#!/order/by-phone
+    - title: LIVRAISON
+      width: 60
+      height: 60
+      img: images/footer-delivery.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=48926f8f-49f2-4626-bce3-815bb44795da&did=#!/delivery/24h-delivery
+    - title: SERVICE
+      width: 60
+      height: 60
+      img: images/footer-service.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=48926f8f-49f2-4626-bce3-815bb44795da&did=#!/customer-care/assistance-24-7
+
+_terms:
+  socials:
+    - img: images/socialiconfacebook.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicontwitter.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconyoutube.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconinstagram.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicongoogleplus.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+  logo:
+    url: http://www.nespresso.com/
+  text: >
+    Offre valable jusqu’au 12.02.2018 sur <a href="http://www.nespresso.com" style="color: #f9f7f3; font-size: 12px; line-height: 18px;">www.nespresso.com</a> et via votre application mobile <strong class="bold" style="font-weight: bold;">Nespresso</strong> : disponible pour <em>iPhone®</em>, <em>iPad®</em> et <em>Android™</em>. Offre valable jusqu'au 18.02.2018 dans les boutiques <strong class="bold" style="font-weight: bold;">Nespresso</strong> et par téléphone au <a href="tel:0800555253" style="color: #f9f7f3; font-size: 12px; line-height: 18px; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (numéro gratuit). Non cumulable avec d‘autres offres promotionnelles et dans la limite des stocks disponibles.
+    <br><br>
+    Vous avez reçu cet e-mail en tant que Membre du Club <strong class="bold" style="font-weight: bold;">Nespresso</strong>. Si vous ne souhaitez plus recevoir d'e-mails, <a href="[[UNSUB_LINK_FR]]" style="color: #f9f7f3; font-size: 12px; line-height: 18px;" target="_blank">cliquez ici</a>. Si vous désirez contacter votre Club <strong class="bold" style="font-weight: bold;">Nespresso</strong>, utilisez notre formulaire de contact disponible sur notre site <a href="http://www.nespresso.com" style="color: #f9f7f3; font-size: 12px; line-height: 18px;">www.nespresso.com</a> ou appelez le <a href="tel:0800555253" style="color: #f9f7f3; font-size: 12px; line-height: 18px; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (numéro gratuit). Nestlé Nespresso S.A.

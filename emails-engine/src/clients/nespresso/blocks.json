@@ -1,0 +1,151 @@
+[
+    {
+        "name": "spacer",
+        "displayName": "Spacer",
+        "templatePath": "spacer.html",
+        "thumbnailUrl": "https://www.nespresso.com/canada-moments/cafe-gourmand/img/logos/nespresso_hero.jpg",
+        "properties": []
+    },
+    {
+        "name": "header-01",
+        "displayName": "Header 1",
+        "templatePath": "header-01.html",
+        "thumbnailUrl": "https://www.nespresso.com/canada-moments/cafe-gourmand/img/logos/nespresso_hero.jpg",
+        "properties": [
+            {
+                "name": "text",
+                "displayName": "Texte",
+                "type": "text",
+                "required": true
+            },
+            {
+                "name": "linkText",
+                "displayName": "Texte du lien",
+                "type": "text",
+                "required": true
+            },
+            {
+                "name": "linkUrl",
+                "displayName": "Lien",
+                "type": "url",
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "header-02",
+        "displayName": "Header 2",
+        "templatePath": "header-02.html",
+        "thumbnailUrl": "https://www.nespresso.com/canada-moments/cafe-gourmand/img/logos/nespresso_hero.jpg",
+        "properties": [
+            {
+                "name": "img",
+                "displayName": "Image",
+                "type": "file",
+                "required": true
+            },
+            {
+                "name": "url",
+                "displayName": "Lien",
+                "type": "url",
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "header-03",
+        "displayName": "Header 3",
+        "templatePath": "header-03.html",
+        "thumbnailUrl": "https://www.nespresso.com/canada-moments/cafe-gourmand/img/logos/nespresso_hero.jpg",
+        "properties": [
+            {
+                "name": "text",
+                "displayName": "Texte",
+                "type": "text",
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "block-02",
+        "displayName": "Block 2",
+        "templatePath": "block-02.html",
+        "thumbnailUrl": "https://www.nespresso.com/canada-moments/cafe-gourmand/img/logos/nespresso_hero.jpg",
+        "properties": [
+            {
+                "name": "bgcolor",
+                "displayName": "Couleur de fond",
+                "type": "color",
+                "required": true
+            },
+            {
+                "name": "img",
+                "displayName": "Image",
+                "type": "file",
+                "required": true
+            },
+            {
+                "name": "img-w",
+                "displayName": "Largeur de l'image",
+                "type": "number",
+                "required": true
+            },
+            {
+                "name": "img-h",
+                "displayName": "Hauteur de l'image",
+                "type": "number",
+                "required": true
+            },
+            {
+                "name": "img-mobile",
+                "displayName": "Image pour mobile",
+                "type": "file",
+                "required": false
+            },
+            {
+                "name": "url",
+                "displayName": "URL",
+                "type": "url",
+                "required": true
+            },
+            {
+                "name": "url-mobile",
+                "displayName": "URL pour mobile",
+                "type": "url",
+                "required": false
+            }
+        ]
+    },
+    {
+        "name": "block-04",
+        "displayName": "Block 4",
+        "templatePath": "block-04.html",
+        "thumbnailUrl": "https://www.nespresso.com/canada-moments/cafe-gourmand/img/logos/nespresso_hero.jpg",
+        "properties": [
+            {
+                "name": "bgcolor",
+                "displayName": "Couleur de fond",
+                "type": "color",
+                "required": true
+            },
+            {
+                "name": "color",
+                "displayName": "Couleur du texte",
+                "type": "color",
+                "required": true
+            },
+            {
+                "name": "colorSep",
+                "displayName": "Couleur du séparateur",
+                "type": "color",
+                "required": true
+            },
+            {
+                "name": "text",
+                "displayName": "Texte",
+                "type": "text",
+                "required": true
+            }
+        ]
+    }
+]

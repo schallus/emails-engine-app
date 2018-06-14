@@ -1,0 +1,12 @@
+{
+    "lang": {
+        "fr": {
+            "subject": "Sujet email test FR"
+        }, "de": {
+            "subject": "Sujet email test DE"
+        }, "it": {
+            "subject": "Sujet email test IT"
+        }
+    },
+    "layout": "default"
+}

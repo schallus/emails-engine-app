@@ -1,0 +1,100 @@
+#
+# HEADERS
+#
+
+header-01:
+  text: GOURMANDISES AU BUREAU !
+  link:
+    text: Consulter la version en ligne
+    url: http://www.nespresso.com/
+
+header-02:
+  img: images/logo.png
+  url: http://www.nespresso.com/
+
+header-03:
+  text: "N° de Membre du Club : <strong>50012532</strong>"
+
+#
+# BLOCKS
+#
+
+block-02:
+  img: images/header-fr.jpg
+  img-mobile: images/header-fr.jpg
+  img-w: 640
+  img-h: 350
+  link:
+    url: https://www.nespresso.com/ch/fr/order/accessories?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84
+    url-mobile: https://www.nespresso.com/ch/fr/order/accessories?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84
+
+block-05:
+  text: DÉCOUVREZ NOS GOURMANDISES <strong>NESPRESSO</strong><br>OFFRE EXCLUSIVE
+
+block-06:
+  text: Ajoutez 3 boîtes de biscuits de votre choix dans votre panier et la 3<sup>ème</sup> vous est offerte. Offre valable jusqu’au 1<sup>er</sup> avril 2018, dans la limite des stocks disponibles*.
+
+_block-07:
+  text: PROFITEZ DE L’OFFRE
+  url: https://www.nespresso.com/ch/fr/order/accessories?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84
+  url-mobile: https://www.nespresso.com/ch/fr/order/accessories?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84
+  button_bgcolor: "#992238"
+  border_color: "#992238"
+  color: "#ffffff"
+
+#
+# FOOTER
+#
+
+_footer:
+  title: DÉCOUVREZ LES SERVICES <strong>NESPRESSO</strong>
+  items:
+    - title: MOBILE
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84&did=#!/order/on-mobile-app
+    - title: INTERNET
+      width: 60
+      height: 60
+      img: images/footer-web.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84&did=#!/order/by-internet
+    - title: TÉLÉPHONE
+      text: 24 H/24, 7 J/7
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84&did=#!/order/by-phone
+    - title: LIVRAISON
+      width: 60
+      height: 60
+      img: images/footer-delivery.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84&did=#!/delivery/24h-delivery
+    - title: SERVICE
+      width: 60
+      height: 60
+      img: images/footer-service.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84&did=#!/customer-care/assistance-24-7
+
+_terms:
+  socials:
+    - img: images/socialiconfacebook.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicontwitter.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconyoutube.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconinstagram.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicongoogleplus.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+  logo:
+    url: http://www.nespresso.com/
+  text: >
+    * Offre valable dans les boutiques <strong class="bold" style="font-weight: bold;">Nespresso</strong>, sur <a href="http://www.nespresso.com" style="color:#b2b2b2">www.nespresso.com</a>, par téléphone au <a href="tel:0800555253" style="color:#b2b2b2; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (numéro gratuit) ou via votre application mobile <strong class="bold" style="font-weight: bold;">Nespresso</strong> : disponible pour <strong class="bold" style="font-weight: bold;">iPhone®</strong>, <strong class="bold" style="font-weight: bold;">iPad®</strong> et <strong class="bold" style="font-weight: bold;">Android™</strong>. Offre valable jusqu’au 01.04.2018 et dans la limite des stocks disponibles. Non cumulable avec d‘autres offres promotionnelles.
+    <br><br>
+    Vous avez reçu cet e-mail en tant que Membre du Club <strong class="bold" style="font-weight: bold;">Nespresso</strong>. Si vous ne souhaitez plus recevoir d'e-mails, <a href="[[UNSUB_LINK_FR]]" style="color: #f9f7f3; font-size: 12px; line-height: 18px;" target="_blank">cliquez ici</a>.
+    <br><br>
+    Si vous désirez contacter votre Club <strong class="bold" style="font-weight: bold;">Nespresso</strong>, utilisez notre formulaire de contact disponible sur notre site <a href="http://www.nespresso.com" style="color:#b2b2b2">www.nespresso.com</a>  ou appelez le <a href="tel:0800555253" style="color:#b2b2b2; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (numéro gratuit).
+    <br><br>
+    Nestlé <strong class="bold" style="font-weight: bold;">Nespresso</strong> S.A.

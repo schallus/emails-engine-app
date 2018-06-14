@@ -1,0 +1,153 @@
+[
+    {
+        "blockName": "header-01-1",
+        "languages": [
+            {
+                "lang": "fr",
+                "properties": {
+                    "text": "Header text FR",
+                    "linkText": "Link text FR",
+                    "linkUrl": "http://testFR.com"
+                }
+            },
+            {
+                "lang": "de",
+                "properties": {
+                    "text": "Header text DE",
+                    "linkText": "Link text DE",
+                    "linkUrl": "http://testDE.com"
+                }
+            },
+            {
+                "lang": "it",
+                "properties": {
+                    "text": "Header text IT",
+                    "linkText": "Link text IT",
+                    "linkUrl": "http://testIT.com"
+                }
+            }
+        ]
+    },
+    {
+        "blockName": "header-02-1",
+        "languages": [
+            {
+                "lang": "fr",
+                "properties": {
+                    "img": "images/logo.png",
+                    "url": "http://www.google.ch/fr"
+                }
+            },
+            {
+                "lang": "de",
+                "properties": {
+                    "img": "images/logo.png",
+                    "url": "http://www.google.ch/de"
+                }
+            },
+            {
+                "lang": "it",
+                "properties": {
+                    "img": "images/logo.png",
+                    "url": "http://www.google.ch/it"
+                }
+            }
+        ]
+    },
+    {
+        "blockName": "header-03-1",
+        "languages": [
+            {
+                "lang": "fr",
+                "properties": {
+                    "text": "Header 3 text FR"
+                }
+            },
+            {
+                "lang": "de",
+                "properties": {
+                    "text": "Header 3 text DE"
+                }
+            },
+            {
+                "lang": "it",
+                "properties": {
+                    "text": "Header 3 text IT"
+                }
+            }
+        ]
+    },
+    {
+        "blockName": "block-02-1",
+        "languages": [
+            {
+                "lang": "fr",
+                "properties": {
+                    "bgcolor": "'#CCCCCC'",
+                    "img": "images/imgFr.jpg",
+                    "img-w": 100,
+                    "img-h": 50,
+                    "img-mobile": "images/imgMobileFr.jpg",
+                    "url": "http://www.google.com/fr",
+                    "url-mobile": "http://www.google.com/fr"
+                }
+            },
+            {
+                "lang": "de",
+                "properties": {
+                    "bgcolor": "'#CCCCCC'",
+                    "img": "images/imgDe.jpg",
+                    "img-w": 100,
+                    "img-h": 50,
+                    "img-mobile": "images/imgMobileDe.jpg",
+                    "url": "http://www.google.com/de",
+                    "url-mobile": "http://www.google.com/de"
+                }
+            },
+            {
+                "lang": "it",
+                "properties": {
+                    "bgcolor": "'#CCCCCC'",
+                    "img": "images/imgIt.jpg",
+                    "img-w": 100,
+                    "img-h": 50,
+                    "img-mobile": "images/imgMobileIt.jpg",
+                    "url": "http://www.google.com/it",
+                    "url-mobile": "http://www.google.com/it"
+                }
+            }
+        ]
+    },
+    {
+        "blockName": "block-04-1",
+        "languages": [
+            {
+                "lang": "fr",
+                "properties": {
+                    "bgcolor": "'#CCCCCC'",
+                    "color": "'#000000'",
+                    "colorSep": "'#000000'",
+                    "text": "Block 4 text FR"
+                }
+            },
+            {
+                "lang": "de",
+                "properties": {
+                    "bgcolor": "'#CCCCCC'",
+                    "color": "'#000000'",
+                    "colorSep": "'#000000'",
+                    "text": "Block 4 text DE"
+                }
+            },
+            {
+                "lang": "it",
+                "properties": {
+                    "bgcolor": "'#CCCCCC'",
+                    "color": "'#000000'",
+                    "colorSep": "'#000000'",
+                    "text": "Block 4 text IT"
+                }
+            }
+        ]
+    }
+]

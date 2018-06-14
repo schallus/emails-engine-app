@@ -1,0 +1,148 @@
+<div class="row">
+  <div class="col">
+    <app-breadcrumb [breadcrumbs]=breadcrumbs></app-breadcrumb>
+  </div>
+  <div class="builder-actions text-right col">
+    <button type="button" class="btn btn-sm btn-primary waves-light" (click)="showPreview()" mdbWavesEffect>Aperçu</button>
+    <button type="button" class="btn btn-sm btn-primary waves-light" mdbWavesEffect>Tester sur litmus</button>
+    <button type="button" class="btn btn-sm btn-primary waves-light" mdbWavesEffect>Email de test</button>
+    <button type="button" class="btn btn-sm btn-primary waves-light" mdbWavesEffect>Exporter</button>
+  </div>
+</div>
+<div class="row">
+  <div class="col-5">
+    <div class="card">
+      <div class="card-header indigo white-text">
+        Blocs
+      </div>
+      <div class="card-body row">
+        <div class="input-group mb-3 col-12">
+          <div class="input-group-prepend">
+            <span class="input-group-text indigo"><i class="fa fa-filter text-white" aria-hidden="true"></i></span>
+          </div>
+          <input class="form-control my-0 py-1" type="text" placeholder="Filtrer" aria-label="Filtrer" [value]="filterBlock" [formControl]="filterBlockControl">
+        </div>
+        <div class="col-12" [sortablejs]="filteredBlocks" [sortablejsOptions]="list1Options" id="builderBlockList">
+          <div class="alert alert-danger" *ngIf="filteredBlocks?.length==0">Il n'y a aucun bloc à afficher</div>
+          <div *ngFor="let block of filteredBlocks" [class]="'card block text-center mb-3 ' + block?.name" [blockData]="block">
+            <img class="img-fluid" [src]="block?.thumbnailUrl" [alt]="block?.displayName">
+            <div class="card-body">
+              <h4 class="card-title">{{ block.displayName }}</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-7">
+    <div class="card">
+      <div class="card-header indigo white-text">
+        Contenu de l'email
+      </div>
+      <div class="card-body">
+        <div class="alert indigo white-text" role="alert">Déposer les blocs ici.</div>
+        <div sortablejs [sortablejsOptions]="list2Options" id="blockDropZone">
+          <div *ngFor="let block of campaignStructure" [class]="'card block mb-3 ' + block.name">
+            <img class="img-fluid" [src]="getBlockTypeInfo(block.blockType).thumbnailUrl" [alt]="getBlockTypeInfo(block.blockType).displayName">
+            <div class="card-body row">
+                <div class="text col-sm-8">
+                  <h4 class="card-title">{{ getBlockTypeInfo(block.blockType).displayName }}</h4>
+                  <p>#ID: {{ block.name }}</p>
+                </div>
+                <div class="actions col-sm-4 text-right">
+                    <button type="button" class="btn btn-indigo btn-circle" (click)="showDeleteConfirmation(block)" mdbWavesEffect>
+                      <i class="fa fa-trash"></i>
+                    </button>
+                    <button type="button" class="btn btn-indigo btn-circle" (click)="showBlockSettings(block)" mdbWavesEffect *ngIf="getBlockTypeInfo(block.blockType).properties.length>0">
+                      <i class="fa fa-cog"></i>
+                    </button>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div mdbModal #modalBlockRemove="mdb-modal" class="modal fade" id="modalBlockRemove" tabindex="-1" role="dialog" aria-labelledby="Supprimer le bloc" aria-hidden="true">
+  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+    <div class="modal-content">
+      <div class="modal-header white-text">
+        <h4 class="modal-title w-100" id="myModalLabel">Suppression du bloc</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalBlockRemove.hide()">
+          <span aria-hidden="true" class="white-text">×</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngIf="block">
+        <p>Êtes-vous sure de bien vouloir supprimer le bloc #ID '{{ block.name }}' ?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-indigo btn-sm" data-dismiss="modal" (click)="modalBlockRemove.hide()" mdbWavesEffect>Annuler</button>
+        <button type="button" class="btn btn-red btn-sm" (click)="removeBlock(block)" mdbWavesEffect>Supprimer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div mdbModal #modalBlockSettings="mdb-modal" class="modal fade" id="modalBlockSettings" tabindex="-1" role="dialog" aria-labelledby="Options du bloc" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Options du bloc</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalBlockSettings.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body" *ngIf="block">
+        <mat-tab-group>
+          <mat-tab *ngFor="let lang of campaignLanguages" [label]="lang | uppercase">
+            <ng-template matTabContent>
+              <div class="md-form" *ngFor="let property of getBlockTypeInfo(block.blockType).properties" [ngSwitch]="property.type">
+                <div *ngSwitchCase="'text'">
+                  <input mdbInputDirective type="text" class="form-control" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" [value]="getPropertyValue(property.name, lang)" (input)="setPropertyValue(property.name, lang, $event.target.value)">
+                  <label [for]="property.name+'-'+lang">{{ property.displayName }}</label>
+                </div>
+                <div *ngSwitchCase="'number'">
+                    <input mdbInputDirective type="number" class="form-control" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" [value]="getPropertyValue(property.name, lang)">
+                    <label [for]="property.name+'-'+lang">{{ property.displayName }}</label>
+                  </div>
+                <div *ngSwitchCase="'url'">
+                  <input mdbInputDirective type="text" class="form-control" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" customRegex="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" data-error="Format de l'url incorrect" data-success="" [value]="getPropertyValue(property.name, lang)">
+                  <label [for]="property.name+'-'+lang">{{ property.displayName }}</label>
+                </div>
+                <div *ngSwitchCase="'file'">
+                  <input mdbInputDirective type="file" class="form-control" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang">
+                  <label [for]="property.name+'-'+lang">{{ property.displayName }}</label>
+                </div>
+                <div *ngSwitchCase="'color'">
+                  <input mdbInputDirective class="form-control" [id]="property.name+'-'+lang" name="property.name+'-'+lang" [value]="getPropertyValue(property.name, lang)"
+                  [style.background]="color"
+                  [cpCancelButton]="true"
+                  [cpCancelButtonClass]= "'btn btn-primary btn-sm'"
+                  [cpOKButton]="true"
+                  [cpSaveClickOutside]="false"
+                  [cpOKButtonClass]= "'btn btn-primary btn-sm'"
+                  [(colorPicker)]="color"/>
+                  <label [for]="property.name+'-'+lang">{{ property.displayName }}</label>
+                </div>
+                <div *ngSwitchCase="'textarea'">
+                  <textarea mdbInputDirective type="text" [id]="property.name+'-'+lang" class="md-textarea form-control" rows="3"></textarea>
+                  <label [for]="property.name+'-'+lang">{{ property.displayName }}</label>
+                </div>
+                <!--div *ngSwitchCase="'wysiwyg'">
+                  <jodit-editor [config]="joditConfiguration"></jodit-editor>
+                </div-->
+              </div>
+            </ng-template>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-indigo btn-sm" data-dismiss="modal" (click)="modalBlockSettings.hide()" mdbWavesEffect>Annuler</button>
+        <button type="button" class="btn btn-green btn-sm" (click)="saveBlockOptions(block)" mdbWavesEffect>Enregistrer</button>
+      </div>
+    </div>
+  </div>
+</div>

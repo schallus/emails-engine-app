@@ -1,0 +1,142 @@
+
+header-02:
+  img: images/logo.png
+  url: http://www.nespresso.com/
+
+header-03:
+  text: "Club-Mitgliedsnummer: <strong>50012532</strong>"
+
+# HEADERS
+
+header-01:
+  text: Ein köstlicher Genuss von feinster Qualität
+  link:
+    text: Diese E-Mail online ansehen.
+    url: http://www.nespresso.com/
+
+
+block-04:
+  bgcolor: '#ffffff'
+  color: '#231f20'
+  colorSep: '#000000'
+  text: EIN KÖSTLICHES ANGEBOT
+
+######
+######
+
+block-02:
+  bgcolor: '#ffffff'
+  img: images/bloc1.jpg
+  img-w: 640
+  img-h: 451
+  img-mobile: images/bloc1.jpg
+  link:
+    url: https://www.nespresso.com/ch/de/order/capsules?utm_id=f1758825-ddbe-46c2-9296-8729b82af77b
+    url-mobile: https://www.nespresso.com/ch/de/order/capsules?utm_id=f1758825-ddbe-46c2-9296-8729b82af77b
+
+######
+######
+
+block-06:
+  bgcolor: '#ffffff'
+  color: '#231f20'
+  text: >
+    Financiers Chocolat und Schokoladenkekse mit Szechuan-Pfeffer… diese Namen sind eine Ode an den Genuss und krönen Ihre Kaffeepause mit einer süssen Note. Sichern Sie sich diese Gaumenfreuden; fügen Sie 200&nbsp;Kaffeekapseln, davon 10&nbsp;Kaffeekapseln aus dem Lungo-Sortiment, Ihrem Warenkorb hinzu und <strong class="fontsize16">wir schenken Ihnen die zwei Keks-Packungen</strong>*.<br>Unwiderstehlich gut!
+
+######
+######
+
+block-05:
+  text: >
+      PROMO CODE: <strong class="fontArial fontsize22" style="color: #bf6c3c; font-family: 'Nespresso Lucas XtraBd',  Arial, sans-serif;">DOLCE18</strong>
+
+######
+######
+
+block-07:
+  bgcolor: '#ffffff'
+  color: '#231f20'
+  text: JETZT GENIESSEN
+  url: https://www.nespresso.com/ch/de/order/capsules?utm_id=f1758825-ddbe-46c2-9296-8729b82af77b
+  url-mobile: https://www.nespresso.com/ch/de/order/capsules?utm_id=f1758825-ddbe-46c2-9296-8729b82af77b
+
+######
+######
+
+block-19:
+  title: UND SIE, WIE GENIESSEN SIE IHREN KAFFEE?
+  text: >
+    Im Mug, in der Tasse, im Glas… einen Kaffee kann man auf verschiedene Weisen kosten. Daher haben wir eine kleine Aufmerksamkeit für Sie. <strong class="fontsize16">Beim Kauf von 2&nbsp;<strong class="fontsize16">VIEW</strong>-Rezeptgläser schenken wir Ihnen eine dritte Packung dazu</strong>**.
+  img: images/bloc2-de.jpg
+  color: '#231f20'
+  link:
+    text: PROFITIEREN
+    url: https://www.nespresso.com/ch/de/order/accessories?utm_id=f1758825-ddbe-46c2-9296-8729b82af77b
+    url-mobile: https://www.nespresso.com/ch/de/order/accessories?utm_id=f1758825-ddbe-46c2-9296-8729b82af77b
+
+######
+######
+
+block-20:
+  title: GROSSZÜGIG UND INTENSIV IM GESCHMACK, DIES IST IHR KAFFEE…
+  text: >
+    <strong class="fontsize16">Envivo Lungo</strong> gibt Ihrem Tag den richtigen Auftakt. Dieser Kaffee, bevorzugt morgens in einer grossen Tasse genossen, weckt dank seinem vollmundigen und angenehmen Geschmack Ihre Sinne wie kein anderer. Und seine Karamellnoten mit Holz- und Lebkuchennuancen werden Ihren Gaumen entzücken.
+  img: images/bloc3.jpg
+  color: '#231f20'
+  link:
+    text: GENIESSEN
+    url: https://www.nespresso.com/ch/de/order/capsules/envivo-lungo-kaffee-kapseln?utm_id=f1758825-ddbe-46c2-9296-8729b82af77b
+    url-mobile: https://www.nespresso.com/ch/de/order/capsules/envivo-lungo-kaffee-kapseln?utm_id=f1758825-ddbe-46c2-9296-8729b82af77b
+
+# FOOTER
+
+_footer:
+  title: ENTDECKEN SIE DIE WELT<br>DER <strong>NESPRESSO</strong> SERVICES
+  items:
+    - title: NESPRESSO APP
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=f1758825-ddbe-46c2-9296-8729b82af77b&did=#!/order/on-mobile-app
+    - title: INTERNET
+      width: 60
+      height: 60
+      img: images/footer-web.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=f1758825-ddbe-46c2-9296-8729b82af77b&did=#!/order/by-internet
+    - title: TELEFON 24/7
+      text:
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=f1758825-ddbe-46c2-9296-8729b82af77b&did=#!/order/by-phone
+    - title: LIEFERUNG
+      width: 60
+      height: 60
+      img: images/footer-delivery.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=f1758825-ddbe-46c2-9296-8729b82af77b&did=#!/delivery/24h-delivery
+    - title: DIENSTE
+      width: 60
+      height: 60
+      img: images/footer-service.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=f1758825-ddbe-46c2-9296-8729b82af77b&did=#!/customer-care/assistance-24-7
+
+_terms:
+  socials:
+    - img: images/socialiconfacebook.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicontwitter.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconyoutube.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconinstagram.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicongoogleplus.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+  logo:
+    url: http://www.nespresso.com/
+  text: >
+    *Angebot gültig telefonisch über die Nummer <a href="tel:0800555253" style="color: #f9f7f3; font-size: 12px; line-height: 18px; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (kostenlose Nummer), auf <a href="http://www.nespresso.com" style="color: #f9f7f3; font-size: 12px; line-height: 18px;">www.nespresso.com</a> oder über die Mobilanwendung von <strong class="bold" style="font-weight: bold;">Nespresso</strong>: verfügbar für <em>iPhone®</em>, <em>iPad®</em> und <em>Android™</em> bis zum 31.05.2018. Nicht mit anderen Angeboten kumulierbar und solange Vorrat.
+    <br><br>
+    **Im Mai sind die View Recipes Packs um <strong class="bold" style="font-weight: bold;">33%</strong> reduziert (exklusive Sonderpreise). Angebot gültig in den <strong class="bold" style="font-weight: bold;">Nespresso</strong> Boutiquen, auf <a href="http://www.nespresso.com" style="color: #f9f7f3; font-size: 12px; line-height: 18px;">www.nespresso.com</a>, telefonisch über die Nummer <a href="tel:0800555253" style="color: #f9f7f3; font-size: 12px; line-height: 18px; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (kostenlose Nummer) oder über die Mobilanwendung von <strong class="bold" style="font-weight: bold;">Nespresso</strong>: verfügbar für <em>iPhone®</em>, <em>iPad®</em> und <em>Android™</em>. Angebot gültig bis zum 15.06.2018, solange Vorrat. Angebot nicht übertragbar und nicht mit anderen Angeboten kumulierbar.
+    <br><br>
+    Sie haben diese E-Mail als <strong class="bold">Nespresso</strong> Clubmitglied erhalten. Wenn Sie diese Informationen abbestellen möchten, <a href="[[UNSUB_LINK_FR]]" style="color:#f9f7f3; font-family: Arial, sans-serif;" target="_blank">klicken Sie bitte hier</a>. Um eine E-Mail an den <strong class="bold">Nespresso</strong> Club zu schicken, verwenden Sie bitte unser Kontaktformular auf unserer Webseite <a href="http://www.nespresso.com" style="color:#f9f7f3; font-family: Arial, sans-serif;">www.nespresso.com</a> oder kontaktieren Sie uns unter <a href="tel:0800555253" style="color:#f9f7f3; font-family: Arial, sans-serif; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (kostenlose Nummer). Nestlé Nespresso S.A.

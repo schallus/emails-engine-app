@@ -1,0 +1,109 @@
+#
+# HEADERS
+#
+
+header-01:
+  text: Einladung zum Frühstück beim Kauf von 6 <strong class="fontsize12">Nespresso</strong> Etuis
+  link:
+    text: Diese E-Mail online ansehen.
+    url: http://www.nespresso.com/
+
+header-02:
+  img: images/logo.png
+  url: http://www.nespresso.com/
+
+header-03:
+  text: "Club-Mitgliedsnummer: <strong>50012532</strong>"
+
+
+#
+# BLOCKS
+#
+
+block-02:
+  img: images/np_nespresso2.jpg
+  img-mobile: images/np_nespresso2-mobile.jpg
+  img-w: 640
+  img-h: 308
+  link:
+    url: https://www.google.com/maps/place/S.+Binoth+AG/@46.6894181,7.6803362,19z/data=!4m13!1m7!3m6!1s0x478fae78cf2dbe4f:0xec0ec3271fce717b!2sSeestrasse+40,+3700+Spiez!3b1!8m2!3d46.6893418!4d7.6802919!3m4!1s0x478fae78cf2dbe4f:0xb2a1cddce6ddc80e!8m2!3d46.6894336!4d7.6802588
+    url-mobile: https://www.google.com/maps/place/S.+Binoth+AG/@46.6894181,7.6803362,19z/data=!4m13!1m7!3m6!1s0x478fae78cf2dbe4f:0xec0ec3271fce717b!2sSeestrasse+40,+3700+Spiez!3b1!8m2!3d46.6893418!4d7.6802919!3m4!1s0x478fae78cf2dbe4f:0xb2a1cddce6ddc80e!8m2!3d46.6894336!4d7.6802588
+
+block-04:
+  bgcolor: '#ffffff'
+  color: '#231f20'
+  text: <strong class="fontsize22">NESPRESSO</strong><br>GANZ IN IHRER NÄHE
+
+block-06:
+  bgcolor: '#ffffff'
+  color: '#231f20'
+  text: >
+    Die <strong class="fontsize16">Nespresso</strong> Kapseln sind jetzt in Ihrer Bäckerei&minus;Konditorei&nbsp;Binoth* (Seestrasse&nbsp;40,&nbsp;3700&nbsp;Spiez) erhältlich, welche täglich geöffnet hat!
+    <br><br>
+    Lassen Sie sich zu einem Genussmoment einladen und profitieren Sie von einem gemütlichen Frühstück beim Kauf von 6 <strong class="fontsize16">Nespresso</strong> Etuis, exklusiv im Mai**. Vergessen Sie nicht, Ihre <strong class="fontsize16">Nespresso</strong> Clubmitgliedsnummer mitzunehmen.
+
+
+block-11:
+  link: Hier finden Sie uns
+  url: https://www.google.com/maps/place/S.+Binoth+AG/@46.6894181,7.6803362,19z/data=!4m13!1m7!3m6!1s0x478fae78cf2dbe4f:0xec0ec3271fce717b!2sSeestrasse+40,+3700+Spiez!3b1!8m2!3d46.6893418!4d7.6802919!3m4!1s0x478fae78cf2dbe4f:0xb2a1cddce6ddc80e!8m2!3d46.6894336!4d7.6802588
+  img: images/map-binoth.jpg
+
+block-10:
+  text: >
+    Tätigen Sie Ihre Bestellung schnell und einfach am <strong class="fontsize16">Nespresso</strong> Terminal und beziehen Sie Ihre Kapseln direkt vor Ort.
+  img: images/machine.jpg
+
+#
+# FOOTER
+#
+
+_footer:
+  title: ENTDECKEN SIE DIE WELT<br>DER <strong>NESPRESSO</strong> SERVICES
+  items:
+    - title: NESPRESSO APP
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=48c30322-4784-4b44-930d-2a5ca4fd9149&did=#!/order/on-mobile-app
+    - title: INTERNET
+      width: 60
+      height: 60
+      img: images/footer-web.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=48c30322-4784-4b44-930d-2a5ca4fd9149&did=#!/order/by-internet
+    - title: TELEFON 24/7
+      text:
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=48c30322-4784-4b44-930d-2a5ca4fd9149&did=#!/order/by-phone
+    - title: LIEFERUNG
+      width: 60
+      height: 60
+      img: images/footer-delivery.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=48c30322-4784-4b44-930d-2a5ca4fd9149&did=#!/delivery/24h-delivery
+    - title: DIENSTE
+      width: 60
+      height: 60
+      img: images/footer-service.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=48c30322-4784-4b44-930d-2a5ca4fd9149&did=#!/customer-care/assistance-24-7
+
+_terms:
+  socials:
+    - img: images/socialiconfacebook.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicontwitter.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconyoutube.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconinstagram.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicongoogleplus.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+  logo:
+    url: http://www.nespresso.com/
+  text: >
+    *Eine <strong class="bold">Nespresso</strong> Kaffeeauswahl ist im Verkauf erhältlich: <strong class="bold">Kazaar</strong>, <strong class="bold">Ristretto</strong>, <strong class="bold">Arpeggio</strong>, <strong class="bold">Roma</strong>, <strong class="bold">Livanto</strong>, <strong class="bold">Capriccio</strong>, <strong class="bold">Volluto</strong>, <strong class="bold">Cosi</strong>, <strong class="bold">Dulsão</strong> do Brasil, <strong class="bold">Rosabaya</strong> de Colombia, <strong class="bold">Bukeela</strong> ka Ethiopia, <strong class="bold">Arpeggio Decaffeinato</strong>, <strong class="bold">Volluto Decaffeinato</strong>, <strong class="bold">Vivalto Lungo Decaffeinato</strong>, <strong class="bold">Linizio Lungo</strong>, <strong class="bold">Vivalto Lungo</strong>, <strong class="bold">Fortissio Lungo</strong>. Die Limited Editions sind aus dieser Auswahl ausgeschlossen.<br>
+    ** Beim Kauf von mindestens 6 <strong class="bold">Nespresso</strong> Etuis Ihrer Wahl, offeriert Ihnen Ihre Bäckerei&minus;Konditorei&nbsp;Binoth das Frühstück (inkl. Kaffee, Orangensaft und Gipfeli). Angebot gültig vom 01.05.2018 bis zum 31.05.2018.
+    <br><br>
+    Sie haben diese E-Mail als <strong class="bold">Nespresso</strong> Clubmitglied erhalten. Wenn Sie diese Informationen abbestellen möchten, <a href="[[UNSUB_LINK_FR]]" style="color: #f9f7f3; font-size: 12px; line-height: 18px;" target="_blank">klicken Sie bitte hier</a>. Um eine E-Mail an den <strong class="bold">Nespresso</strong> Club zu schicken, verwenden Sie bitte unser Kontaktformular auf unserer Webseite <a href="http://www.nespresso.com" style="color: #f9f7f3; font-size: 12px; line-height: 18px;">www.nespresso.com</a> oder kontaktieren Sie uns unter <a href="tel:0800555253" style="color: #f9f7f3; font-size: 12px; line-height: 18px; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (kostenlose Nummer).
+    <br>Nestlé Nespresso S.A.

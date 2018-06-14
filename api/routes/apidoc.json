@@ -1,0 +1,7 @@
+{
+    "name": "Email-Engine-API",
+    "version": "1.0.0",
+    "description": "Creation of an API for WIDE Agency email engine",
+    "title": "Email Engine REST API",
+    "url" : ""
+  }

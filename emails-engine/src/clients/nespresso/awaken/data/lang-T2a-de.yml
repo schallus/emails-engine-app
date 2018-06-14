@@ -1,0 +1,136 @@
+
+header-02:
+  img: images/logo.png
+  url: http://www.nespresso.com/
+
+header-03:
+  text: "Club-Mitgliedsnummer: <strong>50012532</strong>"
+
+# HEADERS
+
+header-01:
+  text: Erwecken Sie Ihre Sinne
+  link:
+    text: Diese E-Mail online ansehen.
+    url: http://www.nespresso.com/
+
+block-04:
+  bgcolor: '#f6eeeb'
+  color: '#231f20'
+  text: WIE GENIESSEN SIE IHREN MORGEN?
+
+
+block-06:
+  bgcolor: '#f6eeeb'
+  color: '#231f20'
+  text: >
+    Nichts geht über eine gute Tasse Kaffee, um gut in den Tag zu starten. Eher Lungo oder Latte Macchiato?
+    <br>
+    Für jeden Geschmack haben wir den passenden Kaffee, der Ihre Sinne am Morgen erweckt.
+
+
+block-07:
+  bgcolor: '#f6eeeb'
+  color: '#231f20'
+  text: GENIESSEN SIE JETZT
+  url: https://www.nespresso.com/ch/de/awaken-your-senses?utm_id=8f172279-8b21-4675-8580-5fc45b22d388
+  url-mobile: https://www.nespresso.com/ch/de/awaken-your-senses?utm_id=8f172279-8b21-4675-8580-5fc45b22d388
+
+
+block-02:
+  bgcolor: '#f6eeeb'
+  img: images/awaken123-bloc1-de.jpg
+  img-w: 640
+  img-h: 397
+  img-mobile: images/awaken123-bloc1-mobile-de.jpg
+  img-wm: 290
+  img-hm: 320
+  link:
+    url: https://www.nespresso.com/ch/de/awaken-your-senses?utm_id=8f172279-8b21-4675-8580-5fc45b22d388
+    url-mobile: https://www.nespresso.com/ch/de/awaken-your-senses?utm_id=8f172279-8b21-4675-8580-5fc45b22d388
+
+
+block-19:
+  title: EIN FARBENFROHES ANGEBOT
+  text: >
+    Beim Kauf von 250 Kapseln erhalten Sie <strong class="bold" style="font-weight: bold;">1 Degustationsset Intense</strong> sowie <strong class="bold" style="font-weight: bold;">1 Pixie Lungo Cherry Tasse</strong>, die Ihrem Morgen einen Farbtupfer aufsetzen wird*.
+    <br><br>
+    Promo Code : <strong class="fontsize16" style="color: #B23739;">INTENSE18</strong>
+  img: images/awaken2a-bloc19.jpg
+  color: '#231f20'
+  link:
+    text: PROFITIEREN SIE
+    url: https://www.nespresso.com/ch/de/order/capsules?utm_id=8f172279-8b21-4675-8580-5fc45b22d388#cupSizes[0]=Lungo
+    url-mobile: https://www.nespresso.com/ch/de/order/capsules?utm_id=8f172279-8b21-4675-8580-5fc45b22d388#cupSizes[0]=Lungo
+
+
+block-20:
+  title: SPEZIALANGEBOT FÜR<br>IHRE MORGENSTUNDEN
+  text: >
+    Jede <strong class="fontsize16">Nespresso</strong> Maschine schenkt Ihnen unvergessliche Kaffeemomente. Beim Kauf einer <strong class="fontsize16">Nespresso</strong> Maschine erhalten Sie Fr.&nbsp;100.- <strong class="fontsize16">Nespresso</strong> Kapseln geschenkt*.
+  img: images/awaken12-bloc20-de.jpg
+  color: '#231f20'
+  link:
+    text: BESTELLEN
+    url: https://www.nespresso.com/ch/de/order/machines?utm_id=8f172279-8b21-4675-8580-5fc45b22d388
+    url-mobile: https://www.nespresso.com/ch/de/order/machines?utm_id=8f172279-8b21-4675-8580-5fc45b22d388
+
+
+spacer:
+  bgcolor: '#f6eeeb'
+
+
+#
+# FOOTER
+#
+
+_footer:
+  title: ENTDECKEN SIE DIE WELT<br>DER <strong>NESPRESSO</strong> SERVICES
+  items:
+    - title: NESPRESSO APP
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=8f172279-8b21-4675-8580-5fc45b22d388&did=#!/order/on-mobile-app
+    - title: INTERNET
+      width: 60
+      height: 60
+      img: images/footer-web.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=8f172279-8b21-4675-8580-5fc45b22d388&did=#!/order/by-internet
+    - title: TELEFON 24/7
+      text:
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=8f172279-8b21-4675-8580-5fc45b22d388&did=#!/order/by-phone
+    - title: LIEFERUNG
+      width: 60
+      height: 60
+      img: images/footer-delivery.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=8f172279-8b21-4675-8580-5fc45b22d388&did=#!/delivery/24h-delivery
+    - title: DIENSTE
+      width: 60
+      height: 60
+      img: images/footer-service.png
+      url: https://www.nespresso.com/ch/de/services?utm_id=8f172279-8b21-4675-8580-5fc45b22d388&did=#!/customer-care/assistance-24-7
+
+_terms:
+  socials:
+    - img: images/socialiconfacebook.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicontwitter.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconyoutube.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconinstagram.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicongoogleplus.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+  logo:
+    url: http://www.nespresso.com/
+  text: >
+    *Angebot gültig in den <strong class="bold" style="font-weight: bold;">Nespresso</strong> Boutiquen, auf <a href="http://www.nespresso.com" style="color: #f9f7f3; font-size: 12px; line-height: 18px;">www.nespresso.com</a>, telefonisch über die Nummer <a href="tel:0800555253" style="color: #f9f7f3; font-size: 12px; line-height: 18px; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (kostenlose Nummer)und über die Mobilanwendung von <strong class="bold" style="font-weight: bold;">Nespresso</strong>: verfügbar für <em>iPhone®</em>, <em>iPad®</em> und <em>Android™</em>. Angebot gültig bis zum 08.04.2018 und solange Vorrat. Nicht mit anderen Angeboten kumulierbar. Das Das Degustationsset besteht aus 7 Kapseln (2x&nbsp;<strong class="bold" style="font-weight: bold;">Envivo</strong> Lungo, 1x&nbsp;<strong class="bold" style="font-weight: bold;">Fortissio</strong> Lungo, 1x&nbsp;<strong class="bold" style="font-weight: bold;">Dharkan</strong>, 1x&nbsp;<strong class="bold" style="font-weight: bold;">Ristretto</strong>, 1x&nbsp;<strong class="bold" style="font-weight: bold;">Arpeggio</strong>, 1x&nbsp;<strong class="bold" style="font-weight: bold;">Livanto</strong> und 1x&nbsp;<strong class="bold" style="font-weight: bold;">Roma</strong>)
+    <br><br>
+    **Angebot gültig beim Kauf einer <strong class="bold" style="font-weight: bold;">Nespresso</strong> Kaffeemaschine zwischen dem 22. März und dem 27. Mai 2018. Wir schenken Ihnen <strong class="bold" style="font-weight: bold;">Nespresso</strong> Kapseln Ihrer Wahl im Wert von Fr.&nbsp;100.-, verteilt auf Ihre nächsten drei Kaffeebestellungen. Sie können von <strong class="bold" style="font-weight: bold;">Nespresso</strong> Kapseln im Wert von Fr.&nbsp;50.- bei Ihrer ersten Kaffeebestellung sowie <strong class="bold" style="font-weight: bold;">Nespresso</strong> Kapseln im Wert von Fr.&nbsp;25.- bei jeder der zwei folgenden Kaffeebestellungen profitieren. Keine Barauszahlung möglich. Für alle drei Bestellungen schenken wir Ihnen zudem die Versandkosten.
+    <br><br>
+    Sie haben diese E-Mail als <strong class="bold">Nespresso</strong> Clubmitglied erhalten. Wenn Sie diese Informationen abbestellen möchten, <a href="[[UNSUB_LINK_FR]]" style="color:#f9f7f3; font-family: Arial, sans-serif;" target="_blank">klicken Sie bitte hier</a>. Um eine E-Mail an den <strong class="bold">Nespresso</strong> Club zu schicken, verwenden Sie bitte unser Kontaktformular auf unserer Webseite <a href="http://www.nespresso.com" style="color:#f9f7f3; font-family: Arial, sans-serif;">www.nespresso.com</a> oder kontaktieren Sie uns unter <a href="tel:0800555253" style="color:#f9f7f3; font-family: Arial, sans-serif; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (kostenlose Nummer). Nestlé Nespresso S.A.

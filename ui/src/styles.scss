@@ -1,0 +1,60 @@
+@import "./assets/styles/dragndrop";
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* You can add global styles to this file, and also import other style files */
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    position: relative;
+    border-radius: 100%;
+    margin: 0 3px !important;
+    padding: 0px;
+
+    .fa {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 50%;
+        transform: translate(-50%, -50%);
+        width: 10px;
+        height: 10px;
+        display: block;
+        font-size: 10px;
+    }
+}
+
+.btn-group.checkbox-list {
+    display: block;
+
+    label.form-check-label {
+        display: block;
+        width: 100%;
+        margin: 0px;
+
+        &.active::after {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f058";
+            position: absolute;
+            right: 15px;
+        }
+    }
+}
+
+.md-form {
+    margin-bottom: 2rem;
+}
+
+#blockDropZone {
+    min-height: 200px;
+}
+
+#builderBlockList {
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.text-success {
+    display: none;
+}

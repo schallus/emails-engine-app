@@ -1,0 +1,132 @@
+#
+# HEADERS
+#
+
+header-01:
+  text: Profitez d’une offre spéciale
+  link:
+    text: Consulter la version en ligne
+    url: http://www.nespresso.com/
+
+header-02:
+  img: images/logo.png
+  url: http://www.nespresso.com/
+
+header-03:
+  text: "N° de Membre du Club : <strong>50012532</strong>"
+
+#
+# BLOCKS
+#
+
+block-02:
+  img: images/header-fr.jpg
+  img-mobile: images/header-mobile-fr.jpg
+  img-w: 640
+  img-h: 350
+  link:
+    url: https://www.nespresso.com/ch/fr/order/capsules/?utm_id=bfc80ce6-025c-443e-bcb9-ab267e45dc5e
+    url-mobile: https://www.nespresso.com/ch/fr/order/capsules/?utm_id=bfc80ce6-025c-443e-bcb9-ab267e45dc5e
+
+block-04:
+  bgcolor: '#ffffff'
+  color: '#231f20'
+  text: Il y a des voyages et des<br>expériences qui marquent
+
+block-06:
+  text: >
+    L’Afrique et ses cafés de légende sont une source de souvenirs et de saveurs inoubliables qu’il ne tient qu’à vous de retrouver. <br>
+    Avant la fin de cette belle histoire, profitez d’une <strong class="fontsize16">réduction de Fr.&nbsp;10.-</strong> à l’achat de 300 capsules, dont minimum 20&nbsp;capsules de ces Éditions Limitées*.
+    <br><br>
+    PROMO CODE :
+  code: ORIGINS18
+
+block-07:
+  bgcolor: '#ffffff'
+  color: '#231f20'
+  text: PROFITEZ DE l’OFFRE
+  url: https://www.nespresso.com/ch/fr/order/capsules/?utm_id=bfc80ce6-025c-443e-bcb9-ab267e45dc5e
+  url-mobile: https://www.nespresso.com/ch/fr/order/capsules/?utm_id=bfc80ce6-025c-443e-bcb9-ab267e45dc5e
+
+_block-19a:
+  text: Pourquoi l'altitude à laquelle pousse ce café est-elle hors du commun ?<br>Le robusta pousse généralement en plaine, alors qu'en Ouganda, le savoir-faire local permet de cultiver cette variété jusqu'à 900&nbsp;m d'altitude.
+  img: images/robusta.jpg
+  color: '#231f20'
+  link:
+    text: À NE PAS MANQUER
+    url: https://www.nespresso.com/ch/fr/order/capsules/limited-edition-robusta-uganda-coffee-capsule?utm_id=e60e375d-9d80-47f5-9d51-2f9fc100a0b8
+    url-mobile: https://www.nespresso.com/ch/fr/order/capsules/limited-edition-robusta-uganda-coffee-capsule?utm_id=e60e375d-9d80-47f5-9d51-2f9fc100a0b8
+
+_block-19b:
+  title: LE SAVIEZ-VOUS ?
+  text: Les arbres qui entourent les plantations jouent un rôle prédominant dans la qualité du café que vous buvez. Voici pourquoi nous choisissons d’en planter des milliers…
+  img: images/tree.jpg
+  color: '#231f20'
+  link:
+    text: EN SAVOIR PLUS
+    url: https://www.nespresso.com/ch/fr/our-choices/cafe-qualite-durable/comment-les-arbres-influencent-la-qualite-de-notre-cafe?utm_id=6abb9540-886e-43c7-a6eb-add04086a121
+    url-mobile: https://www.nespresso.com/ch/fr/our-choices/cafe-qualite-durable/comment-les-arbres-influencent-la-qualite-de-notre-cafe?utm_id=6abb9540-886e-43c7-a6eb-add04086a121
+
+_block-20:
+  text: Pourquoi l'arabica de la région de Harrar est-il légendaire ?<br>Ce fut la première variété de café dégustée par les amateurs de café européens, et ce dès le X<sup>e</sup> siècle.
+  img: images/harrar.jpg
+  color: '#231f20'
+  link:
+    text: DÉCOUVREZ
+    url: https://www.nespresso.com/ch/fr/order/capsules/limited-edition-arabica-ethiopia-coffee-capsule?utm_id=288da679-8a5b-455e-bbe3-dbb2269de10b
+    url-mobile: https://www.nespresso.com/ch/fr/order/capsules/limited-edition-arabica-ethiopia-coffee-capsule?utm_id=288da679-8a5b-455e-bbe3-dbb2269de10b
+
+#
+# FOOTER
+#
+
+_footer:
+  title: DÉCOUVREZ LES SERVICES <strong>NESPRESSO</strong>
+  items:
+    - title: MOBILE
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84&did=#!/order/on-mobile-app
+    - title: INTERNET
+      width: 60
+      height: 60
+      img: images/footer-web.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84&did=#!/order/by-internet
+    - title: TÉLÉPHONE
+      text: 24 H/24, 7 J/7
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84&did=#!/order/by-phone
+    - title: LIVRAISON
+      width: 60
+      height: 60
+      img: images/footer-delivery.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84&did=#!/delivery/24h-delivery
+    - title: SERVICE
+      width: 60
+      height: 60
+      img: images/footer-service.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=83794d83-1970-4c0e-8b7b-413da22d9e84&did=#!/customer-care/assistance-24-7
+
+_terms:
+  socials:
+    - img: images/socialiconfacebook.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicontwitter.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconyoutube.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconinstagram.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicongoogleplus.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+  logo:
+    url: http://www.nespresso.com/
+  text: >
+    *Offre valable exclusivement sur <a href="http://www.nespresso.com" style="color:#b2b2b2">www.nespresso.com</a> ou via votre application mobile <strong class="bold" style="font-weight: bold;">Nespresso</strong> : disponible pour <em>iPhone®</em>, <em>iPad®</em> et <em>Android™</em> jusqu’au 26.04.2018. Non cumulable avec d'autres offres promotionnelles.
+    <br><br>
+    Vous avez reçu cet e-mail en tant que Membre du Club <strong class="bold" style="font-weight: bold;">Nespresso</strong>. Si vous ne souhaitez plus recevoir d'e-mails, <a href="[[UNSUB_LINK_FR]]" style="color: #f9f7f3; font-size: 12px; line-height: 18px;" target="_blank">cliquez ici</a>.
+    <br><br>
+    Si vous désirez contacter votre Club <strong class="bold" style="font-weight: bold;">Nespresso</strong>, utilisez notre formulaire de contact disponible sur notre site <a href="http://www.nespresso.com" style="color:#b2b2b2">www.nespresso.com</a>  ou appelez le <a href="tel:0800555253" style="color:#b2b2b2; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (numéro gratuit). Nestlé Nespresso S.A.

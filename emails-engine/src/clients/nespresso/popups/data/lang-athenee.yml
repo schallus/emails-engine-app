@@ -1,0 +1,101 @@
+#
+# HEADERS
+#
+
+header-01:
+  text: Vos capsules <strong>Nespresso</strong> désormais disponibles tous les jours
+  link:
+    text: Consulter la version en ligne
+    url: http://www.nespresso.com/
+
+header-02:
+  img: images/logo.png
+  url: http://www.nespresso.com/
+
+header-03:
+  text: "N° de Membre du Club : <strong>50012532</strong>"
+
+
+#
+# BLOCKS
+#
+
+block-02:
+  img: images/np_nespresso2.jpg
+  img-w: 640
+  img-h: 308
+  link:
+    url: http://www.tea-room-athenee.ch/fr/produits/nespresso
+    url-mobile: http://www.tea-room-athenee.ch/fr/produits/nespresso
+
+block-04:
+  text: <strong class="fontsize22">NESPRESSO</strong><br>PRÈS DE CHEZ VOUS
+
+block-06:
+  text: >
+    Les capsules <strong class="fontsize16">Nespresso</strong> sont désormais disponibles dans votre Tea-Room de l'Athénée* (Rue de l'Athénée 37, 1206 Genève).
+    <br><br>
+    Laissez-vous tenter par un moment de plaisir, le Tea-Room de l'Athénée est ouvert 7 j/7&nbsp;! Munissez-vous de votre carte de Membre et venez nous rendre visite.
+
+block-11:
+  link: Où nous trouver
+  url: https://www.google.ch/maps/place/Tea+Room+de+l'Ath%C3%A9n%C3%A9e/@46.194801,6.1551143,15z/data=!4m2!3m1!1s0x0:0xf609a501876e6e3a?sa=X&ved=0ahUKEwifs9HasNDYAhWJ16QKHYoEACIQ_BIIejAK
+  img: images/map-geneve.jpg
+
+block-10:
+  text: Passez votre commande en quelques instants sur la borne <strong class="fontsize16">Nespresso</strong> et recevez vos capsules directement sur place.
+  img: images/oberson.jpg
+  url: http://www.tea-room-athenee.ch/fr/produits/nespresso
+
+#
+# FOOTER
+#
+
+_footer:
+  title: DÉCOUVREZ LES SERVICES <strong>NESPRESSO</strong>
+  items:
+    - title: MOBILE
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=48c30322-4784-4b44-930d-2a5ca4fd9149&did=#!/order/on-mobile-app
+    - title: INTERNET
+      width: 60
+      height: 60
+      img: images/footer-web.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=48c30322-4784-4b44-930d-2a5ca4fd9149&did=#!/order/by-internet
+    - title: TÉLÉPHONE
+      text: 24 H/24, 7 j/7
+      width: 60
+      height: 60
+      img: images/footer-mobile.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=48c30322-4784-4b44-930d-2a5ca4fd9149&did=#!/order/by-phone
+    - title: LIVRAISON
+      width: 60
+      height: 60
+      img: images/footer-delivery.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=48c30322-4784-4b44-930d-2a5ca4fd9149&did=#!/delivery/24h-delivery
+    - title: SERVICE
+      width: 60
+      height: 60
+      img: images/footer-service.png
+      url: https://www.nespresso.com/ch/fr/services?utm_id=48c30322-4784-4b44-930d-2a5ca4fd9149&did=#!/customer-care/assistance-24-7
+
+_terms:
+  socials:
+    - img: images/socialiconfacebook.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicontwitter.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconyoutube.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialiconinstagram.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+    - img: images/socialicongoogleplus.png
+      url: http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056
+  logo:
+    url: http://www.nespresso.com/
+  text: >
+    *Une sélection de cafés <strong class="bold" style="font-weight: bold;">Nespresso</strong> est disponible à la vente : <strong class="bold" style="font-weight: bold;">Kazaar</strong>, <strong class="bold" style="font-weight: bold;">Ristretto</strong>, <strong class="bold" style="font-weight: bold;">Arpeggio</strong>, <strong class="bold" style="font-weight: bold;">Roma</strong>, <strong class="bold" style="font-weight: bold;">Livanto</strong>, <strong class="bold" style="font-weight: bold;">Capriccio</strong>, <strong class="bold" style="font-weight: bold;">Volluto</strong>, <strong class="bold" style="font-weight: bold;">Cosi</strong>, <strong class="bold" style="font-weight: bold;">Dulsão</strong> do Brasil, <strong class="bold" style="font-weight: bold;">Rosabaya</strong> de Colombia, <strong class="bold" style="font-weight: bold;">Arpeggio</strong> Decaffeinato, <strong class="bold" style="font-weight: bold;">Volluto</strong> Decaffeinato, <strong class="bold" style="font-weight: bold;">Linizio</strong> Lungo, <strong class="bold" style="font-weight: bold;">Vivalto</strong> Lungo, <strong class="bold" style="font-weight: bold;">Fortissio</strong> Lungo. Les Éditions Limitées sont exclues de cette sélection.
+    <br><br>
+    Vous avez reçu cet e-mail en tant que Membre du Club <strong class="bold" style="font-weight: bold;">Nespresso</strong>. Si vous ne souhaitez plus recevoir d'e-mails, <a href="[[UNSUB_LINK_FR]]" style="color:#f9f7f3" target="_blank">cliquez ici</a>. Si vous désirez contacter votre Club <strong class="bold" style="font-weight: bold;">Nespresso</strong>, utilisez notre formulaire de contact disponible sur notre site <a href="http://www.nespresso.com" style="color:#f9f7f3">www.nespresso.com</a> ou appelez le <a href="tel:0800555253" style="color:#f9f7f3; white-space: nowrap; display:inline-block;">0800 55 52 53</a> (numéro gratuit). Nestlé Nespresso S.A.
