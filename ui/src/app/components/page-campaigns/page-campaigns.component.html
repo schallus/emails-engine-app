@@ -2,21 +2,21 @@
 <div class="row">
   <div class="col">
     <div class="card">
-      <div class="card-header indigo white-text">
+      <div class="card-header primary-color white-text">
         Campagnes
       </div>
       <div class="card-body">
 
         <div class="input-group md-form form-sm form-1 pl-0">
           <div class="input-group-prepend">
-            <span class="input-group-text indigo"><i class="fa fa-search text-white" aria-hidden="true"></i></span>
+            <span class="input-group-text primary-color"><i class="fa fa-search text-white" aria-hidden="true"></i></span>
           </div>
           <input class="form-control my-0 py-1" type="text" placeholder="Rechercher" aria-label="Rechercher" [value]="filterCampaign" [formControl]="filterCampaignControl">
         </div>
 
         <table class="table table-striped">
           
-          <thead class="indigo white-text">
+          <thead class="primary-color white-text">
             <tr>
               <th>Nom</th>
               <th>Dernière modification</th>
@@ -27,22 +27,18 @@
           <tbody>
             <tr *ngIf="filteredCampaigns?.length==0"><td colspan="3">Il n'y a aucune campagne à afficher</td></tr>
             <tr *ngFor="let campaign of filteredCampaigns">
-              <td>{{ campaign.displayName }}</td>
-              <td>{{ campaign.updatedAt || campaign.createdAt | date }}</td>
-              <td class="text-right">
-                <a [routerLink]="['/brands', brandName, 'campaigns', campaign.name, 'options']" class="btn btn-indigo btn-circle"><i class="fa fa-edit"></i></a>
-                <button type="button" class="btn btn-indigo btn-circle" data-toggle="modal" data-target="#modalClone" (click)="showCloneConfirmation(campaign.name)" mdbWavesEffect>
-                  <i class="fa fa-clone"></i>
-                </button>
-                <button type="button" class="btn btn-indigo btn-circle" data-toggle="modal" data-target="#modalArchive" (click)="showArchiveConfirmation(campaign.name)" mdbWavesEffect>
-                  <i class="fa fa-trash"></i>
-                </button>
+              <td class="align-middle">{{ campaign.displayName }}</td>
+              <td class="align-middle">{{ campaign.updatedAt || campaign.createdAt | date }}</td>
+              <td class="text-right align-middle">
+                <a [routerLink]="['/brands', brandName, 'campaigns', campaign.name, 'options']"class="btn-floating btn-sm btn-primary waves-light mr-1" mdbWavesEffect><i class="fa fa-edit"></i></a>
+                <a class="btn-floating btn-sm btn-primary waves-light mr-1" (click)="showCloneConfirmation(campaign.name)" mdbWavesEffect><i class="fa fa-clone"></i></a>
+                <a class="btn-floating btn-sm btn-primary waves-light" (click)="showArchiveConfirmation(campaign.name)" mdbWavesEffect><i class="fa fa-trash"></i></a>
               </td>
             </tr>
           </tbody>
         </table>
         <nav>
-          <ul class="pagination pg-blue justify-content-center">
+          <ul class="pagination pagination-circle justify-content-center">
             <li class="page-item" >
               <a class="page-link" mdbWavesEffect aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
@@ -68,11 +64,11 @@
 
   <div class="col">
     <div class="card">
-      <div class="card-header indigo white-text">
+      <div class="card-header primary-color white-text">
         Nouvelle campagne
       </div>
       <div class="card-body d-flex justify-content-center">
-        <a [routerLink]="['/brands', brandName, 'campaigns', 'options']" class="btn btn-indigo waves-light" mdbWavesEffect>Créer une nouvelle campagne</a>
+        <a [routerLink]="['/brands', brandName, 'campaigns', 'options']" class="btn btn-grey btn-rounded" mdbWavesEffect>Créer une nouvelle campagne</a>
       </div>
     </div>
   </div>
@@ -91,7 +87,7 @@
         <p>Êtes-vous sure de bien vouloir archiver la campagne '{{campaign}}' ?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-indigo btn-sm" data-dismiss="modal" (click)="modalArchive.hide()" mdbWavesEffect>Annuler</button>
+        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" (click)="modalArchive.hide()" mdbWavesEffect>Annuler</button>
         <button type="button" class="btn btn-red btn-sm" (click)="archiveCampaign(campaign)" mdbWavesEffect>Archiver</button>
       </div>
     </div>
@@ -116,7 +112,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-indigo btn-sm" data-dismiss="modal" (click)="modalClone.hide()" mdbWavesEffect>Annuler</button>
+        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" (click)="modalClone.hide()" mdbWavesEffect>Annuler</button>
         <button type="button" class="btn btn-green btn-sm" (click)="cloneCampaign(campaign, inputCampaignName.value)" mdbWavesEffect>Dupliquer</button>
       </div>
     </div>

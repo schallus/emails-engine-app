@@ -3,14 +3,6 @@
 		"blockName": "header-01-1",
 		"languages": [
 			{
-				"lang": "fr",
-				"properties": {
-					"text": "Header text FR",
-					"linkText": "Link text FR",
-					"linkUrl": "http://testFR.com"
-				}
-			},
-			{
 				"lang": "de",
 				"properties": {
 					"text": "Header text DE",
@@ -25,19 +17,68 @@
 					"linkText": "Link text IT",
 					"linkUrl": "http://testIT.com"
 				}
+			},
+			{
+				"lang": "fr",
+				"properties": {
+					"text": "",
+					"linkText": "",
+					"linkUrl": ""
+				}
+			},
+			{
+				"lang": "ar",
+				"properties": {
+					"text": "",
+					"linkText": "",
+					"linkUrl": ""
+				}
+			},
+			{
+				"lang": "zh",
+				"properties": {
+					"text": "",
+					"linkText": "",
+					"linkUrl": ""
+				}
+			},
+			{
+				"lang": "cs",
+				"properties": {
+					"text": "",
+					"linkText": "",
+					"linkUrl": ""
+				}
+			},
+			{
+				"lang": "hy",
+				"properties": {
+					"text": "",
+					"linkText": "",
+					"linkUrl": ""
+				}
+			},
+			{
+				"lang": "sq",
+				"properties": {
+					"text": "",
+					"linkText": "",
+					"linkUrl": ""
+				}
+			},
+			{
+				"lang": "bs",
+				"properties": {
+					"text": "",
+					"linkText": "",
+					"linkUrl": ""
+				}
 			}
 		]
 	},
 	{
 		"blockName": "header-02-1",
 		"languages": [
-			{
-				"lang": "fr",
-				"properties": {
-					"img": "images/logo.png",
-					"url": "http://www.google.ch/fr"
-				}
-			},
 			{
 				"lang": "de",
 				"properties": {
@@ -51,18 +92,61 @@
 					"img": "images/logo.png",
 					"url": "http://www.google.ch/it"
 				}
+			},
+			{
+				"lang": "fr",
+				"properties": {
+					"img": "",
+					"url": ""
+				}
+			},
+			{
+				"lang": "ar",
+				"properties": {
+					"img": "",
+					"url": ""
+				}
+			},
+			{
+				"lang": "zh",
+				"properties": {
+					"img": "",
+					"url": ""
+				}
+			},
+			{
+				"lang": "cs",
+				"properties": {
+					"img": "",
+					"url": ""
+				}
+			},
+			{
+				"lang": "hy",
+				"properties": {
+					"img": "",
+					"url": ""
+				}
+			},
+			{
+				"lang": "sq",
+				"properties": {
+					"img": "",
+					"url": ""
+				}
+			},
+			{
+				"lang": "bs",
+				"properties": {
+					"img": "",
+					"url": ""
+				}
 			}
 		]
 	},
 	{
 		"blockName": "header-03-1",
 		"languages": [
-			{
-				"lang": "fr",
-				"properties": {
-					"text": "Header 3 text FR"
-				}
-			},
 			{
 				"lang": "de",
 				"properties": {
@@ -74,24 +158,54 @@
 				"properties": {
 					"text": "Header 3 text IT"
 				}
+			},
+			{
+				"lang": "fr",
+				"properties": {
+					"text": ""
+				}
+			},
+			{
+				"lang": "ar",
+				"properties": {
+					"text": ""
+				}
+			},
+			{
+				"lang": "zh",
+				"properties": {
+					"text": ""
+				}
+			},
+			{
+				"lang": "cs",
+				"properties": {
+					"text": ""
+				}
+			},
+			{
+				"lang": "hy",
+				"properties": {
+					"text": ""
+				}
+			},
+			{
+				"lang": "sq",
+				"properties": {
+					"text": ""
+				}
+			},
+			{
+				"lang": "bs",
+				"properties": {
+					"text": ""
+				}
 			}
 		]
 	},
 	{
 		"blockName": "block-02-1",
 		"languages": [
-			{
-				"lang": "fr",
-				"properties": {
-					"bgcolor": "'#CCCCCC'",
-					"img": "images/imgFr.jpg",
-					"img-w": 100,
-					"img-h": 50,
-					"img-mobile": "images/imgMobileFr.jpg",
-					"url": "http://www.google.com/fr",
-					"url-mobile": "http://www.google.com/fr"
-				}
-			},
 			{
 				"lang": "de",
 				"properties": {
@@ -115,21 +229,96 @@
 					"url": "http://www.google.com/it",
 					"url-mobile": "http://www.google.com/it"
 				}
+			},
+			{
+				"lang": "fr",
+				"properties": {
+					"bgcolor": "",
+					"img": "",
+					"img-w": "",
+					"img-h": "",
+					"img-mobile": "",
+					"url": "",
+					"url-mobile": ""
+				}
+			},
+			{
+				"lang": "ar",
+				"properties": {
+					"bgcolor": "",
+					"img": "",
+					"img-w": "",
+					"img-h": "",
+					"img-mobile": "",
+					"url": "",
+					"url-mobile": ""
+				}
+			},
+			{
+				"lang": "zh",
+				"properties": {
+					"bgcolor": "",
+					"img": "",
+					"img-w": "",
+					"img-h": "",
+					"img-mobile": "",
+					"url": "",
+					"url-mobile": ""
+				}
+			},
+			{
+				"lang": "cs",
+				"properties": {
+					"bgcolor": "",
+					"img": "",
+					"img-w": "",
+					"img-h": "",
+					"img-mobile": "",
+					"url": "",
+					"url-mobile": ""
+				}
+			},
+			{
+				"lang": "hy",
+				"properties": {
+					"bgcolor": "",
+					"img": "",
+					"img-w": "",
+					"img-h": "",
+					"img-mobile": "",
+					"url": "",
+					"url-mobile": ""
+				}
+			},
+			{
+				"lang": "sq",
+				"properties": {
+					"bgcolor": "",
+					"img": "",
+					"img-w": "",
+					"img-h": "",
+					"img-mobile": "",
+					"url": "",
+					"url-mobile": ""
+				}
+			},
+			{
+				"lang": "bs",
+				"properties": {
+					"bgcolor": "",
+					"img": "",
+					"img-w": "",
+					"img-h": "",
+					"img-mobile": "",
+					"url": "",
+					"url-mobile": ""
+				}
 			}
 		]
 	},
 	{
 		"blockName": "block-04-1",
 		"languages": [
-			{
-				"lang": "fr",
-				"properties": {
-					"bgcolor": "'#CCCCCC'",
-					"color": "'#000000'",
-					"colorSep": "'#000000'",
-					"text": "Block 4 text FR"
-				}
-			},
 			{
 				"lang": "de",
 				"properties": {
@@ -147,162 +336,68 @@
 					"colorSep": "'#000000'",
 					"text": "Block 4 text ITA"
 				}
-			}
-		]
-	},
-	{
-		"blockName": "header-01-1528884067254",
-		"languages": [
-			{
-				"lang": "fr",
-				"properties": {
-					"text": "",
-					"linkText": "",
-					"linkUrl": ""
-				}
 			},
-			{
-				"lang": "de",
-				"properties": {
-					"text": "",
-					"linkText": "",
-					"linkUrl": ""
-				}
-			},
-			{
-				"lang": "it",
-				"properties": {
-					"text": "",
-					"linkText": "",
-					"linkUrl": ""
-				}
-			}
-		]
-	},
-	{
-		"blockName": "block-02-1528901066770",
-		"languages": [
-			{
-				"lang": "fr",
-				"properties": {
-					"bgcolor": "",
-					"img": "",
-					"img-w": "",
-					"img-h": "",
-					"img-mobile": "",
-					"url": "",
-					"url-mobile": ""
-				}
-			},
-			{
-				"lang": "de",
-				"properties": {
-					"bgcolor": "",
-					"img": "",
-					"img-w": "",
-					"img-h": "",
-					"img-mobile": "",
-					"url": "",
-					"url-mobile": ""
-				}
-			},
-			{
-				"lang": "it",
-				"properties": {
-					"bgcolor": "",
-					"img": "",
-					"img-w": "",
-					"img-h": "",
-					"img-mobile": "",
-					"url": "",
-					"url-mobile": ""
-				}
-			}
-		]
-	},
-	{
-		"blockName": "block-04-1528901089697",
-		"languages": [
 			{
 				"lang": "fr",
 				"properties": {
 					"bgcolor": "",
 					"color": "",
 					"colorSep": "",
-					"text": "TESTETETETETETE FR"
+					"text": ""
 				}
 			},
 			{
-				"lang": "de",
+				"lang": "ar",
 				"properties": {
 					"bgcolor": "",
 					"color": "",
 					"colorSep": "",
-					"text": "Test DE"
+					"text": ""
 				}
 			},
 			{
-				"lang": "it",
+				"lang": "zh",
 				"properties": {
 					"bgcolor": "",
 					"color": "",
 					"colorSep": "",
-					"text": "Test IT"
-				}
-			}
-		]
-	},
-	{
-		"blockName": "header-01-1528960380603",
-		"languages": [
-			{
-				"lang": "fr",
-				"properties": {
-					"text": "",
-					"linkText": "",
-					"linkUrl": ""
+					"text": ""
 				}
 			},
 			{
-				"lang": "de",
+				"lang": "cs",
 				"properties": {
-					"text": "",
-					"linkText": "",
-					"linkUrl": ""
+					"bgcolor": "",
+					"color": "",
+					"colorSep": "",
+					"text": ""
 				}
 			},
 			{
-				"lang": "it",
+				"lang": "hy",
 				"properties": {
-					"text": "",
-					"linkText": "",
-					"linkUrl": ""
-				}
-			}
-		]
-	},
-	{
-		"blockName": "header-02-1528960388795",
-		"languages": [
-			{
-				"lang": "fr",
-				"properties": {
-					"img": "",
-					"url": ""
+					"bgcolor": "",
+					"color": "",
+					"colorSep": "",
+					"text": ""
 				}
 			},
 			{
-				"lang": "de",
+				"lang": "sq",
 				"properties": {
-					"img": "",
-					"url": ""
+					"bgcolor": "",
+					"color": "",
+					"colorSep": "",
+					"text": ""
 				}
 			},
 			{
-				"lang": "it",
+				"lang": "bs",
 				"properties": {
-					"img": "",
-					"url": ""
+					"bgcolor": "",
+					"color": "",
+					"colorSep": "",
+					"text": ""
 				}
 			}
 		]
@@ -311,12 +406,6 @@
 		"blockName": "header-03-1528962679672",
 		"languages": [
 			{
-				"lang": "fr",
-				"properties": {
-					"text": ""
-				}
-			},
-			{
 				"lang": "de",
 				"properties": {
 					"text": ""
@@ -327,119 +416,47 @@
 				"properties": {
 					"text": ""
 				}
-			}
-		]
-	},
-	{
-		"blockName": "block-04-1528963073551",
-		"languages": [
+			},
 			{
 				"lang": "fr",
 				"properties": {
-					"bgcolor": "",
-					"color": "",
-					"colorSep": "",
+					"text": "sdf sdf sdfsdf sdf "
+				}
+			},
+			{
+				"lang": "ar",
+				"properties": {
+					"text": "sdf sdf sd"
+				}
+			},
+			{
+				"lang": "zh",
+				"properties": {
+					"text": "sdf sdf sdf sdf"
+				}
+			},
+			{
+				"lang": "cs",
+				"properties": {
+					"text": "sdf sdf sdf sdf "
+				}
+			},
+			{
+				"lang": "hy",
+				"properties": {
 					"text": ""
 				}
 			},
 			{
-				"lang": "de",
+				"lang": "sq",
 				"properties": {
-					"bgcolor": "",
-					"color": "",
-					"colorSep": "",
+					"text": "sdf sdf sdf sd"
+				}
+			},
+			{
+				"lang": "bs",
+				"properties": {
 					"text": ""
-				}
-			},
-			{
-				"lang": "it",
-				"properties": {
-					"bgcolor": "",
-					"color": "",
-					"colorSep": "",
-					"text": ""
-				}
-			}
-		]
-	},
-	{
-		"blockName": "block-02-1528963101337",
-		"languages": [
-			{
-				"lang": "fr",
-				"properties": {
-					"bgcolor": "",
-					"img": "",
-					"img-w": "",
-					"img-h": "",
-					"img-mobile": "",
-					"url": "",
-					"url-mobile": ""
-				}
-			},
-			{
-				"lang": "de",
-				"properties": {
-					"bgcolor": "",
-					"img": "",
-					"img-w": "",
-					"img-h": "",
-					"img-mobile": "",
-					"url": "",
-					"url-mobile": ""
-				}
-			},
-			{
-				"lang": "it",
-				"properties": {
-					"bgcolor": "",
-					"img": "",
-					"img-w": "",
-					"img-h": "",
-					"img-mobile": "",
-					"url": "",
-					"url-mobile": ""
-				}
-			}
-		]
-	},
-	{
-		"blockName": "block-02-1528963120888",
-		"languages": [
-			{
-				"lang": "fr",
-				"properties": {
-					"bgcolor": "",
-					"img": "",
-					"img-w": "",
-					"img-h": "",
-					"img-mobile": "",
-					"url": "",
-					"url-mobile": ""
-				}
-			},
-			{
-				"lang": "de",
-				"properties": {
-					"bgcolor": "",
-					"img": "",
-					"img-w": "",
-					"img-h": "",
-					"img-mobile": "",
-					"url": "",
-					"url-mobile": ""
-				}
-			},
-			{
-				"lang": "it",
-				"properties": {
-					"bgcolor": "",
-					"img": "",
-					"img-w": "",
-					"img-h": "",
-					"img-mobile": "",
-					"url": "",
-					"url-mobile": ""
 				}
 			}
 		]
@@ -448,15 +465,6 @@
 		"blockName": "block-04-1528963132208",
 		"languages": [
 			{
-				"lang": "fr",
-				"properties": {
-					"bgcolor": "",
-					"color": "",
-					"colorSep": "",
-					"text": ""
-				}
-			},
-			{
 				"lang": "de",
 				"properties": {
 					"bgcolor": "",
@@ -472,6 +480,69 @@
 					"color": "",
 					"colorSep": "",
 					"text": ""
+				}
+			},
+			{
+				"lang": "fr",
+				"properties": {
+					"bgcolor": "",
+					"color": "",
+					"colorSep": "",
+					"text": "Test FR "
+				}
+			},
+			{
+				"lang": "ar",
+				"properties": {
+					"bgcolor": "",
+					"color": "",
+					"colorSep": "",
+					"text": "Test 123"
+				}
+			},
+			{
+				"lang": "zh",
+				"properties": {
+					"bgcolor": "",
+					"color": "",
+					"colorSep": "",
+					"text": ""
+				}
+			},
+			{
+				"lang": "cs",
+				"properties": {
+					"bgcolor": "",
+					"color": "",
+					"colorSep": "",
+					"text": ""
+				}
+			},
+			{
+				"lang": "hy",
+				"properties": {
+					"bgcolor": "",
+					"color": "",
+					"colorSep": "",
+					"text": ""
+				}
+			},
+			{
+				"lang": "sq",
+				"properties": {
+					"bgcolor": "",
+					"color": "",
+					"colorSep": "",
+					"text": "asd asd asd s khasasdsda"
+				}
+			},
+			{
+				"lang": "bs",
+				"properties": {
+					"bgcolor": "",
+					"color": "",
+					"colorSep": "",
+					"text": "cyxcyxcy"
 				}
 			}
 		]

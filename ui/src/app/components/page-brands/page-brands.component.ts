@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Brand } from '../../models/brand';
 import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs';
 import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/throttleTime';

@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { MDBBootstrapModulesPro, ToastModule } from 'ng-uikit-pro-standard';
 import { AppRoutingModule } from './app-routing.module';
 import { SortablejsModule } from 'angular-sortablejs';
 import { HttpClientModule } from '@angular/common/http';
@@ -19,7 +19,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { FilterSelectedPipe } from './pipes/filter-selected.pipe';
 import { ApiService } from './services/api.service';
+import { ToastrService } from './services/toastr.service';
 import { ApiHelperService } from './services/api-helper.service';
+import { DebounceChangeDirective } from './directives/debounce-change.directive';
 
 @NgModule({
   declarations: [
@@ -30,23 +32,25 @@ import { ApiHelperService } from './services/api-helper.service';
     PageCampaignBuilderComponent,
     PageNotFoundComponent,
     BreadcrumbComponent,
-    FilterSelectedPipe
+    FilterSelectedPipe,
+    DebounceChangeDirective
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule,
     FormsModule,
-    MDBBootstrapModule.forRoot(),
+    MDBBootstrapModulesPro.forRoot(),
     AppRoutingModule,
     SortablejsModule.forRoot({}),
     HttpClientModule,
     MaterialModule,
     BrowserAnimationsModule,
     ColorPickerModule,
+    ToastModule.forRoot(),
     // JoditAngularModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [ApiService, ApiHelperService],
+  providers: [ApiService, ApiHelperService, ToastrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

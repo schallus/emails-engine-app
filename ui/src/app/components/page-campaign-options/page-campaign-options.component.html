@@ -2,13 +2,19 @@
 <div class="row">
   <div class="col">
     <div class="card">
-      <div class="card-header indigo white-text">
+      <div class="card-header primary-color white-text">
         <i class="fa fa-language prefix"></i>
         Séléctionner une ou plusieurs langues
       </div>
       <div class="card-body">
+        <div class="input-group md-form form-sm form-1 pl-0">
+          <div class="input-group-prepend">
+            <span class="input-group-text primary-color"><i class="fa fa-search text-white" aria-hidden="true"></i></span>
+          </div>
+          <input class="form-control my-0 py-1" type="text" placeholder="Rechercher" aria-label="Rechercher" [value]="filterLang" [formControl]="filterLangControl">
+        </div>
         <div class="btn-group checkbox-list" id="checkbox-languages" data-toggle="buttons">
-          <label *ngFor="let language of languages" class="btn btn-secondary form-check-label mb-1" [ngClass]="{'active': language.selected}">
+          <label *ngFor="let language of filteredLanguages" class="btn btn-primary form-check-label mb-1" [ngClass]="{'active': language.selected}">
             <input class="form-check-input d-none" type="checkbox" [checked]="language.selected ? 'checked' : null" autocomplete="off" (change)="onCheckBoxChange(language)" [value]="language.code" > {{ language.name }} ({{ language.code }})
           </label>
         </div>
@@ -18,7 +24,7 @@
 
   <div class="col">
     <div class="card mb-4">
-      <div class="card-header indigo white-text">
+      <div class="card-header primary-color white-text">
         <i class="fa fa-info-circle prefix"></i>
         Informations générales
       </div>
@@ -29,21 +35,25 @@
             Veuillez renseigner tous les champs du formulaire.
           </div>
           <div class="md-form">
-              <input ngModel mdbInputDirective type="text" id="campaignName" name="campaignName" class="form-control form-control-sm" required min-length="2" max-length="30" data-error="Nom invalide.">
-              <label for="campaignName">Nom de la campagne</label>
+            <input [mdbValidate]="false" [ngModel]="campaignName" mdbInputDirective type="text" id="campaignName" name="campaignName" class="form-control form-control-sm" required min-length="2" max-length="30">
+            <label for="campaignName">Nom de la campagne</label>
           </div>
-          <div class="md-form" *ngFor="let language of languagesSelected()">
-            <input ngModel mdbInputDirective type="text" [id]="'subject' + language.code" [name]="'subject' + language.code" class="form-control form-control-sm" required min-length="2" max-length="30" data-error="Sujet invalide.">
+          <div class="md-form">
+            <input [mdbValidate]="false" [ngModel]="campaignDisplayName" mdbInputDirective type="text" id="campaignDisplayName" name="campaignDisplayName" class="form-control form-control-sm" required min-length="2" max-length="30">
+            <label for="campaignDisplayName">Nom d'affichage de la campagne</label>
+          </div>
+          <div class="md-form" *ngFor="let language of getLanguagesSelected()">
+            <input [mdbValidate]="false" [ngModel]="getSubject(language.code)" mdbInputDirective type="text" [id]="'subject' + language.code" [name]="'subject' + language.code" class="form-control form-control-sm" required min-length="2" max-length="30">
             <label [attr.for]="'subject' + language.code">Sujet {{ language.code | uppercase }}</label>
           </div>
           <div class="text-center">
-            <button mdbInputDirective type="submit" class="btn btn-green btn-sm" [disabled]="campaignOptionsForm.invalid">Enregistrer</button>
+            <button mdbInputDirective type="submit" class="btn btn-green btn-rounded" [disabled]="campaignOptionsForm.invalid">Suivant</button>
           </div>
         </form>
       </div>
     </div>
     <div class="card">
-      <div class="card-header indigo white-text">
+      <div class="card-header primary-color white-text">
         <i class="fa fa-plus-circle prefix"></i>
         Ajouter une nouvelle langue
       </div>
@@ -53,16 +63,16 @@
             Veuillez renseigner tous les champs du formulaire et vérifier que le code soit unique.
           </div>
           <div class="md-form">
-            <input ngModel mdbInputDirective type="text" id="inputLanguageName" name="name" class="form-control form-control-sm" required minLength="2" maxLength="30" data-error="Nom invalide.">
+            <input [mdbValidate]="false" ngModel mdbInputDirective type="text" id="inputLanguageName" name="name" class="form-control form-control-sm" required minLength="2" maxLength="30" data-error="Nom invalide.">
             <label for="inputLanguageName">Nom de la langue</label>
           </div>
           <div class="md-form">
-            <input ngModel mdbInputDirective type="text" id="inputLanguageCode" name="code" class="form-control form-control-sm" required minLength="2" maxLength="2" data-error="Code invalide.">
+            <input [mdbValidate]="false" ngModel mdbInputDirective type="text" id="inputLanguageCode" name="code" class="form-control form-control-sm" required minLength="2" maxLength="2" data-error="Code invalide.">
             <label for="inputLanguageCode">Code</label>
           </div>
           <div class="text-center">
-            <button type="button" class="btn btn-indigo btn-sm" data-dismiss="modal" mdbWavesEffect>Réinitialiser</button>
-            <button type="submit" class="btn btn-green btn-sm" mdbWavesEffect [disabled]="newLangForm.invalid">Ajouter</button>
+            <button type="button" class="btn btn-grey btn-rounded" (click)="newLangForm.reset()" mdbWavesEffect>Réinitialiser</button>
+            <button type="submit" class="btn btn-green btn-rounded" mdbWavesEffect [disabled]="newLangForm.invalid">Ajouter</button>
           </div>
         </form>
       </div>

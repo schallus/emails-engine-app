@@ -371,6 +371,34 @@ campaign.addBlockData = (req, res, next) => {
     res.status(201).json(newBlockData);
 };
 
+campaign.setBlocksData = (req, res, next) => {
+    const newBlocksData = req.body;
+
+    if(!Array.isArray(newBlocksData)) {
+        return next({
+            status: 422,
+            message: "You must pass an array of block data in the body."
+        }); 
+    } else {
+        for (newBlockData of newBlocksData) {
+            if(!newBlockData.blockName || !Array.isArray(newBlockData.languages)) {
+                return next({
+                    status: 422,
+                    message: "You must pass an array of block data in the body."
+                });
+            }
+        }
+    }
+
+    try {
+        fs.writeFileSync(`${res.brandPath}/${req.params.campaignSlug}/data/data-lang.json`, JSON.stringify(newBlocksData, null, "\t"), 'utf8');
+    } catch (err) {
+        return next(err);
+    }
+
+    res.status(200).json(newBlocksData);
+};
+
 campaign.removeBlockData = (req, res, next) => {
     try {
         campaignData = JSON.parse(fs.readFileSync(`${res.brandPath}/${req.params.campaignSlug}/data/data-lang.json`, 'utf8'));

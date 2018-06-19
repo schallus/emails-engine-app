@@ -9,7 +9,8 @@ import { Brand } from '../models/brand';
 import { Campaign } from '../models/campaign';
 import { Block } from '../models/block';
 import { BlockPosition } from './../models/block-position';
-import { Lang } from './../models/lang';
+import { CampaignOptions } from './../models/campaign-options';
+
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -61,7 +62,12 @@ export class ApiService {
   }
 
   getCampaignOptions(brandName: string, campaignName: string) {
-    return this.http.get<any>(this.campaignOptionsUrl(brandName, campaignName))
+    return this.http.get<CampaignOptions>(this.campaignOptionsUrl(brandName, campaignName))
+      .pipe(catchError(this.apiHelper.handleError));
+  }
+
+  setCampaignOptions(brandName: string, campaignName: string, options: CampaignOptions) {
+    return this.http.post<CampaignOptions>(this.campaignOptionsUrl(brandName, campaignName), options, httpOptions)
       .pipe(catchError(this.apiHelper.handleError));
   }
 
@@ -80,6 +86,16 @@ export class ApiService {
       .pipe(catchError(this.apiHelper.handleError));
   }
 
+  getBlocksData(brandName: string, campaignName: string) {
+    return this.http.get<any[]>(this.getBlocksDataUrl(brandName, campaignName))
+      .pipe(catchError(this.apiHelper.handleError));
+  }
+
+  setBlocksData(brandName: string, campaignName: string, blocksData: any) {
+    return this.http.put<any[]>(this.getBlocksDataUrl(brandName, campaignName), blocksData, httpOptions)
+      .pipe(catchError(this.apiHelper.handleError));
+  }
+
   changeBlockData(brandName: string, campaignName: string, blockName: string, blockData: any) {
     return this.http.put<any[]>(this.getBlockDataUrl(brandName, campaignName, blockName), blockData, httpOptions)
       .pipe(catchError(this.apiHelper.handleError));
@@ -87,6 +103,11 @@ export class ApiService {
 
   setBlockData(brandName: string, campaignName: string, blockData: any) {
     return this.http.post<any[]>(this.getBlocksDataUrl(brandName, campaignName), blockData, httpOptions)
+      .pipe(catchError(this.apiHelper.handleError));
+  }
+
+  removeBlockData(brandName: string, campaignName: string, blockName: string) {
+    return this.http.delete<any>(this.getBlockDataUrl(brandName, campaignName, blockName))
       .pipe(catchError(this.apiHelper.handleError));
   }
 

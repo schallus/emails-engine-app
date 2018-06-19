@@ -29,6 +29,7 @@
     "font-awesome": "^4.7.0",
     "hammerjs": "^2.0.8",
     "jodit-angular": "^1.0.56",
+    "ng-uikit-pro-standard": "git+https://oauth2:kEQ4iX34kDwMpNhcfEzV@git.mdbootstrap.com/mdb/angular/ng-uikit-pro-standard.git",
     "ngx-color-picker": "^6.3.3",
     "rxjs": "^6.2.0",
     "rxjs-compat": "^6.2.0",

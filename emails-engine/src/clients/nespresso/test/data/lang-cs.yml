@@ -1,0 +1,42 @@
+#
+# brand: nespresso
+# campaign: test
+# lang: cs
+#
+
+header-01-1:
+    text:     
+    linkText:     
+    linkUrl:     
+
+header-02-1:
+    img:     
+    url:     
+
+header-03-1:
+    text:     
+
+block-02-1:
+    bgcolor:     
+    img:     
+    img-w:     
+    img-h:     
+    img-mobile:     
+    url:     
+    url-mobile:     
+
+block-04-1:
+    bgcolor:     
+    color:     
+    colorSep:     
+    text:     
+
+header-03-1528962679672:
+    text:     
+
+block-04-1528963132208:
+    bgcolor:     
+    color:     
+    colorSep:     
+    text:     
+

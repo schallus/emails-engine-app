@@ -1,12 +1,33 @@
 {
-    "lang": {
-        "fr": {
-            "subject": "Sujet email test FR"
-        }, "de": {
-            "subject": "Sujet email test DE"
-        }, "it": {
-            "subject": "Sujet email test IT"
-        }
-    },
-    "layout": "default"
+	"lang": {
+		"sq": {
+			"subject": "Test Alba"
+		},
+		"ar": {
+			"subject": "Test"
+		},
+		"hy": {
+			"subject": "dasdasd"
+		},
+		"bs": {
+			"subject": "xycyxcyxc"
+		},
+		"zh": {
+			"subject": "sadasdasd"
+		},
+		"cs": {
+			"subject": "asdasd"
+		},
+		"fr": {
+			"subject": "test"
+		},
+		"de": {
+			"subject": "Campagne de test DE"
+		},
+		"it": {
+			"subject": "as dasd asd "
+		}
+	},
+	"customLang": [],
+	"layout": "default"
 }

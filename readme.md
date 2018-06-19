@@ -69,4 +69,12 @@ Run `npm run build client/projet` pour lancer le build process, HTML minifié et
 
 Run `npm run cdn client/projet` pour lancer le build, uploader les images sur le ftp (cloud cross) et remplacer les liens. 
 
-Run `npm run zip client/projet` pour créer un zip de l'archive dans le dossier dist. 
+Run `npm run zip client/projet` pour créer un zip de l'archive dans le dossier dist.
+
+## MDB Pro
+
+Access Token: kEQ4iX34kDwMpNhcfEzV
+
+### Procédure d'installation
+
+npm install git+https://oauth2:kEQ4iX34kDwMpNhcfEzV@git.mdbootstrap.com/mdb/angular/ng-uikit-pro-standard.git

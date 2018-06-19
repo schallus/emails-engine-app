@@ -1,27 +1,12 @@
 @import "./assets/styles/dragndrop";
 @import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-/* You can add global styles to this file, and also import other style files */
-.btn-circle {
-    width: 30px;
-    height: 30px;
-    position: relative;
-    border-radius: 100%;
-    margin: 0 3px !important;
-    padding: 0px;
+//Customize theme color
 
-    .fa {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        height: 50%;
-        transform: translate(-50%, -50%);
-        width: 10px;
-        height: 10px;
-        display: block;
-        font-size: 10px;
-    }
-}
+$theme-colors: (
+  "primary": #0074d9,
+  "secondary": #E51A27
+);
 
 .btn-group.checkbox-list {
     display: block;
@@ -57,4 +42,8 @@
 
 .text-success {
     display: none;
+}
+
+#toast-container .toast {
+    opacity: 1 !important;
 }
