@@ -11,7 +11,7 @@
 </div>
 <div class="row">
   <div class="col-5">
-    <div class="card">
+    <div class="card" #dragNDropBlocksList [ngClass]="{'fixed': blocksFixed}">
       <div class="card-header primary-color white-text">
         Blocs
       </div>
@@ -97,37 +97,57 @@
           <mdb-tab *ngFor="let lang of campaignLanguages" class="tab-pane fade in show active" [id]="'tab-'+lang" role="tabpanel" [heading]="lang | uppercase">
             <!--Body-->
             <div class="modal-body mb-1" *ngIf="block">
+              <!-- Switch -->
+              <div class="switch danger-switch">
+                <label>
+                  Cacher
+                  <input type="checkbox" [id]="'show-block-'+lang" [name]="'show-block-'+lang" [checked]="isVisible(lang)" (change)="toggleVisibility(lang)">
+                  <span class="lever"></span>
+                  Afficher
+                </label>
+              </div>
               <div class="md-form" *ngFor="let property of getBlockTypeInfo(block.blockType).properties" [ngSwitch]="property.type">
                 <div *ngSwitchCase="'text'">
-                  <input mdbInputDirective type="text" class="form-control" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" [value]="getPropertyValue(property.name, lang)" appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)">
-                  <label [for]="property.name+'-'+lang">{{ property.displayName }}</label>
+                  <input mdbInputDirective type="text" class="form-control" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" [value]="getPropertyValue(property.name, lang)" appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)" [required]="property.required">
+                  <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
                 </div>
                 <div *ngSwitchCase="'number'">
-                    <input mdbInputDirective type="number" class="form-control" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" [value]="getPropertyValue(property.name, lang)">
-                    <label [for]="property.name+'-'+lang">{{ property.displayName }}</label>
+                    <input mdbInputDirective type="number" class="form-control" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" [value]="getPropertyValue(property.name, lang)" appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)" [required]="property.required">
+                    <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
                   </div>
                 <div *ngSwitchCase="'url'">
-                  <input mdbInputDirective type="text" class="form-control" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" customRegex="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" data-error="Format de l'url incorrect" data-success="" [value]="getPropertyValue(property.name, lang)">
-                  <label [for]="property.name+'-'+lang">{{ property.displayName }}</label>
+                  <input mdbInputDirective type="text" class="form-control" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" customRegex="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" [value]="getPropertyValue(property.name, lang)" appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)" [required]="property.required">
+                  <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
                 </div>
-                <div *ngSwitchCase="'file'">
-                  <input mdbInputDirective type="file" class="form-control" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang">
-                  <label [for]="property.name+'-'+lang">{{ property.displayName }}</label>
+                <div *ngSwitchCase="'img'" class="file-field">
+                  <div class="col-6 img-preview">
+                    <img [src]="getPropertyValue(property.name, lang) !== '' ? getPropertyValue(property.name, lang) : 'assets/img/placeholder.jpg'" class="img-fluid">
+                  </div>
+                  <div class="col-6 img-button">
+                    <div class="btn btn-primary btn-rounded">
+                      <span>Séléctionner une image</span>
+                      <input type="file" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" (change)="uploadFile(property.name, lang, $event)">
+                    </div>
+                  </div>
                 </div>
                 <div *ngSwitchCase="'color'">
-                  <input mdbInputDirective class="form-control" [id]="property.name+'-'+lang" name="property.name+'-'+lang" [value]="getPropertyValue(property.name, lang)"
-                  [style.background]="color"
+                  <span class="color-preview prefix mr-1 rounded" [style.background]="getPropertyValue(property.name, lang)"></span>
+                  <input mdbInputDirective [mdbValidate]="false" type="text" class="form-control color" [id]="property.name+'-'+lang" name="property.name+'-'+lang" [required]="property.required"
+                  (colorPickerSelect)="colorPickerChange(property.name, lang, $event)"
                   [cpCancelButton]="true"
-                  [cpCancelButtonClass]= "'btn btn-primary btn-sm'"
+                  [cpCancelButtonClass]= "'btn btn-primary btn-sm mr-1'"
                   [cpOKButton]="true"
                   [cpSaveClickOutside]="false"
-                  [cpOKButtonClass]= "'btn btn-primary btn-sm'"
-                  [(colorPicker)]="color"/>
-                  <label [for]="property.name+'-'+lang">{{ property.displayName }}</label>
+                  [cpOKButtonClass]= "'btn btn-green btn-sm'"
+                  [value]="getPropertyValue(property.name, lang)"
+                  [colorPicker]="getPropertyValue(property.name, lang)"/>
+                  <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
                 </div>
                 <div *ngSwitchCase="'textarea'">
-                  <textarea mdbInputDirective type="text" [id]="property.name+'-'+lang" class="md-textarea form-control" rows="3"></textarea>
-                  <label [for]="property.name+'-'+lang">{{ property.displayName }}</label>
+                  <textarea mdbInputDirective class="md-textarea form-control" rows="3" type="text" [id]="property.name+'-'+lang" name="property.name+'-'+lang" [required]="property.required" appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)">
+                    {{ getPropertyValue(property.name, lang) }}
+                  </textarea>
+                  <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
                 </div>
               </div>
             </div>

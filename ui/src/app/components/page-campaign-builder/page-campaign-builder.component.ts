@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SortablejsOptions } from 'angular-sortablejs';
 import { FormControl } from '@angular/forms';
+import { DOCUMENT } from '@angular/platform-browser';
 
 // RxJS
 import { Subscription, Observable } from 'rxjs';
@@ -9,6 +10,7 @@ import 'rxjs/add/operator/debounceTime';
 
 // Custom
 import { ApiService } from '../../services/api.service';
+import { UploadService } from '../../services/upload.service';
 
 // Models
 import { Block } from './../../models/block';
@@ -25,6 +27,8 @@ export class PageCampaignBuilderComponent implements OnInit {
   @ViewChild('modalBlockRemove') public modalBlockRemove;
   @ViewChild('modalBlockSettings') public modalBlockSettings;
   @ViewChild('langTabs') langTabs: TabsetComponent;
+  @ViewChild('dragNDropBlocksList') dragNDropBlocksList: any;
+
 
   // Url parameters
   brandName: string;
@@ -54,8 +58,17 @@ export class PageCampaignBuilderComponent implements OnInit {
   block: BlockPosition;
   blockData: any;
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) {
+  blocksFixed: boolean;
+  blocksFixedWidth: number;
 
+  constructor(
+    private route: ActivatedRoute,
+    private apiService: ApiService,
+    private uploadService: UploadService,
+    @Inject(DOCUMENT) private doc: Document
+  ) {
+
+    this.blocksFixed = false;
     this.filterBlock = '';
 
     this.list1Options = {
@@ -89,8 +102,7 @@ export class PageCampaignBuilderComponent implements OnInit {
         const newBlockPosition = {
           blockType: blockData.name,
           position: newIndex,
-          name: `${blockData.name}-${new Date().getTime().toString()}`,
-          lang: this.campaignLanguages
+          name: `${blockData.name}-${new Date().getTime().toString()}`
         };
         // Insert the element at a specific position
         this.campaignStructure.splice(newIndex, 0, newBlockPosition);
@@ -100,6 +112,8 @@ export class PageCampaignBuilderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.blocksFixedWidth = this.dragNDropBlocksList.nativeElement.clientWidth;
+
     // Get url parameters
     this.brandName = this.route.snapshot.paramMap.get('brandName');
     this.campaignName = this.route.snapshot.paramMap.get('campaignName');
@@ -113,7 +127,7 @@ export class PageCampaignBuilderComponent implements OnInit {
 
     // Get list of blocks available
     this.apiService.getBlocks(this.brandName).subscribe(blocks => {
-      this.blocks = blocks;
+      this.blocks = blocks.sort((a, b) => (a.displayName > b.displayName) ? 1 : ((b.displayName > a.displayName) ? -1 : 0));
       this.filteredBlocks = this.blocks;
     });
 
@@ -125,12 +139,6 @@ export class PageCampaignBuilderComponent implements OnInit {
       this.apiService.getCampaignOptions(this.brandName, this.campaignName).subscribe(options => {
         this.campaignOptions = options;
         this.campaignLanguages = Object.keys(this.campaignOptions.lang);
-
-        // Change lang in campaign structure
-        this.campaignStructure = this.campaignStructure.map(el => {
-          el.lang = this.campaignLanguages;
-          return el;
-        });
 
         this.apiService.setCampaignStructure(this.brandName, this.campaignName, this.campaignStructure)
           .subscribe(newCampaignStructure => this.campaignStructure = newCampaignStructure);
@@ -152,7 +160,8 @@ export class PageCampaignBuilderComponent implements OnInit {
             langToAdd.forEach(lang => {
               const el = {
                 lang: lang,
-                properties: {}
+                properties: {},
+                display: true
               };
 
               for (const blockProperty of blockInfo.properties) {
@@ -175,6 +184,17 @@ export class PageCampaignBuilderComponent implements OnInit {
         this.filterBlock = newValue;
         this.filterBlocks();
       });
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(e: any) {
+    if (!this.blocksFixed && window.pageYOffset > 185) {
+      this.blocksFixed = true;
+      this.dragNDropBlocksList.nativeElement.style.width = `${this.blocksFixedWidth}px`;
+      console.log('new width', this.dragNDropBlocksList.nativeElement.style.width);
+    } else if (this.blocksFixed && window.pageYOffset < 185) {
+      this.blocksFixed = false;
+    }
   }
 
   filterBlocks() {
@@ -216,7 +236,8 @@ export class PageCampaignBuilderComponent implements OnInit {
         for (const lang of this.campaignLanguages) {
           const el = {
             lang: lang,
-            properties: {}
+            properties: {},
+            display: true
           };
 
           for (const blockProperty of blockInfo.properties) {
@@ -270,14 +291,50 @@ export class PageCampaignBuilderComponent implements OnInit {
     });
   }
 
+  uploadFile(propertyName: string, lang: string, event: any) {
+    if (event.target.files.length > 0) {
+      const image = event.target.files[0];
+
+      this.uploadService.uploadImage(this.brandName, this.campaignName, image).subscribe((data) => {
+        if (data && data.imageUrl) {
+          this.blockData.languages.filter(el => el.lang === lang)[0].properties[propertyName] = data.imageUrl;
+          this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe(() => {
+            console.log('block data changed', this.blockData);
+          });
+        }
+      });
+    }
+  }
+
+  toggleVisibility(lang: string) {
+    if (this.blockData) {
+      this.blockData.languages.filter(
+        el => el.lang === lang
+      )[0].display = !this.isVisible(lang);
+      this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe();
+    }
+  }
+
+  isVisible(lang: string) {
+    if (this.blockData) {
+      return this.blockData.languages.filter(
+        el => el.lang === lang
+      )[0].display;
+    }
+  }
+
+  colorPickerChange(propertyName: string, lang: string, color: any) {
+    this.blockData.languages.filter(el => el.lang === lang)[0].properties[propertyName] = color;
+    this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe();
+  }
+
   isCompletelyFilled(blockName: string) {
+    const blockInfo = this.getBlockInfo(blockName);
     this.apiService.getBlockData(this.brandName, this.campaignName, blockName).subscribe((data) => {
       data.languages.forEach((dataLang) => {
-        console.log(dataLang);
         Object.keys(dataLang.properties).forEach(key => {
-          if (dataLang.properties[key] === '') {
-            console.log(`unset properties`);
-            return false;
+          if (dataLang.properties[key] === '' && blockInfo.properties.filter(property => property.name === key)[0].required) {
+            console.log(`Property '${key}' in lang '${dataLang.lang}' is required.`);
           }
         });
       });

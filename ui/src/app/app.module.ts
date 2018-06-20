@@ -22,6 +22,7 @@ import { ApiService } from './services/api.service';
 import { ToastrService } from './services/toastr.service';
 import { ApiHelperService } from './services/api-helper.service';
 import { DebounceChangeDirective } from './directives/debounce-change.directive';
+import { UploadService } from './services/upload.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,7 @@ import { DebounceChangeDirective } from './directives/debounce-change.directive'
     // JoditAngularModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  providers: [ApiService, ApiHelperService, ToastrService],
+  providers: [ApiService, ApiHelperService, ToastrService, UploadService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

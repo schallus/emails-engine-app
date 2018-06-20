@@ -14,7 +14,6 @@ import { languagesList } from './../../data/lang';
 import { CampaignOptions } from '../../models/campaign-options';
 
 import { ToastrService } from '../../services/toastr.service';
-import { Campaign } from '../../models/campaign';
 
 @Component({
   selector: 'app-page-campaign-options',

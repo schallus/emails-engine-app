@@ -34,6 +34,14 @@ const hbs = exphbs.create({
         ifEquals: function(arg1, arg2, options) {
             return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
         },
+        ifDisplayLang: function(lang, blocksData, blockName, options) {
+            const blockData = blocksData.filter(block => block.blockName === blockName)[0];
+            if(blockData) {
+                const display = blockData.languages.filter(el => el.lang === lang)[0].display;
+                if (display) return options.fn(this);
+            }
+            return options.inverse(this); 
+        },
     }
 });
 

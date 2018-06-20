@@ -2,15 +2,13 @@
     {
         "name": "spacer",
         "displayName": "Spacer",
-        "templatePath": "spacer.html",
-        "thumbnailUrl": "https://www.nespresso.com/canada-moments/cafe-gourmand/img/logos/nespresso_hero.jpg",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-27.jpg",
         "properties": []
     },
     {
         "name": "header-01",
         "displayName": "Header 1",
-        "templatePath": "header-01.html",
-        "thumbnailUrl": "https://www.nespresso.com/canada-moments/cafe-gourmand/img/logos/nespresso_hero.jpg",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/header-01.jpg",
         "properties": [
             {
                 "name": "text",
@@ -35,13 +33,12 @@
     {
         "name": "header-02",
         "displayName": "Header 2",
-        "templatePath": "header-02.html",
-        "thumbnailUrl": "https://www.nespresso.com/canada-moments/cafe-gourmand/img/logos/nespresso_hero.jpg",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/header-02.jpg",
         "properties": [
             {
                 "name": "img",
                 "displayName": "Image",
-                "type": "file",
+                "type": "img",
                 "required": true
             },
             {
@@ -55,8 +52,7 @@
     {
         "name": "header-03",
         "displayName": "Header 3",
-        "templatePath": "header-03.html",
-        "thumbnailUrl": "https://www.nespresso.com/canada-moments/cafe-gourmand/img/logos/nespresso_hero.jpg",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/header-03.jpg",
         "properties": [
             {
                 "name": "text",
@@ -67,10 +63,40 @@
         ]
     },
     {
+        "name": "block-01",
+        "displayName": "Block 1",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-01.jpg",
+        "properties": [
+            {
+                "name": "title",
+                "displayName": "Titre",
+                "type": "text",
+                "required": true
+            },
+            {
+                "name": "text",
+                "displayName": "Texte",
+                "type": "text",
+                "required": true
+            },
+            {
+                "name": "linkUrl",
+                "displayName": "Url du lien",
+                "type": "url",
+                "required": true
+            },
+            {
+                "name": "linkText",
+                "displayName": "Texte du lien",
+                "type": "text",
+                "required": true
+            }
+        ]
+    },
+    {
         "name": "block-02",
         "displayName": "Block 2",
-        "templatePath": "block-02.html",
-        "thumbnailUrl": "https://www.nespresso.com/canada-moments/cafe-gourmand/img/logos/nespresso_hero.jpg",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-02.jpg",
         "properties": [
             {
                 "name": "bgcolor",
@@ -81,7 +107,7 @@
             {
                 "name": "img",
                 "displayName": "Image",
-                "type": "file",
+                "type": "img",
                 "required": true
             },
             {
@@ -99,7 +125,7 @@
             {
                 "name": "img-mobile",
                 "displayName": "Image pour mobile",
-                "type": "file",
+                "type": "img",
                 "required": false
             },
             {
@@ -117,10 +143,40 @@
         ]
     },
     {
+        "name": "block-03",
+        "displayName": "Block 3",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-03.jpg",
+        "properties": [
+            {
+                "name": "url",
+                "displayName": "URL",
+                "type": "url",
+                "required": true
+            },
+            {
+                "name": "img",
+                "displayName": "Image",
+                "type": "img",
+                "required": true
+            },
+            {
+                "name": "url-mobile",
+                "displayName": "URL sur mobile",
+                "type": "url",
+                "required": true
+            },
+            {
+                "name": "img-mobile",
+                "displayName": "Image sur mobile",
+                "type": "img",
+                "required": true
+            }
+        ]
+    },
+    {
         "name": "block-04",
         "displayName": "Block 4",
-        "templatePath": "block-04.html",
-        "thumbnailUrl": "https://www.nespresso.com/canada-moments/cafe-gourmand/img/logos/nespresso_hero.jpg",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-04.jpg",
         "properties": [
             {
                 "name": "bgcolor",

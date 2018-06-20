@@ -5,7 +5,7 @@ lang: {{data.lang}}
 ---
 
 {{#each data.structure}}
-{{#ifIn ../data.lang this.lang}}
+{{#ifDisplayLang ../data.lang ../data.data this.name}}
 \{{> {{this.blockType}} data=lang-{{../data.lang}}.{{this.name}} }}
-{{/ifIn}}
+{{/ifDisplayLang}}
 {{/each}}

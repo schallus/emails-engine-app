@@ -4,39 +4,21 @@
 # lang: it
 #
 
-header-01-1:
-    text: Header text IT    
-    linkText: Link text IT    
-    linkUrl: http://testIT.com    
+header-01-1529498145866:
+    text:     
+    linkText:     
+    linkUrl:     
 
-header-02-1:
-    img: images/logo.png    
-    url: http://www.google.ch/it    
+header-02-1529498149351:
+    img:     
+    url:     
 
-header-03-1:
-    text: Header 3 text IT    
-
-block-02-1:
-    bgcolor: '#CCCCCC'    
-    img: images/imgIt.jpg    
-    img-w: 100    
-    img-h: 50    
-    img-mobile: images/imgMobileIt.jpg    
-    url: http://www.google.com/it    
-    url-mobile: http://www.google.com/it    
-
-block-04-1:
-    bgcolor: '#CCCCCC'    
-    color: '#000000'    
-    colorSep: '#000000'    
-    text: Block 4 text ITA    
-
-header-03-1528962679672:
+header-03-1529498153088:
     text:     
 
-block-04-1528963132208:
-    bgcolor:     
-    color:     
-    colorSep:     
+block-01-1529498159606:
+    title:     
     text:     
+    linkUrl:     
+    linkText:     
 

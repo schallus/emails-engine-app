@@ -264,18 +264,6 @@ campaign.setCampaignStructure = (req, res, next) => {
         });
     }
 
-    // Contrôle si langue inexistante
-    const langArr = Object.keys(campaignConfig.lang);
-    const newCampaignBlocksLanguages = utils.flatten(newCampaignStructure.map(block => block.lang)).filter((item, pos, self) => self.indexOf(item) == pos);
-    for(let lang of newCampaignBlocksLanguages) {
-        if(!langArr.includes(lang)) {
-            return next({
-                status: 422,
-                message: `The lang '${lang}' does not exist for this campaign.`
-            });
-        }
-    }
-
     try {
         fs.writeFileSync(`${res.brandPath}/${req.params.campaignSlug}/pages/structure.json`, JSON.stringify(newCampaignStructure, null, "\t"), 'utf8');
     } catch (err) {
@@ -478,6 +466,35 @@ campaign.buildCampaign = (req, res, next) => {
         }
     }
 
+    const dataDir = `${res.brandPath}/${req.params.campaignSlug}/data`;
+    const pagesDir = `${res.brandPath}/${req.params.campaignSlug}/pages`;
+
+    // Remove all the compiled files from the data directory excepted json files
+    fs.readdir(dataDir, (err, files) => {
+        if (err) throw err;
+
+        for (const file of files) {
+            if (file.indexOf('.json') === -1) {
+                fs.unlink(path.join(dataDir, file), err => {
+                    if (err) throw err;
+                });
+            }
+        }
+    });
+
+    // Remove all the compiled files from the pages directory excepted json files
+    fs.readdir(pagesDir, (err, files) => {
+        if (err) throw err;
+
+        for (const file of files) {
+            if (file.indexOf('.json') === -1) {
+                fs.unlink(path.join(pagesDir, file), err => {
+                    if (err) throw err;
+                });
+            }
+        }
+    });
+
     // First we update the /pages folder with the new structure
     for([key, value] of utils.entries(campaignConfig.lang)) {
         const lang = key;
@@ -494,8 +511,10 @@ campaign.buildCampaign = (req, res, next) => {
             subject: subject, 
             emailLayout: campaignConfig.layout,
             lang: lang,
-            structure: sortedStructure
+            structure: sortedStructure,
+            data: campaignData
         }, (err, structure) => {
+            console.log(err);
             if(err) return next({
                 status: 500,
                 message: "Something unexpected happened while rendering the campaign structure file."
@@ -527,7 +546,7 @@ campaign.buildCampaign = (req, res, next) => {
             });
 
             try {
-                fs.writeFileSync(`${res.brandPath}/${req.params.campaignSlug}/data/lang-${lang}.yml`, data, 'utf8');
+                fs.writeFileSync(`${dataDir}/lang-${lang}.yml`, data, 'utf8');
             } catch (err) {
                 if (err.code === 'ENOENT') {
                     return next({

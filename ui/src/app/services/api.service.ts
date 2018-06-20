@@ -11,7 +11,6 @@ import { Block } from '../models/block';
 import { BlockPosition } from './../models/block-position';
 import { CampaignOptions } from './../models/campaign-options';
 
-
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json'
@@ -82,7 +81,7 @@ export class ApiService {
   }
 
   getBlockData(brandName: string, campaignName: string, blockName: string) {
-    return this.http.get<any[]>(this.getBlockDataUrl(brandName, campaignName, blockName))
+    return this.http.get<any>(this.getBlockDataUrl(brandName, campaignName, blockName))
       .pipe(catchError(this.apiHelper.handleError));
   }
 

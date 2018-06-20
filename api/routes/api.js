@@ -11,18 +11,17 @@ const validator = require('express-validator');
 // custom
 const brandCtrl = require('./api.brand');
 const campaignCtrl = require('./api.campaign');
+const imageCtrl = require('./api.image');
 
 // Create API router
 const router = new express.Router();
 
 // ----- MIDDLEWARES -----
 
+router.use(validator());
 router.use(bodyParser.urlencoded({
     extended: false
 }));
-
-router.use(validator());
-
 router.use(bodyParser.json({
     limit: '5mb'
 }));
@@ -49,6 +48,11 @@ router.use(bodyParser.json({
  */
 
 // ----- ROUTES -----
+
+// ----- image -----
+router.route('/brands/:brandSlug/campaigns/:campaignSlug/images')
+    .post(timeout('5s'), imageCtrl.addImage)
+    .delete(timeout('5s'), imageCtrl.removeImage);
 
 // ----- brand -----
 router.route('/brands')
