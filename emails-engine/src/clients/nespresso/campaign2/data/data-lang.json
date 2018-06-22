@@ -1,0 +1,34 @@
+[
+	{
+		"blockName": "header-01-1529675133469",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": {
+					"text": "",
+					"linkText": "",
+					"linkUrl": ""
+				},
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": {
+					"text": "",
+					"linkText": "",
+					"linkUrl": ""
+				},
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": {
+					"text": "",
+					"linkText": "",
+					"linkUrl": ""
+				},
+				"display": true
+			}
+		]
+	}
+]

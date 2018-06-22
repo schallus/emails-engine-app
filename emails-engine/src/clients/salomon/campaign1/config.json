@@ -1,0 +1,15 @@
+{
+	"lang": {
+		"fr": {
+			"subject": "Sujet FR"
+		},
+		"de": {
+			"subject": "Sujet DE"
+		},
+		"it": {
+			"subject": "Sujet IT"
+		}
+	},
+	"customLang": [],
+	"layout": "default"
+}

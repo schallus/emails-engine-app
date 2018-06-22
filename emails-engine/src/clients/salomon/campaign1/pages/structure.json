@@ -1,0 +1,22 @@
+[
+	{
+		"blockType": "01-vamp",
+		"position": 0,
+		"name": "01-vamp-1529674505731"
+	},
+	{
+		"blockType": "02-header-navbar",
+		"position": 1,
+		"name": "02-header-navbar-1529674510368"
+	},
+	{
+		"blockType": "03-header-store-adress",
+		"position": 2,
+		"name": "03-header-store-adress-1529674513399"
+	},
+	{
+		"blockType": "04-key-initiative-for-picture",
+		"position": 3,
+		"name": "04-key-initiative-for-picture-1529674521452"
+	}
+]

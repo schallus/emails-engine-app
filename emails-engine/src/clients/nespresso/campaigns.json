@@ -1,13 +1,7 @@
 [
     {
-        "name":"awaken",
-        "displayName":"Awaken",
-        "createdAt":"2012-04-23T18:25:43.511Z",
-        "updatedAt":"2014-05-14T16:28:27.511Z"
-    },
-    {
-        "name":"fete-des-meres",
-        "displayName":"Fête des mères",
+        "name":"campaign2",
+        "displayName":"Ma 2e campagne",
         "createdAt":"2012-04-23T18:25:43.511Z",
         "updatedAt":"2014-05-14T16:28:27.511Z"
     },
