@@ -30,6 +30,8 @@ export class ApiService {
     `${this.brandsUrl}/${brandName}/campaigns/${campaignName}/structure`
   private campaignBuildUrl = (brandName: string, campaignName: string) =>
     `${this.brandsUrl}/${brandName}/campaigns/${campaignName}/build`
+  private campaignZipUrl = (brandName: string, campaignName: string) =>
+    `${this.brandsUrl}/${brandName}/campaigns/${campaignName}/zip`
   private campaignOptionsUrl = (brandName: string, campaignName: string) =>
     `${this.brandsUrl}/${brandName}/campaigns/${campaignName}`
   private getBlockDataUrl = (brandName: string, campaignName: string, blockName: string) =>
@@ -112,6 +114,11 @@ export class ApiService {
 
   buildCampaign(brandName: string, campaignName: string) {
     return this.http.post<any>(this.campaignBuildUrl(brandName, campaignName), null, httpOptions)
+      .pipe(catchError(this.apiHelper.handleError));
+  }
+
+  exportCampaign(brandName: string, campaignName: string) {
+    return this.http.post<any>(this.campaignZipUrl(brandName, campaignName), null, httpOptions)
       .pipe(catchError(this.apiHelper.handleError));
   }
 }

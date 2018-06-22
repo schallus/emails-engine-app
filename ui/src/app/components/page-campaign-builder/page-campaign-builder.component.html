@@ -6,7 +6,7 @@
     <button type="button" class="btn btn-primary btn-rounded waves-light" (click)="showPreview()" mdbWavesEffect>Aperçu</button>
     <button type="button" class="btn btn-primary btn-rounded waves-light" mdbWavesEffect>Litmus</button>
     <button type="button" class="btn btn-primary btn-rounded waves-light" mdbWavesEffect>Envoi</button>
-    <button type="button" class="btn btn-primary btn-rounded waves-light" mdbWavesEffect>Exporter</button>
+    <button type="button" class="btn btn-primary btn-rounded waves-light" (click)="exportEmails()" mdbWavesEffect>Exporter</button>
   </div>
 </div>
 <div class="row">
@@ -85,6 +85,48 @@
     </div>
   </div>
 </div>
+
+<div mdbModal #modalPreviewEmails="mdb-modal" class="modal fade" id="modalPreviewEmails" tabindex="-1" role="dialog" aria-labelledby="Aperçu des emails" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Aperçu des emails</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalPreviewEmails.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="buildInProgress" class="text-center">
+          <p>Génération des emails en cours...</p>
+          <mdb-spinner spinnerColor="red"></mdb-spinner>
+        </div>
+        <div class="previewLinks" *ngIf="previewLinks">
+          <a *ngFor="let link of previewLinks" class="btn btn-light-green waves-light"[href]="link.url" target="_blank" mdbWavesEffect>{{ link.lang }}</a>
+          <a class="btn btn-primary btn-rounded btn-small" (click)="openAllPreviews()" mdbWavesEffect>Tous les ouvrir</a>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-grey btn-sm" data-dismiss="modal" (click)="modalPreviewEmails.hide()" mdbWavesEffect>Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div mdbModal #modalExportEmails="mdb-modal" class="modal fade" id="modalExportEmails" tabindex="-1" role="dialog" aria-labelledby="Export des emails" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title w-100" id="myModalLabel">Export des emails</h4>
+        </div>
+        <div class="modal-body">
+          <div *ngIf="buildInProgress" class="text-center">
+            <p>Génération de l'archive en cours...</p>
+            <mdb-spinner spinnerColor="red"></mdb-spinner>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 <div mdbModal #modalBlockSettings="mdb-modal" class="modal fade" id="modalBlockSettings" tabindex="-1" role="dialog" aria-labelledby="Options du bloc" aria-hidden="true">
   <div class="modal-dialog cascading-modal modal-lg" role="document">

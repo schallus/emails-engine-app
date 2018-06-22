@@ -26,6 +26,8 @@ export class PageCampaignBuilderComponent implements OnInit {
 
   @ViewChild('modalBlockRemove') public modalBlockRemove;
   @ViewChild('modalBlockSettings') public modalBlockSettings;
+  @ViewChild('modalPreviewEmails') public modalPreviewEmails;
+  @ViewChild('modalExportEmails') public modalExportEmails;
   @ViewChild('langTabs') langTabs: TabsetComponent;
   @ViewChild('dragNDropBlocksList') dragNDropBlocksList: any;
 
@@ -63,6 +65,9 @@ export class PageCampaignBuilderComponent implements OnInit {
 
   objectKeys = Object.keys;
 
+  previewLinks: Array<{url: string, lang: string}>;
+  buildInProgress: boolean;
+
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
@@ -71,6 +76,7 @@ export class PageCampaignBuilderComponent implements OnInit {
   ) {
 
     this.blocksFixed = false;
+    this.buildInProgress = false;
     this.filterBlock = '';
 
     this.list1Options = {
@@ -193,8 +199,11 @@ export class PageCampaignBuilderComponent implements OnInit {
     if (!this.blocksFixed && window.pageYOffset > 185) {
       this.blocksFixed = true;
       this.dragNDropBlocksList.nativeElement.style.width = `${this.blocksFixedWidth}px`;
+      this.dragNDropBlocksList.nativeElement.querySelector('#builderBlockList').style.maxHeight = `${window.innerHeight * 0.7}px`;
     } else if (this.blocksFixed && window.pageYOffset < 185) {
       this.blocksFixed = false;
+      this.dragNDropBlocksList.nativeElement.style.width = `auto`;
+      this.dragNDropBlocksList.nativeElement.querySelector('#builderBlockList').style.maxHeight = `500px`;
     }
   }
 
@@ -269,8 +278,28 @@ export class PageCampaignBuilderComponent implements OnInit {
   }
 
   showPreview() {
+    this.buildInProgress = true;
+    this.modalPreviewEmails.show();
     this.apiService.buildCampaign(this.brandName, this.campaignName).subscribe(data => {
-      console.log(data);
+      this.buildInProgress = false;
+      this.previewLinks = data;
+    });
+  }
+
+  openAllPreviews() {
+    if (this.previewLinks) {
+      for (const link of this.previewLinks) {
+        window.open(link.url, '_blank');
+      }
+    }
+  }
+
+  exportEmails() {
+    this.buildInProgress = true;
+    this.modalExportEmails.show();
+    this.apiService.exportCampaign(this.brandName, this.campaignName).subscribe(data => {
+      window.open(data.zipLink);
+      this.modalExportEmails.hide();
     });
   }
 

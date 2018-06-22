@@ -11,7 +11,7 @@ header-01-1529498145866:
 header-03-1529498153088:
     text: This is header 3 text
 block-01-1529498159606:
-    title: Title block 01
+    title: Title block 01 dsf dsf dsf
     text: This is the text from the block 01
     linkUrl: http://www.google.ch/fr
     linkText: Link to Google
@@ -72,7 +72,7 @@ block-20-1529571295717:
     title: Titre du bloc 20
     text: Texte du bloc 20
 footer-01-1529574012310:
-    title: What else can we do for you ?
+    title: What else can we do for you ? asdas d
     items:
       - url: http://www.google.ch
         img: http://localhost:3000/nespresso/test/images/uploads/angular-card.png

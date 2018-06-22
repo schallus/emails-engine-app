@@ -571,11 +571,14 @@ campaign.buildCampaign = (req, res, next) => {
             // BUILD SUCCESS
             console.log('Build success!');
             const campaignLanguages = Object.keys(campaignConfig.lang);
-            result = campaignLanguages.map((lang) => `${req.protocol}://${req.get('host')}/${req.params.brandSlug}/${req.params.campaignSlug}/index-${lang}.html`);
-
-            res.status(200).json({
-                previewLinks: result
+            result = campaignLanguages.map((lang) => {
+                return {
+                    url: `${req.protocol}://${req.get('host')}/${req.params.brandSlug}/${req.params.campaignSlug}/index-${lang}.html`,
+                    lang: lang
+                }
             });
+
+            res.status(200).json(result);
         } else {
             // ERROR
             return next({
@@ -605,7 +608,7 @@ campaign.zipCampaign = (req, res, next) => {
         if (code === 0) {
             console.log('Zip creation success');
             res.status(200).json({
-                zipLink: `${req.protocol}://${req.get('host')}/dist/${req.params.brandSlug}_${req.params.campaignSlug}.zip`
+                zipLink: `${req.protocol}://${req.get('host')}/${req.params.brandSlug}_${req.params.campaignSlug}.zip`
             });
         } else {
             // ERROR
