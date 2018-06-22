@@ -561,7 +561,7 @@ campaign.buildCampaign = (req, res, next) => {
 
     }
 
-    console.log('BUILD IN PROCESS...');
+    console.log('Build in progress...');
     const build = spawn('npm run', ['build', `${req.params.brandSlug}/${req.params.campaignSlug}`], {
         cwd: path.normalize(__dirname + '../../../emails-engine')
     });
@@ -569,7 +569,7 @@ campaign.buildCampaign = (req, res, next) => {
     build.on('close', (code) => {
         if (code === 0) {
             // BUILD SUCCESS
-            console.log('BUILD SUCCESS');
+            console.log('Build success!');
             const campaignLanguages = Object.keys(campaignConfig.lang);
             result = campaignLanguages.map((lang) => `${req.protocol}://${req.get('host')}/${req.params.brandSlug}/${req.params.campaignSlug}/index-${lang}.html`);
 
@@ -595,7 +595,7 @@ campaign.buildCampaign = (req, res, next) => {
 };
 
 campaign.zipCampaign = (req, res, next) => {
-    console.log('ZIP CREATION IN PROGRESS...');
+    console.log('Zip creation in progress...');
 
     const zip = spawn('npm run', ['zip', `${req.params.brandSlug}/${req.params.campaignSlug}`], {
         cwd: path.normalize(__dirname + '../../../emails-engine')
@@ -603,8 +603,7 @@ campaign.zipCampaign = (req, res, next) => {
 
     zip.on('close', (code) => {
         if (code === 0) {
-            // ZIP CREATION SUCCESS
-            console.log('ZIP CREATION SUCCESS');
+            console.log('Zip creation success');
             res.status(200).json({
                 zipLink: `${req.protocol}://${req.get('host')}/dist/${req.params.brandSlug}_${req.params.campaignSlug}.zip`
             });

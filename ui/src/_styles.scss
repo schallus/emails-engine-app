@@ -1,0 +1,70 @@
+@import "./assets/styles/dragndrop";
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+//Customize theme color
+
+$theme-colors: (
+  "primary": #0074d9,
+  "secondary": #E51A27
+);
+
+.btn-group.checkbox-list {
+    display: block;
+
+    label.form-check-label {
+        display: block;
+        width: 100%;
+        margin: 0px;
+
+        &.active::after {
+            font-family: "Font Awesome 5 Free";
+            font-weight: 900;
+            content: "\f058";
+            position: absolute;
+            right: 15px;
+        }
+    }
+}
+
+.md-form {
+    margin-bottom: 2rem;
+}
+
+#blockDropZone {
+    min-height: 200px;
+}
+
+#builderBlockList {
+    max-height: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.text-success {
+    display: none;
+}
+
+#toast-container .toast {
+    opacity: 1 !important;
+}
+
+.color-picker {
+    box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
+    border: none !important;
+    border-radius: 0.125rem;
+    top: initial !important;
+    left: initial !important;
+    
+    .arrow.arrow-right {
+        display: none;
+    }
+
+    .selected-color {
+        border-radius: 0.3rem !important;
+        border: none !important;
+    }
+
+    .cursor {
+        border: 1px solid #000000 !important;
+    }
+}

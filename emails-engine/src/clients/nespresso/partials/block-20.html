@@ -30,7 +30,7 @@
                               class="fontsize16"><span class="fontArial fontsize16">{{{data.text}}}</span></td>
                           </tr>
                           {{/if}}
-                          {{#if data.link.text}}
+                          {{#if data.linkText}}
                           <tr>
                             <td {{#if data.title}} align="left" {{else}} align="center" {{/if}} >
 
@@ -43,7 +43,7 @@
                                         <td align="center" valign="top" style="border: 1px solid #231f20; font-size: 17px; font-family: 'Nespresso Lucas Light',  Arial, sans-serif; line-height: 22px; color: #231f20; text-decoration: none;">
 
                                           <!--[if gte mso 9 ><table><tr><td style="padding: 0.6em 30px 0.6em 30px;"><![endif -->
-                                          <a href="{{data.link.url}}" style="text-decoration:none; color:#231f20; font-size:17px; display:inline-block; line-height:22px; text-align:center; padding:0.6em 30px 0.6em 30px; font-family: 'Nespresso Lucas Light',  Arial, sans-serif; font-weight: normal!important;"><span class="fontArial">{{data.link.text}}</span></a>
+                                          <a href="{{data.linkUrl}}" style="text-decoration:none; color:#231f20; font-size:17px; display:inline-block; line-height:22px; text-align:center; padding:0.6em 30px 0.6em 30px; font-family: 'Nespresso Lucas Light',  Arial, sans-serif; font-weight: normal!important;"><span class="fontArial">{{data.linkText}}</span></a>
                                           <!--[if gte mso 9 ></td></tr></table><![endif -->
 
                                         </td>
@@ -73,7 +73,7 @@
                     </tr>
                     <tr>
                       <td>
-                        <a href="{{data.link.url}}">
+                        <a href="{{data.linkUrl}}">
                           <img src="{{data.img}}" width="310" height="200" border="0" alt="" style="display:block;"
                             class="w100pc">
                         </a>

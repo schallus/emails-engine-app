@@ -64,7 +64,7 @@
     },
     {
         "name": "block-01",
-        "displayName": "Block 1",
+        "displayName": "Block 01",
         "thumbnailUrl": "http://localhost:3000/nespresso/images/block-01.jpg",
         "properties": [
             {
@@ -95,7 +95,7 @@
     },
     {
         "name": "block-02",
-        "displayName": "Block 2",
+        "displayName": "Block 02",
         "thumbnailUrl": "http://localhost:3000/nespresso/images/block-02.jpg",
         "properties": [
             {
@@ -144,7 +144,7 @@
     },
     {
         "name": "block-03",
-        "displayName": "Block 3",
+        "displayName": "Block 03",
         "thumbnailUrl": "http://localhost:3000/nespresso/images/block-03.jpg",
         "properties": [
             {
@@ -175,7 +175,7 @@
     },
     {
         "name": "block-04",
-        "displayName": "Block 4",
+        "displayName": "Block 04",
         "thumbnailUrl": "http://localhost:3000/nespresso/images/block-04.jpg",
         "properties": [
             {
@@ -201,6 +201,287 @@
                 "displayName": "Texte",
                 "type": "text",
                 "required": true
+            }
+        ]
+    },
+    {
+        "name": "block-05",
+        "displayName": "Block 05",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-05.jpg",
+        "properties": [
+            {
+                "name": "text",
+                "displayName": "Texte",
+                "type": "text",
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "block-06",
+        "displayName": "Block 06",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-06.jpg",
+        "properties": [
+            {
+                "name": "bgcolor",
+                "displayName": "Couleur de fond",
+                "type": "color",
+                "required": false
+            },
+            {
+                "name": "color",
+                "displayName": "Couleur du texte",
+                "type": "color",
+                "required": false
+            },
+            {
+                "name": "text",
+                "displayName": "Texte",
+                "type": "text",
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "block-07",
+        "displayName": "Block 07",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-07.jpg",
+        "properties": [
+            {
+                "name": "color",
+                "displayName": "Couleur du texte",
+                "type": "color",
+                "required": false
+            },
+            {
+                "name": "text",
+                "displayName": "Texte",
+                "type": "text",
+                "required": true
+            },
+            {
+                "name": "url",
+                "displayName": "URL",
+                "type": "url",
+                "required": true
+            },
+            {
+                "name": "url-mobile",
+                "displayName": "URL sur mobile",
+                "type": "url",
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "block-10",
+        "displayName": "Block 10",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-10.jpg",
+        "properties": [
+            {
+                "name": "url",
+                "displayName": "URL",
+                "type": "url",
+                "required": false
+            },
+            {
+                "name": "img",
+                "displayName": "Image",
+                "type": "img",
+                "required": true
+            },
+            {
+                "name": "title",
+                "displayName": "Titre",
+                "type": "text",
+                "required": false
+            },
+            {
+                "name": "text",
+                "displayName": "Texte",
+                "type": "text",
+                "required": false
+            },
+            {
+                "name": "link",
+                "displayName": "Texte du lien",
+                "type": "text",
+                "required": false
+            }
+        ]
+    },
+    {
+        "name": "block-11",
+        "displayName": "Block 11",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-11.jpg",
+        "properties": [
+            {
+                "name": "url",
+                "displayName": "URL",
+                "type": "url",
+                "required": true
+            },
+            {
+                "name": "img",
+                "displayName": "Image",
+                "type": "img",
+                "required": true
+            },
+            {
+                "name": "title",
+                "displayName": "Titre",
+                "type": "text",
+                "required": false
+            },
+            {
+                "name": "text",
+                "displayName": "Texte",
+                "type": "text",
+                "required": false
+            },
+            {
+                "name": "link",
+                "displayName": "Texte du lien",
+                "type": "text",
+                "required": false
+            }
+        ]
+    },
+    {
+        "name": "block-14-ambassador",
+        "displayName": "Block 14 - Ambassador",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-14.jpg",
+        "properties": []
+    },
+    {
+        "name": "block-14-connoisseur",
+        "displayName": "Block 14 - Connoisseur",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-14.jpg",
+        "properties": []
+    },
+    {
+        "name": "block-14-expert",
+        "displayName": "Block 14 - Expert",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-14.jpg",
+        "properties": []
+    },
+    {
+        "name": "block-19",
+        "displayName": "Block 19",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-19.jpg",
+        "properties": [
+            {
+                "name": "linkUrl",
+                "displayName": "URL",
+                "type": "url",
+                "required": true
+            },
+            {
+                "name": "linkText",
+                "displayName": "Texte du lien",
+                "type": "text",
+                "required": false
+            },
+            {
+                "name": "img",
+                "displayName": "Image",
+                "type": "img",
+                "required": true
+            },
+            {
+                "name": "title",
+                "displayName": "Titre",
+                "type": "text",
+                "required": false
+            },
+            {
+                "name": "text",
+                "displayName": "Texte",
+                "type": "text",
+                "required": false
+            }
+        ]
+    },
+    {
+        "name": "block-20",
+        "displayName": "Block 20",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-20.jpg",
+        "properties": [
+            {
+                "name": "linkUrl",
+                "displayName": "URL",
+                "type": "url",
+                "required": true
+            },
+            {
+                "name": "linkText",
+                "displayName": "Texte du lien",
+                "type": "text",
+                "required": false
+            },
+            {
+                "name": "img",
+                "displayName": "Image",
+                "type": "img",
+                "required": true
+            },
+            {
+                "name": "title",
+                "displayName": "Titre",
+                "type": "text",
+                "required": false
+            },
+            {
+                "name": "text",
+                "displayName": "Texte",
+                "type": "text",
+                "required": false
+            }
+        ]
+    },
+    {
+        "name": "footer-01",
+        "displayName": "Footer 01",
+        "thumbnailUrl": "http://localhost:3000/nespresso/images/footer-01.jpg",
+        "properties": [
+            {
+                "name": "title",
+                "displayName": "Titre",
+                "type": "text",
+                "required": true
+            },
+            {
+                "name": "items",
+                "displayName": "Eléments du footer",
+                "type": "properties",
+                "required": true,
+                "numberItems": 5,
+                "properties": [
+                    {
+                        "name": "url",
+                        "displayName": "URL",
+                        "type": "url",
+                        "required": true
+                    },
+                    {
+                        "name": "img",
+                        "displayName": "Image",
+                        "type": "img",
+                        "required": true
+                    },
+                    {
+                        "name": "width",
+                        "displayName": "Largeur de l'image",
+                        "type": "number",
+                        "required": true
+                    },
+                    {
+                        "name": "text",
+                        "displayName": "Texte",
+                        "type": "text",
+                        "required": false
+                    }
+                ]
             }
         ]
     }

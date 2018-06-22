@@ -5,6 +5,7 @@ const multer = require('multer');
 
 // ----- GLOBAL VARIABLES -----
 const distPath = path.normalize(__dirname + '../../../emails-engine/dist');
+const clientsPath = path.normalize(__dirname + '../../../emails-engine/src/clients');
 const tempPath = path.normalize(__dirname + '../../temp');
 const image = {};
 
@@ -54,11 +55,11 @@ image.addImage = (req, res, next) => {
             });
         }
 
-        // console.log(req);
-
         // Everything went fine
-        console.log('req.file', req.file);
         const image = req.file;
+
+        console.log('image', image);
+
         if(!image) {
             return next({
                 status: 500,
@@ -66,15 +67,19 @@ image.addImage = (req, res, next) => {
             });
         }
 
-        const imagePath = `${distPath}/${brandSlug}/${campaignSlug}/uploads`;
+        const clientImagePath = `${clientsPath}/${brandSlug}/${campaignSlug}/images/uploads`;
+        const distImagePath = `${distPath}/${brandSlug}/${campaignSlug}/images/uploads`;
 
         // Create dir if doesn't exist
-        if (!fs.existsSync(imagePath)){
-            fs.mkdirSync(imagePath);
+        if (!fs.existsSync(clientImagePath)){
+            fs.mkdirSync(clientImagePath);
+        }
+        if (!fs.existsSync(distImagePath)){
+            fs.mkdirSync(distImagePath);
         }
 
         // Move the file uploaded from temp to dist folder
-        fs.rename(`${tempPath}/${req.file.filename}`, `${imagePath}/${req.file.filename}`, (err) => {
+        fs.rename(`${tempPath}/${req.file.filename}`, `${clientImagePath}/${req.file.filename}`, (err) => {
             if (err) {
                 return next({
                     status: 500,
@@ -82,8 +87,12 @@ image.addImage = (req, res, next) => {
                 });
             }
 
+            // Copy file to dist folder to serve
+            fs.createReadStream(`${clientImagePath}/${req.file.filename}`)
+                .pipe(fs.createWriteStream(`${distImagePath}/${req.file.filename}`));
+
             res.status(200).json({
-                imageUrl: `${req.protocol}://${req.get('host')}/${brandSlug}/${campaignSlug}/uploads/${req.file.filename}`
+                imageUrl: `${req.protocol}://${req.get('host')}/${brandSlug}/${campaignSlug}/images/uploads/${req.file.filename}`
             });
         });
     });    

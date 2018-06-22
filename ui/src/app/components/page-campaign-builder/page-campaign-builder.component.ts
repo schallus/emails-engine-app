@@ -61,6 +61,8 @@ export class PageCampaignBuilderComponent implements OnInit {
   blocksFixed: boolean;
   blocksFixedWidth: number;
 
+  objectKeys = Object.keys;
+
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
@@ -191,7 +193,6 @@ export class PageCampaignBuilderComponent implements OnInit {
     if (!this.blocksFixed && window.pageYOffset > 185) {
       this.blocksFixed = true;
       this.dragNDropBlocksList.nativeElement.style.width = `${this.blocksFixedWidth}px`;
-      console.log('new width', this.dragNDropBlocksList.nativeElement.style.width);
     } else if (this.blocksFixed && window.pageYOffset < 185) {
       this.blocksFixed = false;
     }
@@ -241,7 +242,18 @@ export class PageCampaignBuilderComponent implements OnInit {
           };
 
           for (const blockProperty of blockInfo.properties) {
-            el.properties[blockProperty.name] = '';
+            if (blockProperty.type === 'properties') {
+              el.properties[blockProperty.name] = [];
+              for (let i = 0; i < blockProperty.numberItems; i++) {
+                const newObject = {};
+                for (let j = 0; j < blockProperty.properties.length; j++) {
+                  newObject[blockProperty.properties[j].name] = '';
+                }
+                el.properties[blockProperty.name].push(newObject);
+              }
+            } else {
+              el.properties[blockProperty.name] = '';
+            }
           }
 
           langData.push(el);
@@ -284,23 +296,28 @@ export class PageCampaignBuilderComponent implements OnInit {
     }
   }
 
-  setPropertyValue(propertyName: string, lang: string, event: any) {
-    this.blockData.languages.filter(el => el.lang === lang)[0].properties[propertyName] = event.target.value;
-    this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe(() => {
-      this.isCompletelyFilled(this.blockData.blockName);
-    });
+  setPropertyValue(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
+    if (parentPropertyName && index !== undefined) {
+      this.blockData.languages.filter(el => el.lang === lang)[0].properties[parentPropertyName][index][propertyName] = event.target.value;
+    } else {
+      this.blockData.languages.filter(el => el.lang === lang)[0].properties[propertyName] = event.target.value;
+    }
+    this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe();
   }
 
-  uploadFile(propertyName: string, lang: string, event: any) {
+  uploadFile(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
     if (event.target.files.length > 0) {
       const image = event.target.files[0];
 
       this.uploadService.uploadImage(this.brandName, this.campaignName, image).subscribe((data) => {
         if (data && data.imageUrl) {
-          this.blockData.languages.filter(el => el.lang === lang)[0].properties[propertyName] = data.imageUrl;
-          this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe(() => {
-            console.log('block data changed', this.blockData);
-          });
+          if (parentPropertyName && index !== undefined) {
+            this.blockData.languages
+              .filter(el => el.lang === lang)[0].properties[parentPropertyName][index][propertyName] = data.imageUrl;
+          } else {
+            this.blockData.languages.filter(el => el.lang === lang)[0].properties[propertyName] = data.imageUrl;
+          }
+          this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe();
         }
       });
     }
@@ -324,7 +341,7 @@ export class PageCampaignBuilderComponent implements OnInit {
   }
 
   colorPickerChange(propertyName: string, lang: string, color: any) {
-    this.blockData.languages.filter(el => el.lang === lang)[0].properties[propertyName] = color;
+    this.blockData.languages.filter(el => el.lang === lang)[0].properties[propertyName] = `'${color}'`;
     this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe();
   }
 

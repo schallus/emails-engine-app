@@ -1,0 +1,38 @@
+.file-field {
+    .img-button {
+        text-align: center;
+        .btn {
+            display: inline-block;
+        }
+    }
+}
+
+.modal-body {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.color-preview {
+    width: 35px;
+    height: 35px;
+    background: repeating-linear-gradient(
+        45deg,
+        #F2F2F2,
+        #F2F2F2 10px,
+        #CCCCCC 10px,
+        #CCCCCC 20px
+    );
+}
+
+.md-form .prefix ~ input.color {
+    margin-left: 3rem;
+    width: calc(100% - 3rem);
+}
+
+/* The sticky class is added to the blocks list with JS when it reaches its scroll position */
+.fixed {
+    position: fixed !important;
+    top: 50px !important;
+    width: 30%;
+    z-index: 1000;
+}

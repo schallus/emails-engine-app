@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/observable/throw';
-import { ToastrService } from './toastr.service';
+// import { ToastrService } from './toastr.service';
 
 export class APIError {
   status: number;
@@ -12,7 +12,7 @@ export class APIError {
 @Injectable()
 export class ApiHelperService {
 
-  constructor(private toastrService: ToastrService) {}
+  constructor(/*private toastrService: ToastrService*/) {}
 
   handleError(res) {
     let error: APIError;
@@ -31,9 +31,9 @@ export class ApiHelperService {
       error = {status: 500, message: 'An unexpected error occurred. Please reload the page.'};
     }
     console.log(error);
-    console.log(this.toastrService);
+    /*console.log(this.toastrService);
 
-    this.toastrService.showError(error.message, 'API Error');
+    this.toastrService.showError(error.message, 'API Error');*/
     return Observable.throw(error);
   }
 

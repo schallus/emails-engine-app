@@ -13,8 +13,6 @@ import { LangSelected } from '../../models/lang';
 import { languagesList } from './../../data/lang';
 import { CampaignOptions } from '../../models/campaign-options';
 
-import { ToastrService } from '../../services/toastr.service';
-
 @Component({
   selector: 'app-page-campaign-options',
   templateUrl: './page-campaign-options.component.html',
@@ -39,8 +37,7 @@ export class PageCampaignOptionsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private apiService: ApiService,
-    private toastrService: ToastrService
+    private apiService: ApiService
   ) {
     this.filterLang = '';
 
@@ -143,7 +140,8 @@ export class PageCampaignOptionsComponent implements OnInit {
     if (form.valid) {
       // Check if a lang with the same code already exists
       if (this.languages.filter(lang => lang.code === form.value.code).length > 0) {
-        this.toastrService.showError('Une langue avec le même code existe déjà.', 'Erreur');
+        // diplay the error with toastr
+        // this.toastrService.showError('Une langue avec le même code existe déjà.', 'Erreur');
         form.controls['code'].setErrors({'incorrect': true});
       } else {
         this.languages.push({

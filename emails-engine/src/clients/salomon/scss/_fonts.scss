@@ -1,0 +1,78 @@
+//
+// Fonts
+//
+
+@media screen {
+
+  @font-face {
+    font-family: FuturaCondensedRegular;
+    src: url(http://www.salomon.com/fonts/futura/FuturaCondRegular.eot);
+    src: url(https://www.salomon.com/fonts/futura/FuturaCondRegular.eot?#iefix) format("embedded-opentype"),
+      url(https://www.salomon.com/fonts/futura/FuturaCondRegular.woff) format("woff"),
+      url(https://www.salomon.com/fonts/futura/FuturaCondRegular.ttf) format("truetype"),
+      url(https://www.salomon.com/fonts/futura/FuturaCondRegular.svg#FuturaCondensedRegular) format("svg");
+    font-weight: 400;
+    font-style: normal
+  }
+
+  @font-face {
+    font-family: FuturaCondensedBold;
+    src: url(http://www.salomon.com/fonts/futura/FuturaCondBold.eot);
+    src:
+      url(https://www.salomon.com/fonts/futura/FuturaCondBold.eot?#iefix) format("embedded-opentype"),
+      url(https://www.salomon.com/fonts/futura/FuturaCondBold.woff) format("woff"),
+      url(https://www.salomon.com/fonts/futura/FuturaCondBold.ttf) format("truetype"),
+      url(https://www.salomon.com/fonts/futura/FuturaCondBold.svg#FuturaCondBold) format("svg");
+    font-weight: 400;
+    font-style: normal
+  }
+
+  @font-face {
+    font-family: FuturaBook;
+    src: url(http://www.salomon.com/fonts/futura/Futura-Book.eot);
+    src:
+      url(https://www.salomon.com/fonts/futura/Futura-Book.eot?#iefix) format("embedded-opentype"),
+      url(https://www.salomon.com/fonts/futura/Futura-Book.woff) format("woff"),
+      url(https://www.salomon.com/fonts/futura/Futura-Book.ttf) format("truetype"),
+      url(https://www.salomon.com/fonts/futura/Futura-Book.svg#FuturaBook) format("svg");
+    font-weight: 400;
+    font-style: normal
+  }
+
+  @font-face {
+    font-family: FuturaMedium;
+    src: url(http://www.salomon.com/fonts/futura/FuturaMedium.eot);
+    src:
+      url(https://www.salomon.com/fonts/futura/FuturaMedium.eot?#iefix) format("embedded-opentype"),
+      url(https://www.salomon.com/fonts/futura/FuturaMedium.woff) format("woff"),
+      url(https://www.salomon.com/fonts/futura/FuturaMedium.ttf) format("truetype"),
+      url(https://www.salomon.com/fonts/futura/FuturaMedium.svg#FuturaMedium) format("svg");
+    font-weight: 400;
+    font-style: normal
+  }
+
+  @font-face {
+    font-family: FuturaBTMedium;
+    src: url(http://www.salomon.com/fonts/futura/FuturaBT-Medium.eot);
+    src:
+      url(https://www.salomon.com/fonts/futura/FuturaBT-Medium.eot?#iefix) format("embedded-opentype"),
+      url(https://www.salomon.com/fonts/futura/FuturaBT-Medium.woff) format("woff"),
+      url(https://www.salomon.com/fonts/futura/FuturaBT-Medium.ttf) format("truetype"),
+      url(https://www.salomon.com/fonts/futura/FuturaBT-Medium.svg#FuturaBTMedium) format("svg");
+    font-weight: 400;
+    font-style: normal
+  }
+
+  @font-face {
+    font-family: FuturaBT-MediumCondensed;
+    src: url(http://www.salomon.com/fonts/futura/FuturaBT-MediumCondensed.eot);
+    src:
+      url(https://www.salomon.com/fonts/futura/FuturaBT-MediumCondensed.eot?#iefix) format("embedded-opentype"),
+      url(https://www.salomon.com/fonts/futura/FuturaBT-MediumCondensed.woff) format("woff"),
+      url(https://www.salomon.com/fonts/futura/FuturaBT-MediumCondensed.ttf) format("truetype"),
+      url(https://www.salomon.com/fonts/futura/FuturaBT-MediumCondensed.svg#FuturaBT-MediumCondensed) format("svg");
+    font-weight: 400;
+    font-style: normal
+  }
+
+}

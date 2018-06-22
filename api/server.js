@@ -38,10 +38,17 @@ const hbs = exphbs.create({
             const blockData = blocksData.filter(block => block.blockName === blockName)[0];
             if(blockData) {
                 const display = blockData.languages.filter(el => el.lang === lang)[0].display;
-                if (display) return options.fn(this);
+                return (display) ? options.fn(this) : options.inverse(this);
             }
-            return options.inverse(this); 
+            return options.fn(this);
         },
+        ifObject: function(item, options) {
+            if(typeof item === "object") {
+                return options.fn(this);
+            } else {
+                return options.inverse(this);
+            }
+        }
     }
 });
 

@@ -9,9 +9,21 @@
 {{#ifEquals ../../data.lang this.lang}}
 {{{../this.blockName}}}:
 {{#each this.properties}}
-    {{{@key}}}: {{{this}}}    
+{{#each this}}
+    {{#if @first}}
+    {{{@../key}}}:
+    {{/if}}
+    {{#each this}}
+    {{#if @first}}
+      - {{{@key}}}: {{{this}}}
+    {{else}}
+        {{{@key}}}: {{{this}}}
+    {{/if}}
+    {{/each}}
+{{else}}
+    {{{@key}}}: {{{this}}}
+{{/each}}
 {{/each}}
 {{/ifEquals}}
 {{/each}}
-
 {{/each}}

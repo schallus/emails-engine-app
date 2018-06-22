@@ -10,6 +10,8 @@ class BlockProperty {
     displayName: string;
     type: string;
     required: boolean;
+    numberItems?: number;
+    properties?: BlockProperty[];
 }
 
 /*enum BlockPropertyTypes {

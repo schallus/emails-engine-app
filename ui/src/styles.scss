@@ -1,12 +1,18 @@
 @import "./assets/styles/dragndrop";
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
 
-//Customize theme color
+$primary-color: #f02435;
 
-$theme-colors: (
-  "primary": #0074d9,
-  "secondary": #E51A27
-);
+a {
+    color: $primary-color;
+    &:hover {
+        text-decoration: underline;
+        color: $primary-color;
+    }
+}
+
+.accordion .card .card-header {
+    color: $primary-color;
+}
 
 .btn-group.checkbox-list {
     display: block;
