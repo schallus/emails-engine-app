@@ -1,7 +1,7 @@
 <app-breadcrumb [breadcrumbs]=breadcrumbs></app-breadcrumb>
 <div class="row">
   <div class="col">
-    <div class="card">
+    <div class="card mb-4">
       <div class="card-header primary-color white-text">
         <i class="fa fa-language prefix"></i>
         Séléctionner une ou plusieurs langues
@@ -20,10 +20,35 @@
         </div>
       </div>
     </div>
+    <div class="card">
+      <div class="card-header primary-color white-text">
+        <i class="fa fa-plus-circle prefix"></i>
+        Ajouter une nouvelle langue
+      </div>
+      <div class="card-body">
+        <form #newLangForm='ngForm' (ngSubmit)="onNewLangFormSubmit(newLangForm)">
+          <div class="alert alert-danger" role="alert" *ngIf="newLangForm.invalid && !newLangForm.pristine">
+            Veuillez renseigner tous les champs du formulaire et vérifier que le code soit unique.
+          </div>
+          <div class="md-form">
+            <input [mdbValidate]="false" ngModel mdbInputDirective type="text" id="inputLanguageName" name="name" class="form-control form-control-sm" required minLength="2" maxLength="30" data-error="Nom invalide.">
+            <label for="inputLanguageName">Nom de la langue</label>
+          </div>
+          <div class="md-form">
+            <input [mdbValidate]="false" ngModel mdbInputDirective type="text" id="inputLanguageCode" name="code" class="form-control form-control-sm" required minLength="2" maxLength="2" data-error="Code invalide.">
+            <label for="inputLanguageCode">Code</label>
+          </div>
+          <div class="text-center">
+            <button type="button" class="btn btn-grey btn-rounded" (click)="newLangForm.reset()" mdbWavesEffect>Réinitialiser</button>
+            <button type="submit" class="btn btn-green btn-rounded" mdbWavesEffect [disabled]="newLangForm.invalid">Ajouter</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 
   <div class="col">
-    <div class="card mb-4">
+    <div class="card">
       <div class="card-header primary-color white-text">
         <i class="fa fa-info-circle prefix"></i>
         Informations générales
@@ -48,31 +73,6 @@
           </div>
           <div class="text-center">
             <button mdbInputDirective type="submit" class="btn btn-green btn-rounded" [disabled]="campaignOptionsForm.invalid">Suivant</button>
-          </div>
-        </form>
-      </div>
-    </div>
-    <div class="card">
-      <div class="card-header primary-color white-text">
-        <i class="fa fa-plus-circle prefix"></i>
-        Ajouter une nouvelle langue
-      </div>
-      <div class="card-body">
-        <form #newLangForm='ngForm' (ngSubmit)="onNewLangFormSubmit(newLangForm)">
-          <div class="alert alert-danger" role="alert" *ngIf="newLangForm.invalid && !newLangForm.pristine">
-            Veuillez renseigner tous les champs du formulaire et vérifier que le code soit unique.
-          </div>
-          <div class="md-form">
-            <input [mdbValidate]="false" ngModel mdbInputDirective type="text" id="inputLanguageName" name="name" class="form-control form-control-sm" required minLength="2" maxLength="30" data-error="Nom invalide.">
-            <label for="inputLanguageName">Nom de la langue</label>
-          </div>
-          <div class="md-form">
-            <input [mdbValidate]="false" ngModel mdbInputDirective type="text" id="inputLanguageCode" name="code" class="form-control form-control-sm" required minLength="2" maxLength="2" data-error="Code invalide.">
-            <label for="inputLanguageCode">Code</label>
-          </div>
-          <div class="text-center">
-            <button type="button" class="btn btn-grey btn-rounded" (click)="newLangForm.reset()" mdbWavesEffect>Réinitialiser</button>
-            <button type="submit" class="btn btn-green btn-rounded" mdbWavesEffect [disabled]="newLangForm.invalid">Ajouter</button>
           </div>
         </form>
       </div>
