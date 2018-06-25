@@ -1,22 +1,22 @@
 {
 	"lang": {
 		"ar": {
-			"subject": "sdfsdf "
+			"subject": "Campagne de test AR"
 		},
 		"bs": {
-			"subject": "asdasdasda"
+			"subject": "Campagne de test BS"
 		},
 		"zh": {
-			"subject": "sadasdasd"
+			"subject": "Campagne de test ZH"
 		},
 		"fr": {
-			"subject": "test"
+			"subject": "Campagne de test FR"
 		},
 		"de": {
 			"subject": "Campagne de test DE"
 		},
 		"it": {
-			"subject": "as dasd asd "
+			"subject": "Campagne de test IT"
 		}
 	},
 	"customLang": [],

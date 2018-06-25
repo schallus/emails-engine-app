@@ -21,7 +21,7 @@ block-04-1529504974179:
     colorSep: '#2145e1'
     text: Texte du bloc
 header-02-1529565161653:
-    img: http://localhost:3000/nespresso/test/images/uploads/1280px-Node.js_logo.svg.png
+    img: http://localhost:3000/nespresso/test/images/uploads/jordan-whitt-6261-unsplash.jpg
     url: http://nodejs.com
 block-03-1529566646816:
     url: http://www.google.com
@@ -30,7 +30,7 @@ block-03-1529566646816:
     img-mobile: http://localhost:3000/nespresso/test/images/uploads/1499794874html5-js-css3-logo-png.png
 block-02-1529566644410:
     bgcolor: '#d56565'
-    img: http://localhost:3000/nespresso/test/images/uploads/1499794874html5-js-css3-logo-png.png
+    img: http://localhost:3000/nespresso/test/images/uploads/davide-cantelli-139887-unsplash.jpg
     img-w: 200
     img-h: 100
     img-mobile: http://localhost:3000/nespresso/test/images/uploads/angular-card.png
@@ -44,7 +44,7 @@ block-06-1529566678891:
     text: Texte du bloc
 block-10-1529566689176:
     url: http://www.google.com
-    img: http://localhost:3000/nespresso/test/images/uploads/1280px-Node.js_logo.svg.png
+    img: http://localhost:3000/nespresso/test/images/uploads/dino-reichmuth-84359-unsplash.jpg
     title: Titre du bloc
     text: Texte du bloc BLA BLA BLA
     link: Texte du lien
@@ -55,7 +55,7 @@ block-07-1529566683072:
     url-mobile: http://www.google.com/mobile
 block-11-1529569633834:
     url: http://www.nespresso.com
-    img: http://localhost:3000/nespresso/test/images/uploads/nespresso.png
+    img: http://localhost:3000/nespresso/test/images/uploads/jakob-owens-224351-unsplash.jpg
     title: Titre nespresso
     text: Texte de test
     link: Texte du lien

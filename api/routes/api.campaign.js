@@ -514,7 +514,6 @@ campaign.buildCampaign = (req, res, next) => {
             structure: sortedStructure,
             data: campaignData
         }, (err, structure) => {
-            console.log(err);
             if(err) return next({
                 status: 500,
                 message: "Something unexpected happened while rendering the campaign structure file."

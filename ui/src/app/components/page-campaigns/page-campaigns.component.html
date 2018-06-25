@@ -84,11 +84,11 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Êtes-vous sure de bien vouloir archiver la campagne '{{campaign}}' ?</p>
+        <p>Êtes-vous sure de bien vouloir archiver la campagne <strong>{{campaign}}</strong> ?</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" (click)="modalArchive.hide()" mdbWavesEffect>Annuler</button>
-        <button type="button" class="btn btn-red btn-sm" (click)="archiveCampaign(campaign)" mdbWavesEffect>Archiver</button>
+        <button type="button" class="btn btn-grey btn-sm" data-dismiss="modal" (click)="modalArchive.hide()" mdbWavesEffect>Annuler</button>
+        <button type="button" class="btn btn-primary btn-sm" (click)="archiveCampaign(campaign)" mdbWavesEffect>Archiver</button>
       </div>
     </div>
   </div>
@@ -104,7 +104,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Êtes-vous sure de bien vouloir dupliquer la campagne '{{campaign}}' ?</p>
+        <p>Êtes-vous sure de bien vouloir dupliquer la campagne <strong>{{campaign}}</strong> ?</p>
         <div class="md-form form-sm">
           <i class="fa fa-tag prefix"></i>
           <input #inputCampaignName mdbInputDirective type="text" id="inputCampaignName" class="form-control">

@@ -265,7 +265,7 @@
 			{
 				"lang": "fr",
 				"properties": {
-					"img": "http://localhost:3000/nespresso/test/images/uploads/1280px-Node.js_logo.svg.png",
+					"img": "http://localhost:3000/nespresso/test/images/uploads/jordan-whitt-6261-unsplash.jpg",
 					"url": "http://nodejs.com"
 				},
 				"display": true
@@ -399,7 +399,7 @@
 				"lang": "fr",
 				"properties": {
 					"bgcolor": "'#d56565'",
-					"img": "http://localhost:3000/nespresso/test/images/uploads/1499794874html5-js-css3-logo-png.png",
+					"img": "http://localhost:3000/nespresso/test/images/uploads/davide-cantelli-139887-unsplash.jpg",
 					"img-w": "200",
 					"img-h": "100",
 					"img-mobile": "http://localhost:3000/nespresso/test/images/uploads/angular-card.png",
@@ -582,7 +582,7 @@
 				"lang": "fr",
 				"properties": {
 					"url": "http://www.google.com",
-					"img": "http://localhost:3000/nespresso/test/images/uploads/1280px-Node.js_logo.svg.png",
+					"img": "http://localhost:3000/nespresso/test/images/uploads/dino-reichmuth-84359-unsplash.jpg",
 					"title": "Titre du bloc",
 					"text": "Texte du bloc BLA BLA BLA",
 					"link": "Texte du lien"
@@ -718,7 +718,7 @@
 				"lang": "fr",
 				"properties": {
 					"url": "http://www.nespresso.com",
-					"img": "http://localhost:3000/nespresso/test/images/uploads/nespresso.png",
+					"img": "http://localhost:3000/nespresso/test/images/uploads/jakob-owens-224351-unsplash.jpg",
 					"title": "Titre nespresso",
 					"text": "Texte de test",
 					"link": "Texte du lien"

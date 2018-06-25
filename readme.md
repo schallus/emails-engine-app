@@ -24,6 +24,9 @@ La structure doit être respecté afin d'assurer le bon fonctionnement du moteur
 Chaque projet doit avoir un layout, une page et une feuille de style (nommée app_client_projet.scss)
 
 - dist
+  + client_name
+    * **NEW images/**
+    * project_name
 - etc
 - node_modules
 - src
@@ -31,16 +34,22 @@ Chaque projet doit avoir un layout, une page et une feuille de style (nommée ap
     * client_name
       - project_name
         + data: contenus textuels (lang)
+          * **NEW data-lang.json**
         + images: images du projet
+          * **NEW uploads/**
         + layouts: enveloppe du projet (html - head, body)
         + pages: différents templates emails
+          * **NEW structure.json**
         + scss
       - project_name
       - ...
-      - partials: composant HTML communs au client (preheader, footer, etc...)
+      - partials: composant HTML communs au client(preheader, footer, etc...)
       - scss: styles communs au client
+      - **NEW campaigns.json**
+      - **NEW blocks.json**
     * client_name
     * ...
+    * **NEW brands.json**
   - helpers: functions js pour Handlebars
 
 
