@@ -5,7 +5,7 @@
 #
 
 header-01-1529498145866:
-    text: Text header 01
+    text: Text header 01s
     linkText: Text link header 01
     linkUrl: http://www.nespresso.ch
 header-03-1529498153088:
@@ -76,8 +76,8 @@ footer-01-1529574012310:
     items:
       - url: http://www.google.ch
         img: http://localhost:3000/nespresso/test/images/uploads/angular-card.png
-        width: 
-        text: 
+        width: 125
+        text: sdfdsf
       - url: 
         img: http://localhost:3000/nespresso/test/images/uploads/1280px-Node.js_logo.svg.png
         width: 
@@ -99,3 +99,9 @@ block-03-1529601751643:
     img: http://192.168.22.214:3000/nespresso/test/images/uploads/angular-card.png
     url-mobile: http://www.google.fr
     img-mobile: http://192.168.22.214:3000/nespresso/test/images/uploads/1280px-Node.js_logo.svg.png
+block-19-1529917844864:
+    linkUrl: dasdasd sad 
+    linkText: das asd as
+    img: http://localhost:3000/nespresso/test/images/uploads/george-hiles-114418-unsplash.jpg
+    title: 
+    text: 

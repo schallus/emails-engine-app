@@ -75,27 +75,30 @@
 </div>
 
 <div mdbModal #modalArchive="mdb-modal" class="modal fade" id="modalArchive" tabindex="-1" role="dialog" aria-labelledby="Archiver la campagne" aria-hidden="true">
-  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+  <div class="modal-dialog modal-notify modal-danger" role="document">
     <div class="modal-content">
       <div class="modal-header white-text">
-        <h4 class="modal-title w-100" id="myModalLabel">Archiver la campagne</h4>
+          <p class="heading lead">Archiver la campagne</p>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalArchive.hide()">
           <span aria-hidden="true" class="white-text">×</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>Êtes-vous sure de bien vouloir archiver la campagne <strong>{{campaign}}</strong> ?</p>
+        <div class="text-center">
+          <i class="fa fa-trash fa-4x mb-3 animated rotateIn"></i>
+          <p>Êtes-vous sûr de vouloir archiver<br/>la campagne <strong>{{campaign}}</strong> ?</p>
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-grey btn-sm" data-dismiss="modal" (click)="modalArchive.hide()" mdbWavesEffect>Annuler</button>
-        <button type="button" class="btn btn-primary btn-sm" (click)="archiveCampaign(campaign)" mdbWavesEffect>Archiver</button>
+        <button type="button" class="btn btn-grey" data-dismiss="modal" (click)="modalArchive.hide()" mdbWavesEffect>Annuler</button>
+        <button type="button" class="btn btn-primary" (click)="archiveCampaign(campaign)" mdbWavesEffect>Archiver</button>
       </div>
     </div>
   </div>
 </div>
 
 <div mdbModal #modalClone="mdb-modal" class="modal fade" id="modalClone" tabindex="-1" role="dialog" aria-labelledby="Dupliquer la campagne" aria-hidden="true">
-  <div class="modal-dialog modal-sm" role="document">
+  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h4 class="modal-title w-100" id="myModalLabel">Dupliquer la campagne</h4>
@@ -104,7 +107,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <p>Êtes-vous sure de bien vouloir dupliquer la campagne <strong>{{campaign}}</strong> ?</p>
+        <p class="text-center">Êtes-vous sûr de vouloir dupliquer<br/>la campagne <strong>{{campaign}}</strong> ?</p>
         <div class="md-form form-sm">
           <i class="fa fa-tag prefix"></i>
           <input #inputCampaignName mdbInputDirective type="text" id="inputCampaignName" class="form-control">
@@ -112,8 +115,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary btn-sm" data-dismiss="modal" (click)="modalClone.hide()" mdbWavesEffect>Annuler</button>
-        <button type="button" class="btn btn-green btn-sm" (click)="cloneCampaign(campaign, inputCampaignName.value)" mdbWavesEffect>Dupliquer</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="modalClone.hide()" mdbWavesEffect>Annuler</button>
+        <button type="button" class="btn btn-green" (click)="cloneCampaign(campaign, inputCampaignName.value)" mdbWavesEffect>Dupliquer</button>
       </div>
     </div>
   </div>

@@ -58,8 +58,6 @@ image.addImage = (req, res, next) => {
         // Everything went fine
         const image = req.file;
 
-        console.log('image', image);
-
         if(!image) {
             return next({
                 status: 500,

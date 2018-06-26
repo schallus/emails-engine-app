@@ -6,6 +6,7 @@ const utils = require('../modules/utils');
 const spawn = require('cross-spawn');
 
 // ----- GLOBAL VARIABLES -----
+const distPath = path.normalize(__dirname + '../../../emails-engine/dist');
 const clientsPath = path.normalize(__dirname + '../../../emails-engine/src/clients');
 
 const campaign = {};
@@ -422,8 +423,13 @@ campaign.removeBlockData = (req, res, next) => {
     res.status(200).send();
 };
 
-campaign.buildCampaign = (req, res, next) => {
+campaign.getPreviewLinks = (req, res) => {
+    req.previewLinks.forEach(el => delete el.path );
+    return res.status(200).json(req.previewLinks);
+}
 
+campaign.compileJSONIntoYaml = (req, res, next) => {
+    console.log('Compiling campaign files...');
     try {
         campaignConfig = JSON.parse(fs.readFileSync(`${res.brandPath}/${req.params.campaignSlug}/config.json`, 'utf8'));
     } catch (err) {
@@ -557,8 +563,12 @@ campaign.buildCampaign = (req, res, next) => {
                 }
             }
         });
-
     }
+    console.log('Success compiling campaign files...');
+    next();
+};
+
+campaign.buildCampaign = (req, res, next) => {
 
     console.log('Build in progress...');
     const build = spawn('npm run', ['build', `${req.params.brandSlug}/${req.params.campaignSlug}`], {
@@ -572,12 +582,14 @@ campaign.buildCampaign = (req, res, next) => {
             const campaignLanguages = Object.keys(campaignConfig.lang);
             result = campaignLanguages.map((lang) => {
                 return {
+                    path: `${distPath}/${req.params.brandSlug}/${req.params.campaignSlug}/index-${lang}.html`,
                     url: `${req.protocol}://${req.get('host')}/${req.params.brandSlug}/${req.params.campaignSlug}/index-${lang}.html`,
                     lang: lang
                 }
             });
 
-            res.status(200).json(result);
+            req.previewLinks = result;
+            next();
         } else {
             // ERROR
             return next({

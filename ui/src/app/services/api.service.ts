@@ -26,10 +26,13 @@ export class ApiService {
   private brandsUrl: string;
   private campaignUrl = (brandName: string) => `${this.brandsUrl}/${brandName}/campaigns`;
   private blocksUrl = (brandName: string) => `${this.brandsUrl}/${brandName}/blocks`;
+  private recipientsUrl = (brandName: string) => `${this.brandsUrl}/${brandName}/recipients`;
   private campaignStructureUrl = (brandName: string, campaignName: string) =>
     `${this.brandsUrl}/${brandName}/campaigns/${campaignName}/structure`
   private campaignBuildUrl = (brandName: string, campaignName: string) =>
     `${this.brandsUrl}/${brandName}/campaigns/${campaignName}/build`
+  private campaignTestEmailUrl = (brandName: string, campaignName: string) =>
+    `${this.brandsUrl}/${brandName}/campaigns/${campaignName}/send`
   private campaignZipUrl = (brandName: string, campaignName: string) =>
     `${this.brandsUrl}/${brandName}/campaigns/${campaignName}/zip`
   private campaignOptionsUrl = (brandName: string, campaignName: string) =>
@@ -119,6 +122,20 @@ export class ApiService {
 
   exportCampaign(brandName: string, campaignName: string) {
     return this.http.post<any>(this.campaignZipUrl(brandName, campaignName), null, httpOptions)
+      .pipe(catchError(this.apiHelper.handleError));
+  }
+
+  getRecipients(brandName: string) {
+    return this.http.get<any>(this.recipientsUrl(brandName))
+      .pipe(catchError(this.apiHelper.handleError));
+  }
+
+  sendTestEmails(brandName: string, campaignName: string, recipients: string[], languages: string[]) {
+    const data = {
+      recipients: recipients,
+      languages: languages
+    };
+    return this.http.post<any>(this.campaignTestEmailUrl(brandName, campaignName), data, httpOptions)
       .pipe(catchError(this.apiHelper.handleError));
   }
 }

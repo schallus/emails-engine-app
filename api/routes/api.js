@@ -12,6 +12,7 @@ const validator = require('express-validator');
 const brandCtrl = require('./api.brand');
 const campaignCtrl = require('./api.campaign');
 const imageCtrl = require('./api.image');
+const emailCtrl = require('./api.email');
 
 // Create API router
 const router = new express.Router();
@@ -86,10 +87,16 @@ router.route('/brands/:brandSlug/campaigns/:campaignSlug/blocks/:blockName')
     .delete(timeout('5s'), campaignCtrl.readCampaigns, campaignCtrl.removeBlockData);
 
 router.route('/brands/:brandSlug/campaigns/:campaignSlug/build')
-    .post(campaignCtrl.readCampaigns, campaignCtrl.buildCampaign);
+    .post(timeout('60s'), campaignCtrl.readCampaigns, campaignCtrl.compileJSONIntoYaml, campaignCtrl.buildCampaign, campaignCtrl.getPreviewLinks);
 
 router.route('/brands/:brandSlug/campaigns/:campaignSlug/zip')
-    .post(campaignCtrl.zipCampaign);
+    .post(timeout('60s'), campaignCtrl.readCampaigns, campaignCtrl.compileJSONIntoYaml, campaignCtrl.zipCampaign);
+
+router.route('/brands/:brandSlug/recipients')
+    .get(timeout('5s'), campaignCtrl.readCampaigns, emailCtrl.getRecipients);
+
+router.route('/brands/:brandSlug/campaigns/:campaignSlug/send')
+    .post(timeout('60s'), campaignCtrl.readCampaigns, campaignCtrl.compileJSONIntoYaml, campaignCtrl.buildCampaign, emailCtrl.sendTest);
 
 router.all('*', (req, res, next) => {
     next({

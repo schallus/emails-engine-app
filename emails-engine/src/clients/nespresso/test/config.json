@@ -6,9 +6,6 @@
 		"bs": {
 			"subject": "Campagne de test BS"
 		},
-		"zh": {
-			"subject": "Campagne de test ZH"
-		},
 		"fr": {
 			"subject": "Campagne de test FR"
 		},
@@ -20,5 +17,6 @@
 		}
 	},
 	"customLang": [],
-	"layout": "default"
+	"layout": "default",
+	"masterLang": "fr"
 }

@@ -1,9 +1,10 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-@Pipe({name: 'filterSelected'})
+@Pipe({name: 'filterSelected', pure: false})
 export class FilterSelectedPipe implements PipeTransform {
     transform(items: any[]): any {
-        console.log('pipe');
-        return items.filter(item => item.selected);
+        if (items) {
+            return items.filter(item => item.selected);
+        }
     }
 }

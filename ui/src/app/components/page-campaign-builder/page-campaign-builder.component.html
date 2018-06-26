@@ -5,7 +5,7 @@
   <div class="builder-actions text-right col">
     <button type="button" class="btn btn-primary btn-rounded waves-light" (click)="showPreview()" mdbWavesEffect>Aperçu</button>
     <button type="button" class="btn btn-primary btn-rounded waves-light" mdbWavesEffect>Litmus</button>
-    <button type="button" class="btn btn-primary btn-rounded waves-light" mdbWavesEffect>Envoi</button>
+    <button type="button" class="btn btn-primary btn-rounded waves-light" (click)="configureTestEmail()" mdbWavesEffect>Envoi</button>
     <button type="button" class="btn btn-primary btn-rounded waves-light" (click)="exportEmails()" mdbWavesEffect>Exporter</button>
   </div>
 </div>
@@ -67,20 +67,23 @@
 </div>
 
 <div mdbModal #modalBlockRemove="mdb-modal" class="modal fade" id="modalBlockRemove" tabindex="-1" role="dialog" aria-labelledby="Supprimer le bloc" aria-hidden="true">
-  <div class="modal-dialog modal-sm modal-notify modal-danger" role="document">
+  <div class="modal-dialog modal-notify modal-danger" role="document">
     <div class="modal-content">
       <div class="modal-header white-text">
-        <h4 class="modal-title w-100" id="myModalLabel">Suppression du bloc</h4>
+        <p class="heading lead">Suppression du bloc</p>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalBlockRemove.hide()">
           <span aria-hidden="true" class="white-text">×</span>
         </button>
       </div>
       <div class="modal-body" *ngIf="block">
-        <p>Êtes-vous sure de bien vouloir supprimer le bloc #ID '{{ block.name }}' ?</p>
+        <div class="text-center">
+          <i class="fa fa-trash fa-4x mb-3 animated rotateIn"></i>
+          <p>Êtes-vous sûr de vouloir supprimer<br>le bloc #ID <strong>{{ block.name }}</strong> ?</p>
+        </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-grey btn-sm" data-dismiss="modal" (click)="modalBlockRemove.hide()" mdbWavesEffect>Annuler</button>
-        <button type="button" class="btn btn-primary btn-sm" (click)="removeBlock(block)" mdbWavesEffect>Supprimer</button>
+        <button type="button" class="btn btn-grey" data-dismiss="modal" (click)="modalBlockRemove.hide()" mdbWavesEffect>Annuler</button>
+        <button type="button" class="btn btn-primary" (click)="removeBlock(block)" mdbWavesEffect>Supprimer</button>
       </div>
     </div>
   </div>
@@ -100,13 +103,13 @@
           <p>Génération des emails en cours...</p>
           <mdb-spinner spinnerColor="red"></mdb-spinner>
         </div>
-        <div class="previewLinks" *ngIf="previewLinks">
+        <div class="previewLinks" *ngIf="!buildInProgress && previewLinks">
           <a *ngFor="let link of previewLinks" class="btn btn-light-green waves-light"[href]="link.url" target="_blank" mdbWavesEffect>{{ link.lang }}</a>
-          <a class="btn btn-primary btn-rounded btn-small" (click)="openAllPreviews()" mdbWavesEffect>Tous les ouvrir</a>
+          <a class="btn btn-primary btn-rounded" (click)="openAllPreviews()" mdbWavesEffect>Tous les ouvrir</a>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-grey btn-sm" data-dismiss="modal" (click)="modalPreviewEmails.hide()" mdbWavesEffect>Fermer</button>
+        <button type="button" class="btn btn-grey" data-dismiss="modal" (click)="modalPreviewEmails.hide()" mdbWavesEffect>Fermer</button>
       </div>
     </div>
   </div>
@@ -128,134 +131,196 @@
     </div>
   </div>
 
+  <div mdbModal #modalSendEmails="mdb-modal" class="modal fade" id="modalSendEmails" tabindex="-1" role="dialog" aria-labelledby="Envoi emails de test" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title w-100" id="myModalLabel">Envoi emails de test</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalSendEmails.hide()">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div *ngIf="sending" class="text-center">
+            <p>Envoi des emails en cours...</p>
+            <mdb-spinner spinnerColor="red"></mdb-spinner>
+          </div>
+          <div *ngIf="!sending" class="row">
+            <div class="col-md-6">
+              <div class="btn-group checkbox-list" id="checkbox-recipients" data-toggle="buttons">
+                <label *ngFor="let lang of langSelected" class="btn btn-primary form-check-label mb-1" [ngClass]="{'active': lang.selected}">
+                  <input class="form-check-input d-none" type="checkbox" [checked]="lang.selected ? 'checked' : null" autocomplete="off" (change)="lang.selected = !lang.selected" [value]="lang.code" > {{ lang.code | uppercase }}
+                </label>
+              </div>
+            </div>
+            <div class="col-md-6">
+                <div class="btn-group checkbox-list" id="checkbox-recipients" data-toggle="buttons">
+                  <label *ngFor="let recipient of recipients" class="btn btn-primary form-check-label mb-1" [ngClass]="{'active': recipient.selected}">
+                    <input class="form-check-input d-none" type="checkbox" [checked]="recipient.selected ? 'checked' : null" autocomplete="off" (change)="recipient.selected = !recipient.selected" [value]="recipient.email" > {{ recipient.firstname }} {{ recipient.lastname }} <{{ recipient.email }}>
+                  </label>
+                </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-grey" data-dismiss="modal" [disabled]="sending" (click)="modalSendEmails.hide()" mdbWavesEffect>Fermer</button>
+          <button type="button" class="btn btn-green" mdbWavesEffect [disabled]="(recipients | filterSelected)?.length < 1 || (langSelected | filterSelected)?.length < 1 || sending" (click)="sendTestEmail()">Envoyer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div mdbModal #modalWarningSave="mdb-modal" class="modal fade" id="modalWarningSave" tabindex="-1" role="dialog" aria-labelledby="Tous les attributs ne sont pas remplis." aria-hidden="true" [config]="{ backdrop: false, ignoreBackdropClick: true }">
+    <div class="modal-dialog modal-notify modal-warning" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <p class="heading lead">Attention</p>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalWarningSave.hide()">
+            <span aria-hidden="true" class="white-text">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="text-center">
+            <i class="fa fa-exclamation-triangle fa-4x mb-3 animated rotateIn"></i>
+            <p>Tous les attributs du bloc ne sont pas remplis ou il y a des erreurs dans certains champs. Êtes-vous sûre de vouloir sauvegarder le bloc dans l'état actuel ?</p>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-center">
+          <a type="button" class="btn btn-grey" data-dismiss="modal" (click)="discardBlockSettings()" mdbWavesEffect>Quitter sans enregistrer</a>
+          <a type="button" class="btn btn-green" mdbWavesEffect (click)="saveBlockSettings()">Enregistrer</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <div mdbModal #modalBlockSettings="mdb-modal" class="modal fade" id="modalBlockSettings" tabindex="-1" role="dialog" aria-labelledby="Options du bloc" aria-hidden="true">
   <div class="modal-dialog cascading-modal modal-lg" role="document">
     <!--Content-->
     <div class="modal-content">
-      <!--Modal cascading tabs-->
-      <div class="modal-c-tabs">
-        <!-- Tab panels -->
-        <mdb-tabset #langTabs [buttonClass]="'nav nav-tabs primary-color'" [contentClass]="''" class="tab-content">
-          <mdb-tab *ngFor="let lang of campaignLanguages" class="tab-pane fade in show active" [id]="'tab-'+lang" role="tabpanel" [heading]="lang | uppercase">
-            <!--Body-->
-            <div class="modal-body mb-1" *ngIf="block">
-              <!-- Switch -->
-              <div class="switch danger-switch">
-                <label>
-                  Cacher
-                  <input type="checkbox" [id]="'show-block-'+lang" [name]="'show-block-'+lang" [checked]="isVisible(lang)" (change)="toggleVisibility(lang)">
-                  <span class="lever"></span>
-                  Afficher
-                </label>
-              </div>
-              <div class="md-form" *ngFor="let property of getBlockTypeInfo(block.blockType).properties" [ngSwitch]="property.type">
-                <div *ngSwitchCase="'text'">
-                  <input mdbInputDirective type="text" class="form-control" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" [value]="getPropertyValue(property.name, lang)" appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)" [required]="property.required">
-                  <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
+      <form #blockSettingsForm='ngForm' (ngSubmit)="onBlockSettingsFormSubmit(blockSettingsForm)">
+        <!--Modal cascading tabs-->
+        <div class="modal-c-tabs">
+          <!-- Tab panels -->
+          <mdb-tabset #langTabs [buttonClass]="'nav nav-tabs primary-color'" [contentClass]="''" class="tab-content">
+            <mdb-tab *ngFor="let lang of campaignLanguages" class="tab-pane fade in show active" [id]="'tab-'+lang" role="tabpanel" [heading]="lang | uppercase">
+              <!--Body-->
+              <div class="modal-body mb-1" *ngIf="block">
+                <!-- Switch -->
+                <div class="switch danger-switch">
+                  <label>
+                    Cacher
+                    <input type="checkbox" [id]="'show-block-'+lang" [name]="'show-block-'+lang" [ngModel]="isVisible(lang)" [checked]="isVisible(lang)" (change)="toggleVisibility(lang)">
+                    <span class="lever"></span>
+                    Afficher
+                  </label>
                 </div>
-                <div *ngSwitchCase="'number'">
-                    <input mdbInputDirective type="number" class="form-control" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" [value]="getPropertyValue(property.name, lang)" appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)" [required]="property.required">
+                <div class="md-form" *ngFor="let property of getBlockTypeInfo(block.blockType).properties" [ngSwitch]="property.type">
+                  <div *ngSwitchCase="'text'">
+                    <input mdbInputDirective type="text" class="form-control" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" [mdbValidate]="false" [ngModel]="getPropertyValue(property.name, lang)" appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)" [required]="property.required">
                     <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
                   </div>
-                <div *ngSwitchCase="'url'">
-                  <input mdbInputDirective type="text" class="form-control" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" customRegex="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" [value]="getPropertyValue(property.name, lang)" appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)" [required]="property.required">
-                  <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
-                </div>
-                <div *ngSwitchCase="'img'" class="file-field">
-                  <div class="col-6 img-preview">
-                    <img [src]="getPropertyValue(property.name, lang) !== '' ? getPropertyValue(property.name, lang) : 'assets/img/placeholder.jpg'" class="img-fluid">
+                  <div *ngSwitchCase="'number'">
+                      <input mdbInputDirective type="number" class="form-control" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" [mdbValidate]="false" [ngModel]="getPropertyValue(property.name, lang)" appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)" [required]="property.required">
+                      <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
+                    </div>
+                  <div *ngSwitchCase="'url'">
+                    <input mdbInputDirective type="text" class="form-control" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" customRegex="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" [mdbValidate]="false" [ngModel]="getPropertyValue(property.name, lang)" appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)" [required]="property.required">
+                    <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
                   </div>
-                  <div class="col-6 img-button">
-                    <div class="btn btn-primary btn-rounded">
-                      <span>Séléctionner une image</span>
-                      <input type="file" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" (change)="uploadFile(property.name, lang, $event)">
+                  <div *ngSwitchCase="'img'" class="file-field">
+                    <div class="col-6 img-preview">
+                      <img [src]="getPropertyValue(property.name, lang) !== '' ? getPropertyValue(property.name, lang) : 'assets/img/placeholder.jpg'" class="img-fluid">
+                    </div>
+                    <div class="col-6 img-button">
+                      <div class="btn btn-primary btn-rounded">
+                        <span>Séléctionner une image</span>
+                        <input type="file" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" (change)="uploadFile(property.name, lang, $event)">
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div *ngSwitchCase="'color'">
-                  <span class="color-preview prefix mr-1 rounded" [style.background]="getPropertyValue(property.name, lang)?.substring(1, 8)"></span>
-                  <input mdbInputDirective [mdbValidate]="false" type="text" class="form-control color" [id]="property.name+'-'+lang" name="property.name+'-'+lang" [required]="property.required"
-                  (colorPickerSelect)="colorPickerChange(property.name, lang, $event)"
-                  [cpCancelButton]="true"
-                  [cpCancelButtonClass]= "'btn btn-primary btn-sm mr-1'"
-                  [cpOKButton]="true"
-                  [cpSaveClickOutside]="false"
-                  [cpOKButtonClass]= "'btn btn-green btn-sm'"
-                  [value]="getPropertyValue(property.name, lang)?.substring(1, 8)"
-                  [colorPicker]="getPropertyValue(property.name, lang)?.substring(1, 8)"/>
-                  <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
-                </div>
-                <div *ngSwitchCase="'textarea'">
-                  <textarea mdbInputDirective class="md-textarea form-control" rows="3" type="text" [id]="property.name+'-'+lang" name="property.name+'-'+lang" [required]="property.required" appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)">
-                    {{ getPropertyValue(property.name, lang) }}
-                  </textarea>
-                  <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
-                </div>
-                <div *ngSwitchCase="'properties'">
-                  <!--Accordion wrapper-->
-                  <p>{{ property.displayName }}<sup *ngIf="property.required">*</sup></p>
-                  <mdb-squeezebox [id]="'accordion-'+property.name" [multiple]="false" aria-multiselectable="false">
-                    <mdb-item class="propertyAccordion" [collapsed]="true" *ngFor="let propValue of getPropertyValue(property.name, lang); index as key; first as isFirst">
-                      <mdb-item-head class="btn btn-outline-primary">{{ property.name }} #{{ key }}</mdb-item-head>
-                      <mdb-item-body>
-                        <div class="md-form" *ngFor="let property1 of property.properties" [ngSwitch]="property1.type">
-                          <div *ngSwitchCase="'text'">
-                            <input mdbInputDirective type="text" class="form-control" [id]="property1.name+'-'+lang" [name]="property1.name+'-'+lang" [value]="propValue[property1.name]" appDebounceChange (debounceChange)="setPropertyValue(property1.name, lang, $event, property.name, key)" [required]="property1.required">
-                            <label [for]="property1.name+'-'+lang">{{ property1.displayName }}<sup *ngIf="property1.required">*</sup></label>
-                          </div>
-                          <div *ngSwitchCase="'number'">
-                              <input mdbInputDirective type="number" class="form-control" [id]="property1.name+'-'+lang" [name]="property1.name+'-'+lang" [value]="propValue[property1.name]" appDebounceChange (debounceChange)="setPropertyValue(property1.name, lang, $event, property.name, key)" [required]="property1.required">
+                  <div *ngSwitchCase="'color'">
+                    <span class="color-preview prefix mr-1 rounded" [style.background]="getPropertyValue(property.name, lang)?.substring(1, 8)"></span>
+                    <input mdbInputDirective [mdbValidate]="false" type="text" class="form-control color" [id]="property.name+'-'+lang" name="property.name+'-'+lang" [required]="property.required"
+                    (colorPickerSelect)="colorPickerChange(property.name, lang, $event)"
+                    [cpCancelButton]="true"
+                    [cpCancelButtonClass]= "'btn btn-primary btn-sm mr-1'"
+                    [cpOKButton]="true"
+                    [cpSaveClickOutside]="false"
+                    [cpOKButtonClass]= "'btn btn-green btn-sm'"
+                    [ngModel]="getPropertyValue(property.name, lang)?.substring(1, 8)"
+                    [colorPicker]="getPropertyValue(property.name, lang)?.substring(1, 8)"/>
+                    <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
+                  </div>
+                  <div *ngSwitchCase="'textarea'">
+                    <textarea mdbInputDirective class="md-textarea form-control" rows="3" type="text" [id]="property.name+'-'+lang" name="property.name+'-'+lang" [required]="property.required" [mdbValidate]="false" [ngModel]="getPropertyValue(property.name, lang)" appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)"></textarea>
+                    <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
+                  </div>
+                  <div *ngSwitchCase="'properties'">
+                    <!--Accordion wrapper-->
+                    <p>{{ property.displayName }}<sup *ngIf="property.required">*</sup></p>
+                    <mdb-squeezebox [id]="'accordion-'+property.name" [multiple]="false" aria-multiselectable="false">
+                      <mdb-item class="propertyAccordion" [collapsed]="true" *ngFor="let propValue of getPropertyValue(property.name, lang); index as key; first as isFirst">
+                        <mdb-item-head class="btn btn-outline-primary">{{ property.name }} #{{ key }}</mdb-item-head>
+                        <mdb-item-body>
+                          <div class="md-form" *ngFor="let property1 of property.properties" [ngSwitch]="property1.type">
+                            <div *ngSwitchCase="'text'">
+                              <input mdbInputDirective type="text" class="form-control" [id]="property1.name+'-'+lang" [name]="property1.name+'-'+lang" [ngModel]="propValue[property1.name]" appDebounceChange (debounceChange)="setPropertyValue(property1.name, lang, $event, property.name, key)" [required]="property1.required">
                               <label [for]="property1.name+'-'+lang">{{ property1.displayName }}<sup *ngIf="property1.required">*</sup></label>
                             </div>
-                          <div *ngSwitchCase="'url'">
-                            <input mdbInputDirective type="text" class="form-control" [id]="property1.name+'-'+lang" [name]="property1.name+'-'+lang" customRegex="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" [value]="propValue[property1.name]" appDebounceChange (debounceChange)="setPropertyValue(property1.name, lang, $event, property.name, key)" [required]="property1.required">
-                            <label [for]="property1.name+'-'+lang">{{ property1.displayName }}<sup *ngIf="property1.required">*</sup></label>
-                          </div>
-                          <div *ngSwitchCase="'img'" class="file-field">
-                            <div class="col-6 img-preview">
-                              <img [src]="propValue[property1.name] !== '' ? propValue[property1.name] : 'assets/img/placeholder.jpg'" class="img-fluid">
+                            <div *ngSwitchCase="'number'">
+                                <input mdbInputDirective type="number" class="form-control" [id]="property1.name+'-'+lang" [name]="property1.name+'-'+lang" [ngModel]="propValue[property1.name]" appDebounceChange (debounceChange)="setPropertyValue(property1.name, lang, $event, property.name, key)" [required]="property1.required">
+                                <label [for]="property1.name+'-'+lang">{{ property1.displayName }}<sup *ngIf="property1.required">*</sup></label>
+                              </div>
+                            <div *ngSwitchCase="'url'">
+                              <input mdbInputDirective type="text" class="form-control" [id]="property1.name+'-'+lang" [name]="property1.name+'-'+lang" customRegex="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" [ngModel]="propValue[property1.name]" appDebounceChange (debounceChange)="setPropertyValue(property1.name, lang, $event, property.name, key)" [required]="property1.required">
+                              <label [for]="property1.name+'-'+lang">{{ property1.displayName }}<sup *ngIf="property1.required">*</sup></label>
                             </div>
-                            <div class="col-6 img-button">
-                              <div class="btn btn-primary btn-rounded">
-                                <span>Séléctionner une image</span>
-                                <input type="file" [id]="property1.name+'-'+lang" [name]="property1.name+'-'+lang" (change)="uploadFile(property1.name, lang, $event, property.name, key)">
+                            <div *ngSwitchCase="'img'" class="file-field">
+                              <div class="col-6 img-preview">
+                                <img [src]="propValue[property1.name] !== '' ? propValue[property1.name] : 'assets/img/placeholder.jpg'" class="img-fluid">
+                              </div>
+                              <div class="col-6 img-button">
+                                <div class="btn btn-primary btn-rounded">
+                                  <span>Séléctionner une image</span>
+                                  <input type="file" [id]="property1.name+'-'+lang" [name]="property1.name+'-'+lang" (change)="uploadFile(property1.name, lang, $event, property.name, key)">
+                                </div>
                               </div>
                             </div>
+                            <div *ngSwitchCase="'color'">
+                              <span class="color-preview prefix mr-1 rounded" [style.background]="propValue[property1.name]?.substring(1, 8)"></span>
+                              <input mdbInputDirective [mdbValidate]="false" type="text" class="form-control color" [id]="property1.name+'-'+lang" name="property1.name+'-'+lang" [required]="property1.required"
+                              (colorPickerSelect)="colorPickerChange(property1.name, lang, $event)"
+                              [cpCancelButton]="true"
+                              [cpCancelButtonClass]= "'btn btn-primary btn-sm mr-1'"
+                              [cpOKButton]="true"
+                              [cpSaveClickOutside]="false"
+                              [cpOKButtonClass]= "'btn btn-green btn-sm'"
+                              [ngModel]="propValue[property1.name]?.substring(1, 8)"
+                              [colorPicker]="propValue[property1.name]?.substring(1, 8)"/>
+                              <label [for]="property1.name+'-'+lang">{{ property1.displayName }}<sup *ngIf="property1.required">*</sup></label>
+                            </div>
+                            <div *ngSwitchCase="'textarea'">
+                              <textarea mdbInputDirective class="md-textarea form-control" rows="3" type="text" [id]="property1.name+'-'+lang" name="property1.name+'-'+lang" [ngModel]="propValue[property1.name]" [required]="property1.required" appDebounceChange (debounceChange)="setPropertyValue(property1.name, lang, $event, property.name, key)"></textarea>
+                              <label [for]="property1.name+'-'+lang">{{ property1.displayName }}<sup *ngIf="property1.required">*</sup></label>
+                            </div>
                           </div>
-                          <div *ngSwitchCase="'color'">
-                            <span class="color-preview prefix mr-1 rounded" [style.background]="propValue[property1.name]?.substring(1, 8)"></span>
-                            <input mdbInputDirective [mdbValidate]="false" type="text" class="form-control color" [id]="property1.name+'-'+lang" name="property1.name+'-'+lang" [required]="property1.required"
-                            (colorPickerSelect)="colorPickerChange(property1.name, lang, $event)"
-                            [cpCancelButton]="true"
-                            [cpCancelButtonClass]= "'btn btn-primary btn-sm mr-1'"
-                            [cpOKButton]="true"
-                            [cpSaveClickOutside]="false"
-                            [cpOKButtonClass]= "'btn btn-green btn-sm'"
-                            [value]="propValue[property1.name]?.substring(1, 8)"
-                            [colorPicker]="propValue[property1.name]?.substring(1, 8)"/>
-                            <label [for]="property1.name+'-'+lang">{{ property1.displayName }}<sup *ngIf="property1.required">*</sup></label>
-                          </div>
-                          <div *ngSwitchCase="'textarea'">
-                            <textarea mdbInputDirective class="md-textarea form-control" rows="3" type="text" [id]="property1.name+'-'+lang" name="property1.name+'-'+lang" [required]="property1.required" appDebounceChange (debounceChange)="setPropertyValue(property1.name, lang, $event, property.name, key)">
-                              {{ propValue[property1.name] }}
-                            </textarea>
-                            <label [for]="property1.name+'-'+lang">{{ property1.displayName }}<sup *ngIf="property1.required">*</sup></label>
-                          </div>
-                        </div>
-                      </mdb-item-body>
-                    </mdb-item>
-                  </mdb-squeezebox>
-                  <!--/.Accordion wrapper-->
+                        </mdb-item-body>
+                      </mdb-item>
+                    </mdb-squeezebox>
+                    <!--/.Accordion wrapper-->
+                  </div>
                 </div>
               </div>
-            </div>
-            <!--Footer-->
-            <div class="modal-footer display-footer">
-              <button type="button" class="btn btn-grey btn-sm" data-dismiss="modal" (click)="modalBlockSettings.hide()" mdbWavesEffect>Fermer</button>
-            </div>
-          </mdb-tab>
-        </mdb-tabset>
-      </div>
+              <!--Footer-->
+              <div class="modal-footer display-footer">
+                <button type="button" class="btn btn-grey" data-dismiss="modal" (click)="modalBlockSettings.hide()" mdbWavesEffect>Annuler</button>
+                <!--button type="submit" class="btn btn-green" [disabled]="blockSettingsForm.invalid" mdbWavesEffect>Enregistrer</button-->
+                <button type="submit" class="btn btn-green" mdbWavesEffect>Enregistrer</button>
+              </div>
+            </mdb-tab>
+          </mdb-tabset>
+        </div>
+      </form>
     </div>
   <!--/.Content-->
   </div>

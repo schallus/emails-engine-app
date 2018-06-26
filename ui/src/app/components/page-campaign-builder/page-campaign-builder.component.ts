@@ -1,8 +1,9 @@
 import { Component, OnInit, ViewChild, HostListener, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SortablejsOptions } from 'angular-sortablejs';
-import { FormControl } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { DOCUMENT } from '@angular/platform-browser';
+import { TabsetComponent } from 'ng-uikit-pro-standard';
 
 // RxJS
 import { Subscription, Observable } from 'rxjs';
@@ -15,7 +16,7 @@ import { UploadService } from '../../services/upload.service';
 // Models
 import { Block } from './../../models/block';
 import { BlockPosition } from '../../models/block-position';
-import { TabsetComponent } from 'ng-uikit-pro-standard';
+import { RecipientSelected } from '../../models/recipient';
 
 @Component({
   selector: 'app-page-campaign-builder',
@@ -28,6 +29,8 @@ export class PageCampaignBuilderComponent implements OnInit {
   @ViewChild('modalBlockSettings') public modalBlockSettings;
   @ViewChild('modalPreviewEmails') public modalPreviewEmails;
   @ViewChild('modalExportEmails') public modalExportEmails;
+  @ViewChild('modalWarningSave') public modalWarningSave;
+  @ViewChild('modalSendEmails') public modalSendEmails;
   @ViewChild('langTabs') langTabs: TabsetComponent;
   @ViewChild('dragNDropBlocksList') dragNDropBlocksList: any;
 
@@ -63,7 +66,9 @@ export class PageCampaignBuilderComponent implements OnInit {
   blocksFixed: boolean;
   blocksFixedWidth: number;
 
-  objectKeys = Object.keys;
+  recipients: RecipientSelected[];
+  langSelected: Array<{code: string, selected: boolean}>;
+  sending: boolean;
 
   previewLinks: Array<{url: string, lang: string}>;
   buildInProgress: boolean;
@@ -77,6 +82,7 @@ export class PageCampaignBuilderComponent implements OnInit {
 
     this.blocksFixed = false;
     this.buildInProgress = false;
+    this.sending = false;
     this.filterBlock = '';
 
     this.list1Options = {
@@ -147,6 +153,12 @@ export class PageCampaignBuilderComponent implements OnInit {
       this.apiService.getCampaignOptions(this.brandName, this.campaignName).subscribe(options => {
         this.campaignOptions = options;
         this.campaignLanguages = Object.keys(this.campaignOptions.lang);
+        this.langSelected = this.campaignLanguages.map(el => {
+          return {
+            code: el,
+            selected: true
+          };
+        });
 
         this.apiService.setCampaignStructure(this.brandName, this.campaignName, this.campaignStructure)
           .subscribe(newCampaignStructure => this.campaignStructure = newCampaignStructure);
@@ -269,10 +281,13 @@ export class PageCampaignBuilderComponent implements OnInit {
         }
         this.apiService.setBlockData(this.brandName, this.campaignName, this.blockData).subscribe(newBlockData => {
           // After the block data set, we open the modal
+
+          console.log('blockData', newBlockData);
           this.modalBlockSettings.show();
         });
       } else {
-          this.modalBlockSettings.show();
+        console.log('blockData', this.blockData);
+        this.modalBlockSettings.show();
       }
     });
   }
@@ -300,6 +315,33 @@ export class PageCampaignBuilderComponent implements OnInit {
     this.apiService.exportCampaign(this.brandName, this.campaignName).subscribe(data => {
       window.open(data.zipLink);
       this.modalExportEmails.hide();
+    });
+  }
+
+  configureTestEmail() {
+    if (!this.recipients) {
+      // Get list of recipients
+      this.apiService.getRecipients(this.brandName).subscribe(recipients => {
+        this.recipients = recipients.map(recipient => {
+          recipient.selected = true;
+          return recipient;
+        });
+
+        this.modalSendEmails.show();
+      });
+    } else {
+      this.modalSendEmails.show();
+    }
+  }
+
+  sendTestEmail() {
+    const recipients = this.recipients.filter(el => el.selected).map(el => el.email);
+    const languages = this.langSelected.filter(el => el.selected).map(el => el.code);
+
+    this.sending = true;
+    this.apiService.sendTestEmails(this.brandName, this.campaignName, recipients, languages).subscribe(() => {
+      this.sending = false;
+      this.modalSendEmails.hide();
     });
   }
 
@@ -331,7 +373,7 @@ export class PageCampaignBuilderComponent implements OnInit {
     } else {
       this.blockData.languages.filter(el => el.lang === lang)[0].properties[propertyName] = event.target.value;
     }
-    this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe();
+    // this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe();
   }
 
   uploadFile(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
@@ -372,6 +414,32 @@ export class PageCampaignBuilderComponent implements OnInit {
   colorPickerChange(propertyName: string, lang: string, color: any) {
     this.blockData.languages.filter(el => el.lang === lang)[0].properties[propertyName] = `'${color}'`;
     this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe();
+  }
+
+  onBlockSettingsFormSubmit(form: NgForm) {
+    console.log(form.value);
+    console.log('The form is valid', form.valid);
+    if (!form.valid) {
+      this.modalWarningSave.show();
+    } else {
+      this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe(() => {
+        this.modalBlockSettings.hide();
+      });
+    }
+  }
+
+  discardBlockSettings() {
+    this.blockData = null;
+    this.modalWarningSave.hide();
+    this.modalBlockSettings.hide();
+  }
+
+  saveBlockSettings() {
+    console.log('Save blockData', this.blockData);
+    this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe(() => {
+      this.modalWarningSave.hide();
+      this.modalBlockSettings.hide();
+    });
   }
 
   isCompletelyFilled(blockName: string) {

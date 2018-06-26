@@ -34,6 +34,8 @@ export class PageCampaignOptionsComponent implements OnInit {
   // Options de la campagne
   campaignOptions: CampaignOptions;
 
+  masterLang: string;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -61,18 +63,16 @@ export class PageCampaignOptionsComponent implements OnInit {
     // Get campaign options
     this.apiService.getCampaignOptions(this.brandName, this.campaignName).subscribe(options => {
       this.campaignOptions = options;
-      console.log(this.campaignOptions);
 
       this.languages = this.languages.concat(this.campaignOptions.customLang.map(lang => {
         const langSelected = <LangSelected>lang;
         langSelected.selected = true;
-        console.log(langSelected);
         return langSelected;
       }));
 
       this.filteredLanguages = this.languages;
 
-      console.log(this.filteredLanguages);
+      this.masterLang = this.campaignOptions.masterLang;
 
       Object.keys(this.campaignOptions.lang).forEach((key) => {
         const lang = this.languages.filter(el => el.code === key);
@@ -108,19 +108,28 @@ export class PageCampaignOptionsComponent implements OnInit {
   }
 
   onOptionsFormSubmit = (form: NgForm) => {
+    console.log(form.value);
     if (form.valid) {
       const campaignName = form.value.campaignName;
       const campaignDisplayName = form.value.campaignDisplayName;
+      this.campaignOptions.masterLang = form.value.masterLang;
+      this.masterLang = form.value.masterLang;
 
       console.log('campaignName', campaignName);
       console.log('campaignDisplayName', campaignDisplayName);
+      console.log('masterLang', this.campaignOptions.masterLang);
 
-      delete form.value['campaignName'];
-      delete form.value['campaignDisplayName'];
+      // masterLang is undefined when we remove a lang and submit the form : to be fixed !!
 
       const lang = {};
 
-      Object.keys(form.value).forEach((key) => {
+      // duplicate the object
+      const subjects = Object.assign({}, form.value);
+      delete subjects['campaignName'];
+      delete subjects['campaignDisplayName'];
+      delete subjects['masterLang'];
+
+      Object.keys(subjects).forEach((key) => {
         const langCode = key.substr(key.length - 2);
         lang[langCode] = {
           subject: form.value[key]
