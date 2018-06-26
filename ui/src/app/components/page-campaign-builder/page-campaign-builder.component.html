@@ -182,7 +182,7 @@
         <div class="modal-body">
           <div class="text-center">
             <i class="fa fa-exclamation-triangle fa-4x mb-3 animated rotateIn"></i>
-            <p>Tous les attributs du bloc ne sont pas remplis ou il y a des erreurs dans certains champs. Êtes-vous sûre de vouloir sauvegarder le bloc dans l'état actuel ?</p>
+            <p>Tous les attributs du bloc ne sont pas remplis ou il y a des erreurs dans certains champs. Êtes-vous sûr de vouloir sauvegarder le bloc dans l'état actuel ?</p>
           </div>
         </div>
         <div class="modal-footer justify-content-center">
@@ -247,7 +247,8 @@
                     [cpOKButton]="true"
                     [cpSaveClickOutside]="false"
                     [cpOKButtonClass]= "'btn btn-green btn-sm'"
-                    [ngModel]="getPropertyValue(property.name, lang)?.substring(1, 8)"
+                    ngModel
+                    [value]="getPropertyValue(property.name, lang)?.substring(1, 8)"
                     [colorPicker]="getPropertyValue(property.name, lang)?.substring(1, 8)"/>
                     <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
                   </div>
@@ -295,7 +296,8 @@
                               [cpOKButton]="true"
                               [cpSaveClickOutside]="false"
                               [cpOKButtonClass]= "'btn btn-green btn-sm'"
-                              [ngModel]="propValue[property1.name]?.substring(1, 8)"
+                              ngModel
+                              [value]="propValue[property1.name]?.substring(1, 8)"
                               [colorPicker]="propValue[property1.name]?.substring(1, 8)"/>
                               <label [for]="property1.name+'-'+lang">{{ property1.displayName }}<sup *ngIf="property1.required">*</sup></label>
                             </div>

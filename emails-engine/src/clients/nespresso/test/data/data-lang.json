@@ -150,9 +150,9 @@
 			{
 				"lang": "ar",
 				"properties": {
-					"bgcolor": "#d1acac",
-					"color": "#d21313",
-					"colorSep": "",
+					"bgcolor": "'#a54545'",
+					"color": "'#b22f2f'",
+					"colorSep": "'#a69898'",
 					"text": ""
 				},
 				"display": true
@@ -305,7 +305,7 @@
 			{
 				"lang": "ar",
 				"properties": {
-					"bgcolor": "'#e84040'",
+					"bgcolor": "'#bd6666'",
 					"img": "",
 					"img-w": "",
 					"img-h": "",
@@ -331,7 +331,7 @@
 			{
 				"lang": "fr",
 				"properties": {
-					"bgcolor": "'#d56565'",
+					"bgcolor": "'#bf1e1e'",
 					"img": "http://localhost:3000/nespresso/test/images/uploads/davide-cantelli-139887-unsplash.jpg",
 					"img-w": "200",
 					"img-h": "100",
