@@ -24,9 +24,13 @@ export class ApiService {
 
   private apiBaseUrl: string;
   private brandsUrl: string;
-  private campaignUrl = (brandName: string) => `${this.brandsUrl}/${brandName}/campaigns`;
+  private campaignsUrl = (brandName: string) => `${this.brandsUrl}/${brandName}/campaigns`;
   private blocksUrl = (brandName: string) => `${this.brandsUrl}/${brandName}/blocks`;
   private recipientsUrl = (brandName: string) => `${this.brandsUrl}/${brandName}/recipients`;
+  private campaignArchiveUrl = (brandName: string, campaignName: string) =>
+    `${this.brandsUrl}/${brandName}/campaigns/${campaignName}/archive`
+  private campaignDeleteUrl = (brandName: string, campaignName: string) =>
+    `${this.brandsUrl}/${brandName}/campaigns/${campaignName}/delete`
   private campaignStructureUrl = (brandName: string, campaignName: string) =>
     `${this.brandsUrl}/${brandName}/campaigns/${campaignName}/structure`
   private campaignBuildUrl = (brandName: string, campaignName: string) =>
@@ -37,6 +41,8 @@ export class ApiService {
     `${this.brandsUrl}/${brandName}/campaigns/${campaignName}/zip`
   private campaignOptionsUrl = (brandName: string, campaignName: string) =>
     `${this.brandsUrl}/${brandName}/campaigns/${campaignName}`
+  private campaignDuplicateUrl = (brandName: string, campaignName: string) =>
+    `${this.brandsUrl}/${brandName}/campaigns/${campaignName}/duplicate`
   private getBlockDataUrl = (brandName: string, campaignName: string, blockName: string) =>
     `${this.brandsUrl}/${brandName}/campaigns/${campaignName}/blocks/${blockName}`
   private getBlocksDataUrl = (brandName: string, campaignName: string) =>
@@ -56,7 +62,32 @@ export class ApiService {
   }
 
   getCampaigns(brandName: string) {
-    return this.http.get<Campaign[]>(this.campaignUrl(brandName))
+    return this.http.get<Campaign[]>(this.campaignsUrl(brandName))
+      .pipe(catchError(this.apiHelper.handleError));
+  }
+
+  addCampaign(brandName: string, campaignName: string) {
+    return this.http.post<Campaign>(this.campaignsUrl(brandName), { displayName: campaignName }, httpOptions)
+      .pipe(catchError(this.apiHelper.handleError));
+  }
+
+  editCampaign(brandName: string, campaignName: string, newName: string) {
+    return this.http.patch<Campaign>(this.campaignOptionsUrl(brandName, campaignName), { displayName: newName }, httpOptions)
+      .pipe(catchError(this.apiHelper.handleError));
+  }
+
+  duplicateCampaign(brandName: string, campaignName: string, newName: string) {
+    return this.http.post<Campaign>(this.campaignDuplicateUrl(brandName, campaignName), { displayName: newName }, httpOptions)
+      .pipe(catchError(this.apiHelper.handleError));
+  }
+
+  archiveCampaign(brandName: string, campaignName: string) {
+    return this.http.delete(this.campaignArchiveUrl(brandName, campaignName))
+      .pipe(catchError(this.apiHelper.handleError));
+  }
+
+  deleteCampaign(brandName: string, campaignName: string) {
+    return this.http.delete(this.campaignDeleteUrl(brandName, campaignName))
       .pipe(catchError(this.apiHelper.handleError));
   }
 

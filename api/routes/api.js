@@ -70,7 +70,17 @@ router.route('/brands/:brandSlug/blocks')
 
 router.route('/brands/:brandSlug/campaigns/:campaignSlug')
     .get(timeout('5s'), campaignCtrl.readCampaigns, campaignCtrl.getCampaignConfig)
-    .post(timeout('5s'), campaignCtrl.readCampaigns, campaignCtrl.setCampaignConfig);
+    .post(timeout('5s'), campaignCtrl.readCampaigns, campaignCtrl.setCampaignConfig)
+    .patch(timeout('5s'), campaignCtrl.readCampaigns, campaignCtrl.addCampaign);
+
+router.route('/brands/:brandSlug/campaigns/:campaignSlug/archive')
+    .delete(timeout('5s'), campaignCtrl.readCampaigns, campaignCtrl.archiveCampaign);
+
+router.route('/brands/:brandSlug/campaigns/:campaignSlug/delete')
+    .delete(timeout('5s'), campaignCtrl.readCampaigns, campaignCtrl.deleteCampaign);
+
+router.route('/brands/:brandSlug/campaigns/:campaignSlug/duplicate')
+    .post(timeout('5s'), campaignCtrl.readCampaigns, campaignCtrl.duplicateCampaign)
 
 router.route('/brands/:brandSlug/campaigns/:campaignSlug/structure')
     .get(timeout('5s'), campaignCtrl.readCampaigns, campaignCtrl.getCampaignStructure)

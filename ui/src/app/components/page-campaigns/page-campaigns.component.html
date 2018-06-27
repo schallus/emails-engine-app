@@ -18,9 +18,9 @@
           
           <thead class="primary-color white-text">
             <tr>
-              <th>Nom</th>
-              <th>Dernière modification</th>
-              <th class="text-right">Actions</th>
+              <th class="align-top">Nom</th>
+              <th class="align-top">Dernière modification</th>
+              <th class="text-right actions align-top">Actions</th>
             </tr>
           </thead>
 
@@ -29,7 +29,7 @@
             <tr *ngFor="let campaign of filteredCampaigns">
               <td class="align-middle">{{ campaign.displayName }}</td>
               <td class="align-middle">{{ campaign.updatedAt || campaign.createdAt | date }}</td>
-              <td class="text-right align-middle">
+              <td class="text-right align-middle actions">
                 <a [routerLink]="['/brands', brandName, 'campaigns', campaign.name, 'options']"class="btn-floating btn-sm btn-primary waves-light mr-1" mdbWavesEffect><i class="fa fa-edit"></i></a>
                 <a class="btn-floating btn-sm btn-primary waves-light mr-1" (click)="showCloneConfirmation(campaign.name)" mdbWavesEffect><i class="fa fa-clone"></i></a>
                 <a class="btn-floating btn-sm btn-primary waves-light" (click)="showArchiveConfirmation(campaign.name)" mdbWavesEffect><i class="fa fa-trash"></i></a>
@@ -68,7 +68,7 @@
         Nouvelle campagne
       </div>
       <div class="card-body d-flex justify-content-center">
-        <a [routerLink]="['/brands', brandName, 'campaigns', 'options']" class="btn btn-grey btn-rounded" mdbWavesEffect>Créer une nouvelle campagne</a>
+        <a class="btn btn-grey btn-rounded" mdbWavesEffect (click)="modalNew.show()">Créer une nouvelle campagne</a>
       </div>
     </div>
   </div>
@@ -90,8 +90,13 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-grey" data-dismiss="modal" (click)="modalArchive.hide()" mdbWavesEffect>Annuler</button>
-        <button type="button" class="btn btn-primary" (click)="archiveCampaign(campaign)" mdbWavesEffect>Archiver</button>
+        <div>
+          <a class="small" (click)="deleteCampaign(campaign)">Supprimer définitivement</a>
+        </div>
+        <div>
+          <button type="button" class="btn btn-grey" data-dismiss="modal" (click)="modalArchive.hide()" mdbWavesEffect>Annuler</button>
+          <button type="button" class="btn btn-primary" (click)="archiveCampaign(campaign)" mdbWavesEffect>Archiver</button>
+        </div>
       </div>
     </div>
   </div>
@@ -110,14 +115,38 @@
         <p class="text-center">Êtes-vous sûr de vouloir dupliquer<br/>la campagne <strong>{{campaign}}</strong> ?</p>
         <div class="md-form form-sm">
           <i class="fa fa-tag prefix"></i>
-          <input #inputCampaignName mdbInputDirective type="text" id="inputCampaignName" class="form-control">
+          <input mdbInputDirective [(ngModel)]="duplicateName" type="text" id="inputCampaignName" class="form-control">
           <label for="inputCampaignName">Nouveau nom</label>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="modalClone.hide()" mdbWavesEffect>Annuler</button>
-        <button type="button" class="btn btn-green" (click)="cloneCampaign(campaign, inputCampaignName.value)" mdbWavesEffect>Dupliquer</button>
+        <button type="button" class="btn btn-green" (click)="cloneCampaign(campaign)" mdbWavesEffect>Dupliquer</button>
       </div>
     </div>
   </div>
 </div>
+
+<div mdbModal #modalNew="mdb-modal" class="modal fade" id="modalNew" tabindex="-1" role="dialog" aria-labelledby="Nouvelle campagne" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title w-100" id="myModalLabel">Nouvelle campagne</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalNew.hide()">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="md-form form-sm">
+            <i class="fa fa-tag prefix"></i>
+            <input mdbInputDirective #inputNewCampaignName="ngModel" [(ngModel)]="newCampaignName" type="text" id="inputNewCampaignName" class="form-control" required minlength="2" maxlength="50" data-error="Le nom doit faire entre 2 et 50 caractère">
+            <label for="inputNewCampaignName">Nom de la campagne</label>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="modalNew.hide()" mdbWavesEffect>Annuler</button>
+          <button type="button" class="btn btn-green" [disabled]="inputNewCampaignName.invalid" (click)="newCampaign()" mdbWavesEffect>Créer</button>
+        </div>
+      </div>
+    </div>
+  </div>

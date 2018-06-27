@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs/Observable';
 import { Subscription } from 'rxjs';
@@ -18,6 +18,7 @@ export class PageCampaignsComponent implements OnInit {
 
   @ViewChild('modalArchive') public modalArchive;
   @ViewChild('modalClone') public modalClone;
+  @ViewChild('modalNew') public modalNew;
 
   filterCampaign: string;
   filterCampaignControl = new FormControl();
@@ -27,36 +28,19 @@ export class PageCampaignsComponent implements OnInit {
   campaign: string;
   brandName: string;
   breadcrumbs: Array<{title: string, path: string}>;
+  duplicateName: string;
+  newCampaignName: string;
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService) {
-    /*this.campaigns = [
-      {
-        name: 'nouvelle-collection-ete',
-        displayName: 'Nouvelle collection été',
-        createdAt: new Date()
-      },
-      {
-        name: 'my-second-campaign',
-        displayName: 'My second campaign',
-        createdAt: new Date()
-      },
-      {
-        name: 'campaign-test',
-        displayName: 'Campaign test',
-        createdAt: new Date()
-      }
-    ];*/
-
+  constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) {
     this.filterCampaign = '';
+    this.duplicateName = '';
+    this.newCampaignName = '';
   }
 
   ngOnInit() {
     this.brandName = this.route.snapshot.paramMap.get('brandName');
 
-    this.apiService.getCampaigns(this.brandName).subscribe(campaigns => {
-      this.campaigns = campaigns;
-      this.filteredCampaigns = this.campaigns;
-    });
+    this.getCampaigns();
 
     this.breadcrumbs = [
       { title: 'Marques', path: '/brands' },
@@ -73,9 +57,19 @@ export class PageCampaignsComponent implements OnInit {
       });
   }
 
+  getCampaigns(cb?: () => void) {
+    this.apiService.getCampaigns(this.brandName).subscribe(campaigns => {
+      this.campaigns = campaigns;
+      this.filteredCampaigns = this.campaigns;
+      if (cb) {
+        cb();
+      }
+    });
+  }
+
   filterCampaigns() {
-    // tslint:disable-next-line:max-line-length
-    this.filteredCampaigns = this.campaigns.filter(campaign => campaign.displayName.toLowerCase().indexOf(this.filterCampaign.toLowerCase()) > -1);
+    this.filteredCampaigns = this.campaigns.filter(campaign => campaign.displayName.toLowerCase()
+      .indexOf(this.filterCampaign.toLowerCase()) > -1);
   }
 
   showArchiveConfirmation(campaign: string) {
@@ -89,11 +83,29 @@ export class PageCampaignsComponent implements OnInit {
   }
 
   archiveCampaign(campaignName: string) {
-    console.log('archiveCampaign', campaignName);
+    this.apiService.archiveCampaign(this.brandName, campaignName).subscribe(() => {
+      this.getCampaigns(() => this.modalArchive.hide());
+    });
   }
 
-  cloneCampaign(campaignName: string, newCampaignName: string) {
-    console.log(`clone campaign '${campaignName}' / new name : '${newCampaignName}'`);
+  deleteCampaign(campaignName: string) {
+    this.apiService.deleteCampaign(this.brandName, campaignName).subscribe(() => {
+      this.getCampaigns(() => this.modalArchive.hide());
+    });
   }
 
+  cloneCampaign(campaignName: string) {
+    this.apiService.duplicateCampaign(this.brandName, campaignName, this.duplicateName).subscribe(() => {
+      this.duplicateName = '';
+      this.getCampaigns(() => this.modalClone.hide());
+    });
+  }
+
+  newCampaign() {
+    this.apiService.addCampaign(this.brandName, this.newCampaignName).subscribe((newCampaign) => {
+      this.newCampaignName = '';
+      this.modalNew.hide();
+      this.router.navigate(['/brands', this.brandName, 'campaigns', newCampaign.name, 'options']);
+    });
+  }
 }

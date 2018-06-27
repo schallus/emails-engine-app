@@ -1,7 +1,7 @@
 // ----- REQUIREMENTS -----
 const path = require('path');
 const fs = require('fs');
-const utils = require('../modules/utils');
+const utils = require('../lib/utils');
 
 // ----- GLOBAL VARIABLES -----
 const clientsPath = path.normalize(__dirname + '../../../emails-engine/src/clients');

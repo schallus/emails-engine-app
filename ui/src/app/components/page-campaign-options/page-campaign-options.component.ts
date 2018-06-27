@@ -108,18 +108,16 @@ export class PageCampaignOptionsComponent implements OnInit {
   }
 
   onOptionsFormSubmit = (form: NgForm) => {
-    console.log(form.value);
     if (form.valid) {
-      const campaignName = form.value.campaignName;
       const campaignDisplayName = form.value.campaignDisplayName;
       this.campaignOptions.masterLang = form.value.masterLang;
       this.masterLang = form.value.masterLang;
 
-      console.log('campaignName', campaignName);
       console.log('campaignDisplayName', campaignDisplayName);
       console.log('masterLang', this.campaignOptions.masterLang);
-
       // masterLang is undefined when we remove a lang and submit the form : to be fixed !!
+
+      this.apiService.editCampaign(this.brandName, this.campaignName, campaignDisplayName).subscribe();
 
       const lang = {};
 

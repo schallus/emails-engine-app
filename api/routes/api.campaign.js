@@ -2,8 +2,10 @@
 const path = require('path');
 const fs = require('fs');
 const ncp = require('ncp').ncp; // library for asynchronous recursive file & directory copying
-const utils = require('../modules/utils');
 const spawn = require('cross-spawn');
+const utils = require('../lib/utils');
+const textUtils = require('../lib/text');
+const fileUtils = require('../lib/fs');
 
 // ----- GLOBAL VARIABLES -----
 const distPath = path.normalize(__dirname + '../../../emails-engine/dist');
@@ -63,36 +65,205 @@ campaign.getBrandBlocks = (req, res, next) => {
 };
 
 campaign.addCampaign = (req, res, next) => {
-    req.checkBody("name", "Enter a valid name.").isAlphanumeric().isLength({min:3, max: undefined});
+
+    let edit = false;
+    if (req.method == 'PATCH' && req.params.campaignSlug) edit = true;
+
     req.checkBody("displayName", "Enter a valid displayName.").isLength({min:3, max: undefined});
 
     if (req.validationErrors()) return next();
 
     const campaigns = res.campaigns;
 
-    // Check if this campaign already exists
-    if(campaigns.filter(campaign => (campaign.name === req.body.name)).length) {
-       return next({
-           status: 409,
-           message: `A campaign with the name '${req.body.name}' already exists.`
-       });
+    // If edition mode and campaign does not exist
+    if(edit && !campaigns.filter(campaign => (campaign.name === req.params.campaignSlug)).length == 1) {
+        return next({
+            status: 409,
+            message: `The campaign with the name '${req.params.campaignSlug}' does not exist.`
+        });
     }
 
-    // no error -> normal processing here
+    if(!edit) {
+        // Add new campaign
+
+        // Generate a campaign name
+        const generatedName = textUtils.formatCampaignName(req.body.displayName);
+        let name = generatedName;
+
+        let i = 1;
+        while (campaigns.filter(campaign => (campaign.name === name)).length == 1) {
+            name = `${generatedName}${i}`;
+            i++;
+        }
+
+        // duplicate the template
+        ncp(`${res.brandPath}/master`, `${res.brandPath}/${name}`, (err)  => {
+            if (err) {
+                return next({
+                    status: 500,
+                    message: 'An error occured while trying to duplicate the master template.'
+                });
+            }
+
+            // add the new campaign to the json file
+            const newCampaign = {
+                name: name,
+                displayName: req.body.displayName,
+                createdAt: new Date()
+            };
+
+            campaigns.push(newCampaign);
+
+            const fileContent = JSON.stringify(campaigns, null, "\t");
+            try {
+                fs.writeFileSync(`${res.brandPath}/campaigns.json`, fileContent, 'utf8');
+            } catch (err) {
+                if (err.code === 'ENOENT') {
+                    return next({
+                        status: 500,
+                        message: `The file 'campaigns.json' does not exist.`
+                    });
+                } else {
+                    return next();
+                }
+            }
+
+            // renaming of the campaign scss file
+            fs.rename(`${res.brandPath}/${name}/scss/app_${req.params.brandSlug}_master.scss`, `${res.brandPath}/${name}/scss/app_${req.params.brandSlug}_${name}.scss`, (err) => {
+                if (err) return next({
+                    status: 500,
+                    message: `An error occured while renaming the scss file.`
+                });
+            });
+
+            // change the css path in the layout
+            const layoutFilePath = `${res.brandPath}/${name}/layouts/default.html`;
+            fs.readFile(layoutFilePath, 'utf8', (err, data) => {
+                if (err) {
+                    return next({
+                        status: 500,
+                        message: `An error occured while reading the layout file.`
+                    });
+                }
+
+                const toBeReplaced = `app_${req.params.brandSlug}_master.css`;
+                const replacement = `app_${req.params.brandSlug}_${name}.css`;
+                const re = new RegExp(toBeReplaced,"g");
+                const result = data.replace(re, replacement);
+            
+                fs.writeFile(layoutFilePath, result, 'utf8', (err) => {
+                if (err) return next({
+                        status: 500,
+                        message: `An error occured while writing the layout file.`
+                    });
+                    // return the new campaign
+                    res.status(200).json(newCampaign);
+                });
+            });
+        });
+    } else {
+        // Edit the campaign
+        const campaign = campaigns.filter(el => el.name == req.params.campaignSlug)[0]
+        campaign.displayName = req.body.displayName;
+        campaign.updatedAt = new Date();
+
+        const result = JSON.stringify(campaigns, null, "\t");
+
+        fs.writeFile(`${res.brandPath}/campaigns.json`, result, 'utf8', (err) => {
+        if (err) return next({
+                status: 500,
+                message: `An error occured while writing the campaigns file.`
+            });
+
+            // return the new campaign
+            res.status(200).json(campaign);
+        });
+    }
+};
+
+campaign.archiveCampaign = (req, res, next) => {
+    fileUtils.moveFolder(`${res.brandPath}/${req.params.campaignSlug}`, `${res.brandPath}/archives/${req.params.campaignSlug}`, (err) => {
+        if (err) return next({
+            status: 500,
+            message: 'Something unexpected happened while moving the campaign to the archive folder.'
+        });
+
+        // Delete from dist folder
+        fileUtils.deleteFolderRecursive(`${distPath}/${req.params.brandSlug}/${req.params.campaignSlug}`);
+
+        const filteredCampaigns = res.campaigns.filter(el => el.name !== req.params.campaignSlug)
+        const result = JSON.stringify(filteredCampaigns, null, "\t");
+
+        fs.writeFile(`${res.brandPath}/campaigns.json`, result, 'utf8', (err) => {
+        if (err) return next({
+                status: 500,
+                message: `An error occured while writing the campaigns file.`
+            });
+
+            // success
+            res.status(200).send();
+        });
+    });
+};
+
+campaign.deleteCampaign = (req, res, next) => {
+    // Delete from src/clients folder
+    fileUtils.deleteFolderRecursive(`${res.brandPath}/${req.params.campaignSlug}`);
+    // Delete from dist folder
+    fileUtils.deleteFolderRecursive(`${distPath}/${req.params.brandSlug}/${req.params.campaignSlug}`);
+
+    const filteredCampaigns = res.campaigns.filter(el => el.name !== req.params.campaignSlug)
+    const result = JSON.stringify(filteredCampaigns, null, "\t");
+
+    fs.writeFile(`${res.brandPath}/campaigns.json`, result, 'utf8', (err) => {
+    if (err) return next({
+            status: 500,
+            message: `An error occured while writing the campaigns file.`
+        });
+
+        // success
+        res.status(200).send();
+    });
+};
+
+campaign.duplicateCampaign = (req, res, next) => {
+
+    req.checkBody("displayName", "Enter a valid displayName.").isLength({min:3, max: undefined});
+
+    if (req.validationErrors()) return next();
+
+    const campaigns = res.campaigns;
+
+    if(!campaigns.filter(campaign => (campaign.name === req.params.campaignSlug)).length == 1) {
+        return next({
+            status: 409,
+            message: `The campaign with the name '${req.params.campaignSlug}' does not exist.`
+        });
+    }
+
+    const displayName = req.body.displayName;
+    const generatedName = textUtils.formatCampaignName(req.body.displayName);
+    let name = generatedName;
+
+    let i = 1;
+    while (campaigns.filter(campaign => (campaign.name === name)).length == 1) {
+        name = `${generatedName}${i}`;
+        i++;
+    }
 
     // duplicate the template
-    ncp(`${res.brandPath}/master`, `${res.brandPath}/${req.body.name}`, (err)  => {
+    ncp(`${res.brandPath}/${req.params.campaignSlug}`, `${res.brandPath}/${name}`, (err)  => {
         if (err) {
             return next({
                 status: 500,
-                message: 'An error occured while trying to duplicate the master template.'
+                message: 'An error occured while trying to duplicate the campaign.'
             });
         }
 
         // add the new campaign to the json file
         const newCampaign = {
-            name: req.body.name,
-            displayName: req.body.displayName,
+            name: name,
+            displayName: displayName,
             createdAt: new Date()
         };
 
@@ -113,18 +284,37 @@ campaign.addCampaign = (req, res, next) => {
         }
 
         // renaming of the campaign scss file
-        fs.rename(`${res.brandPath}/${req.body.name}/scss/app_${req.params.brandSlug}_master.scss`, `${res.brandPath}/${req.body.name}/scss/app_${req.params.brandSlug}_${req.body.name}.scss`, (err) => {
-            return next({
+        fs.rename(`${res.brandPath}/${name}/scss/app_${req.params.brandSlug}_${req.params.campaignSlug}.scss`, `${res.brandPath}/${name}/scss/app_${req.params.brandSlug}_${name}.scss`, (err) => {
+            if (err) return next({
                 status: 500,
                 message: `An error occured while renaming the scss file.`
             });
         });
 
         // change the css path in the layout
-        // TO DO
+        const layoutFilePath = `${res.brandPath}/${name}/layouts/default.html`;
+        fs.readFile(layoutFilePath, 'utf8', (err, data) => {
+            if (err) {
+                return next({
+                    status: 500,
+                    message: `An error occured while reading the layout file.`
+                });
+            }
 
-        // return the new campaign
-        res.status(200).json(newCampaign);
+            const toBeReplaced = `app_${req.params.brandSlug}_${req.params.campaignSlug}.css`;
+            const replacement = `app_${req.params.brandSlug}_${name}.css`;
+            const re = new RegExp(toBeReplaced,"g");
+            const result = data.replace(re, replacement);
+        
+            fs.writeFile(layoutFilePath, result, 'utf8', (err) => {
+            if (err) return next({
+                    status: 500,
+                    message: `An error occured while writing the layout file.`
+                });
+                // return the new campaign
+                res.status(200).json(newCampaign);
+            });
+        });
     });
 };
 

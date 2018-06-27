@@ -1,14 +1,25 @@
 [
-    {
-        "name":"campaign2",
-        "displayName":"Ma 2e campagne",
-        "createdAt":"2012-04-23T18:25:43.511Z",
-        "updatedAt":"2014-05-14T16:28:27.511Z"
-    },
-    {
-        "name":"test",
-        "displayName":"Campagne de test",
-        "createdAt":"2012-04-23T18:25:43.511Z",
-        "updatedAt":"2014-05-14T16:28:27.511Z"
-    }
+	{
+		"name": "campaign2",
+		"displayName": "Ma 2e campagne",
+		"createdAt": "2012-04-23T18:25:43.511Z",
+		"updatedAt": "2018-06-27T11:15:21.664Z"
+	},
+	{
+		"name": "test",
+		"displayName": "Campagne de test 123",
+		"createdAt": "2012-04-23T18:25:43.511Z",
+		"updatedAt": "2018-06-27T11:15:28.566Z"
+	},
+	{
+		"name": "testCampaign",
+		"displayName": "This is the name",
+		"createdAt": "2018-06-27T07:49:05.160Z"
+	},
+	{
+		"name": "nouveauNomDeLaCampagne",
+		"displayName": "Nouveau nom de la campagne",
+		"createdAt": "2018-06-27T13:38:09.139Z",
+		"updatedAt": "2018-06-27T13:57:12.691Z"
+	}
 ]
