@@ -765,6 +765,12 @@ campaign.buildCampaign = (req, res, next) => {
         cwd: path.normalize(__dirname + '../../../emails-engine')
     });
 
+
+    build.stdout.on('data', (data) => {
+        // Log the build output for debugging
+        console.log(data);
+    });
+
     build.on('close', (code) => {
         if (code === 0) {
             // BUILD SUCCESS
