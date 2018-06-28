@@ -37,7 +37,7 @@ block-06-1529566678891:
     text: 
 block-10-1529566689176:
     url: 
-    img: http://localhost:3000/nespresso/test/images/uploads/1280px-Node.js_logo.svg.png
+    img: https://emails-engine-app.herokuapp.com/nespresso/test/images/uploads/1280px-Node.js_logo.svg.png
     title: 
     text: 
     link: 
@@ -61,7 +61,7 @@ block-19-1529570961776:
 block-20-1529571295717:
     linkUrl: 
     linkText: 
-    img: http://localhost:3000/nespresso/test/images/uploads/Capture_d_ecran_3_.png
+    img: https://emails-engine-app.herokuapp.com/nespresso/test/images/uploads/Capture_d_ecran_3_.png
     title: 
     text: 
 footer-01-1529574012310:
