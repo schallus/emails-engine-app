@@ -768,7 +768,7 @@ campaign.buildCampaign = (req, res, next) => {
 
     build.stdout.on('data', (data) => {
         // Log the build output for debugging
-        console.log(data);
+        console.log(data.toString());
     });
 
     build.on('close', (code) => {
