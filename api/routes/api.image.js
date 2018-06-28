@@ -91,7 +91,7 @@ image.addImage = (req, res, next) => {
                 .pipe(fs.createWriteStream(`${distImagePath}/${req.file.filename}`));
 
             res.status(200).json({
-                imageUrl: `${req.protocol}://${req.get('host')}/${brandSlug}/${campaignSlug}/images/uploads/${req.file.filename}`
+                imageUrl: `${req.protocol}://${req.get('host')}/dist/${brandSlug}/${campaignSlug}/images/uploads/${req.file.filename}`
             });
         });
     });    
