@@ -762,7 +762,7 @@ campaign.buildCampaign = (req, res, next) => {
 
     console.log('Build in progress...');
     console.log(path.normalize(__dirname + '../../../emails-engine'));
-    const build = spawn('npm run', ['build', `${req.params.brandSlug}/${req.params.campaignSlug}`], {
+    const build = spawn('npm', ['run', 'build', `${req.params.brandSlug}/${req.params.campaignSlug}`], {
         cwd: path.normalize(__dirname + '../../../emails-engine')
     });
 
@@ -809,7 +809,7 @@ campaign.buildCampaign = (req, res, next) => {
 campaign.zipCampaign = (req, res, next) => {
     console.log('Zip creation in progress...');
 
-    const zip = spawn('npm run', ['zip', `${req.params.brandSlug}/${req.params.campaignSlug}`], {
+    const zip = spawn('npm', ['run', 'zip', `${req.params.brandSlug}/${req.params.campaignSlug}`], {
         cwd: path.normalize(__dirname + '../../../emails-engine')
     });
 
