@@ -136,7 +136,7 @@ router.use((err, req, res, next) => {
         });
     }
     if (err.status && err.message) {
-        res.status(err.status).json({
+        return res.status(err.status).json({
             error: {
                 status: err.status,
                 message: err.message,
