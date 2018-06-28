@@ -797,6 +797,7 @@ campaign.buildCampaign = (req, res, next) => {
 
     build.on('error', (err) => {
         // ERROR
+        console.log(err);
         return next({
             status: 500,
             message: 'Something unexpected happened while executing the task.'
