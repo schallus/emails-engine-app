@@ -761,7 +761,6 @@ campaign.compileJSONIntoYaml = (req, res, next) => {
 campaign.buildCampaign = (req, res, next) => {
 
     console.log('Build in progress...');
-    console.log(path.normalize(__dirname + '../../../emails-engine'));
     const build = spawn('npm', ['run', 'build', `${req.params.brandSlug}/${req.params.campaignSlug}`], {
         cwd: path.normalize(__dirname + '../../../emails-engine')
     });
