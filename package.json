@@ -1,0 +1,20 @@
+{
+  "name": "emails-engine-app",
+  "version": "1.0.0",
+  "description": "WIDE Email Engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "(cd ui && npm install); (cd emails-engine && npm install)"
+  },
+  "engines": {
+    "node": "8.11.1",
+    "npm": "5.6.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://git.cross-systems.ch/wide/emails-engine-app.git"
+  },
+  "author": "Florian Schaller",
+  "license": "ISC"
+}
