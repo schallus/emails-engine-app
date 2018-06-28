@@ -8,6 +8,7 @@ emails-engine/dist
 emails-engine/.sass-cache
 emails-engine/.awspublish*
 /angular/**
-api/temp*
+api/temp/*
+!api/temp/.gitkeep
 .idea*
 .vscode*
