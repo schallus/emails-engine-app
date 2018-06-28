@@ -1,8 +1,12 @@
+**/node_modules
+**/package-lock.json
 emails-engine/.DS_Store
-emails-engine/node_modules
 emails-engine/npm-debug.log
 emails-engine/bower_components
 emails-engine/dist
 emails-engine/.sass-cache
 emails-engine/.awspublish*
+/angular/**
+api/temp*
 .idea*
+.vscode*

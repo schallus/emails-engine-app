@@ -2,13 +2,13 @@
     {
         "name": "spacer",
         "displayName": "Spacer",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-27.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/block-27.jpg",
         "properties": []
     },
     {
         "name": "header-01",
         "displayName": "Header 1",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/header-01.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/header-01.jpg",
         "properties": [
             {
                 "name": "text",
@@ -33,7 +33,7 @@
     {
         "name": "header-02",
         "displayName": "Header 2",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/header-02.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/header-02.jpg",
         "properties": [
             {
                 "name": "img",
@@ -52,7 +52,7 @@
     {
         "name": "header-03",
         "displayName": "Header 3",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/header-03.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/header-03.jpg",
         "properties": [
             {
                 "name": "text",
@@ -65,7 +65,7 @@
     {
         "name": "block-01",
         "displayName": "Block 01",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-01.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/block-01.jpg",
         "properties": [
             {
                 "name": "title",
@@ -96,7 +96,7 @@
     {
         "name": "block-02",
         "displayName": "Block 02",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-02.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/block-02.jpg",
         "properties": [
             {
                 "name": "bgcolor",
@@ -145,7 +145,7 @@
     {
         "name": "block-03",
         "displayName": "Block 03",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-03.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/block-03.jpg",
         "properties": [
             {
                 "name": "url",
@@ -176,7 +176,7 @@
     {
         "name": "block-04",
         "displayName": "Block 04",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-04.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/block-04.jpg",
         "properties": [
             {
                 "name": "bgcolor",
@@ -207,7 +207,7 @@
     {
         "name": "block-05",
         "displayName": "Block 05",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-05.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/block-05.jpg",
         "properties": [
             {
                 "name": "text",
@@ -220,7 +220,7 @@
     {
         "name": "block-06",
         "displayName": "Block 06",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-06.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/block-06.jpg",
         "properties": [
             {
                 "name": "bgcolor",
@@ -245,7 +245,7 @@
     {
         "name": "block-07",
         "displayName": "Block 07",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-07.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/block-07.jpg",
         "properties": [
             {
                 "name": "color",
@@ -276,7 +276,7 @@
     {
         "name": "block-10",
         "displayName": "Block 10",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-10.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/block-10.jpg",
         "properties": [
             {
                 "name": "url",
@@ -313,7 +313,7 @@
     {
         "name": "block-11",
         "displayName": "Block 11",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-11.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/block-11.jpg",
         "properties": [
             {
                 "name": "url",
@@ -350,25 +350,25 @@
     {
         "name": "block-14-ambassador",
         "displayName": "Block 14 - Ambassador",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-14.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/block-14.jpg",
         "properties": []
     },
     {
         "name": "block-14-connoisseur",
         "displayName": "Block 14 - Connoisseur",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-14.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/block-14.jpg",
         "properties": []
     },
     {
         "name": "block-14-expert",
         "displayName": "Block 14 - Expert",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-14.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/block-14.jpg",
         "properties": []
     },
     {
         "name": "block-19",
         "displayName": "Block 19",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-19.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/block-19.jpg",
         "properties": [
             {
                 "name": "linkUrl",
@@ -405,7 +405,7 @@
     {
         "name": "block-20",
         "displayName": "Block 20",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/block-20.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/block-20.jpg",
         "properties": [
             {
                 "name": "linkUrl",
@@ -442,7 +442,7 @@
     {
         "name": "footer-01",
         "displayName": "Footer 01",
-        "thumbnailUrl": "http://localhost:3000/nespresso/images/footer-01.jpg",
+        "thumbnailUrl": "http://localhost:3000/public/nespresso/images/footer-01.jpg",
         "properties": [
             {
                 "name": "title",

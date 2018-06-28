@@ -58,7 +58,9 @@ app.set('view engine', 'handlebars');
 // ----- MIDDLEWARES -----
 
 app.use('/docs', express.static('docs')); // API DOC
-app.use(express.static(__dirname + '../../emails-engine/dist'));
+app.use(express.static(__dirname + '../../angular'));
+app.use('/dist', express.static(__dirname + '../../emails-engine/dist'));
+app.use('/public', express.static(__dirname + '../../emails-engine/public'));
 app.use(cors());
 app.use(helmet());
 
@@ -67,8 +69,8 @@ app.use(helmet());
 app.use('/api', apiRouter);
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '/../emails-engine/dist/index.html'));
- });
+    res.sendFile(path.join(__dirname, '/../angular/index.html'));
+});
 
 // ----- ENTRY POINT -----
 const PORT = process.env.PORT || 3000;

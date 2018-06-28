@@ -15,11 +15,6 @@ block-01-1529498159606:
     text: 
     linkUrl: 
     linkText: 
-block-04-1529504974179:
-    bgcolor: '#a54545'
-    color: '#b22f2f'
-    colorSep: '#a69898'
-    text: 
 header-02-1529565161653:
     img: 
     url: 
@@ -36,8 +31,6 @@ block-02-1529566644410:
     img-mobile: 
     url: 
     url-mobile: 
-block-05-1529566675947:
-    text: 
 block-06-1529566678891:
     bgcolor: 
     color: 
@@ -94,11 +87,6 @@ footer-01-1529574012310:
         img: 
         width: 
         text: 
-block-03-1529601751643:
-    url: 
-    img: 
-    url-mobile: 
-    img-mobile: 
 block-19-1529917844864:
     linkUrl: 
     linkText: 

@@ -15,11 +15,6 @@ block-01-1529498159606:
     text: This is the text from the block 01
     linkUrl: http://www.google.ch/fr
     linkText: Link to Google
-block-04-1529504974179:
-    bgcolor: '#e8d6d6'
-    color: '#210d0d'
-    colorSep: '#2145e1'
-    text: Texte du bloc
 header-02-1529565161653:
     img: http://localhost:3000/nespresso/test/images/uploads/jordan-whitt-6261-unsplash.jpg
     url: http://nodejs.com
@@ -36,8 +31,6 @@ block-02-1529566644410:
     img-mobile: http://localhost:3000/nespresso/test/images/uploads/angular-card.png
     url: http://www.angular.com
     url-mobile: http://www.angular.com/mobile
-block-05-1529566675947:
-    text: Texte du bloc
 block-06-1529566678891:
     bgcolor: '#e0d0d0'
     color: '#ae1515'
@@ -94,11 +87,6 @@ footer-01-1529574012310:
         img: 
         width: 
         text: 
-block-03-1529601751643:
-    url: http://www.google.ch
-    img: http://192.168.22.214:3000/nespresso/test/images/uploads/angular-card.png
-    url-mobile: http://www.google.fr
-    img-mobile: http://192.168.22.214:3000/nespresso/test/images/uploads/1280px-Node.js_logo.svg.png
 block-19-1529917844864:
     linkUrl: dasdasd sad 
     linkText: das asd as
