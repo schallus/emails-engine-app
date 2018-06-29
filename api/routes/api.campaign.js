@@ -812,6 +812,11 @@ campaign.zipCampaign = (req, res, next) => {
         cwd: path.normalize(__dirname + '../../../emails-engine')
     });
 
+    zip.stdout.on('data', (data) => {
+        // Log the zip output for debugging
+        console.log(data.toString());
+    });
+
     zip.on('close', (code) => {
         if (code === 0) {
             console.log('Zip creation success');
@@ -828,6 +833,7 @@ campaign.zipCampaign = (req, res, next) => {
     });
 
     zip.on('error', (err) => {
+        console.log(err);
         // ERROR
         return next({
             status: 500,
