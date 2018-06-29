@@ -166,7 +166,7 @@
 			{
 				"lang": "fr",
 				"properties": {
-					"img": "https://emails-engine-app.herokuapp.com/dist/nespresso/test/images/uploads/jordan-whitt-6261-unsplash.jpg",
+					"img": "http://localhost:3000/dist/nespresso/test/images/uploads/jordan-whitt-6261-unsplash.jpg",
 					"url": "http://nodejs.com"
 				},
 				"display": true
@@ -216,9 +216,9 @@
 				"lang": "fr",
 				"properties": {
 					"url": "http://www.google.com",
-					"img": "https://emails-engine-app.herokuapp.com/dist/nespresso/test/images/uploads/george-hiles-114418-unsplash.jpg",
+					"img": "http://localhost:3000/dist/nespresso/test/images/uploads/george-hiles-114418-unsplash.jpg",
 					"url-mobile": "http://www.google.com",
-					"img-mobile": "https://emails-engine-app.herokuapp.com/dist/nespresso/test/images/uploads/1499794874html5-js-css3-logo-png.png"
+					"img-mobile": "http://localhost:3000/dist/nespresso/test/images/uploads/1499794874html5-js-css3-logo-png.png"
 				},
 				"display": true
 			},
@@ -277,10 +277,10 @@
 				"lang": "fr",
 				"properties": {
 					"bgcolor": "'#bf1e1e'",
-					"img": "https://emails-engine-app.herokuapp.com/dist/nespresso/test/images/uploads/davide-cantelli-139887-unsplash.jpg",
+					"img": "http://localhost:3000/dist/nespresso/test/images/uploads/davide-cantelli-139887-unsplash.jpg",
 					"img-w": "200",
 					"img-h": "100",
-					"img-mobile": "https://emails-engine-app.herokuapp.com/dist/nespresso/test/images/uploads/angular-card.png",
+					"img-mobile": "http://localhost:3000/dist/nespresso/test/images/uploads/angular-card.png",
 					"url": "http://www.angular.com",
 					"url-mobile": "http://www.angular.com/mobile"
 				},
@@ -371,7 +371,7 @@
 				"lang": "ar",
 				"properties": {
 					"url": "",
-					"img": "https://emails-engine-app.herokuapp.com/dist/nespresso/test/images/uploads/1280px-Node.js_logo.svg.png",
+					"img": "http://localhost:3000/dist/nespresso/test/images/uploads/1280px-Node.js_logo.svg.png",
 					"title": "",
 					"text": "",
 					"link": ""
@@ -393,7 +393,7 @@
 				"lang": "fr",
 				"properties": {
 					"url": "http://www.google.com",
-					"img": "https://emails-engine-app.herokuapp.com/dist/nespresso/test/images/uploads/dino-reichmuth-84359-unsplash.jpg",
+					"img": "http://localhost:3000/dist/nespresso/test/images/uploads/dino-reichmuth-84359-unsplash.jpg",
 					"title": "Titre du bloc",
 					"text": "Texte du bloc BLA BLA BLA",
 					"link": "Texte du lien"
@@ -508,7 +508,7 @@
 				"lang": "fr",
 				"properties": {
 					"url": "http://www.nespresso.com",
-					"img": "https://emails-engine-app.herokuapp.com/dist/nespresso/test/images/uploads/jakob-owens-224351-unsplash.jpg",
+					"img": "http://localhost:3000/dist/nespresso/test/images/uploads/jakob-owens-224351-unsplash.jpg",
 					"title": "Titre nespresso",
 					"text": "Texte de test",
 					"link": "Texte du lien"
@@ -569,7 +569,7 @@
 				"properties": {
 					"linkUrl": "http://www.google.com",
 					"linkText": "Google link",
-					"img": "https://emails-engine-app.herokuapp.com/dist/nespresso/test/images/uploads/nespresso.png",
+					"img": "http://localhost:3000/dist/nespresso/test/images/uploads/nespresso.png",
 					"title": "Titre bloc 19",
 					"text": "Texte du bloc 19 Bla blabla "
 				},
@@ -607,7 +607,7 @@
 				"properties": {
 					"linkUrl": "",
 					"linkText": "",
-					"img": "https://emails-engine-app.herokuapp.com/dist/nespresso/test/images/uploads/Capture_d_ecran_3_.png",
+					"img": "http://localhost:3000/dist/nespresso/test/images/uploads/Capture_d_ecran_3_.png",
 					"title": "",
 					"text": ""
 				},
@@ -629,7 +629,7 @@
 				"properties": {
 					"linkUrl": "http://www.yahoo.com",
 					"linkText": "Lien vers Yahoo",
-					"img": "https://emails-engine-app.herokuapp.com/dist/nespresso/test/images/uploads/Capture_d_ecran_4_.png",
+					"img": "http://localhost:3000/dist/nespresso/test/images/uploads/Capture_d_ecran_4_.png",
 					"title": "Titre du bloc 20",
 					"text": "Texte du bloc 20"
 				},
@@ -689,7 +689,7 @@
 				"properties": {
 					"linkUrl": "dasdasd sad ",
 					"linkText": "das asd as",
-					"img": "https://emails-engine-app.herokuapp.com/dist/nespresso/test/images/uploads/george-hiles-114418-unsplash.jpg",
+					"img": "http://localhost:3000/dist/nespresso/test/images/uploads/george-hiles-114418-unsplash.jpg",
 					"title": "",
 					"text": ""
 				},
