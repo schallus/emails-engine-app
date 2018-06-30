@@ -5,17 +5,20 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "heroku-postbuild": "(cd ui && npm install); (cd emails-engine && npm install); (cd api && npm install);",
-    "start": "cd api && npm start"
+    "preinstall": "cd ui && npm install && cd ../emails-engine && npm install && cd ../api && npm install",
+    "start": "node api/server.js"
   },
   "engines": {
-    "node": "8.11.1",
-    "npm": "5.6.0"
+    "node": "10.5.0",
+    "npm": "6.1.0"
   },
   "repository": {
     "type": "git",
     "url": "http://git.cross-systems.ch/wide/emails-engine-app.git"
   },
   "author": "Florian Schaller",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "node": "^10.5.0"
+  }
 }
