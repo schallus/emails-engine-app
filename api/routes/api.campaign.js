@@ -771,6 +771,11 @@ campaign.buildCampaign = (req, res, next) => {
         console.log(data.toString());
     });
 
+    build.stderr.on('data', (err) => {
+        // Log the build output for debugging
+        console.log(err.toString());
+    });
+
     build.on('close', (code) => {
         if (code === 0) {
             // BUILD SUCCESS
@@ -815,6 +820,11 @@ campaign.zipCampaign = (req, res, next) => {
     zip.stdout.on('data', (data) => {
         // Log the zip output for debugging
         console.log(data.toString());
+    });
+
+    zip.stderr.on('data', (err) => {
+        // Log the build output for debugging
+        console.log(err.toString());
     });
 
     zip.on('close', (code) => {

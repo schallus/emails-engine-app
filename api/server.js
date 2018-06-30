@@ -24,6 +24,7 @@ const app = express();
 const hbs = exphbs.create({
     // Specify helpers which are only registered on this instance.
     defaultLayout: 'main',
+    layoutsDir: path.join(__dirname, '/views/layouts'),
     helpers: {
         ifIn: function(elem, list, options) {
             if(list.indexOf(elem) > -1) {
@@ -54,6 +55,7 @@ const hbs = exphbs.create({
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
+app.set('views', path.join(__dirname, '/views'));
 
 // ----- MIDDLEWARES -----
 
