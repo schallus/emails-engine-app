@@ -3,5 +3,20 @@
 		"blockType": "block-10",
 		"position": 0,
 		"name": "block-10-1530514733721"
+	},
+	{
+		"blockType": "block-01",
+		"position": 1,
+		"name": "block-01-1530533263787"
+	},
+	{
+		"blockType": "block-06",
+		"position": 2,
+		"name": "block-06-1530540491373"
+	},
+	{
+		"blockType": "footer-01",
+		"position": 3,
+		"name": "footer-01-1530533431168"
 	}
 ]

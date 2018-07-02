@@ -258,22 +258,39 @@ export class PageCampaignBuilderComponent implements OnInit {
         for (const lang of this.campaignLanguages) {
           const el = {
             lang: lang,
-            properties: {},
+            properties: [],
             display: true
           };
 
+          const isMaster = lang == this.campaignOptions.masterLang;
+
           for (const blockProperty of blockInfo.properties) {
             if (blockProperty.type === 'properties') {
-              el.properties[blockProperty.name] = [];
-              for (let i = 0; i < blockProperty.numberItems; i++) {
-                const newObject = {};
-                for (let j = 0; j < blockProperty.properties.length; j++) {
-                  newObject[blockProperty.properties[j].name] = '';
-                }
-                el.properties[blockProperty.name].push(newObject);
+
+              const element = [];
+              const subProperties = [];
+              for (let j = 0; j < blockProperty.properties.length; j++) {
+                subProperties.push({
+                  name: blockProperty.properties[j].name,
+                  value: '',
+                  copiedFromMaster: !isMaster
+                });
               }
+
+              for (let i = 0; i < blockProperty.numberItems; i++) {
+                element.push(subProperties);
+              }
+
+              el.properties.push({
+                name: blockProperty.name,
+                value: element
+              });
             } else {
-              el.properties[blockProperty.name] = '';
+              el.properties.push({
+                name: blockProperty.name,
+                value: '',
+                copiedFromMaster: !isMaster
+              });
             }
           }
 
@@ -359,20 +376,16 @@ export class PageCampaignBuilderComponent implements OnInit {
     this.apiService.setCampaignStructure(this.brandName, this.campaignName, this.campaignStructure).subscribe();
   }
 
-  getPropertyValue(propertyName: string, lang: string) {
-    if (this.blockData) {
-      return this.blockData.languages.filter(el => el.lang === lang)[0].properties[propertyName];
-    } else {
-      return '';
-    }
-  }
-
   setPropertyValue(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
     if (parentPropertyName && index !== undefined) {
-      this.blockData.languages.filter(el => el.lang === lang)[0].properties[parentPropertyName][index][propertyName] = event.target.value;
+      this.blockData.languages
+        .filter(el => el.lang === lang)[0].properties
+        .filter(el => el.name === parentPropertyName)[0].value[index]
+        .filter(el => el.name === propertyName)[0].value = event.target.value;
     } else {
-      this.blockData.languages.filter(el => el.lang === lang)[0].properties[propertyName] = event.target.value;
+      this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = event.target.value;
     }
+    // DO NOT SAVE AFTER EACH MODIFICATIONS
     // this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe();
   }
 
@@ -384,11 +397,13 @@ export class PageCampaignBuilderComponent implements OnInit {
         if (data && data.imageUrl) {
           if (parentPropertyName && index !== undefined) {
             this.blockData.languages
-              .filter(el => el.lang === lang)[0].properties[parentPropertyName][index][propertyName] = data.imageUrl;
+              .filter(el => el.lang === lang)[0].properties
+              .filter(el => el.name === parentPropertyName)[0].value[index]
+              .filter(el => el.name === propertyName)[0].value = data.imageUrl;
           } else {
             this.blockData.languages.filter(el => el.lang === lang)[0].properties[propertyName] = data.imageUrl;
           }
-          this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe();
+          //this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe();
         }
       });
     }
@@ -411,9 +426,31 @@ export class PageCampaignBuilderComponent implements OnInit {
     }
   }
 
-  colorPickerChange(propertyName: string, lang: string, color: any) {
-    this.blockData.languages.filter(el => el.lang === lang)[0].properties[propertyName] = `'${color}'`;
-    this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe();
+  copyFromMaster(propertyName: string, lang: string, parentPropertyName?: string, index?: number) {
+    if (parentPropertyName && index !== undefined) {
+      const propertyValue = this.blockData.languages
+        .filter(el => el.lang === lang)[0].properties
+        .filter(el => el.name === parentPropertyName)[0].value[index]
+        .filter(el => el.name === propertyName)[0];
+      propertyValue.copiedFromMaster = !propertyValue.copiedFromMaster;
+      console.log('copyFromMaster', propertyValue.copiedFromMaster);
+    } else {
+      const propertyValue = this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0];
+      propertyValue.copiedFromMaster = !propertyValue.copiedFromMaster;
+      console.log('copyFromMaster', propertyValue.copiedFromMaster);
+    }
+  }
+
+  colorPickerChange(propertyName: string, lang: string, color: any, parentPropertyName?: string, index?: number) {
+    if (parentPropertyName && index !== undefined) {
+      this.blockData.languages
+        .filter(el => el.lang === lang)[0].properties
+        .filter(el => el.name === parentPropertyName)[0].value[index]
+        .filter(el => el.name === propertyName)[0].value = `'${color}'`;
+    } else {
+      this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = `'${color}'`;
+    }
+    //this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe();
   }
 
   onBlockSettingsFormSubmit(form: NgForm) {

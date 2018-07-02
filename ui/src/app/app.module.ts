@@ -16,6 +16,7 @@ import { PageCampaignBuilderComponent } from './components/page-campaign-builder
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { FilterSelectedPipe } from './pipes/filter-selected.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 import { ApiService } from './services/api.service';
 import { ApiHelperService } from './services/api-helper.service';
 import { DebounceChangeDirective } from './directives/debounce-change.directive';
@@ -31,6 +32,7 @@ import { UploadService } from './services/upload.service';
     PageNotFoundComponent,
     BreadcrumbComponent,
     FilterSelectedPipe,
+    FilterPipe,
     DebounceChangeDirective
   ],
   imports: [
