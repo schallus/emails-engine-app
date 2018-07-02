@@ -3,13 +3,13 @@
 		"name": "campaign2",
 		"displayName": "Ma 2e campagne",
 		"createdAt": "2012-04-23T18:25:43.511Z",
-		"updatedAt": "2018-06-27T11:15:21.664Z"
+		"updatedAt": "2018-07-02T06:52:30.477Z"
 	},
 	{
 		"name": "test",
 		"displayName": "Campagne de test 123",
 		"createdAt": "2012-04-23T18:25:43.511Z",
-		"updatedAt": "2018-06-30T08:54:03.024Z"
+		"updatedAt": "2018-07-02T06:52:43.783Z"
 	},
 	{
 		"name": "nouveauNomDeLaCampagne",
@@ -21,5 +21,11 @@
 		"name": "promotionSpecialeEte2018",
 		"displayName": "Promotion spéciale été 2018",
 		"createdAt": "2018-06-28T06:26:21.348Z"
+	},
+	{
+		"name": "nouvelleCampagneDeTest",
+		"displayName": "Nouvelle campagne de test",
+		"createdAt": "2018-07-02T06:58:24.228Z",
+		"updatedAt": "2018-07-02T06:58:46.048Z"
 	}
 ]

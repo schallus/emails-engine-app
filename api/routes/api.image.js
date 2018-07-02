@@ -3,6 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const multer = require('multer');
 const textUtils = require('../lib/text');
+const mkdirp = require('mkdirp');
 
 // ----- GLOBAL VARIABLES -----
 const distPath = path.normalize(__dirname + '../../../emails-engine/dist');
@@ -71,10 +72,20 @@ image.addImage = (req, res, next) => {
 
         // Create dir if doesn't exist
         if (!fs.existsSync(clientImagePath)){
-            fs.mkdirSync(clientImagePath);
+            mkdirp(clientImagePath, (err) => {
+                if (err) return next({
+                    status: 500,
+                    message: `Could not create the image folder.`
+                });
+            });
         }
         if (!fs.existsSync(distImagePath)){
-            fs.mkdirSync(distImagePath);
+            mkdirp(distImagePath, (err) => {
+                if (err) return next({
+                    status: 500,
+                    message: `Could not create the image folder.`
+                });
+            });
         }
 
         // Move the file uploaded from temp to dist folder

@@ -166,7 +166,7 @@
 			{
 				"lang": "fr",
 				"properties": {
-					"img": "http://localhost:3000/dist/nespresso/test/images/uploads/jordan-whitt-6261-unsplash.jpg",
+					"img": "http://localhost:3000/dist/nespresso/test/images/uploads/Capture_d_ecran_5_.png",
 					"url": "http://nodejs.com"
 				},
 				"display": true
@@ -196,7 +196,7 @@
 				"lang": "ar",
 				"properties": {
 					"url": "",
-					"img": "",
+					"img": "http://localhost:3000/dist/nespresso/test/images/uploads/paysage.jpg",
 					"url-mobile": "",
 					"img-mobile": ""
 				},

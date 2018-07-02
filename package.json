@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "preinstall": "cd ui && npm install && cd ../emails-engine && npm install && cd ../api && npm install",
-    "start": "node api/server.js"
+    "start": "node api/server.js",
+    "dev": "supervisor api/server.js"
   },
   "engines": {
     "node": ">=8.0.0",
@@ -17,5 +18,8 @@
     "url": "http://git.cross-systems.ch/wide/emails-engine-app.git"
   },
   "author": "Florian Schaller",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "supervisor": "^0.12.0"
+  }
 }

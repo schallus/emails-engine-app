@@ -1,0 +1,40 @@
+[
+	{
+		"blockName": "block-10-1530514733721",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": {
+					"url": "http://www.google.ch",
+					"img": "http://localhost:3000/dist/nespresso/nouvelleCampagneDeTest/images/uploads/paysage.jpg",
+					"title": "Titre du bloc",
+					"text": "Ceci est le texte du bloc aasdasasd asdasdasd asdasdasdasd",
+					"link": "Ceci est un lien"
+				},
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": {
+					"url": "",
+					"img": "",
+					"title": "",
+					"text": "",
+					"link": ""
+				},
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": {
+					"url": "",
+					"img": "",
+					"title": "",
+					"text": "",
+					"link": ""
+				},
+				"display": true
+			}
+		]
+	}
+]
