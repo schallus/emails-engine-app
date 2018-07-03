@@ -1,8 +1,8 @@
 [
-    {
-        "name":"campaign1",
-        "displayName":"Campagne de test",
-        "createdAt":"2012-04-23T18:25:43.511Z",
-        "updatedAt":"2014-05-14T16:28:27.511Z"
-    }
+	{
+		"name": "campaign1",
+		"displayName": "Campagne de test",
+		"createdAt": "2012-04-23T18:25:43.511Z",
+		"updatedAt": "2018-07-03T09:24:22.434Z"
+	}
 ]

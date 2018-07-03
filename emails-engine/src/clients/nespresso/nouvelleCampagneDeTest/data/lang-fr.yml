@@ -7,6 +7,38 @@
 block-10-1530514733721:
     url: http://www.google.ch
     img: http://localhost:3000/dist/nespresso/nouvelleCampagneDeTest/images/uploads/paysage.jpg
-    title: Titre du bloc
+    title: Titre du bloc FR
     text: Ceci est le texte du bloc aasdasasd asdasdasd asdasdasdasd
     link: Ceci est un lien
+block-01-1530533263787:
+    title: Titre FR
+    text: Texte FR
+    linkUrl: http://www.google.ch
+    linkText: Texte du lien en FR
+footer-01-1530533431168:
+    title: 
+    items:
+      - url: 
+        img: http://localhost:3000/dist/nespresso/nouvelleCampagneDeTest/images/uploads/paysage.jpg
+        width: 
+        text: fsd fsdf sdf sdf sdf sdf test 123
+      - url: 
+        img: 
+        width: 
+        text: fdgdf dfgdfg dfgdfgdfgdfg dfgdfgdf
+      - url: 
+        img: 
+        width: 
+        text: 
+      - url: 
+        img: 
+        width: 
+        text: 
+      - url: 
+        img: 
+        width: 
+        text: 
+block-06-1530540491373:
+    bgcolor: '#9c2222'
+    color: '#200303'
+    text: sdf sdf sdfsd fsd fsdfsd fsdf sdfsdf sdsdf

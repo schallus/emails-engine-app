@@ -298,12 +298,9 @@ export class PageCampaignBuilderComponent implements OnInit {
         }
         this.apiService.setBlockData(this.brandName, this.campaignName, this.blockData).subscribe(newBlockData => {
           // After the block data set, we open the modal
-
-          console.log('blockData', newBlockData);
           this.modalBlockSettings.show();
         });
       } else {
-        console.log('blockData', this.blockData);
         this.modalBlockSettings.show();
       }
     });
@@ -385,8 +382,6 @@ export class PageCampaignBuilderComponent implements OnInit {
     } else {
       this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = event.target.value;
     }
-    // DO NOT SAVE AFTER EACH MODIFICATIONS
-    // this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe();
   }
 
   uploadFile(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
@@ -401,9 +396,8 @@ export class PageCampaignBuilderComponent implements OnInit {
               .filter(el => el.name === parentPropertyName)[0].value[index]
               .filter(el => el.name === propertyName)[0].value = data.imageUrl;
           } else {
-            this.blockData.languages.filter(el => el.lang === lang)[0].properties[propertyName] = data.imageUrl;
+            this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = data.imageUrl;
           }
-          //this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe();
         }
       });
     }
@@ -414,7 +408,6 @@ export class PageCampaignBuilderComponent implements OnInit {
       this.blockData.languages.filter(
         el => el.lang === lang
       )[0].display = !this.isVisible(lang);
-      this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe();
     }
   }
 
@@ -433,11 +426,9 @@ export class PageCampaignBuilderComponent implements OnInit {
         .filter(el => el.name === parentPropertyName)[0].value[index]
         .filter(el => el.name === propertyName)[0];
       propertyValue.copiedFromMaster = !propertyValue.copiedFromMaster;
-      console.log('copyFromMaster', propertyValue.copiedFromMaster);
     } else {
       const propertyValue = this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0];
       propertyValue.copiedFromMaster = !propertyValue.copiedFromMaster;
-      console.log('copyFromMaster', propertyValue.copiedFromMaster);
     }
   }
 
@@ -450,12 +441,9 @@ export class PageCampaignBuilderComponent implements OnInit {
     } else {
       this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = `'${color}'`;
     }
-    //this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe();
   }
 
   onBlockSettingsFormSubmit(form: NgForm) {
-    console.log(form.value);
-    console.log('The form is valid', form.valid);
     if (!form.valid) {
       this.modalWarningSave.show();
     } else {
@@ -472,24 +460,9 @@ export class PageCampaignBuilderComponent implements OnInit {
   }
 
   saveBlockSettings() {
-    console.log('Save blockData', this.blockData);
     this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe(() => {
       this.modalWarningSave.hide();
       this.modalBlockSettings.hide();
-    });
-  }
-
-  isCompletelyFilled(blockName: string) {
-    const blockInfo = this.getBlockInfo(blockName);
-    this.apiService.getBlockData(this.brandName, this.campaignName, blockName).subscribe((data) => {
-      data.languages.forEach((dataLang) => {
-        Object.keys(dataLang.properties).forEach(key => {
-          if (dataLang.properties[key] === '' && blockInfo.properties.filter(property => property.name === key)[0].required) {
-            console.log(`Property '${key}' in lang '${dataLang.lang}' is required.`);
-          }
-        });
-      });
-      return true;
     });
   }
 }

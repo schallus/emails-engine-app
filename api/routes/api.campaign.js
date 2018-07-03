@@ -733,6 +733,7 @@ campaign.compileJSONIntoYaml = (req, res, next) => {
             brand: req.params.brandSlug,
             campaign: req.params.campaignSlug,
             lang: lang,
+            masterLang: campaignConfig.masterLang,
             dataLang: campaignData
         }, (err, data) => {
             if(err) return next({

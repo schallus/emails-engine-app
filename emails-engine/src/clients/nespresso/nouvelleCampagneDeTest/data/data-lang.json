@@ -70,7 +70,7 @@
 					{
 						"name": "url",
 						"value": "",
-						"copiedFromMaster": false
+						"copiedFromMaster": true
 					},
 					{
 						"name": "img",
@@ -85,7 +85,7 @@
 					{
 						"name": "text",
 						"value": "",
-						"copiedFromMaster": false
+						"copiedFromMaster": true
 					},
 					{
 						"name": "link",

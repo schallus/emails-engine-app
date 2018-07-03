@@ -49,6 +49,24 @@ const hbs = exphbs.create({
             } else {
                 return options.inverse(this);
             }
+        },
+        toJSON: function(obj) {
+            return JSON.stringify(obj);
+        },
+        masterValue: function(blockName, masterLang, propertyName, parentPropertyName, index, options) {
+            let dataLang = options.data.dataLang;
+            if (typeof parentPropertyName == 'string') {
+                return dataLang
+                    .filter(el => el.blockName == blockName)[0].languages
+                    .filter(el => el.lang == masterLang)[0].properties
+                    .filter(el => el.name == parentPropertyName)[0].value[index]
+                    .filter(el => el.name === propertyName)[0].value;
+            } else {
+                return dataLang
+                    .filter(el => el.blockName == blockName)[0].languages
+                    .filter(el => el.lang == masterLang)[0].properties
+                    .filter(el => el.name == propertyName)[0].value;
+            }      
         }
     }
 });
