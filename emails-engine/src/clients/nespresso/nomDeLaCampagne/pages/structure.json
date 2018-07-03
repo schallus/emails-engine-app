@@ -15,43 +15,48 @@
 		"name": "block-01-1530607719511"
 	},
 	{
-		"blockType": "spacer",
+		"blockType": "block-02",
 		"position": 3,
+		"name": "block-02-1530611580324"
+	},
+	{
+		"blockType": "spacer",
+		"position": 4,
 		"name": "spacer-1530608979394"
 	},
 	{
 		"blockType": "block-10",
-		"position": 4,
+		"position": 5,
 		"name": "block-10-1530607935590"
 	},
 	{
 		"blockType": "spacer",
-		"position": 5,
+		"position": 6,
 		"name": "spacer-1530608679026"
 	},
 	{
 		"blockType": "block-19",
-		"position": 6,
+		"position": 7,
 		"name": "block-19-1530608671961"
 	},
 	{
 		"blockType": "spacer",
-		"position": 7,
+		"position": 8,
 		"name": "spacer-1530608984274"
 	},
 	{
 		"blockType": "block-20",
-		"position": 8,
+		"position": 9,
 		"name": "block-20-1530608665549"
 	},
 	{
 		"blockType": "spacer",
-		"position": 9,
+		"position": 10,
 		"name": "spacer-1530608657640"
 	},
 	{
 		"blockType": "block-14-ambassador",
-		"position": 10,
+		"position": 11,
 		"name": "block-14-ambassador-1530608645535"
 	}
 ]

@@ -11,12 +11,12 @@
           <div class="input-group-prepend">
             <span class="input-group-text primary-color"><i class="fa fa-search text-white" aria-hidden="true"></i></span>
           </div>
-          <input class="form-control my-0 py-1" type="text" placeholder="Rechercher" aria-label="Rechercher" [value]="filterBrand" [formControl]="filterBrandControl">
+          <input class="form-control my-0 py-1" type="text" placeholder="Rechercher" aria-label="Rechercher" appDebounceChange (debounceChange)="filterBrands($event)">
         </div>
 
         <table class="table table-striped">
           
-          <thead class="primary-color white-text">
+          <thead>
             <tr>
               <th>Nom</th>
               <th class="text-right">Actions</th>
@@ -27,7 +27,10 @@
             <tr *ngIf="filteredBrands?.length==0"><td colspan="2">Il n'y a aucune marque à afficher</td></tr>
             <tr *ngFor="let brand of filteredBrands">
               <td class="align-middle">{{ brand.displayName }}</td>
-              <td class="text-right align-middle"><a [routerLink]="['/brands', brand.name, 'campaigns']" class="btn-floating btn-sm primary-color" mdbWavesEffect><i class="fa fa-arrow-right"></i></a></td>
+              <td class="text-right align-middle">
+                <a class="btn-floating btn-sm btn-primary waves-light mr-1" (click)="openRecipientsModal(brand)" mdbWavesEffect><i class="fa fa-users"></i></a>
+                <a [routerLink]="['/brands', brand.name, 'campaigns']" class="btn-floating btn-sm btn-primary waves-light" mdbWavesEffect><i class="fa fa-arrow-right"></i></a>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -67,3 +70,5 @@
     </div>
   </div>
 </div>
+
+<app-modal-recipients #recipientsModal [brand]="brand"></app-modal-recipients>

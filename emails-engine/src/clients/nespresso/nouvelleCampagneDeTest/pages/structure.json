@@ -1,13 +1,13 @@
 [
 	{
-		"blockType": "block-10",
+		"blockType": "block-01",
 		"position": 0,
-		"name": "block-10-1530514733721"
+		"name": "block-01-1530533263787"
 	},
 	{
-		"blockType": "block-01",
+		"blockType": "block-10",
 		"position": 1,
-		"name": "block-01-1530533263787"
+		"name": "block-10-1530514733721"
 	},
 	{
 		"blockType": "block-06",

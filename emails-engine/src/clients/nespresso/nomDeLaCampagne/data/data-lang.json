@@ -64,6 +64,27 @@
 					}
 				],
 				"display": true
+			},
+			{
+				"lang": "bs",
+				"properties": [
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
 			}
 		]
 	},
@@ -104,6 +125,22 @@
 			},
 			{
 				"lang": "it",
+				"properties": [
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "bs",
 				"properties": [
 					{
 						"name": "img",
@@ -177,6 +214,32 @@
 			},
 			{
 				"lang": "it",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "bs",
 				"properties": [
 					{
 						"name": "title",
@@ -298,6 +361,37 @@
 					}
 				],
 				"display": true
+			},
+			{
+				"lang": "bs",
+				"properties": [
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "link",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
 			}
 		]
 	},
@@ -368,6 +462,37 @@
 			},
 			{
 				"lang": "it",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "bs",
 				"properties": [
 					{
 						"name": "linkUrl",
@@ -489,6 +614,206 @@
 					},
 					{
 						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "bs",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-02-1530611580324",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "'#ff423a'",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img-w",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img-h",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img-mobile",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "url-mobile",
+						"value": "",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-w",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-h",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-w",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-h",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "bs",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-w",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-h",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url-mobile",
 						"value": "",
 						"copiedFromMaster": true
 					}

@@ -1,0 +1,41 @@
+<div mdbModal #modalSendEmails="mdb-modal" class="modal fade" id="modalSendEmails" tabindex="-1" role="dialog" aria-labelledby="Envoi emails de test" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title w-100" id="myModalLabel">Envoi emails de test</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modalSendEmails.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div *ngIf="sending" class="text-center">
+          <p>Envoi des emails en cours...</p>
+          <mdb-spinner spinnerColor="red"></mdb-spinner>
+        </div>
+        <div *ngIf="!sending" class="row">
+          <div class="col-md-6">
+            <div class="btn-group checkbox-list" id="checkbox-recipients" data-toggle="buttons">
+              <label *ngFor="let lang of langSelected" class="btn btn-primary form-check-label mb-1" [ngClass]="{'active': lang.selected}">
+                <input class="form-check-input d-none" type="checkbox" [checked]="lang.selected ? 'checked' : null" autocomplete="off" (change)="lang.selected = !lang.selected" [value]="lang.code" > {{ lang.code | uppercase }}
+              </label>
+            </div>
+          </div>
+          <div class="col-md-6">
+              <div class="btn-group checkbox-list" id="checkbox-recipients" data-toggle="buttons">
+                <label *ngFor="let recipient of recipients" class="btn btn-primary form-check-label mb-1" [ngClass]="{'active': recipient.selected}">
+                  <input class="form-check-input d-none" type="checkbox" [checked]="recipient.selected ? 'checked' : null" autocomplete="off" (change)="recipient.selected = !recipient.selected" [value]="recipient.email" > {{ recipient.firstname }} {{ recipient.lastname }} <{{ recipient.email }}>
+                </label>
+              </div>
+              <a class="btn btn-grey btn-rounded" (click)="recipientsModal.show()">Gérer les destinataires</a>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-grey" data-dismiss="modal" [disabled]="sending" (click)="modalSendEmails.hide()" mdbWavesEffect>Fermer</button>
+        <button type="button" class="btn btn-green" mdbWavesEffect [disabled]="(recipients | filterSelected)?.length < 1 || (langSelected | filterSelected)?.length < 1 || sending" (click)="sendTestEmail()">Envoyer</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-modal-recipients #recipientsModal [brand]="brand" [config]="{ backdrop: false, ignoreBackdropClick: true }"></app-modal-recipients>

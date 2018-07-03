@@ -1,9 +1,7 @@
 import { Component, OnInit, ViewChild, HostListener, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SortablejsOptions } from 'angular-sortablejs';
-import { FormControl, NgForm } from '@angular/forms';
 import { DOCUMENT } from '@angular/platform-browser';
-import { TabsetComponent } from 'ng-uikit-pro-standard';
 
 // RxJS
 import { Subscription, Observable } from 'rxjs';
@@ -26,23 +24,14 @@ import { RecipientSelected } from '../../models/recipient';
 export class PageCampaignBuilderComponent implements OnInit {
 
   @ViewChild('modalBlockRemove') public modalBlockRemove;
-  @ViewChild('modalBlockSettings') public modalBlockSettings;
   @ViewChild('modalPreviewEmails') public modalPreviewEmails;
   @ViewChild('modalExportEmails') public modalExportEmails;
-  @ViewChild('modalWarningSave') public modalWarningSave;
-  @ViewChild('modalSendEmails') public modalSendEmails;
-  @ViewChild('langTabs') langTabs: TabsetComponent;
   @ViewChild('dragNDropBlocksList') dragNDropBlocksList: any;
 
 
   // Url parameters
   brandName: string;
   campaignName: string;
-
-  // Filter blocks
-  filterBlock: string;
-  filterBlockControl = new FormControl();
-  formCtrlSub: Subscription;
 
   // Breadcrumbs
   breadcrumbs: Array<{title: string, path: string}>;
@@ -57,8 +46,8 @@ export class PageCampaignBuilderComponent implements OnInit {
   campaignLanguages: string[];
 
   // Drag n drop options
-  list1Options: SortablejsOptions;
-  list2Options: SortablejsOptions;
+  blockLibraryOptions: SortablejsOptions;
+  dropZoneOptions: SortablejsOptions;
 
   block: BlockPosition;
   blockData: any;
@@ -66,26 +55,19 @@ export class PageCampaignBuilderComponent implements OnInit {
   blocksFixed: boolean;
   blocksFixedWidth: number;
 
-  recipients: RecipientSelected[];
-  langSelected: Array<{code: string, selected: boolean}>;
-  sending: boolean;
-
   previewLinks: Array<{url: string, lang: string}>;
   buildInProgress: boolean;
 
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
-    private uploadService: UploadService,
     @Inject(DOCUMENT) private doc: Document
   ) {
 
     this.blocksFixed = false;
     this.buildInProgress = false;
-    this.sending = false;
-    this.filterBlock = '';
 
-    this.list1Options = {
+    this.blockLibraryOptions = {
       group: {
         name: 'group1',
         pull: 'clone',
@@ -95,7 +77,7 @@ export class PageCampaignBuilderComponent implements OnInit {
       sort: false
     };
 
-    this.list2Options = {
+    this.dropZoneOptions = {
       group: {
         name: 'group2',
         put: ['group1'],
@@ -106,20 +88,16 @@ export class PageCampaignBuilderComponent implements OnInit {
         const newIndex = event.newIndex;
         // Move array positions
         this.campaignStructure.splice(newIndex, 0, this.campaignStructure.splice(oldIndex, 1)[0]);
-
+    
         this.saveCampaignStructure();
       },
       onAdd: (event: any) => {
-        // Event thrown when we drop an element in the list
-        const blockData = event.item.blockData;
+        // Event thrown when the list order change
+        const oldIndex = event.oldIndex;
         const newIndex = event.newIndex;
-        const newBlockPosition = {
-          blockType: blockData.name,
-          position: newIndex,
-          name: `${blockData.name}-${new Date().getTime().toString()}`
-        };
-        // Insert the element at a specific position
-        this.campaignStructure.splice(newIndex, 0, newBlockPosition);
+        // Move array positions
+        this.campaignStructure.splice(newIndex, 0, this.campaignStructure.splice(oldIndex, 1)[0]);
+    
         this.saveCampaignStructure();
       }
     };
@@ -148,114 +126,30 @@ export class PageCampaignBuilderComponent implements OnInit {
     // Get the campaign structure and order it by position
     this.apiService.getCampaignStructure(this.brandName, this.campaignName).subscribe(structure => {
       this.campaignStructure = structure.sort((a, b) => a.position - b.position);
-
-      // Get campaign options (languages)
-      this.apiService.getCampaignOptions(this.brandName, this.campaignName).subscribe(options => {
-        this.campaignOptions = options;
-        this.campaignLanguages = Object.keys(this.campaignOptions.lang);
-        this.langSelected = this.campaignLanguages.map(el => {
-          return {
-            code: el,
-            selected: true
-          };
-        });
-
-        this.apiService.setCampaignStructure(this.brandName, this.campaignName, this.campaignStructure)
-          .subscribe(newCampaignStructure => this.campaignStructure = newCampaignStructure);
-
-        this.apiService.getBlocksData(this.brandName, this.campaignName).subscribe((blocksData) => {
-          for (let i = 0; i < blocksData.length; i++) {
-            const blockInfo = this.getBlockInfo(blocksData[i].blockName);
-
-            // Remove lang from campaign data if deselected
-            blocksData[i].languages = blocksData[i].languages.filter((item) => {
-              return this.campaignLanguages.indexOf(item.lang) > -1;
-            });
-
-            // Add new lang data if lang added to campaign
-            const langToAdd = this.campaignLanguages.filter((item) => {
-              return blocksData[i].languages.map(el => el.lang).indexOf(item) === -1;
-            });
-
-            langToAdd.forEach(lang => {
-              const el = {
-                lang: lang,
-                properties: {},
-                display: true
-              };
-
-              for (const blockProperty of blockInfo.properties) {
-                el.properties[blockProperty.name] = '';
-              }
-
-              blocksData[i].languages.push(el);
-            });
-          }
-          this.apiService.setBlocksData(this.brandName, this.campaignName, blocksData).subscribe();
-        });
-      });
     });
 
-    // Event thrown when the user change the search blocks input value
-    // We wait for half a second without any new key pressed before to throw the event
-    this.formCtrlSub = this.filterBlockControl.valueChanges
-      .debounceTime(500)
-      .subscribe(newValue => {
-        this.filterBlock = newValue;
-        this.filterBlocks();
-      });
-  }
+    // Get campaign options (languages)
+    this.apiService.getCampaignOptions(this.brandName, this.campaignName).subscribe(options => {
+      this.campaignOptions = options;
+      this.campaignLanguages = Object.keys(this.campaignOptions.lang);
+    });
 
-  @HostListener('window:scroll', ['$event'])
-  onWindowScroll(e: any) {
-    if (!this.blocksFixed && window.pageYOffset > 185) {
-      this.blocksFixed = true;
-      this.dragNDropBlocksList.nativeElement.style.width = `${this.blocksFixedWidth}px`;
-      this.dragNDropBlocksList.nativeElement.querySelector('#builderBlockList').style.maxHeight = `${window.innerHeight * 0.7}px`;
-    } else if (this.blocksFixed && window.pageYOffset < 185) {
-      this.blocksFixed = false;
-      this.dragNDropBlocksList.nativeElement.style.width = `auto`;
-      this.dragNDropBlocksList.nativeElement.querySelector('#builderBlockList').style.maxHeight = `500px`;
-    }
-  }
+    // Get the blocks data
+    this.apiService.getBlocksData(this.brandName, this.campaignName).subscribe((blocksData) => {
+      for (let i = 0; i < blocksData.length; i++) {
+        const blockInfo = this.getBlockInfo(blocksData[i].blockName);
 
-  filterBlocks() {
-    this.filteredBlocks = this.blocks.filter(block => block.displayName.toLowerCase().indexOf(this.filterBlock.toLowerCase()) > -1);
-  }
+        // Remove lang from campaign data if deselected
+        blocksData[i].languages = blocksData[i].languages.filter((item) => {
+          return this.campaignLanguages.indexOf(item.lang) > -1;
+        });
 
-  getBlockTypeInfo(blockType: string) {
-    return this.blocks.filter(block => block.name === blockType)[0];
-  }
+        // Add new lang data if lang added to campaign
+        const langToAdd = this.campaignLanguages.filter((item) => {
+          return blocksData[i].languages.map(el => el.lang).indexOf(item) === -1;
+        });
 
-  getBlockInfo(blockName: string) {
-    return this.getBlockTypeInfo(this.campaignStructure.filter(el => el.name === blockName)[0].blockType);
-  }
-
-  showDeleteConfirmation(block: BlockPosition) {
-    this.block = block;
-    this.modalBlockRemove.show();
-  }
-
-  showBlockSettings(block: BlockPosition) {
-    this.block = block;
-    this.langTabs.tabs[0].active = true;
-    // Get the block data
-    this.apiService.getBlockData(this.brandName, this.campaignName, this.block.name).subscribe(data => {
-      this.blockData = data;
-
-      if (!this.blockData) {
-        // Si le bloc vient d'être créé ou n'as pas encore reçu de données
-
-        const blockInfo = this.getBlockTypeInfo(block.blockType);
-
-        const langData = [];
-
-        this.blockData = {
-          blockName: block.name,
-          languages: langData
-        };
-
-        for (const lang of this.campaignLanguages) {
+        for (const lang of langToAdd) {
           const el = {
             lang: lang,
             properties: [],
@@ -294,16 +188,55 @@ export class PageCampaignBuilderComponent implements OnInit {
             }
           }
 
-          langData.push(el);
+          blocksData[i].languages.push(el);
         }
-        this.apiService.setBlockData(this.brandName, this.campaignName, this.blockData).subscribe(newBlockData => {
-          // After the block data set, we open the modal
-          this.modalBlockSettings.show();
-        });
-      } else {
-        this.modalBlockSettings.show();
       }
+      this.apiService.setBlocksData(this.brandName, this.campaignName, blocksData).subscribe();
     });
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll(e: any) {
+    if (!this.blocksFixed && window.pageYOffset > 185) {
+      this.blocksFixed = true;
+      this.dragNDropBlocksList.nativeElement.style.width = `${this.blocksFixedWidth}px`;
+      this.dragNDropBlocksList.nativeElement.querySelector('#builderBlockList').style.maxHeight = `${window.innerHeight * 0.7}px`;
+    } else if (this.blocksFixed && window.pageYOffset < 185) {
+      this.blocksFixed = false;
+      this.dragNDropBlocksList.nativeElement.style.width = `auto`;
+      this.dragNDropBlocksList.nativeElement.querySelector('#builderBlockList').style.maxHeight = `500px`;
+    }
+  }
+
+  removeBlock(block: BlockPosition) {
+    this.campaignStructure = this.campaignStructure.filter(el => el !== block);
+    this.saveCampaignStructure();
+    this.apiService.removeBlockData(this.brandName, this.campaignName, block.name).subscribe();
+    this.modalBlockRemove.hide();
+  }
+
+  saveCampaignStructure() {
+    for (let i = 0; i < this.campaignStructure.length; i++) {
+      this.campaignStructure[i].position = i;
+    }
+    this.apiService.setCampaignStructure(this.brandName, this.campaignName, this.campaignStructure).subscribe();
+  }
+
+  filterBlocks(event: any) {
+    this.filteredBlocks = this.blocks.filter(block => block.displayName.toLowerCase().indexOf(event.target.value.toLowerCase()) > -1);
+  }
+
+  getBlockTypeInfo(blockType: string) {
+    return this.blocks.filter(block => block.name === blockType)[0];
+  }
+
+  getBlockInfo(blockName: string) {
+    return this.getBlockTypeInfo(this.campaignStructure.filter(el => el.name === blockName)[0].blockType);
+  }
+
+  showDeleteConfirmation(block: BlockPosition) {
+    this.block = block;
+    this.modalBlockRemove.show();
   }
 
   showPreview() {
@@ -329,140 +262,6 @@ export class PageCampaignBuilderComponent implements OnInit {
     this.apiService.exportCampaign(this.brandName, this.campaignName).subscribe(data => {
       window.open(data.zipLink);
       this.modalExportEmails.hide();
-    });
-  }
-
-  configureTestEmail() {
-    if (!this.recipients) {
-      // Get list of recipients
-      this.apiService.getRecipients(this.brandName).subscribe(recipients => {
-        this.recipients = recipients.map(recipient => {
-          recipient.selected = true;
-          return recipient;
-        });
-
-        this.modalSendEmails.show();
-      });
-    } else {
-      this.modalSendEmails.show();
-    }
-  }
-
-  sendTestEmail() {
-    const recipients = this.recipients.filter(el => el.selected).map(el => el.email);
-    const languages = this.langSelected.filter(el => el.selected).map(el => el.code);
-
-    this.sending = true;
-    this.apiService.sendTestEmails(this.brandName, this.campaignName, recipients, languages).subscribe(() => {
-      this.sending = false;
-      this.modalSendEmails.hide();
-    });
-  }
-
-  removeBlock(block: BlockPosition) {
-    this.campaignStructure = this.campaignStructure.filter(el => el !== block);
-    this.saveCampaignStructure();
-    this.apiService.removeBlockData(this.brandName, this.campaignName, block.name).subscribe();
-    this.modalBlockRemove.hide();
-  }
-
-  saveCampaignStructure() {
-    for (let i = 0; i < this.campaignStructure.length; i++) {
-      this.campaignStructure[i].position = i;
-    }
-    this.apiService.setCampaignStructure(this.brandName, this.campaignName, this.campaignStructure).subscribe();
-  }
-
-  setPropertyValue(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
-    if (parentPropertyName && index !== undefined) {
-      this.blockData.languages
-        .filter(el => el.lang === lang)[0].properties
-        .filter(el => el.name === parentPropertyName)[0].value[index]
-        .filter(el => el.name === propertyName)[0].value = event.target.value;
-    } else {
-      this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = event.target.value;
-    }
-  }
-
-  uploadFile(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
-    if (event.target.files.length > 0) {
-      const image = event.target.files[0];
-
-      this.uploadService.uploadImage(this.brandName, this.campaignName, image).subscribe((data) => {
-        if (data && data.imageUrl) {
-          if (parentPropertyName && index !== undefined) {
-            this.blockData.languages
-              .filter(el => el.lang === lang)[0].properties
-              .filter(el => el.name === parentPropertyName)[0].value[index]
-              .filter(el => el.name === propertyName)[0].value = data.imageUrl;
-          } else {
-            this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = data.imageUrl;
-          }
-        }
-      });
-    }
-  }
-
-  toggleVisibility(lang: string) {
-    if (this.blockData) {
-      this.blockData.languages.filter(
-        el => el.lang === lang
-      )[0].display = !this.isVisible(lang);
-    }
-  }
-
-  isVisible(lang: string) {
-    if (this.blockData) {
-      return this.blockData.languages.filter(
-        el => el.lang === lang
-      )[0].display;
-    }
-  }
-
-  copyFromMaster(propertyName: string, lang: string, parentPropertyName?: string, index?: number) {
-    if (parentPropertyName && index !== undefined) {
-      const propertyValue = this.blockData.languages
-        .filter(el => el.lang === lang)[0].properties
-        .filter(el => el.name === parentPropertyName)[0].value[index]
-        .filter(el => el.name === propertyName)[0];
-      propertyValue.copiedFromMaster = !propertyValue.copiedFromMaster;
-    } else {
-      const propertyValue = this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0];
-      propertyValue.copiedFromMaster = !propertyValue.copiedFromMaster;
-    }
-  }
-
-  colorPickerChange(propertyName: string, lang: string, color: any, parentPropertyName?: string, index?: number) {
-    if (parentPropertyName && index !== undefined) {
-      this.blockData.languages
-        .filter(el => el.lang === lang)[0].properties
-        .filter(el => el.name === parentPropertyName)[0].value[index]
-        .filter(el => el.name === propertyName)[0].value = `'${color}'`;
-    } else {
-      this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = `'${color}'`;
-    }
-  }
-
-  onBlockSettingsFormSubmit(form: NgForm) {
-    if (!form.valid) {
-      this.modalWarningSave.show();
-    } else {
-      this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe(() => {
-        this.modalBlockSettings.hide();
-      });
-    }
-  }
-
-  discardBlockSettings() {
-    this.blockData = null;
-    this.modalWarningSave.hide();
-    this.modalBlockSettings.hide();
-  }
-
-  saveBlockSettings() {
-    this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe(() => {
-      this.modalWarningSave.hide();
-      this.modalBlockSettings.hide();
     });
   }
 }

@@ -20,9 +20,6 @@ export class PageCampaignsComponent implements OnInit {
   @ViewChild('modalClone') public modalClone;
   @ViewChild('modalNew') public modalNew;
 
-  filterCampaign: string;
-  filterCampaignControl = new FormControl();
-  formCtrlSub: Subscription;
   campaigns: Campaign[];
   filteredCampaigns: Campaign[];
   campaign: string;
@@ -30,9 +27,10 @@ export class PageCampaignsComponent implements OnInit {
   breadcrumbs: Array<{title: string, path: string}>;
   duplicateName: string;
   newCampaignName: string;
+  private sorted = false;
+
 
   constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) {
-    this.filterCampaign = '';
     this.duplicateName = '';
     this.newCampaignName = '';
   }
@@ -46,15 +44,19 @@ export class PageCampaignsComponent implements OnInit {
       { title: 'Marques', path: '/brands' },
       { title: 'Campagnes', path: `/brands/${this.brandName}/campaigns` }
     ];
+  }
 
-    // debounce keystroke events
-    this.formCtrlSub = this.filterCampaignControl.valueChanges
-      .debounceTime(500)
-      .subscribe(newValue => {
-        this.filterCampaign = newValue;
-        console.log('filterChanged', this.filterCampaign);
-        this.filterCampaigns();
-      });
+  sortBy(by: string | any): void {
+    this.campaigns.sort((a: any, b: any) => {
+      if (a[by] < b[by]) {
+        return this.sorted ? 1 : -1;
+      }
+      if (a[by] > b[by]) {
+        return this.sorted ? -1 : 1;
+      }
+      return 0;
+    });
+    this.sorted = !this.sorted;
   }
 
   getCampaigns(cb?: () => void) {
@@ -67,9 +69,9 @@ export class PageCampaignsComponent implements OnInit {
     });
   }
 
-  filterCampaigns() {
+  filterCampaigns(event: any) {
     this.filteredCampaigns = this.campaigns.filter(campaign => campaign.displayName.toLowerCase()
-      .indexOf(this.filterCampaign.toLowerCase()) > -1);
+      .indexOf(event.target.value.toLowerCase()) > -1);
   }
 
   showArchiveConfirmation(campaign: string) {

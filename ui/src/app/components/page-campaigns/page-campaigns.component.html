@@ -1,7 +1,7 @@
 <app-breadcrumb [breadcrumbs]=breadcrumbs></app-breadcrumb>
 <div class="row">
   <div class="col">
-    <div class="card">
+    <div class="card mb-3">
       <div class="card-header primary-color white-text">
         Campagnes
       </div>
@@ -11,15 +11,15 @@
           <div class="input-group-prepend">
             <span class="input-group-text primary-color"><i class="fa fa-search text-white" aria-hidden="true"></i></span>
           </div>
-          <input class="form-control my-0 py-1" type="text" placeholder="Rechercher" aria-label="Rechercher" [value]="filterCampaign" [formControl]="filterCampaignControl">
+          <input class="form-control my-0 py-1" type="text" placeholder="Rechercher" aria-label="Rechercher" appDebounceChange (debounceChange)="filterCampaigns($event)">
         </div>
 
         <table class="table table-striped">
           
-          <thead class="primary-color white-text">
+          <thead>
             <tr>
-              <th class="align-top">Nom</th>
-              <th class="align-top">Dernière modification</th>
+              <th class="align-top">Nom <mdb-icon icon="sort" (click)="sortBy('displayName')"></mdb-icon></th>
+              <th class="align-top">Date modification <mdb-icon icon="sort" (click)="sortBy('updatedAt')"></mdb-icon></th>
               <th class="text-right actions align-top">Actions</th>
             </tr>
           </thead>

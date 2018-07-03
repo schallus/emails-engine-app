@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Brand } from '../../models/brand';
 import { FormControl } from '@angular/forms';
 import { Subscription } from 'rxjs';
@@ -14,11 +14,10 @@ import { ApiService } from '../../services/api.service';
 })
 export class PageBrandsComponent implements OnInit {
 
-  filterBrand: string;
-  filterBrandControl = new FormControl();
-  formCtrlSub: Subscription;
+  @ViewChild('recipientsModal') recipientsModal;
   breadcrumbs: Array<{title: string, path: string}>;
   brands: Brand[];
+  brand: Brand;
   filteredBrands: Brand[];
 
   constructor(private apiService: ApiService) {
@@ -26,40 +25,21 @@ export class PageBrandsComponent implements OnInit {
       { title: 'Marques', path: '/brands' }
     ];
 
-    /*this.brands = [
-      {
-        name: 'nespresso',
-        displayName: 'Nespresso',
-        logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Nespresso-logo.svg/320px-Nespresso-logo.svg.png'
-      },
-      {
-        name: 'tagheuer',
-        displayName: 'Tag Heuer',
-        logoUrl: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/TAG_HEUER_logo.svg/500px-TAG_HEUER_logo.svg.png'
-      }
-    ];*/
-
     this.apiService.getBrands().subscribe(brands => {
       this.brands = brands;
       this.filteredBrands = this.brands;
     });
-
-    this.filterBrand = '';
   }
 
-  ngOnInit() {
-    // debounce keystroke events
-    this.formCtrlSub = this.filterBrandControl.valueChanges
-      .debounceTime(500)
-      .subscribe(newValue => {
-        this.filterBrand = newValue;
-        console.log('filterChanged', this.filterBrand);
-        this.filterBrands();
-      });
+  ngOnInit() {}
+  
+  filterBrands(event:any) {
+    this.filteredBrands = this.brands.filter(brand => brand.displayName.toLowerCase().indexOf(event.target.value.toLowerCase()) > -1);
   }
 
-  filterBrands() {
-    this.filteredBrands = this.brands.filter(brand => brand.displayName.toLowerCase().indexOf(this.filterBrand.toLowerCase()) > -1);
+  openRecipientsModal(brand: Brand) {
+    this.brand = brand;
+    this.recipientsModal.show();
   }
 
 }

@@ -1,6 +1,6 @@
 #
 # brand: nespresso
-# campaign: promotionSpecialeEte2018
+# campaign: nomDeLaCampagne
 # lang: it
 #
 
@@ -34,3 +34,11 @@ block-20-1530608665549:
     img: http://localhost:3000/dist/nespresso/promotionSpecialeEte2018/images/uploads/WP_20180412_17_43_38_Pro.jpg
     title: A louer appartement
     text: Appartement de 4 pièces et demi à louer dans le quartier de la Villette à Yverdon-les-Bains
+block-02-1530611580324:
+    bgcolor: '#ff423a'
+    img: 
+    img-w: 
+    img-h: 
+    img-mobile: 
+    url: 
+    url-mobile: 

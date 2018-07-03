@@ -1,0 +1,19 @@
+<div mdbModal #recipientsModal="mdb-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="Gestion des destinataires" aria-hidden="true" [config]="config">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content" *ngIf="brand">
+      <div class="modal-header">
+        <button type="button" class="close pull-right" aria-label="Close" (click)="recipientsModal.hide()">
+          <span aria-hidden="true">×</span>
+        </button>
+        <h4 class="modal-title w-100" id="myModalLabel">Gestion des destinataires - {{ brand?.displayName }}</h4>
+      </div>
+      <div class="modal-body">
+        <p>Contenu de test.</p>
+        <p>{{brand?.displayName}}</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary waves-light" aria-label="Close" (click)="recipientsModal.hide()" mdbWavesEffect>Fermer</button>
+      </div>
+    </div>
+  </div>
+</div>
