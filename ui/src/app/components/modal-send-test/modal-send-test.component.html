@@ -15,18 +15,18 @@
         <div *ngIf="!sending" class="row">
           <div class="col-md-6">
             <div class="btn-group checkbox-list" id="checkbox-recipients" data-toggle="buttons">
-              <label *ngFor="let lang of langSelected" class="btn btn-primary form-check-label mb-1" [ngClass]="{'active': lang.selected}">
+              <label *ngFor="let lang of langSelected" class="btn btn-secondary form-check-label mb-1" [ngClass]="{'active': lang.selected}">
                 <input class="form-check-input d-none" type="checkbox" [checked]="lang.selected ? 'checked' : null" autocomplete="off" (change)="lang.selected = !lang.selected" [value]="lang.code" > {{ lang.code | uppercase }}
               </label>
             </div>
           </div>
           <div class="col-md-6">
               <div class="btn-group checkbox-list" id="checkbox-recipients" data-toggle="buttons">
-                <label *ngFor="let recipient of recipients" class="btn btn-primary form-check-label mb-1" [ngClass]="{'active': recipient.selected}">
+                <label *ngFor="let recipient of recipients" class="btn btn-secondary form-check-label mb-1" [ngClass]="{'active': recipient.selected}">
                   <input class="form-check-input d-none" type="checkbox" [checked]="recipient.selected ? 'checked' : null" autocomplete="off" (change)="recipient.selected = !recipient.selected" [value]="recipient.email" > {{ recipient.firstname }} {{ recipient.lastname }} <{{ recipient.email }}>
                 </label>
               </div>
-              <a class="btn btn-grey btn-rounded" (click)="recipientsModal.show()">Gérer les destinataires</a>
+              <a class="btn btn-grey btn-rounded" (click)="recipientsModal.show(brand)">Gérer les destinataires</a>
           </div>
         </div>
       </div>
@@ -38,4 +38,4 @@
   </div>
 </div>
 
-<app-modal-recipients #recipientsModal [brand]="brand" [config]="{ backdrop: false, ignoreBackdropClick: true }"></app-modal-recipients>
+<app-modal-recipients #recipientsModal [config]="{ backdrop: false, ignoreBackdropClick: true }" (updated)="getRecipients(brandName)"></app-modal-recipients>

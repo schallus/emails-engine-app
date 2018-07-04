@@ -6,7 +6,7 @@
         <!--Modal cascading tabs-->
         <div class="modal-c-tabs">
           <!-- Tab panels -->
-          <mdb-tabset #langTabs [buttonClass]="'nav nav-tabs primary-color'" [contentClass]="''" class="tab-content">
+          <mdb-tabset #langTabs [buttonClass]="'nav nav-tabs secondary-color'" [contentClass]="''" class="tab-content">
             <mdb-tab *ngFor="let lang of campaignLanguages" class="tab-pane fade in show active" [id]="'tab-'+lang" role="tabpanel" [heading]="lang | uppercase">
               <!--Body-->
               <div class="modal-body mb-1" *ngIf="block">
@@ -59,7 +59,7 @@
                       type="text"
                       [id]="property.name+'-'+lang" 
                       [name]="property.name+'-'+lang" 
-                      customRegex="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" 
+                      pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" 
                       [mdbValidate]="false" 
                       [ngModel]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value : ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value" 
                       appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)" 
@@ -77,7 +77,7 @@
                       <img [src]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value) ? ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value : 'assets/img/placeholder.jpg' : (((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value) ? ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value : 'assets/img/placeholder.jpg'" class="img-fluid">
                     </div>
                     <div class="col-6 img-button">
-                      <div class="btn btn-primary btn-rounded" mdbWavesEffect role="button" [class.disabled]="((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster">
+                      <div class="btn btn-secondary btn-rounded" mdbWavesEffect role="button" [class.disabled]="((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster">
                         <span>Séléctionner une image</span>
                         <input 
                           type="file" 
@@ -95,13 +95,14 @@
                   </div>
                   <div *ngSwitchCase="'color'" class="md-form input-group">
                     <span class="color-preview prefix mr-1 rounded" [style.background]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value?.substring(1, 8) : ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value?.substring(1, 8)"></span>
-                    <input mdbInputDirective [mdbValidate]="false" type="text" class="form-control color" [id]="property.name+'-'+lang" name="property.name+'-'+lang" [required]="property.required"
+                    <input mdbInputDirective [mdbValidate]="false" type="text" class="form-control color" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" [required]="property.required"
                       (colorPickerSelect)="colorPickerChange(property.name, lang, $event)"
                       [cpCancelButton]="true"
-                      [cpCancelButtonClass]= "'btn btn-primary btn-sm mr-1'"
+                      [cpCancelButtonClass]= "'btn btn-secondary btn-sm mr-1'"
                       [cpOKButton]="true"
                       [cpSaveClickOutside]="false"
                       [cpOKButtonClass]= "'btn btn-green btn-sm'"
+                      pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
                       ngModel
                       [value]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value?.substring(1, 8) : ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value?.substring(1, 8)"
                       [colorPicker]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value?.substring(1, 8) : ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value?.substring(1, 8)"
@@ -136,7 +137,7 @@
                     <p>{{ property.displayName }}<sup *ngIf="property.required">*</sup></p>
                     <mdb-squeezebox [id]="'accordion-'+property.name" [multiple]="false" aria-multiselectable="false">
                       <mdb-item class="propertyAccordion" [collapsed]="true" *ngFor="let propValue of ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value; index as key; first as isFirst">
-                        <mdb-item-head class="btn btn-outline-primary">{{ property.name }} #{{ key }}</mdb-item-head>
+                        <mdb-item-head class="btn btn-outline-secondary">{{ property.name }} #{{ key }}</mdb-item-head>
                         <mdb-item-body>
                           <div *ngFor="let property1 of property.properties" [ngSwitch]="property1.type">
                             <div *ngSwitchCase="'text'" class="md-form input-group">
@@ -178,7 +179,7 @@
                                 type="number"
                                 [id]="property1.name+'-'+lang+'-'+key" 
                                 [name]="property1.name+'-'+lang+'-'+key"
-                                customRegex="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" 
+                                pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" 
                                 [mdbValidate]="false" 
                                 [ngModel]="((propValue | filter: 'name':property1.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value : (propValue | filter: 'name':property1.name)?.value" 
                                 appDebounceChange (debounceChange)="setPropertyValue(property1.name, lang, $event, property.name, key)"
@@ -196,7 +197,7 @@
                                 <img [src]="((propValue | filter: 'name':property1.name)?.copiedFromMaster) ? ((((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value : 'assets/img/placeholder.jpg' : ((propValue | filter: 'name':property1.name)?.value) ? (propValue | filter: 'name':property1.name)?.value : 'assets/img/placeholder.jpg'" class="img-fluid">
                               </div>
                               <div class="col-6 img-button">
-                                <div class="btn btn-primary btn-rounded" mdbWavesEffect role="button" [class.disabled]="(propValue | filter: 'name':property1.name)?.copiedFromMaster">
+                                <div class="btn btn-secondary btn-rounded" mdbWavesEffect role="button" [class.disabled]="(propValue | filter: 'name':property1.name)?.copiedFromMaster">
                                   <span>Séléctionner une image</span>
                                   <input 
                                     type="file" 
@@ -214,14 +215,15 @@
                             </div>
                             <div *ngSwitchCase="'color'" class="md-form input-group">
                               <span class="color-preview prefix mr-1 rounded" [style.background]="((propValue | filter: 'name':property1.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value?.substring(1, 8) : (propValue | filter: 'name':property1.name)?.value?.substring(1, 8)"></span>
-                              <input mdbInputDirective [mdbValidate]="false" type="text" class="form-control color" [id]="property.name+'-'+lang" name="property.name+'-'+lang" [required]="property.required"
+                              <input mdbInputDirective [mdbValidate]="false" type="text" class="form-control color" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" [required]="property.required"
                                 (colorPickerSelect)="colorPickerChange(property1.name, lang, $event, property.name, key)"
                                 [cpCancelButton]="true"
-                                [cpCancelButtonClass]= "'btn btn-primary btn-sm mr-1'"
+                                [cpCancelButtonClass]= "'btn btn-secondary btn-sm mr-1'"
                                 [cpOKButton]="true"
                                 [cpSaveClickOutside]="false"
                                 [cpOKButtonClass]= "'btn btn-green btn-sm'"
                                 ngModel
+                                pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
                                 [value]="((propValue | filter: 'name':property1.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value?.substring(1, 8) : (propValue | filter: 'name':property1.name)?.value?.substring(1, 8)"
                                 [colorPicker]="((propValue | filter: 'name':property1.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value?.substring(1, 8) : (propValue | filter: 'name':property1.name)?.value?.substring(1, 8)"
                                 [attr.disabled]="(propValue | filter: 'name':property1.name)?.copiedFromMaster ? 'disabled' : null"

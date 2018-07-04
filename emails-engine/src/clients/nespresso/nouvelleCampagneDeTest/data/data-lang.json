@@ -7,7 +7,7 @@
 				"properties": [
 					{
 						"name": "url",
-						"value": "http://www.google.ch",
+						"value": "http://www.google.com",
 						"copiedFromMaster": false
 					},
 					{
@@ -17,7 +17,7 @@
 					},
 					{
 						"name": "title",
-						"value": "Titre du bloc FR",
+						"value": "Titre de test",
 						"copiedFromMaster": false
 					},
 					{
@@ -39,7 +39,7 @@
 					{
 						"name": "url",
 						"value": "",
-						"copiedFromMaster": false
+						"copiedFromMaster": true
 					},
 					{
 						"name": "img",
@@ -115,7 +115,7 @@
 					},
 					{
 						"name": "linkUrl",
-						"value": "http://www.google.ch",
+						"value": "http://www.google.com",
 						"copiedFromMaster": false
 					},
 					{
@@ -576,12 +576,12 @@
 					},
 					{
 						"name": "color",
-						"value": "'#200303'",
+						"value": "'#cccccc'",
 						"copiedFromMaster": false
 					},
 					{
 						"name": "text",
-						"value": "sdf sdf sdfsd fsd fsdfsd fsdf sdfsdf sdsdf",
+						"value": "Texte de test Texte de test Texte de test Texte de test Texte de test Texte de test Texte de test Texte de test Texte de test Texte de test Texte de test Texte de test Texte de test Texte de test Texte de test ",
 						"copiedFromMaster": false
 					}
 				],

@@ -10,6 +10,7 @@ import { Campaign } from '../models/campaign';
 import { Block } from '../models/block';
 import { BlockPosition } from './../models/block-position';
 import { CampaignOptions } from './../models/campaign-options';
+import { Recipient } from '../models/recipient';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -158,6 +159,11 @@ export class ApiService {
 
   getRecipients(brandName: string) {
     return this.http.get<any>(this.recipientsUrl(brandName))
+      .pipe(catchError(this.apiHelper.handleError));
+  }
+
+  setRecipients(brandName: string, recipients: Recipient[]) {
+    return this.http.put<Recipient[]>(this.recipientsUrl(brandName), recipients, httpOptions)
       .pipe(catchError(this.apiHelper.handleError));
   }
 

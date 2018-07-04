@@ -8,11 +8,41 @@
         <h4 class="modal-title w-100" id="myModalLabel">Gestion des destinataires - {{ brand?.displayName }}</h4>
       </div>
       <div class="modal-body">
-        <p>Contenu de test.</p>
-        <p>{{brand?.displayName}}</p>
+        <div class="alert alert-danger" role="alert" *ngIf="error">
+          Veuillez renseigner tous les champs du formulaire et vérifier que l'adresse email soit unique.
+        </div>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="align-top">Nom</th>
+              <th class="align-top">Prénom</th>
+              <th class="align-top">Adresse email</th>
+              <th class="text-right actions align-top">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let recipient of recipients">
+              <td contenteditable="true" placeholder="Nom" (focusout)="edit('lastname', $event, recipient.email)">{{ recipient.lastname }}</td>
+              <td contenteditable="true" placeholder="Prénom" (focusout)="edit('firstname', $event, recipient.email)">{{ recipient.firstname }}</td>
+              <td>{{ recipient.email }}</td>
+              <td class="text-right align-middle actions">
+                <a class="btn-floating btn-sm btn-secondary waves-light" mdbWavesEffect (click)="remove(recipient.email)"><i class="fa fa-trash"></i></a>
+              </td>
+            </tr>
+            <tr class="addNewRecipient">
+                <td contenteditable="true" placeholder="Nom" [innerText]="(newRecipient.lastname) ? newRecipient.lastname : ''" (focusout)="edit('lastname', $event)"></td>
+                <td contenteditable="true" placeholder="Prénom" [innerText]="(newRecipient.firstname) ? newRecipient.firstname : ''" (focusout)="edit('firstname', $event)"></td>
+                <td contenteditable="true" placeholder="Email" [innerText]="(newRecipient.email) ? newRecipient.email : ''" (focusout)="edit('email', $event)"></td>
+                <td class="text-right align-middle actions">
+                  <a class="btn-floating btn-sm btn-green waves-light" mdbWavesEffect (click)="add()"><i class="fa fa-plus"></i></a>
+                </td>
+              </tr>
+          </tbody>
+        </table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary waves-light" aria-label="Close" (click)="recipientsModal.hide()" mdbWavesEffect>Fermer</button>
+        <button type="button" class="btn btn-grey waves-light" aria-label="Close" (click)="recipientsModal.hide()" mdbWavesEffect>Fermer</button>
+        <button type="button" class="btn btn-green waves-light" aria-label="Close" (click)="save()" mdbWavesEffect>Enregistrer</button>
       </div>
     </div>
   </div>

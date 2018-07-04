@@ -1,5 +1,8 @@
 {
 	"lang": {
+		"bs": {
+			"subject": "Test"
+		},
 		"fr": {
 			"subject": "Sujet de l'email en FR"
 		},
@@ -8,9 +11,6 @@
 		},
 		"it": {
 			"subject": "Ceci est l'objet du mail en IT"
-		},
-		"bs": {
-			"subject": "Test"
 		}
 	},
 	"customLang": [],

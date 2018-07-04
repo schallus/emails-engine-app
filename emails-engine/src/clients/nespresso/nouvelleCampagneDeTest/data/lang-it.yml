@@ -16,7 +16,7 @@ block-01-1530533263787:
     linkUrl: http://www.google.ch
     linkText: Texte du lien en FR
 footer-01-1530533431168:
-    title: 
+    title: Test
     items:
       - url: 
         img: http://localhost:3000/dist/nespresso/nouvelleCampagneDeTest/images/uploads/paysage.jpg

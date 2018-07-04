@@ -2,27 +2,25 @@
 <div class="row">
   <div class="col">
     <div class="card mb-4">
-      <div class="card-header primary-color white-text">
-        <i class="fa fa-language prefix"></i>
+      <div class="card-header secondary-color white-text">
         Séléctionner une ou plusieurs langues
       </div>
       <div class="card-body">
         <div class="input-group md-form form-sm form-1 pl-0">
           <div class="input-group-prepend">
-            <span class="input-group-text primary-color"><i class="fa fa-search text-white" aria-hidden="true"></i></span>
+            <span class="input-group-text secondary-color"><i class="fa fa-search text-white" aria-hidden="true"></i></span>
           </div>
           <input class="form-control my-0 py-1" type="text" placeholder="Rechercher" aria-label="Rechercher" [value]="filterLang" [formControl]="filterLangControl">
         </div>
         <div class="btn-group checkbox-list" id="checkbox-languages" data-toggle="buttons">
-          <label *ngFor="let language of filteredLanguages" class="btn btn-primary form-check-label mb-1" [ngClass]="{'active': language.selected}">
+          <label *ngFor="let language of filteredLanguages" class="btn btn-secondary form-check-label mb-1" [ngClass]="{'active': language.selected}">
             <input class="form-check-input d-none" type="checkbox" [checked]="language.selected ? 'checked' : null" autocomplete="off" (change)="onCheckBoxChange(language)" [value]="language.code" > {{ language.name }} ({{ language.code }})
           </label>
         </div>
       </div>
     </div>
     <div class="card">
-      <div class="card-header primary-color white-text">
-        <i class="fa fa-plus-circle prefix"></i>
+      <div class="card-header secondary-color white-text">
         Ajouter une nouvelle langue
       </div>
       <div class="card-body">
@@ -35,7 +33,7 @@
             <label for="inputLanguageName">Nom de la langue</label>
           </div>
           <div class="md-form">
-            <input [mdbValidate]="false" ngModel mdbInputDirective type="text" id="inputLanguageCode" name="code" class="form-control form-control-sm" required minLength="2" maxLength="2" data-error="Code invalide.">
+            <input [mdbValidate]="false" ngModel mdbInputDirective type="text" id="inputLanguageCode" name="code" class="form-control form-control-sm" required minLength="2" maxLength="5" data-error="Code invalide.">
             <label for="inputLanguageCode">Code</label>
           </div>
           <div class="text-center">
@@ -49,8 +47,7 @@
 
   <div class="col">
     <div class="card">
-      <div class="card-header primary-color white-text">
-        <i class="fa fa-info-circle prefix"></i>
+      <div class="card-header secondary-color white-text">
         Informations générales
       </div>
       <div class="card-body">

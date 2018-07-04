@@ -48,10 +48,10 @@ export class PageCampaignsComponent implements OnInit {
 
   sortBy(by: string | any): void {
     this.campaigns.sort((a: any, b: any) => {
-      if (a[by] < b[by]) {
+      if (a[by].toLowerCase() < b[by].toLowerCase()) {
         return this.sorted ? 1 : -1;
       }
-      if (a[by] > b[by]) {
+      if (a[by].toLowerCase() > b[by].toLowerCase()) {
         return this.sorted ? -1 : 1;
       }
       return 0;

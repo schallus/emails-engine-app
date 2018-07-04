@@ -103,10 +103,13 @@ router.route('/brands/:brandSlug/campaigns/:campaignSlug/zip')
     .post(timeout('60s'), campaignCtrl.readCampaigns, campaignCtrl.compileJSONIntoYaml, campaignCtrl.zipCampaign);
 
 router.route('/brands/:brandSlug/recipients')
-    .get(timeout('5s'), campaignCtrl.readCampaigns, emailCtrl.getRecipients);
+    .get(timeout('5s'), campaignCtrl.readCampaigns, emailCtrl.getRecipients)
+    .post(timeout('5s'), campaignCtrl.readCampaigns, emailCtrl.addRecipient)
+    .put(timeout('5s'), campaignCtrl.readCampaigns, emailCtrl.setRecipients);
 
 router.route('/brands/:brandSlug/campaigns/:campaignSlug/send')
     .post(timeout('60s'), campaignCtrl.readCampaigns, campaignCtrl.compileJSONIntoYaml, campaignCtrl.buildCampaign, emailCtrl.sendTest);
+    
 
 router.all('*', (req, res, next) => {
     next({

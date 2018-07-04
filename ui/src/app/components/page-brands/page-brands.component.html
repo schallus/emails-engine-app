@@ -1,15 +1,15 @@
 <app-breadcrumb [breadcrumbs]=breadcrumbs></app-breadcrumb>
-<div class="row">
-  <div class="col">
+<div class="row justify-content-between">
+  <div class="col-md-6 col-sm-12 mb-5">
     <div class="card">
-      <div class="card-header primary-color white-text">
+      <div class="card-header secondary-color white-text">
         Marques
       </div>
       <div class="card-body">
 
         <div class="input-group md-form form-sm form-1 pl-0">
           <div class="input-group-prepend">
-            <span class="input-group-text primary-color"><i class="fa fa-search text-white" aria-hidden="true"></i></span>
+            <span class="input-group-text secondary-color"><i class="fa fa-search text-white" aria-hidden="true"></i></span>
           </div>
           <input class="form-control my-0 py-1" type="text" placeholder="Rechercher" aria-label="Rechercher" appDebounceChange (debounceChange)="filterBrands($event)">
         </div>
@@ -26,16 +26,16 @@
           <tbody>
             <tr *ngIf="filteredBrands?.length==0"><td colspan="2">Il n'y a aucune marque à afficher</td></tr>
             <tr *ngFor="let brand of filteredBrands">
-              <td class="align-middle">{{ brand.displayName }}</td>
+              <td class="align-middle"><a [routerLink]="['/brands', brand.name, 'campaigns']">{{ brand.displayName }}</a></td>
               <td class="text-right align-middle">
-                <a class="btn-floating btn-sm btn-primary waves-light mr-1" (click)="openRecipientsModal(brand)" mdbWavesEffect><i class="fa fa-users"></i></a>
-                <a [routerLink]="['/brands', brand.name, 'campaigns']" class="btn-floating btn-sm btn-primary waves-light" mdbWavesEffect><i class="fa fa-arrow-right"></i></a>
+                <a class="btn-floating btn-sm btn-secondary waves-light mr-1" (click)="recipientsModal.show(brand)" mdbTooltip="Gestion des destinataires" placement="top" mdbWavesEffect><i class="fa fa-users"></i></a>
+                <a [routerLink]="['/brands', brand.name, 'campaigns']" class="btn-floating btn-sm btn-secondary waves-light" mdbWavesEffect><i class="fa fa-arrow-right"></i></a>
               </td>
             </tr>
           </tbody>
         </table>
         <nav>
-          <ul class="pagination pagination-circle justify-content-center">
+          <ul class="pagination pagination-circle justify-content-center pg-red">
             <li class="page-item" >
               <a class="page-link" mdbWavesEffect aria-label="Previous">
                 <span aria-hidden="true">&laquo;</span>
@@ -59,16 +59,36 @@
     </div>
   </div>
 
-  <div class="col">
-    <div class="card">
-      <div class="card-header primary-color white-text">
-        Nouvelle marque
+  <div class="col-md-5 col-sm-12">
+    <h2 class="h2-responsive font-weight-bold text-center mb-5">WIDE Email Engine</h2>
+    <div class="row mb-3">
+      <div class="col-md-1 col-2">
+        <i class="fa fa-book fa-2x cyan-text"></i>
       </div>
-      <div class="card-body d-flex justify-content-center">
-        <a class="btn btn-grey btn-rounded" mdbWavesEffect>Créer une nouvelle marque</a>
+      <div class="col-md-11 col-10">
+        <h5 class="font-weight-bold mb-3">Formation</h5>
+        <p class="grey-text">Avec une interface intuitive, WIDE Email Engine ne nécessite pas de formation avant utilisation.</p>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-md-1 col-2">
+        <i class="fa fa-code fa-2x red-text"></i>
+      </div>
+      <div class="col-md-11 col-10">
+        <h5 class="font-weight-bold mb-3">Code</h5>
+        <p class="grey-text">Désormais, il n'est plus nécessaire de connaître du code pour effectuer des emails.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-1 col-2">
+        <i class="fa fa-language fa-2x deep-purple-text"></i>
+      </div>
+      <div class="col-md-11 col-10">
+        <h5 class="font-weight-bold mb-3">Traduction des contenus</h5>
+        <p class="grey-text mb-0">WIDE Email Engine vous permet de traduire vos contenus en toute simplicité.</p>
       </div>
     </div>
   </div>
 </div>
 
-<app-modal-recipients #recipientsModal [brand]="brand"></app-modal-recipients>
+<app-modal-recipients #recipientsModal></app-modal-recipients>

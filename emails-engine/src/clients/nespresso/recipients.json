@@ -1,13 +1,22 @@
 [
 	{
-		"firstname": "Florian",
-		"lastname": "Schaller",
+		"firstname": "Schaller",
+		"lastname": "Florian",
 		"email": "flo.schaller@gmail.com"
 	},
 	{
-		"firstname": "Florian",
-		"lastname": "Sulliger",
+		"firstname": "Schaller",
+		"lastname": "Florian",
+		"email": "flo.schaller@hotmail.com"
+	},
+	{
+		"lastname": "Florian",
+		"firstname": "Sulliger",
 		"email": "fsulliger@wideagency.com"
+	},
+	{
+		"lastname": "Nouveau",
+		"firstname": "Destinataire",
+		"email": "test@wide.com"
 	}
-	
 ]

@@ -3,22 +3,22 @@
     <app-breadcrumb [breadcrumbs]=breadcrumbs></app-breadcrumb>
   </div>
   <div class="builder-actions text-right col">
-    <button type="button" class="btn btn-primary btn-rounded waves-light" (click)="showPreview()" mdbWavesEffect>Aperçu</button>
-    <button type="button" class="btn btn-primary btn-rounded waves-light" mdbWavesEffect>Litmus</button>
-    <button type="button" class="btn btn-primary btn-rounded waves-light" (click)="modalSendEmails.show()" mdbWavesEffect>Envoi</button>
-    <button type="button" class="btn btn-primary btn-rounded waves-light" (click)="exportEmails()" mdbWavesEffect>Exporter</button>
+    <button type="button" class="btn btn-secondary btn-rounded waves-light" (click)="showPreview()" mdbWavesEffect>Aperçu</button>
+    <button type="button" class="btn btn-secondary btn-rounded waves-light" mdbWavesEffect>Litmus</button>
+    <button type="button" class="btn btn-secondary btn-rounded waves-light" (click)="modalSendEmails.show()" mdbWavesEffect>Envoi</button>
+    <button type="button" class="btn btn-secondary btn-rounded waves-light" (click)="exportEmails()" mdbWavesEffect>Exporter</button>
   </div>
 </div>
 <div class="row">
   <div class="col-5">
     <div class="card" #dragNDropBlocksList [ngClass]="{'fixed': blocksFixed}">
-      <div class="card-header primary-color white-text">
+      <div class="card-header secondary-color white-text">
         Blocs
       </div>
       <div class="card-body row">
         <div class="input-group mb-3 col-12">
           <div class="input-group-prepend">
-            <span class="input-group-text primary-color"><i class="fa fa-filter text-white" aria-hidden="true"></i></span>
+            <span class="input-group-text secondary-color"><i class="fa fa-filter text-white" aria-hidden="true"></i></span>
           </div>
           <input class="form-control my-0 py-1" type="text" placeholder="Filtrer" aria-label="Filtrer" appDebounceChange (debounceChange)="filterBlocks($event)">
         </div>
@@ -37,13 +37,13 @@
 
   <div class="col-7">
     <div class="card">
-      <div class="card-header primary-color white-text">
+      <div class="card-header secondary-color white-text">
         Contenu de l'email
       </div>
       <div class="card-body">
         <div class="alert grey white-text" role="alert" *ngIf="campaignStructure?.length<=0">Déposer les blocs ici.</div>
         <div sortablejs [sortablejsOptions]="dropZoneOptions" id="blockDropZone">
-          <div *ngFor="let block of campaignStructure" [class]="'card block mb-3 ' + block.name">
+          <div *ngFor="let block of campaignStructure" [class]="'card block mb-3 ' + block.name" [class.invalid]="block.valid==false">
             <img class="img-fluid" [src]="getBlockTypeInfo(block.blockType).thumbnailUrl" [alt]="getBlockTypeInfo(block.blockType).displayName">
             <div class="card-body row">
                 <div class="text col-sm-8">
@@ -51,10 +51,10 @@
                   <p>#ID: {{ block.name }}</p>
                 </div>
                 <div class="actions col-sm-4 text-right">
-                    <a class="btn-floating btn-sm btn-primary waves-light mr-1" (click)="showDeleteConfirmation(block)" mdbWavesEffect>
+                    <a class="btn-floating btn-sm btn-secondary waves-light mr-1" (click)="showDeleteConfirmation(block)" mdbTooltip="Supprimer" placement="top" mdbWavesEffect>
                       <i class="fa fa-trash"></i>
                     </a>
-                    <a class="btn-floating btn-sm btn-primary waves-light" (click)="modalBlockSettings.show(block)" mdbWavesEffect *ngIf="getBlockTypeInfo(block.blockType).properties.length>0">
+                    <a class="btn-floating btn-sm btn-secondary waves-light" (click)="modalBlockSettings.show(block)" mdbTooltip="Options" placement="top" mdbWavesEffect *ngIf="getBlockTypeInfo(block.blockType).properties.length>0">
                       <i class="fa fa-cog"></i>
                     </a>
                 </div>
@@ -83,7 +83,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-grey" data-dismiss="modal" (click)="modalBlockRemove.hide()" mdbWavesEffect>Annuler</button>
-        <button type="button" class="btn btn-primary" (click)="removeBlock(block)" mdbWavesEffect>Supprimer</button>
+        <button type="button" class="btn btn-secondary" (click)="removeBlock(block)" mdbWavesEffect>Supprimer</button>
       </div>
     </div>
   </div>
@@ -105,7 +105,7 @@
         </div>
         <div class="previewLinks" *ngIf="!buildInProgress && previewLinks">
           <a *ngFor="let link of previewLinks" class="btn btn-light-green waves-light"[href]="link.url" target="_blank" mdbWavesEffect>{{ link.lang }}</a>
-          <a class="btn btn-primary btn-rounded" (click)="openAllPreviews()" mdbWavesEffect>Tous les ouvrir</a>
+          <a class="btn btn-secondary btn-rounded" (click)="openAllPreviews()" mdbWavesEffect>Tous les ouvrir</a>
         </div>
       </div>
       <div class="modal-footer">
@@ -132,4 +132,4 @@
 </div>
 
 <app-modal-send-test #modalSendEmails [brandName]="brandName" [campaignName]="campaignName"></app-modal-send-test>
-<app-modal-block-settings #modalBlockSettings></app-modal-block-settings>
+<app-modal-block-settings #modalBlockSettings (valid)="setBlockStatus($event)"></app-modal-block-settings>

@@ -17,7 +17,6 @@ export class PageBrandsComponent implements OnInit {
   @ViewChild('recipientsModal') recipientsModal;
   breadcrumbs: Array<{title: string, path: string}>;
   brands: Brand[];
-  brand: Brand;
   filteredBrands: Brand[];
 
   constructor(private apiService: ApiService) {
@@ -35,11 +34,6 @@ export class PageBrandsComponent implements OnInit {
   
   filterBrands(event:any) {
     this.filteredBrands = this.brands.filter(brand => brand.displayName.toLowerCase().indexOf(event.target.value.toLowerCase()) > -1);
-  }
-
-  openRecipientsModal(brand: Brand) {
-    this.brand = brand;
-    this.recipientsModal.show();
   }
 
 }

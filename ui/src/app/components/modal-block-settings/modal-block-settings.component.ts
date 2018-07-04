@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
@@ -30,6 +30,8 @@ export class ModalBlockSettingsComponent implements OnInit {
 
   campaignOptions: any;
   campaignLanguages: string[];
+
+  @Output() valid = new EventEmitter<any>();
 
   constructor(
     private route: ActivatedRoute,
@@ -201,6 +203,7 @@ export class ModalBlockSettingsComponent implements OnInit {
     if (!form.valid) {
       this.modalWarningSave.show();
     } else {
+      this.valid.emit({ block: this.block, valid: true });
       this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe(() => {
         this.modalBlockSettings.hide();
       });
@@ -215,6 +218,7 @@ export class ModalBlockSettingsComponent implements OnInit {
 
   saveBlockSettings() {
     this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe(() => {
+      this.valid.emit({ block: this.block, valid: false });
       this.modalWarningSave.hide();
       this.modalBlockSettings.hide();
     });

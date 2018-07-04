@@ -36,3 +36,36 @@
 #modalWarningSave {
     z-index: 1200 !important;
 }
+
+.md-form input[type=text]:not([readonly]), 
+.md-form input[type=password]:not([readonly]), 
+.md-form input[type=email]:not([readonly]), 
+.md-form input[type=url]:not([readonly]), 
+.md-form input[type=time]:not([readonly]), 
+.md-form input[type=date]:not([readonly]), 
+.md-form input[type=datetime-local]:not([readonly]), 
+.md-form input[type=tel]:not([readonly]), 
+.md-form input[type=number]:not([readonly]), 
+.md-form input[type=search-md]:not([readonly]), 
+.md-form input[type=search]:not([readonly]), 
+.md-form textarea.md-textarea:not([readonly]) {
+    &.ng-invalid {
+        box-shadow: 0 1px 0 0 #f02435;
+        border-bottom: 1px solid #f02435;
+
+        + label {
+            color: #f02435;
+        }
+    }
+    
+    &.ng-touched {
+        &.ng-valid {
+            box-shadow: 0 1px 0 0 #00c851;
+            border-bottom: 1px solid #00c851;
+    
+            + label {
+                color: #00c851;
+            }
+        }
+    }
+}

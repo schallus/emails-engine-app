@@ -32,13 +32,20 @@ export class ModalSendTestComponent implements OnInit {
 
   ngOnInit() { }
 
-  show() {
-    this.apiService.getRecipients(this.brandName).subscribe(recipients => {
+  getRecipients(brandName: string, cb?: Function) {
+    this.apiService.getRecipients(brandName).subscribe(recipients => {
       this.recipients = recipients.map(recipient => {
         recipient.selected = true;
         return recipient;
       });
+      if(cb) {
+        cb();
+      }
+    });
+  }
 
+  show() {
+    this.getRecipients(this.brandName, () => {
       this.apiService.getCampaignOptions(this.brandName, this.campaignName).subscribe(options => {
         this.langSelected = Object.keys(options.lang).map(el => {
           return {

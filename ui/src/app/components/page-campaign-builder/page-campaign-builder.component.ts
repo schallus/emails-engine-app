@@ -92,12 +92,17 @@ export class PageCampaignBuilderComponent implements OnInit {
         this.saveCampaignStructure();
       },
       onAdd: (event: any) => {
-        // Event thrown when the list order change
-        const oldIndex = event.oldIndex;
+        // Event thrown when we drop an element in the list
+        const blockData = event.item.blockData;
         const newIndex = event.newIndex;
-        // Move array positions
-        this.campaignStructure.splice(newIndex, 0, this.campaignStructure.splice(oldIndex, 1)[0]);
-    
+        const newBlockPosition = {
+          blockType: blockData.name,
+          position: newIndex,
+          name: `${blockData.name}-${new Date().getTime().toString()}`,
+          valid: (this.getBlockTypeInfo(blockData.name).properties.length>0) ? false : true
+        };
+        // Insert the element at a specific position
+        this.campaignStructure.splice(newIndex, 0, newBlockPosition);
         this.saveCampaignStructure();
       }
     };
@@ -263,5 +268,10 @@ export class PageCampaignBuilderComponent implements OnInit {
       window.open(data.zipLink);
       this.modalExportEmails.hide();
     });
+  }
+
+  setBlockStatus(event: any) {
+    this.campaignStructure.filter(el => el.name == event.block.name)[0].valid = event.valid;
+    this.saveCampaignStructure();
   }
 }

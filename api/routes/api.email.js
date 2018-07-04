@@ -43,6 +43,77 @@ email.getRecipients = (req, res, next) => {
     res.status(200).json(recipients);
 };
 
+email.addRecipient = (req, res, next) => {
+    if(!req.body.firstname || !req.body.lastname || !req.body.email) {
+        return next({
+            status: 422,
+            message: "Please send a recipient in the body parameters."
+        });
+    }
+
+    const recipient = req.body;
+
+    try {
+        recipients = JSON.parse(fs.readFileSync(`${res.brandPath}/recipients.json`, 'utf8'));
+    } catch (err) {
+        if (err.code === 'ENOENT') {
+            return next({
+                status: 500,
+                message: "Something unexpected happened while reading the brand recipients file."
+            });
+        } else {
+            console.log(err);
+            return next();
+        }
+    }
+
+    recipients.push(recipient);
+    
+    const fileData = JSON.stringify(recipient, null, "\t");
+    try {
+        fs.writeFileSync(`${res.brandPath}/recipients.json`, fileData, 'utf8');
+    } catch (err) {
+        if (err.code === 'ENOENT') {
+            return next({
+                status: 500,
+                message: `Something unexpected happened while writing the brand recipients file.`
+            });
+        } else {
+            return next();
+        }
+    }
+
+    res.status(200).json(recipient);
+}
+
+email.setRecipients = (req, res, next) => {
+    console.log(req.body);
+    if(!Array.isArray(req.body) || !req.body[0].firstname || !req.body[0].lastname || !req.body[0].email) {
+        return next({
+            status: 422,
+            message: "Please send the recipients in the body parameters."
+        });
+    }
+
+    const recipients = req.body;
+
+    const fileData = JSON.stringify(recipients, null, "\t");
+    try {
+        fs.writeFileSync(`${res.brandPath}/recipients.json`, fileData, 'utf8');
+    } catch (err) {
+        if (err.code === 'ENOENT') {
+            return next({
+                status: 500,
+                message: `Something unexpected happened while writing the brand recipients file.`
+            });
+        } else {
+            return next();
+        }
+    }
+
+    res.status(200).json(recipients);
+}
+
 email.sendTest = (req, res, next) => {
     const brandSlug = req.params.brandSlug;
     const campaignSlug = req.params.campaignSlug;
