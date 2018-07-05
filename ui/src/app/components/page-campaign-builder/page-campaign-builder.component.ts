@@ -211,7 +211,7 @@ export class PageCampaignBuilderComponent implements OnInit {
     if (!this.blocksFixed && window.pageYOffset > 185) {
       this.blocksFixed = true;
       this.dragNDropBlocksList.nativeElement.style.width = `${this.blocksFixedWidth}px`;
-      this.dragNDropBlocksList.nativeElement.querySelector('#builderBlockList').style.maxHeight = `${window.innerHeight * 0.7}px`;
+      this.dragNDropBlocksList.nativeElement.querySelector('#builderBlockList').style.maxHeight = `${window.innerHeight - 300}px`;
     } else if (this.blocksFixed && window.pageYOffset < 185) {
       this.blocksFixed = false;
       this.dragNDropBlocksList.nativeElement.style.width = `auto`;

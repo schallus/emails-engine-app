@@ -12,7 +12,8 @@
 	{
 		"blockType": "block-06",
 		"position": 2,
-		"name": "block-06-1530540491373"
+		"name": "block-06-1530540491373",
+		"valid": true
 	},
 	{
 		"blockType": "footer-01",

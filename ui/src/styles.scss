@@ -79,3 +79,22 @@ a {
 .md-form .form-control[readonly] {
     color:#CCCCCC;
 }
+
+app-root>div.container {
+    margin-top:80px;
+    margin-bottom: 80px;
+}
+
+footer.footer-copyright {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    z-index:2;
+}
+
+mdb-navbar nav.navbar {
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index:2;
+}
