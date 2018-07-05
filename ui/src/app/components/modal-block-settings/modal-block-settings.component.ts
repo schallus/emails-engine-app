@@ -1,12 +1,13 @@
 import { Component, OnInit, Input, ViewChild, Output, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { TabsetComponent, ToastService } from 'ng-uikit-pro-standard';
 
-import { TabsetComponent } from 'ng-uikit-pro-standard';
-
+// Services
 import { ApiService } from '../../services/api.service';
 import { UploadService } from '../../services/upload.service';
 
+// Models
 import { BlockPosition } from '../../models/block-position';
 import { Block } from '../../models/block';
 
@@ -36,7 +37,8 @@ export class ModalBlockSettingsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
-    private uploadService: UploadService
+    private uploadService: UploadService,
+    private toastrService: ToastService
   ) { }
 
   ngOnInit() { 
@@ -46,11 +48,15 @@ export class ModalBlockSettingsComponent implements OnInit {
 
     this.apiService.getBlocks(this.brandName).subscribe(blocks => {
       this.blocks = blocks;
+    }, err => {
+      this.toastrService.error('Une erreur s\'est produite lors du chargement des blocs.');
     });
 
     this.apiService.getCampaignOptions(this.brandName, this.campaignName).subscribe(options => {
       this.campaignOptions = options;
       this.campaignLanguages = Object.keys(this.campaignOptions.lang);
+    }, err => {
+      this.toastrService.error('Une erreur s\'est produite lors du chargement des options.');
     });
   }
 
@@ -117,11 +123,15 @@ export class ModalBlockSettingsComponent implements OnInit {
           // After the block data set, we open the modal
           this.langTabs.tabs[0].active = true;
           this.modalBlockSettings.show();
+        }, err => {
+          this.toastrService.error('Erreur lors de l\'enregistrement des données.');
         });
       } else {
         this.langTabs.tabs[0].active = true;
         this.modalBlockSettings.show();
       }
+    }, err => {
+      this.toastrService.error('Erreur lors du chargement des données du bloc.');
     });
   }
 
@@ -155,6 +165,8 @@ export class ModalBlockSettingsComponent implements OnInit {
             this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = data.imageUrl;
           }
         }
+      }, err => {
+        this.toastrService.error('Une erreur s\'est produite lors de l\'upload de l\'image.');
       });
     }
   }
@@ -206,6 +218,8 @@ export class ModalBlockSettingsComponent implements OnInit {
       this.valid.emit({ block: this.block, valid: true });
       this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe(() => {
         this.modalBlockSettings.hide();
+      }, err => {
+        this.toastrService.error('Une erreur s\'est produite lors de l\'enregistrement du bloc.');
       });
     }
   }
@@ -221,7 +235,8 @@ export class ModalBlockSettingsComponent implements OnInit {
       this.valid.emit({ block: this.block, valid: false });
       this.modalWarningSave.hide();
       this.modalBlockSettings.hide();
+    }, err => {
+      this.toastrService.error('Une erreur s\'est produite lors de l\'enregistrement du bloc.');
     });
   }
-
 }

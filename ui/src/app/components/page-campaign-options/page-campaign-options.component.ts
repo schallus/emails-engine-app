@@ -1,16 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { NgForm, FormControl } from '@angular/forms';
-import { Subscription } from 'rxjs';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/throttleTime';
-import 'rxjs/add/observable/fromEvent';
+import { NgForm } from '@angular/forms';
 
-// Custom
-import { ApiService } from '../../services/api.service';
-import { LangSelected } from '../../models/lang';
-
+//Data
 import { languagesList } from './../../data/lang';
+
+// Services
+import { ToastService } from 'ng-uikit-pro-standard';
+import { ApiService } from '../../services/api.service';
+
+// Models
+import { LangSelected } from '../../models/lang';
 import { CampaignOptions } from '../../models/campaign-options';
 
 @Component({
@@ -26,12 +26,6 @@ export class PageCampaignOptionsComponent implements OnInit {
   breadcrumbs: Array<{title: string, path: string}>;
   languages: LangSelected[];
   filteredLanguages: LangSelected[];
-
-  filterLang: string;
-  filterLangControl = new FormControl();
-  formCtrlSub: Subscription;
-
-  // Options de la campagne
   campaignOptions: CampaignOptions;
 
   masterLang: string;
@@ -39,10 +33,9 @@ export class PageCampaignOptionsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private apiService: ApiService
+    private apiService: ApiService,
+    private toastrService: ToastService
   ) {
-    this.filterLang = '';
-
     this.languages = <LangSelected[]>languagesList.map(lang => {
       const langSelected = <LangSelected>lang;
       langSelected.selected = false;
@@ -82,19 +75,15 @@ export class PageCampaignOptionsComponent implements OnInit {
           console.log('la langue ' + key + ' n\'existe pas ');
         }
       });
+    }, err => {
+      this.toastrService.error('Une erreur s\'est produite lors du chargement des options.');
     });
 
     this.apiService.getCampaigns(this.brandName).subscribe(campaigns => {
       this.campaignDisplayName = campaigns.filter(campaign => campaign.name === this.campaignName)[0].displayName;
+    }, err => {
+      this.toastrService.error('Une erreur s\'est produite lors du chargement de la campagne.');
     });
-
-    this.formCtrlSub = this.filterLangControl.valueChanges
-      .debounceTime(500)
-      .subscribe(newValue => {
-        this.filterLang = newValue;
-        console.log('filterChanged', this.filterLang);
-        this.filterLanguages();
-      });
   }
 
   onCheckBoxChange = (language: LangSelected) => {
@@ -113,11 +102,11 @@ export class PageCampaignOptionsComponent implements OnInit {
       this.campaignOptions.masterLang = form.value.masterLang;
       this.masterLang = form.value.masterLang;
 
-      console.log('campaignDisplayName', campaignDisplayName);
-      console.log('masterLang', this.campaignOptions.masterLang);
       // masterLang is undefined when we remove a lang and submit the form : to be fixed !!
 
-      this.apiService.editCampaign(this.brandName, this.campaignName, campaignDisplayName).subscribe();
+      this.apiService.editCampaign(this.brandName, this.campaignName, campaignDisplayName).subscribe(() => {}, err => {
+        this.toastrService.error('Une erreur s\'est produite lors de l\'édition de la campagne.');
+      });
 
       const lang = {};
 
@@ -139,6 +128,8 @@ export class PageCampaignOptionsComponent implements OnInit {
       this.apiService.setCampaignOptions(this.brandName, this.campaignName, this.campaignOptions).subscribe(options => {
         // On success, go to builder page
         this.gotoBuilder();
+      }, err => {
+        this.toastrService.error('Une erreur s\'est produite lors de l\'enregistrement des options.');
       });
     }
   }
@@ -177,8 +168,10 @@ export class PageCampaignOptionsComponent implements OnInit {
     }
   }
 
-  filterLanguages = () => {
-    this.filteredLanguages = this.languages.filter(lang => lang.name.toLowerCase().indexOf(this.filterLang.toLowerCase()) > -1);
+  filterLanguages = (event:any) => {
+    this.filteredLanguages = this.languages.filter(
+      lang => lang.name.toLowerCase().indexOf(event.target.value.toLowerCase()) > -1
+    );
   }
 
   gotoBuilder = () => {

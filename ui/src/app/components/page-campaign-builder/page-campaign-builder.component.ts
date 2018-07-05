@@ -3,18 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { SortablejsOptions } from 'angular-sortablejs';
 import { DOCUMENT } from '@angular/platform-browser';
 
-// RxJS
-import { Subscription, Observable } from 'rxjs';
-import 'rxjs/add/operator/debounceTime';
-
-// Custom
+// Services
+import { ToastService } from 'ng-uikit-pro-standard';
 import { ApiService } from '../../services/api.service';
-import { UploadService } from '../../services/upload.service';
 
 // Models
 import { Block } from './../../models/block';
 import { BlockPosition } from '../../models/block-position';
-import { RecipientSelected } from '../../models/recipient';
 
 @Component({
   selector: 'app-page-campaign-builder',
@@ -61,7 +56,8 @@ export class PageCampaignBuilderComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private apiService: ApiService,
-    @Inject(DOCUMENT) private doc: Document
+    @Inject(DOCUMENT) private doc: Document,
+    private toastrService: ToastService
   ) {
 
     this.blocksFixed = false;
@@ -126,17 +122,23 @@ export class PageCampaignBuilderComponent implements OnInit {
     this.apiService.getBlocks(this.brandName).subscribe(blocks => {
       this.blocks = blocks.sort((a, b) => (a.displayName > b.displayName) ? 1 : ((b.displayName > a.displayName) ? -1 : 0));
       this.filteredBlocks = this.blocks;
+    }, err => {
+      this.toastrService.error('Une erreur s\'est produite lors du chargement des blocs.');
     });
 
     // Get the campaign structure and order it by position
     this.apiService.getCampaignStructure(this.brandName, this.campaignName).subscribe(structure => {
       this.campaignStructure = structure.sort((a, b) => a.position - b.position);
+    }, err => {
+      this.toastrService.error('Une erreur s\'est produite lors du chargement de la structure.');
     });
 
     // Get campaign options (languages)
     this.apiService.getCampaignOptions(this.brandName, this.campaignName).subscribe(options => {
       this.campaignOptions = options;
       this.campaignLanguages = Object.keys(this.campaignOptions.lang);
+    }, err => {
+      this.toastrService.error('Une erreur s\'est produite lors du chargement des options de la campagne.');
     });
 
     // Get the blocks data
@@ -196,7 +198,11 @@ export class PageCampaignBuilderComponent implements OnInit {
           blocksData[i].languages.push(el);
         }
       }
-      this.apiService.setBlocksData(this.brandName, this.campaignName, blocksData).subscribe();
+      this.apiService.setBlocksData(this.brandName, this.campaignName, blocksData).subscribe(() => {}, err => {
+        this.toastrService.error('Erreur lors de l\'enregistrement des données des blocs.');
+      });
+    }, err => {
+      this.toastrService.error('Erreur lors du chargement des données des blocs.');
     });
   }
 
@@ -216,7 +222,9 @@ export class PageCampaignBuilderComponent implements OnInit {
   removeBlock(block: BlockPosition) {
     this.campaignStructure = this.campaignStructure.filter(el => el !== block);
     this.saveCampaignStructure();
-    this.apiService.removeBlockData(this.brandName, this.campaignName, block.name).subscribe();
+    this.apiService.removeBlockData(this.brandName, this.campaignName, block.name).subscribe(() => {}, err => {
+      this.toastrService.error('Erreur lors de la suppression du bloc.');
+    });
     this.modalBlockRemove.hide();
   }
 
@@ -224,7 +232,9 @@ export class PageCampaignBuilderComponent implements OnInit {
     for (let i = 0; i < this.campaignStructure.length; i++) {
       this.campaignStructure[i].position = i;
     }
-    this.apiService.setCampaignStructure(this.brandName, this.campaignName, this.campaignStructure).subscribe();
+    this.apiService.setCampaignStructure(this.brandName, this.campaignName, this.campaignStructure).subscribe(() => {}, err => {
+      this.toastrService.error('Erreur lors de l\'enregistrement de la structure.');
+    });
   }
 
   filterBlocks(event: any) {
@@ -250,6 +260,10 @@ export class PageCampaignBuilderComponent implements OnInit {
     this.apiService.buildCampaign(this.brandName, this.campaignName).subscribe(data => {
       this.buildInProgress = false;
       this.previewLinks = data;
+    }, err => {
+      this.modalPreviewEmails.hide();
+      this.buildInProgress = false;
+      this.toastrService.error('Une erreur s\'est produite lors de la génération des emails.');
     });
   }
 
@@ -265,8 +279,13 @@ export class PageCampaignBuilderComponent implements OnInit {
     this.buildInProgress = true;
     this.modalExportEmails.show();
     this.apiService.exportCampaign(this.brandName, this.campaignName).subscribe(data => {
-      window.open(data.zipLink);
+      this.buildInProgress = false;
       this.modalExportEmails.hide();
+      window.open(data.zipLink);
+    }, err => {
+      this.buildInProgress = false;
+      this.modalExportEmails.hide();
+      this.toastrService.error('Une erreur s\'est produite lors de l\'export des emails.');
     });
   }
 

@@ -1,13 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs/Observable';
-import { Subscription } from 'rxjs';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/throttleTime';
-import 'rxjs/add/observable/fromEvent';
-import { Campaign } from '../../models/campaign';
+
+// Services
 import { ApiService } from '../../services/api.service';
+import { ToastService } from 'ng-uikit-pro-standard';
+
+// Models
+import { Campaign } from '../../models/campaign';
 
 @Component({
   selector: 'app-page-campaigns',
@@ -30,7 +29,12 @@ export class PageCampaignsComponent implements OnInit {
   private sorted = false;
 
 
-  constructor(private route: ActivatedRoute, private apiService: ApiService, private router: Router) {
+  constructor(
+    private route: ActivatedRoute, 
+    private apiService: ApiService, 
+    private router: Router,
+    private toastrService: ToastService
+  ) {
     this.duplicateName = '';
     this.newCampaignName = '';
   }
@@ -66,12 +70,15 @@ export class PageCampaignsComponent implements OnInit {
       if (cb) {
         cb();
       }
+    }, err => {
+      this.toastrService.error('Une erreur s\'est produite lors du chargement des campagnes.');
     });
   }
 
   filterCampaigns(event: any) {
-    this.filteredCampaigns = this.campaigns.filter(campaign => campaign.displayName.toLowerCase()
-      .indexOf(event.target.value.toLowerCase()) > -1);
+    this.filteredCampaigns = this.campaigns.filter(
+      campaign => campaign.displayName.toLowerCase().indexOf(event.target.value.toLowerCase()) > -1
+    );
   }
 
   showArchiveConfirmation(campaign: string) {
@@ -87,12 +94,18 @@ export class PageCampaignsComponent implements OnInit {
   archiveCampaign(campaignName: string) {
     this.apiService.archiveCampaign(this.brandName, campaignName).subscribe(() => {
       this.getCampaigns(() => this.modalArchive.hide());
+    }, err => {
+      this.modalArchive.hide();
+      this.toastrService.error('Une erreur s\'est produite lors de l\'archivage de la campagne.');
     });
   }
 
   deleteCampaign(campaignName: string) {
     this.apiService.deleteCampaign(this.brandName, campaignName).subscribe(() => {
       this.getCampaigns(() => this.modalArchive.hide());
+    }, err => {
+      this.modalArchive.hide();
+      this.toastrService.error('Une erreur s\'est produite lors de la suppression de la campagne.');
     });
   }
 
@@ -100,6 +113,9 @@ export class PageCampaignsComponent implements OnInit {
     this.apiService.duplicateCampaign(this.brandName, campaignName, this.duplicateName).subscribe(() => {
       this.duplicateName = '';
       this.getCampaigns(() => this.modalClone.hide());
+    }, err => {
+      this.modalClone.hide();
+      this.toastrService.error('Une erreur s\'est produite lors de la duplication de la campagne.');
     });
   }
 
@@ -108,6 +124,9 @@ export class PageCampaignsComponent implements OnInit {
       this.newCampaignName = '';
       this.modalNew.hide();
       this.router.navigate(['/brands', this.brandName, 'campaigns', newCampaign.name, 'options']);
+    }, err => {
+      this.modalNew.hide();
+      this.toastrService.error('Une erreur s\'est produite lors de l\'ajout de la campagne.');
     });
   }
 }

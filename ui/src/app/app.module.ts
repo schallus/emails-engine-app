@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MDBBootstrapModulesPro } from 'ng-uikit-pro-standard';
+import { MDBBootstrapModulesPro, ToastModule } from 'ng-uikit-pro-standard';
 import { AppRoutingModule } from './app-routing.module';
 import { SortablejsModule } from 'angular-sortablejs';
 import { HttpClientModule } from '@angular/common/http';
@@ -53,6 +53,7 @@ import { DebounceChangeDirective } from './directives/debounce-change.directive'
     ReactiveFormsModule,
     FormsModule,
     MDBBootstrapModulesPro.forRoot(),
+    ToastModule.forRoot(),
     AppRoutingModule,
     SortablejsModule.forRoot({}),
     HttpClientModule,

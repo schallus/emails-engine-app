@@ -1,7 +1,10 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
+// Services
+import { ToastService } from 'ng-uikit-pro-standard';
 import { ApiService } from '../../services/api.service';
 
+// Models
 import { RecipientSelected } from '../../models/recipient';
 import { Brand } from '../../models/brand';
 
@@ -22,11 +25,16 @@ export class ModalSendTestComponent implements OnInit {
   
   @Input() brandName: string;
   @Input() campaignName: string;
-  constructor(private apiService: ApiService) { 
+  constructor(
+    private apiService: ApiService,
+    private toastrService: ToastService
+  ) { 
     this.sending = false;
 
     this.apiService.getBrands().subscribe(brands => {
       this.brand = brands.filter(brand => brand.name == this.brandName)[0];
+    }, err => {
+      this.toastrService.error('Une erreur s\'est produite lors du chargement de la marque.');
     });
   }
 
@@ -41,6 +49,8 @@ export class ModalSendTestComponent implements OnInit {
       if(cb) {
         cb();
       }
+    }, err => {
+      this.toastrService.error('Une erreur s\'est produite lors du chargement des destinataires.');
     });
   }
 
@@ -55,6 +65,8 @@ export class ModalSendTestComponent implements OnInit {
         });
         
         this.modalSendEmails.show();
+      }, err => {
+        this.toastrService.error('Une erreur s\'est produite lors du chargement des langues.');
       });
     });
   }
@@ -64,9 +76,15 @@ export class ModalSendTestComponent implements OnInit {
     const languages = this.langSelected.filter(el => el.selected).map(el => el.code);
 
     this.sending = true;
-    this.apiService.sendTestEmails(this.brandName, this.campaignName, recipients, languages).subscribe(() => {
+    this.apiService.sendTestEmails(this.brandName, this.campaignName, recipients, languages).subscribe(data => {
       this.sending = false;
       this.modalSendEmails.hide();
+      this.toastrService.success('Les emails ont été envoyés avec succès.');
+    }, err => {
+      console.log(err);
+      this.sending = false;
+      this.modalSendEmails.hide();
+      this.toastrService.error('Une erreur s\'est produite lors de l\'envoi des emails.');
     });
   }
 

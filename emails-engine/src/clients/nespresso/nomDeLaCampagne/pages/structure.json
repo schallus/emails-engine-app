@@ -45,7 +45,8 @@
 	{
 		"blockType": "block-20",
 		"position": 8,
-		"name": "block-20-1530608665549"
+		"name": "block-20-1530608665549",
+		"valid": true
 	},
 	{
 		"blockType": "spacer",

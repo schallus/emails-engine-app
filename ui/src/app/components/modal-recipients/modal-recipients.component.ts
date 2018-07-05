@@ -1,8 +1,11 @@
 import { Component, OnInit, ViewChild, Input, Output, EventEmitter } from '@angular/core';
 
-import { Brand } from '../../models/brand';
-
+// Services
+import { ToastService } from 'ng-uikit-pro-standard';
 import { ApiService } from '../../services/api.service';
+
+// Models
+import { Brand } from '../../models/brand';
 import { Recipient } from '../../models/recipient';
 
 @Component({
@@ -20,7 +23,10 @@ export class ModalRecipientsComponent implements OnInit {
   error: boolean;
 
   @Input() config: any;
-  constructor(private apiService: ApiService) {
+  constructor(
+    private apiService: ApiService,
+    private toastrService: ToastService
+  ) {
     this.newRecipient = new Recipient();
     this.error = false;
   }
@@ -35,6 +41,8 @@ export class ModalRecipientsComponent implements OnInit {
       if(cb) {
         cb();
       }
+    }, err => {
+      this.toastrService.error('Une erreur s\'est produite lors du chargement des destinataires.');
     });
   }
 
@@ -78,6 +86,8 @@ export class ModalRecipientsComponent implements OnInit {
     this.apiService.setRecipients(this.brand.name, this.recipients).subscribe(() => {
       this.updated.emit();
       this.recipientsModal.hide();
+    }, err => {
+      this.toastrService.error('Une erreur s\'est produite lors de l\'enregistrement des destinataires.');
     });
   }
 
