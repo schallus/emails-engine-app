@@ -3,11 +3,11 @@
 		"bs": {
 			"subject": "Test"
 		},
+		"bg": {
+			"subject": "Test in bulgarian"
+		},
 		"fr": {
 			"subject": "Sujet de l'email en FR"
-		},
-		"de": {
-			"subject": "Sujet DE"
 		},
 		"it": {
 			"subject": "Ceci est l'objet du mail en IT"

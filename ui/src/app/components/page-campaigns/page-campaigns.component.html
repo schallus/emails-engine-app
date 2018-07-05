@@ -18,8 +18,8 @@
           
           <thead>
             <tr>
-              <th class="align-top">Nom <mdb-icon icon="sort" (click)="sortBy('displayName')"></mdb-icon></th>
-              <th class="align-top">Date modification <mdb-icon icon="sort" (click)="sortBy('updatedAt')"></mdb-icon></th>
+              <th class="align-top">Nom <mdb-icon icon="sort" (click)="sortBy(filteredCampaigns, 'displayName')"></mdb-icon></th>
+              <th class="align-top">Date modification <mdb-icon icon="sort" (click)="sortBy(filteredCampaigns, 'updatedAt')"></mdb-icon></th>
               <th class="text-right actions align-top">Actions</th>
             </tr>
           </thead>
@@ -27,10 +27,10 @@
           <tbody>
             <tr *ngIf="filteredCampaigns?.length==0"><td colspan="3">Il n'y a aucune campagne à afficher</td></tr>
             <tr *ngFor="let campaign of filteredCampaigns">
-              <td class="align-middle"><a [routerLink]="['/brands', brandName, 'campaigns', campaign.name, 'options']">{{ campaign.displayName }}</a></td>
+              <td class="align-middle"><a [routerLink]="['/brands', brand.name, 'campaigns', campaign.name, 'options']">{{ campaign.displayName }}</a></td>
               <td class="align-middle">{{ campaign.updatedAt || campaign.createdAt | date }}</td>
               <td class="text-right align-middle actions">
-                <a [routerLink]="['/brands', brandName, 'campaigns', campaign.name, 'options']" class="btn-floating btn-sm btn-secondary waves-light mr-1" mdbTooltip="Editer" placement="top" mdbWavesEffect><i class="fa fa-edit"></i></a>
+                <a [routerLink]="['/brands', brand.name, 'campaigns', campaign.name, 'options']" class="btn-floating btn-sm btn-secondary waves-light mr-1" mdbTooltip="Editer" placement="top" mdbWavesEffect><i class="fa fa-edit"></i></a>
                 <a class="btn-floating btn-sm btn-secondary waves-light mr-1" (click)="showCloneConfirmation(campaign.name)" mdbTooltip="Dupliquer" placement="top" mdbWavesEffect><i class="fa fa-clone"></i></a>
                 <a class="btn-floating btn-sm btn-secondary waves-light" (click)="showArchiveConfirmation(campaign.name)" mdbTooltip="Supprimer/Archiver" placement="top" mdbWavesEffect><i class="fa fa-trash"></i></a>
               </td>
@@ -38,22 +38,22 @@
           </tbody>
         </table>
         <nav>
-          <ul class="pagination pagination-circle justify-content-center pg-red">
+          <ul class="pagination pagination-circle justify-content-center pg-red" *ngIf="numberOfPage > 1 && !filtered">
             <li class="page-item" >
-              <a class="page-link" mdbWavesEffect aria-label="Previous">
+              <a class="page-link" mdbWavesEffect aria-label="First" (click)="setPage(1)">
                 <span aria-hidden="true">&laquo;</span>
-                <span class="sr-only">Previous</span>
+                <span class="sr-only">First</span>
               </a>
             </li>
-            <li class="page-item active" ><a class="page-link" mdbWavesEffect>1</a></li>
-            <li class="page-item" ><a class="page-link" mdbWavesEffect>2</a></li>
-            <li class="page-item" ><a class="page-link" mdbWavesEffect>3</a></li>
-            <li class="page-item" ><a class="page-link" mdbWavesEffect>4</a></li>
-            <li class="page-item" ><a class="page-link" mdbWavesEffect>5</a></li>
+            <li class="page-item" *ngFor="let i of Arr(numberOfPage).fill(1); let page = index" [class.active]="pageActive == page+1">
+              <a class="page-link" mdbWavesEffect (click)="setPage(page+1)">
+                {{ page+1 }}
+              </a>
+            </li>
             <li class="page-item" >
-              <a class="page-link" mdbWavesEffect aria-label="Next">
+              <a class="page-link" mdbWavesEffect aria-label="Last" (click)="setPage(numberOfPage)">
                 <span aria-hidden="true">&raquo;</span>
-                <span class="sr-only">Next</span>
+                <span class="sr-only">Last</span>
               </a>
             </li>
           </ul>
@@ -113,15 +113,17 @@
       </div>
       <div class="modal-body">
         <p class="text-center">Êtes-vous sûr de vouloir dupliquer<br/>la campagne <strong>{{campaign}}</strong> ?</p>
-        <div class="md-form form-sm">
-          <i class="fa fa-tag prefix"></i>
-          <input mdbInputDirective [(ngModel)]="duplicateName" type="text" id="inputCampaignName" class="form-control">
-          <label for="inputCampaignName">Nouveau nom</label>
-        </div>
+        <form #duplicateForm="ngForm">
+          <div class="md-form form-sm">
+            <i class="fa fa-tag prefix"></i>
+            <input mdbInputDirective [mdbValidate]="false" [(ngModel)]="duplicateName" name="duplicateName" type="text" id="inputCampaignName" class="form-control" required>
+            <label for="inputCampaignName">Nouveau nom</label>
+          </div>
+        </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="modalClone.hide()" mdbWavesEffect>Annuler</button>
-        <button type="button" class="btn btn-green" (click)="cloneCampaign(campaign)" mdbWavesEffect>Dupliquer</button>
+        <button type="button" class="btn btn-green" [disabled]="duplicateForm.invalid" (click)="cloneCampaign(campaign)" mdbWavesEffect>Dupliquer</button>
       </div>
     </div>
   </div>

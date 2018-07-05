@@ -26,6 +26,7 @@ export class ModalBlockSettingsComponent implements OnInit {
   campaignName: string;
 
   block: BlockPosition;
+  blockInfo: Block;
   blockData: any;
   blocks: Block[];
 
@@ -54,7 +55,10 @@ export class ModalBlockSettingsComponent implements OnInit {
 
     this.apiService.getCampaignOptions(this.brandName, this.campaignName).subscribe(options => {
       this.campaignOptions = options;
-      this.campaignLanguages = Object.keys(this.campaignOptions.lang);
+      this.campaignLanguages = Object.keys(this.campaignOptions.lang)
+        .filter(el => el !== this.campaignOptions.masterLang)
+        .sort();
+      this.campaignLanguages.splice(0, 0, this.campaignOptions.masterLang);
     }, err => {
       this.toastrService.error('Une erreur s\'est produite lors du chargement des options.');
     });
@@ -62,6 +66,8 @@ export class ModalBlockSettingsComponent implements OnInit {
 
   show(block: BlockPosition) {
     this.block = block;
+    this.blockInfo = this.getBlockTypeInfo(block.blockType);
+
     // Get the block data
     this.apiService.getBlockData(this.brandName, this.campaignName, this.block.name).subscribe(data => {
       this.blockData = data;

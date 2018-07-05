@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 
@@ -12,6 +12,8 @@ import { ApiService } from '../../services/api.service';
 // Models
 import { LangSelected } from '../../models/lang';
 import { CampaignOptions } from '../../models/campaign-options';
+import { Brand } from '../../models/brand';
+import { Campaign } from '../../models/campaign';
 
 @Component({
   selector: 'app-page-campaign-options',
@@ -21,14 +23,16 @@ import { CampaignOptions } from '../../models/campaign-options';
 export class PageCampaignOptionsComponent implements OnInit {
 
   brandName: string;
+  brand: Brand;
   campaignName: string;
-  campaignDisplayName: string;
-  breadcrumbs: Array<{title: string, path: string}>;
+  campaign: Campaign;
+  breadcrumbs: Array<{title: string, path?: string}>;
   languages: LangSelected[];
   filteredLanguages: LangSelected[];
   campaignOptions: CampaignOptions;
-
   masterLang: string;
+
+  @ViewChild('filterLangForm') public filterLangForm;
 
   constructor(
     private route: ActivatedRoute,
@@ -44,69 +48,102 @@ export class PageCampaignOptionsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.brandName = this.route.snapshot.paramMap.get('brandName');
-    this.campaignName = this.route.snapshot.paramMap.get('campaignName');
+    const brandName = this.route.snapshot.paramMap.get('brandName');
+    const campaignName = this.route.snapshot.paramMap.get('campaignName');
 
-    this.breadcrumbs = [
-      { title: 'Marques', path: '/brands' },
-      { title: 'Campagnes', path: `/brands/${this.brandName}/campaigns` },
-      { title: 'Options', path: `/brands/${this.brandName}/campaigns/${this.campaignName}/options` },
-    ];
+    this.apiService.getBrands().subscribe(brands => {
+      if(brands.map(el => el.name).indexOf(brandName) == -1) {
+        this.redirect404();
+      } else {
+        this.brand = brands.filter(el => el.name == brandName)[0];
+        this.apiService.getCampaigns(this.brand.name).subscribe(campaigns => {
+          if(campaigns.map(el => el.name).indexOf(campaignName) == -1) {
+            this.redirect404();
+          } else {
+            this.campaign = campaigns.filter(el => el.name == campaignName)[0];
 
-    // Get campaign options
-    this.apiService.getCampaignOptions(this.brandName, this.campaignName).subscribe(options => {
-      this.campaignOptions = options;
+            this.breadcrumbs = [
+              { title: 'Marques', path: `/brands` },
+              { title: this.brand.displayName, path: `/brands/${this.brand.name}/campaigns` },
+              { title: this.campaign.displayName, path: `/brands/${this.brand.name}/campaigns/${this.campaign.name}/options` },
+              { title: 'Options' },
+            ];
 
-      this.languages = this.languages.concat(this.campaignOptions.customLang.map(lang => {
-        const langSelected = <LangSelected>lang;
-        langSelected.selected = true;
-        return langSelected;
-      }));
+            // Get campaign options
+            this.apiService.getCampaignOptions(this.brand.name, this.campaign.name).subscribe(options => {
+              this.campaignOptions = options;
 
-      this.filteredLanguages = this.languages;
+              this.languages = this.languages.concat(this.campaignOptions.customLang.map(lang => {
+                const langSelected = <LangSelected>lang;
+                langSelected.selected = true;
+                return langSelected;
+              }));
 
-      this.masterLang = this.campaignOptions.masterLang;
+              this.sortLanguages();
 
-      Object.keys(this.campaignOptions.lang).forEach((key) => {
-        const lang = this.languages.filter(el => el.code === key);
-        if (lang.length > 0) {
-          lang[0].selected = true;
-        } else {
-          console.log('la langue ' + key + ' n\'existe pas ');
-        }
-      });
+              this.filteredLanguages = this.languages;
+
+              this.masterLang = this.campaignOptions.masterLang;
+
+              Object.keys(this.campaignOptions.lang).forEach((key) => {
+                const lang = this.languages.filter(el => el.code === key);
+                if (lang.length > 0) {
+                  lang[0].selected = true;
+                } else {
+                  console.log('la langue ' + key + ' n\'existe pas ');
+                }
+              });
+            }, err => {
+              this.toastrService.error('Une erreur s\'est produite lors du chargement des options.');
+            });
+          }
+        }, err => {
+          this.toastrService.error('Une erreur s\'est produite lors du chargement des campagnes.');
+        });
+      }
     }, err => {
-      this.toastrService.error('Une erreur s\'est produite lors du chargement des options.');
+      this.toastrService.error('Une erreur s\'est produite lors du chargement des marques.');
     });
+  }
 
-    this.apiService.getCampaigns(this.brandName).subscribe(campaigns => {
-      this.campaignDisplayName = campaigns.filter(campaign => campaign.name === this.campaignName)[0].displayName;
-    }, err => {
-      this.toastrService.error('Une erreur s\'est produite lors du chargement de la campagne.');
+  sortLanguages = () => {
+    this.languages.sort((a,b) => {
+      if (a.name.toLowerCase() < b.name.toLowerCase())
+        return -1;
+      if (a.name.toLowerCase() > b.name.toLowerCase())
+        return 1;
+      return 0;
     });
   }
 
   onCheckBoxChange = (language: LangSelected) => {
-    language.selected = !language.selected;
-
-    // If it's a custom language, we remove it
-    if (!language.selected && languagesList.filter((el) => el.code === language.code).length < 1) {
-      this.campaignOptions.customLang = this.campaignOptions.customLang.filter((el) => el.code !== language.code);
-      this.languages = this.languages.filter((el) => el.code !== language.code);
+    if(language.code !== this.masterLang) {
+      language.selected = !language.selected;
+      // If it's a custom language, we remove it
+      if (!language.selected && languagesList.filter((el) => el.code === language.code).length < 1) {
+        this.campaignOptions.customLang = this.campaignOptions.customLang.filter((el) => el.code !== language.code);
+        this.languages = this.languages.filter((el) => el.code !== language.code);
+        this.filteredLanguages = this.languages;
+      }
+    } else {
+      this.toastrService.error('Vous ne pouvez pas supprimer la langue master.');
     }
   }
 
   onOptionsFormSubmit = (form: NgForm) => {
     if (form.valid) {
-      const campaignDisplayName = form.value.campaignDisplayName;
-      this.campaignOptions.masterLang = form.value.masterLang;
-      this.masterLang = form.value.masterLang;
+      if (this.campaign.displayName !== form.value.campaignDisplayName) {
+        this.apiService.editCampaign(this.brand.name, this.campaign.name, form.value.campaignDisplayName).subscribe(() => {}, err => {
+          this.toastrService.error('Une erreur s\'est produite lors de l\'édition de la campagne.');
+        });
+      }
+
+      if (this.campaignOptions.masterLang=='') {
+        this.campaignOptions.masterLang = form.value.masterLang;
+        this.masterLang = form.value.masterLang;
+      }
 
       // masterLang is undefined when we remove a lang and submit the form : to be fixed !!
-
-      this.apiService.editCampaign(this.brandName, this.campaignName, campaignDisplayName).subscribe(() => {}, err => {
-        this.toastrService.error('Une erreur s\'est produite lors de l\'édition de la campagne.');
-      });
 
       const lang = {};
 
@@ -117,7 +154,7 @@ export class PageCampaignOptionsComponent implements OnInit {
       delete subjects['masterLang'];
 
       Object.keys(subjects).forEach((key) => {
-        const langCode = key.substr(key.length - 2);
+        const langCode = key.substring(7, key.length);
         lang[langCode] = {
           subject: form.value[key]
         };
@@ -125,7 +162,7 @@ export class PageCampaignOptionsComponent implements OnInit {
 
       this.campaignOptions.lang = lang;
 
-      this.apiService.setCampaignOptions(this.brandName, this.campaignName, this.campaignOptions).subscribe(options => {
+      this.apiService.setCampaignOptions(this.brand.name, this.campaign.name, this.campaignOptions).subscribe(options => {
         // On success, go to builder page
         this.gotoBuilder();
       }, err => {
@@ -139,7 +176,7 @@ export class PageCampaignOptionsComponent implements OnInit {
       // Check if a lang with the same code already exists
       if (this.languages.filter(lang => lang.code === form.value.code).length > 0) {
         // diplay the error with toastr
-        // this.toastrService.showError('Une langue avec le même code existe déjà.', 'Erreur');
+        this.toastrService.error('Une langue avec le même code existe déjà.');
         form.controls['code'].setErrors({'incorrect': true});
       } else {
         this.languages.push({
@@ -147,10 +184,13 @@ export class PageCampaignOptionsComponent implements OnInit {
           code: form.value.code,
           selected: true
         });
+        this.sortLanguages();
+        this.filteredLanguages = this.languages;
         this.campaignOptions.customLang.push({
           name: form.value.name,
           code: form.value.code
         });
+        this.filterLangForm.reset();
         form.reset();
       }
     }
@@ -175,7 +215,11 @@ export class PageCampaignOptionsComponent implements OnInit {
   }
 
   gotoBuilder = () => {
-    this.router.navigate([`/brands/${this.brandName}/campaigns/${this.campaignName}/builder`]);
+    this.router.navigate([`/brands/${this.brand.name}/campaigns/${this.campaign.name}/builder`]);
+  }
+
+  redirect404 = () => {
+    this.router.navigate([`/404`]);
   }
 
 }

@@ -6,13 +6,16 @@
         Séléctionner une ou plusieurs langues
       </div>
       <div class="card-body">
-        <div class="input-group md-form form-sm form-1 pl-0">
-          <div class="input-group-prepend">
-            <span class="input-group-text secondary-color"><i class="fa fa-search text-white" aria-hidden="true"></i></span>
+        <form #filterLangForm='ngForm'>
+          <div class="input-group md-form form-sm form-1 pl-0">
+            <div class="input-group-prepend">
+              <span class="input-group-text secondary-color"><i class="fa fa-search text-white" aria-hidden="true"></i></span>
+            </div>
+            <input class="form-control my-0 py-1" ngModel name="search" type="text" placeholder="Rechercher" aria-label="Rechercher" appDebounceChange (debounceChange)="filterLanguages($event)">
           </div>
-          <input class="form-control my-0 py-1" type="text" placeholder="Rechercher" aria-label="Rechercher" appDebounceChange (debounceChange)="filterLanguages($event)">
-        </div>
+        </form>
         <div class="btn-group checkbox-list" id="checkbox-languages" data-toggle="buttons">
+          <p *ngIf="filteredLanguages?.length==0">Il n'y a aucune langue à afficher</p>
           <label *ngFor="let language of filteredLanguages" class="btn btn-secondary form-check-label mb-1" [ngClass]="{'active': language.selected}">
             <input class="form-check-input d-none" type="checkbox" [checked]="language.selected ? 'checked' : null" autocomplete="off" (change)="onCheckBoxChange(language)" [value]="language.code" > {{ language.name }} ({{ language.code }})
           </label>
@@ -57,12 +60,13 @@
             Veuillez renseigner tous les champs du formulaire.
           </div>
           <div class="md-form">
-            <input [mdbValidate]="false" [ngModel]="campaignDisplayName" mdbInputDirective type="text" id="campaignDisplayName" name="campaignDisplayName" class="form-control form-control-sm" required min-length="2" max-length="30">
+            <input [mdbValidate]="false" [ngModel]="campaign?.displayName" mdbInputDirective type="text" id="campaignDisplayName" name="campaignDisplayName" class="form-control form-control-sm" required min-length="2" max-length="30">
             <label for="campaignDisplayName">Nom d'affichage de la campagne</label>
           </div>
-          <p>Veuillez sélectionner la langue master à l'aide des boutons radios.</p>
+          <p *ngIf="masterLang==''">Veuillez sélectionner la langue master à l'aide des boutons radios.</p>
+          <p *ngIf="masterLang!==''">La langue master est '{{ masterLang | uppercase }}'.</p>
           <div class="md-form input-group" *ngFor="let language of getLanguagesSelected(); first as isFirst">
-            <span class="input-group-prepend radio-master-lang">
+            <span class="input-group-prepend radio-master-lang" *ngIf="masterLang==''">
               <input type="radio" [id]="'radio' + language.code" name="masterLang" [value]="language.code" [ngValue]="language.code" [ngModel]="masterLang" [required]="isFirst ? '' : null">
               <label [for]="'radio' + language.code"></label>
             </span>

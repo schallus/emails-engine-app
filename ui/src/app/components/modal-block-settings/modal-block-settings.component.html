@@ -7,7 +7,7 @@
         <div class="modal-c-tabs">
           <!-- Tab panels -->
           <mdb-tabset #langTabs [buttonClass]="'nav nav-tabs secondary-color'" [contentClass]="''" class="tab-content">
-            <mdb-tab *ngFor="let lang of campaignLanguages" class="tab-pane fade in show active" [id]="'tab-'+lang" role="tabpanel" [heading]="lang | uppercase">
+            <mdb-tab *ngFor="let lang of campaignLanguages" class="tab-pane fade in show active" [id]="'tab-'+lang" role="tabpanel" [heading]="(campaignOptions.masterLang == lang) ? (lang | uppercase)+'*' : lang | uppercase">
               <!--Body-->
               <div class="modal-body mb-1" *ngIf="block">
                 <!-- Switch -->
@@ -19,7 +19,7 @@
                     Afficher
                   </label>
                 </div>
-                <div *ngFor="let property of getBlockTypeInfo(block.blockType).properties" [ngSwitch]="property.type">
+                <div *ngFor="let property of blockInfo?.properties" [ngSwitch]="property.type">
                   <div *ngSwitchCase="'text'" class="md-form input-group">
                     <input mdbInputDirective class="form-control" 
                       type="text"

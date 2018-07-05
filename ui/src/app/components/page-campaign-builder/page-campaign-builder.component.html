@@ -89,7 +89,7 @@
   </div>
 </div>
 
-<div mdbModal #modalPreviewEmails="mdb-modal" class="modal fade" id="modalPreviewEmails" tabindex="-1" role="dialog" aria-labelledby="Aperçu des emails" aria-hidden="true">
+<div mdbModal #modalPreviewEmails="mdb-modal" class="modal fade" id="modalPreviewEmails" tabindex="-1" role="dialog" aria-labelledby="Aperçu des emails" aria-hidden="true" [config]="{ ignoreBackdropClick: true }">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -115,7 +115,7 @@
   </div>
 </div>
 
-<div mdbModal #modalExportEmails="mdb-modal" class="modal fade" id="modalExportEmails" tabindex="-1" role="dialog" aria-labelledby="Export des emails" aria-hidden="true">
+<div mdbModal #modalExportEmails="mdb-modal" class="modal fade" id="modalExportEmails" tabindex="-1" role="dialog" aria-labelledby="Export des emails" aria-hidden="true" [config]="{ ignoreBackdropClick: true }">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -131,5 +131,5 @@
   </div>
 </div>
 
-<app-modal-send-test #modalSendEmails [brandName]="brandName" [campaignName]="campaignName"></app-modal-send-test>
+<app-modal-send-test #modalSendEmails [brandName]="brand?.name" [campaignName]="campaign?.name"></app-modal-send-test>
 <app-modal-block-settings #modalBlockSettings (valid)="setBlockStatus($event)"></app-modal-block-settings>

@@ -1,0 +1,116 @@
+[
+	{
+		"blockName": "header-01-1530783852403",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "text",
+						"value": "Hallo tout le monde !",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkText",
+						"value": "Le lienq",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkUrl",
+						"value": "http://lien.ch",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-19-1530783897202",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "http://google.ch",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkText",
+						"value": "Mon lien",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img",
+						"value": "http://192.168.0.133:3000/dist/nespresso/pedroGonzales/images/uploads/marguerite-daisy-beautiful-beauty.jpg",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "title",
+						"value": "La fleur",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "L*@djsd",
+						"copiedFromMaster": false
+					}
+				],
+				"display": false
+			}
+		]
+	}
+]

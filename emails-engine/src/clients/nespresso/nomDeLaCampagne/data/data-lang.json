@@ -24,27 +24,6 @@
 				"display": true
 			},
 			{
-				"lang": "de",
-				"properties": [
-					{
-						"name": "text",
-						"value": "",
-						"copiedFromMaster": true
-					},
-					{
-						"name": "linkText",
-						"value": "",
-						"copiedFromMaster": true
-					},
-					{
-						"name": "linkUrl",
-						"value": "",
-						"copiedFromMaster": true
-					}
-				],
-				"display": true
-			},
-			{
 				"lang": "it",
 				"properties": [
 					{
@@ -67,6 +46,27 @@
 			},
 			{
 				"lang": "bs",
+				"properties": [
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "bg",
 				"properties": [
 					{
 						"name": "text",
@@ -96,29 +96,13 @@
 				"properties": [
 					{
 						"name": "img",
-						"value": "http://localhost:3000/dist/nespresso/promotionSpecialeEte2018/images/uploads/Logo-Nespresso.png",
+						"value": "http://192.168.0.133:3000/dist/nespresso/promotionSpecialeEte2018/images/uploads/Logo-Nespresso.png",
 						"copiedFromMaster": false
 					},
 					{
 						"name": "url",
 						"value": "http://www.nespresso.com",
 						"copiedFromMaster": false
-					}
-				],
-				"display": true
-			},
-			{
-				"lang": "de",
-				"properties": [
-					{
-						"name": "img",
-						"value": "",
-						"copiedFromMaster": true
-					},
-					{
-						"name": "url",
-						"value": "",
-						"copiedFromMaster": true
 					}
 				],
 				"display": true
@@ -141,6 +125,22 @@
 			},
 			{
 				"lang": "bs",
+				"properties": [
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "bg",
 				"properties": [
 					{
 						"name": "img",
@@ -187,32 +187,6 @@
 				"display": true
 			},
 			{
-				"lang": "de",
-				"properties": [
-					{
-						"name": "title",
-						"value": "Titre différent en DE",
-						"copiedFromMaster": false
-					},
-					{
-						"name": "text",
-						"value": "",
-						"copiedFromMaster": true
-					},
-					{
-						"name": "linkUrl",
-						"value": "",
-						"copiedFromMaster": true
-					},
-					{
-						"name": "linkText",
-						"value": "",
-						"copiedFromMaster": true
-					}
-				],
-				"display": true
-			},
-			{
 				"lang": "it",
 				"properties": [
 					{
@@ -222,8 +196,8 @@
 					},
 					{
 						"name": "text",
-						"value": "",
-						"copiedFromMaster": true
+						"value": "Différent également en Italien si si ",
+						"copiedFromMaster": false
 					},
 					{
 						"name": "linkUrl",
@@ -263,6 +237,32 @@
 					}
 				],
 				"display": true
+			},
+			{
+				"lang": "bg",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
 			}
 		]
 	},
@@ -279,7 +279,7 @@
 					},
 					{
 						"name": "img",
-						"value": "http://localhost:3000/dist/nespresso/promotionSpecialeEte2018/images/uploads/Geneve-16-9bis.jpg",
+						"value": "http://192.168.0.133:3000/dist/nespresso/promotionSpecialeEte2018/images/uploads/Geneve-16-9bis.jpg",
 						"copiedFromMaster": false
 					},
 					{
@@ -296,37 +296,6 @@
 						"name": "link",
 						"value": "Lire la suite",
 						"copiedFromMaster": false
-					}
-				],
-				"display": true
-			},
-			{
-				"lang": "de",
-				"properties": [
-					{
-						"name": "url",
-						"value": "",
-						"copiedFromMaster": true
-					},
-					{
-						"name": "img",
-						"value": "",
-						"copiedFromMaster": true
-					},
-					{
-						"name": "title",
-						"value": "",
-						"copiedFromMaster": true
-					},
-					{
-						"name": "text",
-						"value": "",
-						"copiedFromMaster": true
-					},
-					{
-						"name": "link",
-						"value": "",
-						"copiedFromMaster": true
 					}
 				],
 				"display": true
@@ -392,6 +361,37 @@
 					}
 				],
 				"display": true
+			},
+			{
+				"lang": "bg",
+				"properties": [
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "link",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
 			}
 		]
 	},
@@ -413,7 +413,7 @@
 					},
 					{
 						"name": "img",
-						"value": "http://localhost:3000/dist/nespresso/promotionSpecialeEte2018/images/uploads/paysage.jpg",
+						"value": "http://192.168.0.133:3000/dist/nespresso/promotionSpecialeEte2018/images/uploads/paysage.jpg",
 						"copiedFromMaster": false
 					},
 					{
@@ -425,37 +425,6 @@
 						"name": "text",
 						"value": "Ceci est le texte du bloc personnalisable par l'utilisateur",
 						"copiedFromMaster": false
-					}
-				],
-				"display": true
-			},
-			{
-				"lang": "de",
-				"properties": [
-					{
-						"name": "linkUrl",
-						"value": "",
-						"copiedFromMaster": true
-					},
-					{
-						"name": "linkText",
-						"value": "",
-						"copiedFromMaster": true
-					},
-					{
-						"name": "img",
-						"value": "",
-						"copiedFromMaster": true
-					},
-					{
-						"name": "title",
-						"value": "",
-						"copiedFromMaster": true
-					},
-					{
-						"name": "text",
-						"value": "",
-						"copiedFromMaster": true
 					}
 				],
 				"display": true
@@ -493,6 +462,37 @@
 			},
 			{
 				"lang": "bs",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "bg",
 				"properties": [
 					{
 						"name": "linkUrl",
@@ -542,7 +542,7 @@
 					},
 					{
 						"name": "img",
-						"value": "http://localhost:3000/dist/nespresso/promotionSpecialeEte2018/images/uploads/WP_20180412_17_43_38_Pro.jpg",
+						"value": "http://192.168.0.133:3000/dist/nespresso/promotionSpecialeEte2018/images/uploads/WP_20180412_17_43_38_Pro.jpg",
 						"copiedFromMaster": false
 					},
 					{
@@ -554,37 +554,6 @@
 						"name": "text",
 						"value": "Appartement de 4 pièces et demi à louer dans le quartier de la Villette à Yverdon-les-Bains",
 						"copiedFromMaster": false
-					}
-				],
-				"display": true
-			},
-			{
-				"lang": "de",
-				"properties": [
-					{
-						"name": "linkUrl",
-						"value": "",
-						"copiedFromMaster": true
-					},
-					{
-						"name": "linkText",
-						"value": "",
-						"copiedFromMaster": true
-					},
-					{
-						"name": "img",
-						"value": "",
-						"copiedFromMaster": true
-					},
-					{
-						"name": "title",
-						"value": "",
-						"copiedFromMaster": true
-					},
-					{
-						"name": "text",
-						"value": "",
-						"copiedFromMaster": true
 					}
 				],
 				"display": true
@@ -622,6 +591,37 @@
 			},
 			{
 				"lang": "bs",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "bg",
 				"properties": [
 					{
 						"name": "linkUrl",

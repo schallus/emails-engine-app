@@ -41,6 +41,7 @@ const appRoutes: Routes = [
       title: 'Editeur d\'email',
     },
   },
+  { path: '404', component: PageNotFoundComponent },
   { path: '', redirectTo: '/brands', pathMatch: 'full' },
   { path: '**', component: PageNotFoundComponent }
 ];

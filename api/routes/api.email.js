@@ -87,7 +87,6 @@ email.addRecipient = (req, res, next) => {
 }
 
 email.setRecipients = (req, res, next) => {
-    console.log(req.body);
     if(!Array.isArray(req.body) || !req.body[0].firstname || !req.body[0].lastname || !req.body[0].email) {
         return next({
             status: 422,

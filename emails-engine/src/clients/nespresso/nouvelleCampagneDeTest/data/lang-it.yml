@@ -6,7 +6,7 @@
 
 block-10-1530514733721:
     url: http://www.google.com
-    img: http://localhost:3000/dist/nespresso/nouvelleCampagneDeTest/images/uploads/paysage.jpg
+    img: http://192.168.0.133:3000/dist/nespresso/nouvelleCampagneDeTest/images/uploads/paysage.jpg
     title: Titre du bloc IT
     text: Ceci est le texte du bloc aasdasasd asdasdasd asdasdasdasd
     link: 
@@ -19,7 +19,7 @@ footer-01-1530533431168:
     title: Test
     items:
       - url: 
-        img: http://localhost:3000/dist/nespresso/nouvelleCampagneDeTest/images/uploads/paysage.jpg
+        img: http://192.168.0.133:3000/dist/nespresso/nouvelleCampagneDeTest/images/uploads/paysage.jpg
         width: 
         text: fsd fsdf sdf sdf sdf sdf test 123
       - url: 
