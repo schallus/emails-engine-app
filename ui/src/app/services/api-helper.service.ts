@@ -1,5 +1,6 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import { Response } from '@angular/http';
+import { HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import 'rxjs/add/observable/throw';
 
@@ -15,8 +16,8 @@ export class ApiHelperService {
 
   handleError(res) {
     let error: APIError;
-    if (res instanceof Response) {
-      const body = res.json() || {};
+    if (res instanceof HttpErrorResponse) {
+      const body = res.error || {};
       const err = <APIError> body.error;
       if (err) {
         error = err;
@@ -27,7 +28,7 @@ export class ApiHelperService {
       error = {status: 500, message: 'An unexpected error occurred. Please reload the page.'};
     }
 
-    console.error('error', error);
+    if(isDevMode()) console.error('error', error.message);
     return Observable.throw(error);
   }
 
