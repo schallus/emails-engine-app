@@ -27,7 +27,7 @@ block-19-1530608671961:
     linkText: Lien vers nespresso.com
     img: http://192.168.0.133:3000/dist/nespresso/promotionSpecialeEte2018/images/uploads/paysage.jpg
     title: Titre du bloc en FR
-    text: Ceci est le texte du bloc personnalisable par l'utilisateur
+    text: Ceci est le texte du bloc personnalisable par l&#x27;utilisateur
 block-20-1530608665549:
     linkUrl: sads adsad sad
     linkText: Texte du lien 

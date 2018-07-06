@@ -27,5 +27,10 @@
 		"name": "wideCampaign",
 		"displayName": "Wide campaign",
 		"createdAt": "2018-07-05T15:36:18.131Z"
+	},
+	{
+		"name": "campagneDeDemonstration",
+		"displayName": "Campagne de démonstration",
+		"createdAt": "2018-07-06T06:49:37.531Z"
 	}
 ]

@@ -32,7 +32,7 @@
               </tr>
             </tbody>
             <tfoot>
-              <tr class="addNewRecipient">
+              <tr class="addNewRecipient light-green lighten-3">
                 <td contenteditable="true" placeholder="Nom" [innerText]="(newRecipient.lastname) ? newRecipient.lastname : ''" (focusout)="edit('lastname', $event)"></td>
                 <td contenteditable="true" placeholder="Prénom" [innerText]="(newRecipient.firstname) ? newRecipient.firstname : ''" (focusout)="edit('firstname', $event)"></td>
                 <td contenteditable="true" placeholder="Email" [innerText]="(newRecipient.email) ? newRecipient.email : ''" (focusout)="edit('email', $event)"></td>

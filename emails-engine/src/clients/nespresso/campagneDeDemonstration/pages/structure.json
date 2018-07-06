@@ -1,0 +1,44 @@
+[
+	{
+		"blockType": "header-01",
+		"position": 0,
+		"name": "header-01-1530859818196",
+		"valid": true
+	},
+	{
+		"blockType": "header-02",
+		"position": 1,
+		"name": "header-02-1530859821674",
+		"valid": true
+	},
+	{
+		"blockType": "spacer",
+		"position": 2,
+		"name": "spacer-1530859829371",
+		"valid": true
+	},
+	{
+		"blockType": "block-20",
+		"position": 3,
+		"name": "block-20-1530859838201",
+		"valid": true
+	},
+	{
+		"blockType": "spacer",
+		"position": 4,
+		"name": "spacer-1530859853953",
+		"valid": true
+	},
+	{
+		"blockType": "block-19",
+		"position": 5,
+		"name": "block-19-1530859843541",
+		"valid": true
+	},
+	{
+		"blockType": "block-14-ambassador",
+		"position": 6,
+		"name": "block-14-ambassador-1530859864355",
+		"valid": true
+	}
+]

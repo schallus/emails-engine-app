@@ -1,0 +1,25 @@
+#
+# brand: nespresso
+# campaign: campagneDeDemonstration
+# lang: fr
+#
+
+header-01-1530859818196:
+    text: Texte du header
+    linkText: Ceci est un lien
+    linkUrl: http://www.nespresso.com
+header-02-1530859821674:
+    img: http://192.168.0.133:3000/dist/nespresso/campagneDeDemonstration/images/uploads/Logo-Nespresso.png
+    url: http://www.nespresso.com
+block-20-1530859838201:
+    linkUrl: http://www.google.ch
+    linkText: Lien vers Google
+    img: http://192.168.0.133:3000/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_17_43_38_Pro.jpg
+    title: Titre du bloc en FR
+    text: Texte du bloc en FR
+block-19-1530859843541:
+    linkUrl: http://www.wideagency.ch
+    linkText: Lien vers le site WIDE
+    img: http://192.168.0.133:3000/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_16_54_14_Pro.jpg
+    title: Titre du bloc FR
+    text: Ceci est le texte du bloc en français.

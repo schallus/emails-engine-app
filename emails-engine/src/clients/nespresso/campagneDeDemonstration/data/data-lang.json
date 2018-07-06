@@ -1,0 +1,319 @@
+[
+	{
+		"blockName": "header-01-1530859818196",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "text",
+						"value": "Texte du header",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkText",
+						"value": "Ceci est un lien",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkUrl",
+						"value": "http://www.nespresso.com",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "header-02-1530859821674",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "img",
+						"value": "http://192.168.0.133:3000/dist/nespresso/campagneDeDemonstration/images/uploads/Logo-Nespresso.png",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "url",
+						"value": "http://www.nespresso.com",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-20-1530859838201",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "http://www.google.ch",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkText",
+						"value": "Lien vers Google",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img",
+						"value": "http://192.168.0.133:3000/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_17_43_38_Pro.jpg",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "title",
+						"value": "Titre du bloc en FR",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "Texte du bloc en FR",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "Ceci est le titre en Allemand",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-19-1530859843541",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "http://www.wideagency.ch",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkText",
+						"value": "Lien vers le site WIDE",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img",
+						"value": "http://192.168.0.133:3000/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_16_54_14_Pro.jpg",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "title",
+						"value": "Titre du bloc FR",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "Ceci est le texte du bloc en français.",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	}
+]
