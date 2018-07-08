@@ -1,6 +1,6 @@
 // Local test config
 export const config = {
-    apiBaseUrl: 'http://192.168.0.133:3000/api',
+    apiBaseUrl: 'http://localhost:3000/api',
 };
 
 // Config for Heroku Deployment

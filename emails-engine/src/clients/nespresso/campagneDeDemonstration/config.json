@@ -8,9 +8,17 @@
 		},
 		"it": {
 			"subject": "Sujet différent en IT"
+		},
+		"fr-CH": {
+			"subject": "Sujet en FR-CH"
 		}
 	},
-	"customLang": [],
+	"customLang": [
+		{
+			"name": "Français (Suisse)",
+			"code": "fr-CH"
+		}
+	],
 	"layout": "default",
 	"masterLang": "fr"
 }

@@ -64,6 +64,27 @@
 					}
 				],
 				"display": true
+			},
+			{
+				"lang": "fr-CH",
+				"properties": [
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
 			}
 		]
 	},
@@ -75,7 +96,7 @@
 				"properties": [
 					{
 						"name": "img",
-						"value": "http://192.168.0.133:3000/dist/nespresso/campagneDeDemonstration/images/uploads/Logo-Nespresso.png",
+						"value": "http://localhost:3000/dist/nespresso/campagneDeDemonstration/images/uploads/Logo-Nespresso.png",
 						"copiedFromMaster": false
 					},
 					{
@@ -117,6 +138,22 @@
 					}
 				],
 				"display": true
+			},
+			{
+				"lang": "fr-CH",
+				"properties": [
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
 			}
 		]
 	},
@@ -138,7 +175,7 @@
 					},
 					{
 						"name": "img",
-						"value": "http://192.168.0.133:3000/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_17_43_38_Pro.jpg",
+						"value": "http://localhost:3000/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_17_43_38_Pro.jpg",
 						"copiedFromMaster": false
 					},
 					{
@@ -215,6 +252,37 @@
 					}
 				],
 				"display": true
+			},
+			{
+				"lang": "fr-CH",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
 			}
 		]
 	},
@@ -236,7 +304,7 @@
 					},
 					{
 						"name": "img",
-						"value": "http://192.168.0.133:3000/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_16_54_14_Pro.jpg",
+						"value": "http://localhost:3000/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_16_54_14_Pro.jpg",
 						"copiedFromMaster": false
 					},
 					{
@@ -303,6 +371,126 @@
 					},
 					{
 						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr-CH",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-06-1530877882634",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "'#ad3939'",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "color",
+						"value": "'#000000'",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "color",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "color",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr-CH",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "color",
 						"value": "",
 						"copiedFromMaster": true
 					},

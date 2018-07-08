@@ -30,12 +30,6 @@ export class ModalSendTestComponent implements OnInit {
     private toastrService: ToastService
   ) { 
     this.sending = false;
-
-    this.apiService.getBrands().subscribe(brands => {
-      this.brand = brands.filter(brand => brand.name == this.brandName)[0];
-    }, err => {
-      this.toastrService.error('Une erreur s\'est produite lors du chargement de la marque.');
-    });
   }
 
   ngOnInit() { }
@@ -55,19 +49,24 @@ export class ModalSendTestComponent implements OnInit {
   }
 
   show() {
-    this.getRecipients(this.brandName, () => {
-      this.apiService.getCampaignOptions(this.brandName, this.campaignName).subscribe(options => {
-        this.langSelected = Object.keys(options.lang).map(el => {
-          return {
-            code: el,
-            selected: true
-          };
+    this.apiService.getBrands().subscribe(brands => {
+      this.brand = brands.filter(brand => brand.name == this.brandName)[0];
+      this.getRecipients(this.brandName, () => {
+        this.apiService.getCampaignOptions(this.brandName, this.campaignName).subscribe(options => {
+          this.langSelected = Object.keys(options.lang).map(el => {
+            return {
+              code: el,
+              selected: true
+            };
+          });
+          
+          this.modalSendEmails.show();
+        }, err => {
+          this.toastrService.error('Une erreur s\'est produite lors du chargement des langues.');
         });
-        
-        this.modalSendEmails.show();
-      }, err => {
-        this.toastrService.error('Une erreur s\'est produite lors du chargement des langues.');
       });
+    }, err => {
+      this.toastrService.error('Une erreur s\'est produite lors du chargement de la marque.');
     });
   }
 

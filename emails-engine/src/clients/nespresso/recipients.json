@@ -15,13 +15,8 @@
 		"email": "fsulliger@wideagency.com"
 	},
 	{
-		"lastname": "Monsieur",
-		"firstname": "Wide",
+		"lastname": "Prénom",
+		"firstname": "Nom",
 		"email": "test@wide.com"
-	},
-	{
-		"lastname": "Julien",
-		"firstname": "Brêchet",
-		"email": "julien.brechet@heig-vd.ch"
 	}
 ]

@@ -75,7 +75,7 @@
 				"properties": [
 					{
 						"name": "img",
-						"value": "http://192.168.0.133:3000/dist/nespresso/promotionSpecialeEte2018/images/uploads/Logo-Nespresso.png",
+						"value": "http://localhost:3000/dist/nespresso/promotionSpecialeEte2018/images/uploads/Logo-Nespresso.png",
 						"copiedFromMaster": false
 					},
 					{
@@ -216,7 +216,7 @@
 					},
 					{
 						"name": "img",
-						"value": "http://192.168.0.133:3000/dist/nespresso/promotionSpecialeEte2018/images/uploads/Geneve-16-9bis.jpg",
+						"value": "http://localhost:3000/dist/nespresso/promotionSpecialeEte2018/images/uploads/Geneve-16-9bis.jpg",
 						"copiedFromMaster": false
 					},
 					{
@@ -319,7 +319,7 @@
 					},
 					{
 						"name": "img",
-						"value": "http://192.168.0.133:3000/dist/nespresso/promotionSpecialeEte2018/images/uploads/paysage.jpg",
+						"value": "http://localhost:3000/dist/nespresso/promotionSpecialeEte2018/images/uploads/paysage.jpg",
 						"copiedFromMaster": false
 					},
 					{
@@ -417,7 +417,7 @@
 					},
 					{
 						"name": "img",
-						"value": "http://192.168.0.133:3000/dist/nespresso/promotionSpecialeEte2018/images/uploads/WP_20180412_17_43_38_Pro.jpg",
+						"value": "http://localhost:3000/dist/nespresso/promotionSpecialeEte2018/images/uploads/WP_20180412_17_43_38_Pro.jpg",
 						"copiedFromMaster": false
 					},
 					{

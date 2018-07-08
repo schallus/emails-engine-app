@@ -32,5 +32,10 @@
 		"name": "campagneDeDemonstration",
 		"displayName": "Campagne de démonstration",
 		"createdAt": "2018-07-06T06:49:37.531Z"
+	},
+	{
+		"name": "demoGeneve",
+		"displayName": "Demo Genève",
+		"createdAt": "2018-07-08T12:54:35.478Z"
 	}
 ]

@@ -1,0 +1,17 @@
+#
+# brand: nespresso
+# campaign: demoGeneve
+# lang: it
+#
+
+block-01-1531054530543:
+    title: Titre FRA
+    text: Ceci est un test. Ceci est un test. Ceci est un test. Ceci est un test. 
+    linkUrl: http://www.google.ch
+    linkText: Lien vers Google
+block-10-1531054759643:
+    url: http://www.google.ch
+    img: http://localhost:3000/dist/nespresso/demoGeneve/images/uploads/WP_20180412_17_43_38_Pro.jpg
+    title: Titre du bloc
+    text: Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. 
+    link: Ceci est un lien

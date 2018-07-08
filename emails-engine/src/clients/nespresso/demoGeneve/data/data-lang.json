@@ -1,0 +1,240 @@
+[
+	{
+		"blockName": "block-01-1531054530543",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "title",
+						"value": "Titre FRA",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "Ceci est un test. Ceci est un test. Ceci est un test. Ceci est un test. ",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkUrl",
+						"value": "http://www.google.ch",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkText",
+						"value": "Lien vers Google",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "title",
+						"value": "Titre en allemand",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-10-1531054759643",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "url",
+						"value": "http://www.google.ch",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img",
+						"value": "http://localhost:3000/dist/nespresso/demoGeneve/images/uploads/WP_20180412_17_43_38_Pro.jpg",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "title",
+						"value": "Titre du bloc",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. ",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "link",
+						"value": "Ceci est un lien",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "link",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "link",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "link",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	}
+]
