@@ -33,27 +33,25 @@ export class ModalBlockSettingsComponent implements OnInit {
   campaignOptions: any;
   campaignLanguages: string[];
 
+  showSourceCode: boolean;
+
   quillOptions = {
     toolbar: [
       ['bold', 'italic'],                                 // toggled buttons
       // ['blockquote', 'code-block'],
-  
       // [{ 'header': 1 }, { 'header': 2 }],              // custom button values
       [{ 'list': 'ordered'}, { 'list': 'bullet' }],
       [{ 'script': 'sub'}, { 'script': 'super' }],        // superscript/subscript
       // [{ 'indent': '-1'}, { 'indent': '+1' }],         // outdent/indent
       // [{ 'direction': 'rtl' }],                        // text direction
-  
       // [{ 'size': ['small', false, 'large', 'huge'] }], // custom dropdown
       [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-  
       // [{ 'color': [] }, { 'background': [] }],         // dropdown with defaults from theme
       // [{ 'font': [] }],
       [{ 'align': [] }],
-  
       ['clean'],                                          // remove formatting button
-  
       ['link', /*'image', 'video'*/]                      // link and image, video
+      ['showHtml']
     ]
   };
 
@@ -64,7 +62,9 @@ export class ModalBlockSettingsComponent implements OnInit {
     private apiService: ApiService,
     private uploadService: UploadService,
     private toastrService: ToastService
-  ) { }
+  ) {
+    this.showSourceCode = false;
+  }
 
   ngOnInit() { 
     // Get url parameters
@@ -87,6 +87,30 @@ export class ModalBlockSettingsComponent implements OnInit {
       this.toastrService.error('Une erreur s\'est produite lors du chargement des options.');
     });
   }
+
+  /*initWysiwyg(event: any) {
+    console.log(event);
+    var txtArea = document.createElement('textarea');
+    txtArea.style.cssText = "width: 100%;margin: 0px;background: rgb(29, 29, 29);box-sizing: border-box;color: rgb(204, 204, 204);font-size: 15px;outline: none;padding: 20px;line-height: 24px;font-family: Consolas, Menlo, Monaco, &quot;Courier New&quot;, monospace;position: absolute;top: 0;bottom: 0;border: none;display:none";
+    
+    var htmlEditor = event.editor.addContainer('ql-custom');
+    htmlEditor.appendChild(txtArea);
+  
+    var myEditor = document.querySelector('#editor');
+    event.editor.on('text-change', (delta, oldDelta, source) => {
+      var html = myEditor.children[0].innerHTML
+      txtArea.value = html
+    })
+  
+    const customButton = document.querySelector('.ql-showHtml');
+    customButton.addEventListener('click', () => {
+      if (txtArea.style.display === '') {
+        var html = txtArea.value
+        //self.quill.pasteHTML(html)
+      }
+      txtArea.style.display = txtArea.style.display === 'none' ? '' : 'none'
+    });
+  }*/
 
   show(block: BlockPosition) {
     this.block = block;
@@ -170,42 +194,29 @@ export class ModalBlockSettingsComponent implements OnInit {
   }
 
 
-  /*
   setPropertyValue(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
     if (parentPropertyName && index !== undefined) {
       if (event.html && !this.blockData.languages
         .filter(el => el.lang === lang)[0].properties
         .filter(el => el.name === parentPropertyName)[0].value[index]
-        .filter(el => el.name === propertyName)[0].) {
-
-      } else {
-
+        .filter(el => el.name === propertyName)[0].copiedFromMaster
+      ) {
+          this.blockData.languages
+            .filter(el => el.lang === lang)[0].properties
+            .filter(el => el.name === parentPropertyName)[0].value[index]
+            .filter(el => el.name === propertyName)[0].value = event.html;
+      } else if(event.target && event.target.value) {
+        this.blockData.languages
+          .filter(el => el.lang === lang)[0].properties
+          .filter(el => el.name === parentPropertyName)[0].value[index]
+          .filter(el => el.name === propertyName)[0].value = event.target.value;
       }
-      this.blockData.languages
-        .filter(el => el.lang === lang)[0].properties
-        .filter(el => el.name === parentPropertyName)[0].value[index]
-        .filter(el => el.name === propertyName)[0].value = event.target.value;
     } else {
       if (event.html && !this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].copiedFromMaster) {
         this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = event.html;
-      } else {
+      } else if(event.target && event.target.value) {
         this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = event.target.value;
       }
-    }
-  }
-  */
-  setPropertyValue(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
-    if (parentPropertyName && index !== undefined) {
-      this.blockData.languages
-        .filter(el => el.lang === lang)[0].properties
-        .filter(el => el.name === parentPropertyName)[0].value[index]
-        .filter(el => el.name === propertyName)[0].value = event.target.value;
-    } else if (event.html) {
-      if(!this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].copiedFromMaster) {
-        this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = event.html;
-      }
-    } else {
-      this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = event.target.value;
     }
   }
 

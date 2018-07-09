@@ -428,12 +428,12 @@
 					},
 					{
 						"name": "color",
-						"value": "'#d60e0e'",
+						"value": "'#723a3a'",
 						"copiedFromMaster": false
 					},
 					{
 						"name": "text",
-						"value": "<p>asd asd <strong>asdsad </strong>asd da sdasdas asd</p><p><br></p><p>asd <em>asd sdf sdf sd df</em></p><p><br></p><p>sd as d</p><p>as d</p>",
+						"value": "<p>asd asd <strong>asdsad </strong>asd da sd</p><p><br></p><p>asd <em>asd sdf sdf sd df</em></p><p><br></p><p>sd as d</p><p>as d</p>",
 						"copiedFromMaster": false
 					}
 				],

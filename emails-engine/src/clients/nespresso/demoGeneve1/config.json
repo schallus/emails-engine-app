@@ -1,0 +1,24 @@
+{
+	"lang": {
+		"fr": {
+			"subject": "sdfdf gdg "
+		},
+		"de": {
+			"subject": "fd gdf g"
+		},
+		"it": {
+			"subject": "qsdfg gsdf"
+		},
+		"fr-CH": {
+			"subject": "sdf sdf "
+		}
+	},
+	"customLang": [
+		{
+			"name": "Français(Suisse)",
+			"code": "fr-CH"
+		}
+	],
+	"layout": "default",
+	"masterLang": "fr-CH"
+}

@@ -69,3 +69,16 @@
         }
     }
 }
+
+.ql-snow.ql-toolbar button.show-source-code, 
+.ql-snow .ql-toolbar button.show-source-code {
+    width: auto;
+}
+
+.wysiwyg-source-code textarea {
+    font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
+    font-size: 0.9em;
+    display: block;
+    width: 100%;
+    min-height: 100px;
+}
