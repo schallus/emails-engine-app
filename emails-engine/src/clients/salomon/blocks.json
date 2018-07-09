@@ -2,25 +2,25 @@
     {
         "name": "01-vamp",
         "displayName": "View as a web page",
-        "thumbnailUrl": "http://localhost:3000/public/salomon/images/01-vamp.jpg",
+        "thumbnailUrl": "/public/salomon/images/01-vamp.jpg",
         "properties": []
     },
     {
         "name": "02-header-navbar",
         "displayName": "Header With Navigation Bar",
-        "thumbnailUrl": "http://localhost:3000/public/salomon/images/02-header-navbar.jpg",
+        "thumbnailUrl": "/public/salomon/images/02-header-navbar.jpg",
         "properties": []
     },
     {
         "name": "03-header-store-adress",
         "displayName": "Header With Store Address",
-        "thumbnailUrl": "http://localhost:3000/public/salomon/images/03-header-store-adress.jpg",
+        "thumbnailUrl": "/public/salomon/images/03-header-store-adress.jpg",
         "properties": []
     },
     {
         "name": "04-key-initiative-for-picture",
         "displayName": "Key Initiative For Picture",
-        "thumbnailUrl": "http://localhost:3000/public/salomon/images/04-key-initiative-for-picture.jpg",
+        "thumbnailUrl": "/public/salomon/images/04-key-initiative-for-picture.jpg",
         "properties": []
     }
 ]

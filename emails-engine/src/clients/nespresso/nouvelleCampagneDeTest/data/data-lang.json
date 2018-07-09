@@ -12,7 +12,7 @@
 					},
 					{
 						"name": "img",
-						"value": "http://localhost:3000/dist/nespresso/nouvelleCampagneDeTest/images/uploads/paysage.jpg",
+						"value": "/dist/nespresso/nouvelleCampagneDeTest/images/uploads/paysage.jpg",
 						"copiedFromMaster": false
 					},
 					{
@@ -202,7 +202,7 @@
 								},
 								{
 									"name": "img",
-									"value": "http://localhost:3000/dist/nespresso/nouvelleCampagneDeTest/images/uploads/paysage.jpg",
+									"value": "/dist/nespresso/nouvelleCampagneDeTest/images/uploads/paysage.jpg",
 									"copiedFromMaster": false
 								},
 								{

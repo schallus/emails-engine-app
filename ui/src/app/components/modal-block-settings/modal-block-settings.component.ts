@@ -3,6 +3,9 @@ import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { TabsetComponent, ToastService } from 'ng-uikit-pro-standard';
 
+// Environment variables
+import { environment } from '../../../environments/environment';
+
 // Services
 import { ApiService } from '../../services/api.service';
 import { UploadService } from '../../services/upload.service';
@@ -35,6 +38,9 @@ export class ModalBlockSettingsComponent implements OnInit {
 
   showSourceCode: boolean;
 
+  serverUrl: string;
+
+  // Options for Quill WYSIWYG Editor
   quillOptions = {
     toolbar: [
       ['bold', 'italic'],                                 // toggled buttons
@@ -51,7 +57,6 @@ export class ModalBlockSettingsComponent implements OnInit {
       [{ 'align': [] }],
       ['clean'],                                          // remove formatting button
       ['link', /*'image', 'video'*/]                      // link and image, video
-      ['showHtml']
     ]
   };
 
@@ -64,6 +69,7 @@ export class ModalBlockSettingsComponent implements OnInit {
     private toastrService: ToastService
   ) {
     this.showSourceCode = false;
+    this.serverUrl = environment.serverUrl;
   }
 
   ngOnInit() { 
@@ -71,14 +77,17 @@ export class ModalBlockSettingsComponent implements OnInit {
     this.brandName = this.route.snapshot.paramMap.get('brandName');
     this.campaignName = this.route.snapshot.paramMap.get('campaignName');
 
+    // Get blocks available
     this.apiService.getBlocks(this.brandName).subscribe(blocks => {
       this.blocks = blocks;
     }, err => {
       this.toastrService.error('Une erreur s\'est produite lors du chargement des blocs.');
     });
 
+    // Get campaign options
     this.apiService.getCampaignOptions(this.brandName, this.campaignName).subscribe(options => {
       this.campaignOptions = options;
+      // Get the languages list and sort it by master then alphabetical order
       this.campaignLanguages = Object.keys(this.campaignOptions.lang)
         .filter(el => el !== this.campaignOptions.masterLang)
         .sort();
@@ -88,30 +97,7 @@ export class ModalBlockSettingsComponent implements OnInit {
     });
   }
 
-  /*initWysiwyg(event: any) {
-    console.log(event);
-    var txtArea = document.createElement('textarea');
-    txtArea.style.cssText = "width: 100%;margin: 0px;background: rgb(29, 29, 29);box-sizing: border-box;color: rgb(204, 204, 204);font-size: 15px;outline: none;padding: 20px;line-height: 24px;font-family: Consolas, Menlo, Monaco, &quot;Courier New&quot;, monospace;position: absolute;top: 0;bottom: 0;border: none;display:none";
-    
-    var htmlEditor = event.editor.addContainer('ql-custom');
-    htmlEditor.appendChild(txtArea);
-  
-    var myEditor = document.querySelector('#editor');
-    event.editor.on('text-change', (delta, oldDelta, source) => {
-      var html = myEditor.children[0].innerHTML
-      txtArea.value = html
-    })
-  
-    const customButton = document.querySelector('.ql-showHtml');
-    customButton.addEventListener('click', () => {
-      if (txtArea.style.display === '') {
-        var html = txtArea.value
-        //self.quill.pasteHTML(html)
-      }
-      txtArea.style.display = txtArea.style.display === 'none' ? '' : 'none'
-    });
-  }*/
-
+  // Function called before opening the modal window
   show(block: BlockPosition) {
     this.block = block;
     this.blockInfo = this.getBlockTypeInfo(block.blockType);
@@ -121,8 +107,8 @@ export class ModalBlockSettingsComponent implements OnInit {
       this.blockData = data;
 
       if (!this.blockData) {
-        // Si le bloc vient d'être créé ou n'as pas encore reçu de données
-
+        // If the block did not receive any data yet
+        // We build the block data structure in order to receive data
         const blockInfo = this.getBlockTypeInfo(this.block.blockType);
 
         const langData = [];
@@ -173,6 +159,7 @@ export class ModalBlockSettingsComponent implements OnInit {
 
           langData.push(el);
         }
+        // We send the block data to the API
         this.apiService.setBlockData(this.brandName, this.campaignName, this.blockData).subscribe(newBlockData => {
           // After the block data set, we open the modal
           this.langTabs.tabs[0].active = true;
@@ -181,6 +168,7 @@ export class ModalBlockSettingsComponent implements OnInit {
           this.toastrService.error('Erreur lors de l\'enregistrement des données.');
         });
       } else {
+        // If the block already have data, we open the modal directly
         this.langTabs.tabs[0].active = true;
         this.modalBlockSettings.show();
       }
@@ -189,23 +177,28 @@ export class ModalBlockSettingsComponent implements OnInit {
     });
   }
 
+  // Get the bloc informations (properties, etc.) by block type
   getBlockTypeInfo(blockType: string) {
     return this.blocks.filter(block => block.name === blockType)[0];
   }
 
 
+  // Set a property value
   setPropertyValue(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
     if (parentPropertyName && index !== undefined) {
+      // If it's a child attribute
       if (event.html && !this.blockData.languages
         .filter(el => el.lang === lang)[0].properties
         .filter(el => el.name === parentPropertyName)[0].value[index]
         .filter(el => el.name === propertyName)[0].copiedFromMaster
       ) {
-          this.blockData.languages
-            .filter(el => el.lang === lang)[0].properties
-            .filter(el => el.name === parentPropertyName)[0].value[index]
-            .filter(el => el.name === propertyName)[0].value = event.html;
+        // If it's a WYSIWYG event
+        this.blockData.languages
+          .filter(el => el.lang === lang)[0].properties
+          .filter(el => el.name === parentPropertyName)[0].value[index]
+          .filter(el => el.name === propertyName)[0].value = event.html;
       } else if(event.target && event.target.value) {
+        // Input change event
         this.blockData.languages
           .filter(el => el.lang === lang)[0].properties
           .filter(el => el.name === parentPropertyName)[0].value[index]
@@ -213,8 +206,10 @@ export class ModalBlockSettingsComponent implements OnInit {
       }
     } else {
       if (event.html && !this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].copiedFromMaster) {
+        // If it's a WYSIWYG event
         this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = event.html;
       } else if(event.target && event.target.value) {
+        // Input change event
         this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = event.target.value;
       }
     }
@@ -222,11 +217,15 @@ export class ModalBlockSettingsComponent implements OnInit {
 
   uploadFile(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
     if (event.target.files.length > 0) {
+      // If there is a file attached to the input
       const image = event.target.files[0];
 
+      // We upload the image to the server using an API endpoint
       this.uploadService.uploadImage(this.brandName, this.campaignName, image).subscribe((data) => {
         if (data && data.imageUrl) {
+          // We successfuly received an answer from the server
           if (parentPropertyName && index !== undefined) {
+            // If it's a child property
             this.blockData.languages
               .filter(el => el.lang === lang)[0].properties
               .filter(el => el.name === parentPropertyName)[0].value[index]
@@ -241,6 +240,7 @@ export class ModalBlockSettingsComponent implements OnInit {
     }
   }
 
+  // Toggle the visibility of a block in the lang given as a parameter
   toggleVisibility(lang: string) {
     if (this.blockData) {
       this.blockData.languages.filter(
@@ -249,6 +249,7 @@ export class ModalBlockSettingsComponent implements OnInit {
     }
   }
 
+  // Return true if the block is visible in the lang given as a parameter
   isVisible(lang: string) {
     if (this.blockData) {
       return this.blockData.languages.filter(
@@ -257,6 +258,7 @@ export class ModalBlockSettingsComponent implements OnInit {
     }
   }
 
+  // Function called when we change the "Copy from master" checkbox 
   copyFromMaster(propertyName: string, lang: string, parentPropertyName?: string, index?: number) {
     if (parentPropertyName && index !== undefined) {
       const propertyValue = this.blockData.languages
@@ -270,6 +272,7 @@ export class ModalBlockSettingsComponent implements OnInit {
     }
   }
 
+  // Function called when we change the value of a color picker
   colorPickerChange(propertyName: string, lang: string, color: any, parentPropertyName?: string, index?: number) {
     if (parentPropertyName && index !== undefined) {
       this.blockData.languages
@@ -281,11 +284,15 @@ export class ModalBlockSettingsComponent implements OnInit {
     }
   }
 
+  // Function called when we save a block
   onBlockSettingsFormSubmit(form: NgForm) {
     if (!form.valid) {
+      // If the form is invalid, we open a modal
       this.modalWarningSave.show();
     } else {
+      // We emit an event to tell the parent that the block is valid
       this.valid.emit({ block: this.block, valid: true });
+      // We update the block data by calling the API
       this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe(() => {
         this.modalBlockSettings.hide();
       }, err => {
@@ -294,15 +301,19 @@ export class ModalBlockSettingsComponent implements OnInit {
     }
   }
 
+  // When we click on the cancel button, we discard the changes and close the modals
   discardBlockSettings() {
     this.blockData = null;
     this.modalWarningSave.hide();
     this.modalBlockSettings.hide();
   }
 
+  // Function called when the user click "Save the block" on the warning modal despite the errors
   saveBlockSettings() {
     this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe(() => {
+      // Emit an event to tell the parent component that the block is invalid
       this.valid.emit({ block: this.block, valid: false });
+      // Hide the modals
       this.modalWarningSave.hide();
       this.modalBlockSettings.hide();
     }, err => {

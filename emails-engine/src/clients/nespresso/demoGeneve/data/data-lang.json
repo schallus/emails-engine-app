@@ -75,7 +75,7 @@
 				"properties": [
 					{
 						"name": "img",
-						"value": "http://localhost:3000/dist/nespresso/demoGeneve/images/uploads/Logo-Nespresso.png",
+						"value": "/dist/nespresso/demoGeneve/images/uploads/Logo-Nespresso.png",
 						"copiedFromMaster": false
 					},
 					{
@@ -138,7 +138,7 @@
 					},
 					{
 						"name": "img",
-						"value": "http://localhost:3000/dist/nespresso/demoGeneve/images/uploads/WP_20180412_17_43_38_Pro.jpg",
+						"value": "/dist/nespresso/demoGeneve/images/uploads/WP_20180412_17_43_38_Pro.jpg",
 						"copiedFromMaster": false
 					},
 					{
@@ -236,7 +236,7 @@
 					},
 					{
 						"name": "img",
-						"value": "http://localhost:3000/dist/nespresso/demoGeneve/images/uploads/WP_20180412_17_44_30_Pro.jpg",
+						"value": "/dist/nespresso/demoGeneve/images/uploads/WP_20180412_17_44_30_Pro.jpg",
 						"copiedFromMaster": false
 					},
 					{

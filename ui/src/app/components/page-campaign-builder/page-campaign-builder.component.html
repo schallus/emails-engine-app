@@ -25,7 +25,7 @@
         <div class="col-12" [sortablejs]="filteredBlocks" [sortablejsOptions]="blockLibraryOptions" id="builderBlockList">
           <div class="alert alert-danger" *ngIf="filteredBlocks?.length==0">Il n'y a aucun bloc à afficher</div>
           <div *ngFor="let block of filteredBlocks" [class]="'card block text-center mb-3 ' + block?.name" [blockData]="block">
-            <img class="img-fluid" [src]="block?.thumbnailUrl" [alt]="block?.displayName">
+            <img class="img-fluid" [src]="serverUrl + block?.thumbnailUrl" [alt]="block?.displayName">
             <div class="card-body">
               <h4 class="card-title">{{ block.displayName }}</h4>
             </div>
@@ -44,7 +44,7 @@
         <div class="alert grey white-text" role="alert" *ngIf="campaignStructure?.length<=0">Déposer les blocs ici.</div>
         <div sortablejs [sortablejsOptions]="dropZoneOptions" id="blockDropZone">
           <div *ngFor="let block of campaignStructure" [class]="'card block mb-3 ' + block.name" [class.invalid]="block.valid==false">
-            <img class="img-fluid" [src]="getBlockTypeInfo(block.blockType).thumbnailUrl" [alt]="getBlockTypeInfo(block.blockType).displayName">
+            <img class="img-fluid" [src]="serverUrl + getBlockTypeInfo(block.blockType).thumbnailUrl" [alt]="getBlockTypeInfo(block.blockType).displayName">
             <div class="card-body row">
                 <div class="text col-sm-8">
                   <h4 class="card-title">{{ getBlockTypeInfo(block.blockType).displayName }}</h4>

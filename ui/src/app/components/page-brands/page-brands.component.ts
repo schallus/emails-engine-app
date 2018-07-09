@@ -38,6 +38,7 @@ export class PageBrandsComponent implements OnInit {
 
   ngOnInit() {}
   
+  // Filter the brands when we type in the search input
   filterBrands(event:any) {
     this.filteredBrands = this.brands.filter(
       brand => brand.displayName.toLowerCase().indexOf(event.target.value.toLowerCase()) > -1

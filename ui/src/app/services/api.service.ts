@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 
-import { config } from './../config';
+import { environment } from '../../environments/environment';
 
 import { Brand } from '../models/brand';
 import { Campaign } from '../models/campaign';
@@ -53,7 +53,7 @@ export class ApiService {
     private http: HttpClient,
     private apiHelper: ApiHelperService
   ) {
-    this.apiBaseUrl = config.apiBaseUrl;
+    this.apiBaseUrl = environment.apiBaseUrl;
     this.brandsUrl = `${this.apiBaseUrl}/brands`;
   }
 

@@ -3,6 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { SortablejsOptions } from 'angular-sortablejs';
 import { DOCUMENT } from '@angular/platform-browser';
 
+// Environment variables
+import { environment } from '../../../environments/environment';
+
 // Services
 import { ToastService } from 'ng-uikit-pro-standard';
 import { ApiService } from '../../services/api.service';
@@ -55,6 +58,8 @@ export class PageCampaignBuilderComponent implements OnInit {
   previewLinks: Array<{url: string, lang: string}>;
   buildInProgress: boolean;
 
+  serverUrl: string;
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -62,9 +67,9 @@ export class PageCampaignBuilderComponent implements OnInit {
     @Inject(DOCUMENT) private doc: Document,
     private toastrService: ToastService
   ) {
-
     this.blocksFixed = false;
     this.buildInProgress = false;
+    this.serverUrl = environment.serverUrl;
 
     this.blockLibraryOptions = {
       group: {
@@ -114,6 +119,7 @@ export class PageCampaignBuilderComponent implements OnInit {
     const brandName = this.route.snapshot.paramMap.get('brandName');
     const campaignName = this.route.snapshot.paramMap.get('campaignName');
 
+    // Get the brands list
     this.apiService.getBrands().subscribe(brands => {
       if(brands.map(el => el.name).indexOf(brandName) == -1) {
         this.redirect404();

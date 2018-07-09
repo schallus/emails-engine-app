@@ -96,7 +96,7 @@
 				"properties": [
 					{
 						"name": "img",
-						"value": "http://localhost:3000/dist/nespresso/campagneDeDemonstration/images/uploads/Logo-Nespresso.png",
+						"value": "/dist/nespresso/campagneDeDemonstration/images/uploads/Logo-Nespresso.png",
 						"copiedFromMaster": false
 					},
 					{
@@ -175,7 +175,7 @@
 					},
 					{
 						"name": "img",
-						"value": "http://localhost:3000/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_17_43_38_Pro.jpg",
+						"value": "/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_17_43_38_Pro.jpg",
 						"copiedFromMaster": false
 					},
 					{
@@ -304,7 +304,7 @@
 					},
 					{
 						"name": "img",
-						"value": "http://localhost:3000/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_16_54_14_Pro.jpg",
+						"value": "/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_17_49_36_Pro.jpg",
 						"copiedFromMaster": false
 					},
 					{

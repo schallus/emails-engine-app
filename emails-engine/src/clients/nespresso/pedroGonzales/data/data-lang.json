@@ -95,7 +95,7 @@
 					},
 					{
 						"name": "img",
-						"value": "http://localhost:3000/dist/nespresso/pedroGonzales/images/uploads/marguerite-daisy-beautiful-beauty.jpg",
+						"value": "/dist/nespresso/pedroGonzales/images/uploads/marguerite-daisy-beautiful-beauty.jpg",
 						"copiedFromMaster": false
 					},
 					{
