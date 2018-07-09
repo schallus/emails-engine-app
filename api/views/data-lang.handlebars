@@ -17,34 +17,34 @@
                         {{#if @first}}
                             {{#if this.copiedFromMaster }}
                                 {{#ifEquals ../../../../../data.lang ../../../../../data.masterLang}}
-      - {{{this.name}}}: {{this.value}}
+      - {{{this.name}}}: {{{this.value}}}
                                 {{else}}
-      - {{{this.name}}}: {{masterValue ../../../../this.blockName ../../../../../data.masterLang this.name ../../this.name @../key}}
+      - {{{this.name}}}: {{{masterValue ../../../../this.blockName ../../../../../data.masterLang this.name ../../this.name @../key}}}
                                 {{/ifEquals}}
                             {{else}}
-      - {{{this.name}}}: {{this.value}}
+      - {{{this.name}}}: {{{this.value}}}
                             {{/if}}
                         {{else}}
                             {{#if this.copiedFromMaster }}
                                 {{#ifEquals ../../../../../data.lang ../../../../../data.masterLang}}
-        {{{this.name}}}: {{this.value}}
+        {{{this.name}}}: {{{this.value}}}
                                 {{else}}
-        {{{this.name}}}: {{masterValue ../../../../this.blockName ../../../../../data.masterLang this.name ../../this.name @../key}}
+        {{{this.name}}}: {{{masterValue ../../../../this.blockName ../../../../../data.masterLang this.name ../../this.name @../key}}}
                                 {{/ifEquals}}
                             {{else}}
-        {{{this.name}}}: {{this.value}}
+        {{{this.name}}}: {{{this.value}}}
                             {{/if}}
                         {{/if}}
                     {{/each}}
                 {{else}}
                     {{#if this.copiedFromMaster }}
                         {{#ifEquals ../../../data.lang ../../../data.masterLang}}
-    {{{this.name}}}: {{this.value}}
+    {{{this.name}}}: {{{this.value}}}
                         {{else}}
-    {{{this.name}}}: {{masterValue ../../this.blockName ../../../data.masterLang this.name null null}}
+    {{{this.name}}}: {{{masterValue ../../this.blockName ../../../data.masterLang this.name null null}}}
                         {{/ifEquals}}
                     {{else}}
-    {{{this.name}}}: {{this.value}}
+    {{{this.name}}}: {{{this.value}}}
                     {{/if}}
                 {{/each}}
             {{/each}}

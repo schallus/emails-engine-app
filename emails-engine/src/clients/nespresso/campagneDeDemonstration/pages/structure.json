@@ -24,21 +24,21 @@
 		"valid": true
 	},
 	{
-		"blockType": "block-06",
-		"position": 4,
-		"name": "block-06-1530877882634",
-		"valid": true
-	},
-	{
 		"blockType": "spacer",
-		"position": 5,
+		"position": 4,
 		"name": "spacer-1530859853953",
 		"valid": true
 	},
 	{
 		"blockType": "block-19",
-		"position": 6,
+		"position": 5,
 		"name": "block-19-1530859843541",
+		"valid": true
+	},
+	{
+		"blockType": "block-06",
+		"position": 6,
+		"name": "block-06-1531071824770",
 		"valid": true
 	},
 	{

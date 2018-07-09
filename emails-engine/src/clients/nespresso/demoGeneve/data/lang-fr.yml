@@ -4,14 +4,22 @@
 # lang: fr
 #
 
-block-01-1531054530543:
-    title: Titre FRA
-    text: Ceci est un test. Ceci est un test. Ceci est un test. Ceci est un test. 
-    linkUrl: http://www.google.ch
-    linkText: Lien vers Google
-block-10-1531054759643:
-    url: http://www.google.ch
+header-01-1531074009921:
+    text: Texte header FR
+    linkText: Texte du lien header
+    linkUrl: http://www.google.com
+header-02-1531074041782:
+    img: http://localhost:3000/dist/nespresso/demoGeneve/images/uploads/Logo-Nespresso.png
+    url: http://www.nespresso.com
+block-19-1531074122468:
+    linkUrl: http://www.nespresso.com
+    linkText: Lien vers nespresso
     img: http://localhost:3000/dist/nespresso/demoGeneve/images/uploads/WP_20180412_17_43_38_Pro.jpg
-    title: Titre du bloc
-    text: Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. Texte du bloc. 
-    link: Ceci est un lien
+    title: Titre du bloc en FR
+    text: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+block-20-1531074126377:
+    linkUrl: http://www.google.com
+    linkText: Lien vers Google
+    img: http://localhost:3000/dist/nespresso/demoGeneve/images/uploads/WP_20180412_17_44_30_Pro.jpg
+    title: Titre du bloc en FR
+    text: Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.

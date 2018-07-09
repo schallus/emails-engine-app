@@ -33,6 +33,30 @@ export class ModalBlockSettingsComponent implements OnInit {
   campaignOptions: any;
   campaignLanguages: string[];
 
+  quillOptions = {
+    toolbar: [
+      ['bold', 'italic'],                                 // toggled buttons
+      // ['blockquote', 'code-block'],
+  
+      // [{ 'header': 1 }, { 'header': 2 }],              // custom button values
+      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
+      [{ 'script': 'sub'}, { 'script': 'super' }],        // superscript/subscript
+      // [{ 'indent': '-1'}, { 'indent': '+1' }],         // outdent/indent
+      // [{ 'direction': 'rtl' }],                        // text direction
+  
+      // [{ 'size': ['small', false, 'large', 'huge'] }], // custom dropdown
+      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
+  
+      // [{ 'color': [] }, { 'background': [] }],         // dropdown with defaults from theme
+      // [{ 'font': [] }],
+      [{ 'align': [] }],
+  
+      ['clean'],                                          // remove formatting button
+  
+      ['link', /*'image', 'video'*/]                      // link and image, video
+    ]
+  };
+
   @Output() valid = new EventEmitter<any>();
 
   constructor(
@@ -145,12 +169,41 @@ export class ModalBlockSettingsComponent implements OnInit {
     return this.blocks.filter(block => block.name === blockType)[0];
   }
 
+
+  /*
+  setPropertyValue(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
+    if (parentPropertyName && index !== undefined) {
+      if (event.html && !this.blockData.languages
+        .filter(el => el.lang === lang)[0].properties
+        .filter(el => el.name === parentPropertyName)[0].value[index]
+        .filter(el => el.name === propertyName)[0].) {
+
+      } else {
+
+      }
+      this.blockData.languages
+        .filter(el => el.lang === lang)[0].properties
+        .filter(el => el.name === parentPropertyName)[0].value[index]
+        .filter(el => el.name === propertyName)[0].value = event.target.value;
+    } else {
+      if (event.html && !this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].copiedFromMaster) {
+        this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = event.html;
+      } else {
+        this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = event.target.value;
+      }
+    }
+  }
+  */
   setPropertyValue(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
     if (parentPropertyName && index !== undefined) {
       this.blockData.languages
         .filter(el => el.lang === lang)[0].properties
         .filter(el => el.name === parentPropertyName)[0].value[index]
         .filter(el => el.name === propertyName)[0].value = event.target.value;
+    } else if (event.html) {
+      if(!this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].copiedFromMaster) {
+        this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = event.html;
+      }
     } else {
       this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = event.target.value;
     }

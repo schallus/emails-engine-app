@@ -23,3 +23,7 @@ block-19-1530859843541:
     img: http://localhost:3000/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_16_54_14_Pro.jpg
     title: Titre du bloc FR
     text: Ceci est le texte du bloc en français.
+block-06-1531071824770:
+    bgcolor: '#582828'
+    color: '#d60e0e'
+    text: <p>asd asd <strong>asdsad </strong>asd da sdasdas asd</p><p><br></p><p>asd <em>asd sdf sdf sd df</em></p><p><br></p><p>sd as d</p><p>as d</p>

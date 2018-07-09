@@ -1,7 +1,7 @@
 #
 # brand: nespresso
 # campaign: campagneDeDemonstration
-# lang: de
+# lang: fr-CH
 #
 
 header-01-1530859818196:
@@ -15,7 +15,7 @@ block-20-1530859838201:
     linkUrl: http://www.google.ch
     linkText: Lien vers Google
     img: http://localhost:3000/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_17_43_38_Pro.jpg
-    title: Ceci est le titre en Allemand
+    title: Titre du bloc en FR
     text: Texte du bloc en FR
 block-19-1530859843541:
     linkUrl: http://www.wideagency.ch
@@ -24,6 +24,6 @@ block-19-1530859843541:
     title: Titre du bloc FR
     text: Ceci est le texte du bloc en français.
 block-06-1531071824770:
-    bgcolor: 
+    bgcolor: '#582828'
     color: '#d60e0e'
-    text: <p>Test</p>
+    text: <p>Test</p><p>sdf sdf</p><p>sdf</p><p>sdf f</p>

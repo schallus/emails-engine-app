@@ -237,7 +237,7 @@
             {
                 "name": "text",
                 "displayName": "Texte",
-                "type": "textarea",
+                "type": "wysiwyg",
                 "required": true
             }
         ]

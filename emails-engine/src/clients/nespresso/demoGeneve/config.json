@@ -1,19 +1,16 @@
 {
 	"lang": {
-		"en": {
-			"subject": "Sujet EN"
-		},
 		"fr": {
-			"subject": "Sujet FR"
+			"subject": "Démo Genève FR"
 		},
 		"de": {
-			"subject": "Sujet DE"
+			"subject": "Démo Genève DE"
 		},
 		"it": {
-			"subject": "Sujet IT"
+			"subject": "Démo Genève IT"
 		}
 	},
 	"customLang": [],
 	"layout": "default",
-	"masterLang": "en"
+	"masterLang": "fr"
 }

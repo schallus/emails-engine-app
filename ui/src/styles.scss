@@ -1,5 +1,7 @@
 @import "./assets/styles/dragndrop";
 
+@import "./assets/quill/quill.snow";
+
 $primary-color: #f02435;
 
 a {
@@ -97,4 +99,8 @@ mdb-navbar nav.navbar {
     top: 0px;
     width: 100%;
     z-index:100;
+}
+
+b, strong {
+    font-weight: bold;
 }

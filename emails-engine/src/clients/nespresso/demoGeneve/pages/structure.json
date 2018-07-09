@@ -1,14 +1,38 @@
 [
 	{
-		"blockType": "block-01",
+		"blockType": "header-01",
 		"position": 0,
-		"name": "block-01-1531054530543",
+		"name": "header-01-1531074009921",
 		"valid": true
 	},
 	{
-		"blockType": "block-10",
+		"blockType": "header-02",
 		"position": 1,
-		"name": "block-10-1531054759643",
+		"name": "header-02-1531074041782",
+		"valid": true
+	},
+	{
+		"blockType": "spacer",
+		"position": 2,
+		"name": "spacer-1531074113421",
+		"valid": true
+	},
+	{
+		"blockType": "block-19",
+		"position": 3,
+		"name": "block-19-1531074122468",
+		"valid": true
+	},
+	{
+		"blockType": "spacer",
+		"position": 4,
+		"name": "spacer-1531074115275",
+		"valid": true
+	},
+	{
+		"blockType": "block-20",
+		"position": 5,
+		"name": "block-20-1531074126377",
 		"valid": true
 	}
 ]

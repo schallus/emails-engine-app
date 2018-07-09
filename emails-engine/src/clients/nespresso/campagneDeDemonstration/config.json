@@ -1,5 +1,8 @@
 {
 	"lang": {
+		"fr-CH": {
+			"subject": "Sujet en FR-CH"
+		},
 		"fr": {
 			"subject": "Sujet en FR"
 		},
@@ -8,15 +11,13 @@
 		},
 		"it": {
 			"subject": "Sujet différent en IT"
-		},
-		"fr-CH": {
-			"subject": "Sujet en FR-CH"
 		}
 	},
 	"customLang": [
 		{
 			"name": "Français (Suisse)",
-			"code": "fr-CH"
+			"code": "fr-CH",
+			"selected": true
 		}
 	],
 	"layout": "default",

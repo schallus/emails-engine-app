@@ -10,7 +10,7 @@ const transporter = nodemailer.createTransport({
     port: 587,
     secure: false, // true for 465, false for other ports
     auth: {
-        user: 'widebetatesteur@gmail.com',
+        user: 'wideemailengine@gmail.com',
         pass: '1+password'
     },
     tls: {

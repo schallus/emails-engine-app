@@ -7,6 +7,7 @@ import { SortablejsModule } from 'angular-sortablejs';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ColorPickerModule } from 'ngx-color-picker';
+import { QuillModule } from 'ngx-quill';
 
 import { AppComponent } from './app.component';
 
@@ -57,7 +58,8 @@ import { DebounceChangeDirective } from './directives/debounce-change.directive'
     AppRoutingModule,
     SortablejsModule.forRoot({}),
     HttpClientModule,
-    ColorPickerModule
+    ColorPickerModule,
+    QuillModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [ApiService, ApiHelperService, UploadService],

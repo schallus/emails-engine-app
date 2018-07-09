@@ -28,7 +28,7 @@
             <tr *ngIf="filteredCampaigns?.length==0"><td colspan="3">Il n'y a aucune campagne à afficher</td></tr>
             <tr *ngFor="let campaign of filteredCampaigns">
               <td class="align-middle"><a [routerLink]="['/brands', brand.name, 'campaigns', campaign.name, 'options']">{{ campaign.displayName }}</a></td>
-              <td class="align-middle">{{ campaign.updatedAt || campaign.createdAt | date }}</td>
+              <td class="align-middle">{{ campaign.updatedAt || campaign.createdAt | date:'dd/MM/yyyy' }}</td>
               <td class="text-right align-middle actions">
                 <a [routerLink]="['/brands', brand.name, 'campaigns', campaign.name, 'options']" class="btn-floating btn-sm btn-secondary waves-light mr-1" mdbTooltip="Editer" placement="top" mdbWavesEffect><i class="fa fa-edit"></i></a>
                 <a class="btn-floating btn-sm btn-secondary waves-light mr-1" (click)="showCloneConfirmation(campaign.name)" mdbTooltip="Dupliquer" placement="top" mdbWavesEffect><i class="fa fa-clone"></i></a>

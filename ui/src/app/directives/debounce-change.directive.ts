@@ -30,5 +30,10 @@ export class DebounceChangeDirective implements OnInit, OnDestroy {
     event.stopPropagation();
     this.changes.next(event);
   }
+
+  @HostListener('onContentChanged', ['$event'])
+  onContentChangedEvent(event) {
+    this.changes.next(event);
+  }
 }
 
