@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { QuillModule } from 'ngx-quill';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 import { AppComponent } from './app.component';
 
@@ -59,7 +60,9 @@ import { DebounceChangeDirective } from './directives/debounce-change.directive'
     SortablejsModule.forRoot({}),
     HttpClientModule,
     ColorPickerModule,
-    QuillModule
+    QuillModule,
+    FroalaEditorModule.forRoot(), 
+    FroalaViewModule.forRoot()
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [ApiService, ApiHelperService, UploadService],

@@ -175,7 +175,7 @@
 					},
 					{
 						"name": "img",
-						"value": "/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_17_43_38_Pro.jpg",
+						"value": "/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_16_38_23_Pro.jpg",
 						"copiedFromMaster": false
 					},
 					{
@@ -433,7 +433,7 @@
 					},
 					{
 						"name": "text",
-						"value": "<p>asd asd <strong>asdsad </strong>asd da sd</p><p><br></p><p>asd <em>asd sdf sdf sd df</em></p><p><br></p><p>sd as d</p><p>as d</p>",
+						"value": "<p class=\"fontArial\">asd asd <strong class=\"fontArial\">asdsad&nbsp;</strong>asd da sd</p><p class=\"fontArial\">asd <em class=\"fontArial\">asd sdf sdf sd df</em></p><p class=\"fontArial\">sd as d</p><p class=\"fontArial\">as d</p>",
 						"copiedFromMaster": false
 					}
 				],
@@ -455,7 +455,7 @@
 					{
 						"name": "text",
 						"value": "<p>Test</p>",
-						"copiedFromMaster": false
+						"copiedFromMaster": true
 					}
 				],
 				"display": true
@@ -476,7 +476,7 @@
 					{
 						"name": "text",
 						"value": "<p>Test</p><p>sdf sdf</p><p>sdf</p><p>sdf f</p>",
-						"copiedFromMaster": false
+						"copiedFromMaster": true
 					}
 				],
 				"display": true

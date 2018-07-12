@@ -18,5 +18,10 @@
 		"lastname": "Prénom",
 		"firstname": "Nom",
 		"email": "test@wide.com"
+	},
+	{
+		"lastname": "Florian",
+		"firstname": "Schaller",
+		"email": "florian.schaller@heig-vd.ch"
 	}
 ]

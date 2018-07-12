@@ -57,7 +57,7 @@
             {
                 "name": "text",
                 "displayName": "Texte",
-                "type": "text",
+                "type": "wysiwyg",
                 "required": true
             }
         ]
@@ -299,7 +299,7 @@
             {
                 "name": "text",
                 "displayName": "Texte",
-                "type": "text",
+                "type": "wysiwyg",
                 "required": false
             },
             {
@@ -330,7 +330,7 @@
             {
                 "name": "title",
                 "displayName": "Titre",
-                "type": "text",
+                "type": "wysiwyg",
                 "required": false
             },
             {
@@ -447,7 +447,7 @@
             {
                 "name": "title",
                 "displayName": "Titre",
-                "type": "text",
+                "type": "wysiwyg",
                 "required": true
             },
             {
@@ -480,6 +480,46 @@
                         "displayName": "Texte",
                         "type": "text",
                         "required": false
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "name": "footer-03",
+        "displayName": "Footer 03",
+        "thumbnailUrl": "/public/nespresso/images/footer-03.jpg",
+        "properties": [
+            {
+                "name": "logoUrl",
+                "displayName": "Lien sur logo",
+                "type": "url",
+                "required": true
+            },
+            {
+                "name": "text",
+                "displayName": "Texte du footer",
+                "type": "wysiwyg",
+                "required": true
+            },
+            {
+                "name": "socials",
+                "displayName": "Icônes réseaux sociaux",
+                "type": "properties",
+                "required": true,
+                "numberItems": 5,
+                "properties": [
+                    {
+                        "name": "url",
+                        "displayName": "URL",
+                        "type": "url",
+                        "required": true
+                    },
+                    {
+                        "name": "img",
+                        "displayName": "Image",
+                        "type": "img",
+                        "required": true
                     }
                 ]
             }

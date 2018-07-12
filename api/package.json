@@ -26,7 +26,9 @@
     "mv": "^2.1.1",
     "ncp": "^2.0.0",
     "nodemailer": "^4.6.7",
-    "nodemailer-html-to-text": "^2.1.0"
+    "nodemailer-html-to-text": "^2.1.0",
+    "phantomjs-prebuilt": "^2.1.16",
+    "webshot": "^0.18.0"
   },
   "devDependencies": {}
 }

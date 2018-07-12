@@ -1,0 +1,426 @@
+[
+	{
+		"blockName": "header-02-1531231935137",
+		"languages": [
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "img",
+						"value": "/dist/nespresso/solothurn/images/uploads/logo.png",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "url",
+						"value": "http://www.nespresso.com/",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "header-01-1531231933395",
+		"languages": [
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "text",
+						"value": "Ein Nespresso Point hat in Ihrer Nähe seine Türen geöffnet",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkText",
+						"value": "Diese E-Mail online ansehen.",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkUrl",
+						"value": "http://www.nespresso.com/",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "header-03-1531231937534",
+		"languages": [
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "text",
+						"value": "<p class=\"fontArial\">Club-Mitgliedsnummer: <strong class=\"fontsize12 fontArial\">50012532</strong></p>",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-02-1531232473029",
+		"languages": [
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img",
+						"value": "/dist/nespresso/solothurn/images/uploads/np-solothurn.jpg",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img-w",
+						"value": "640",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img-h",
+						"value": "350",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img-mobile",
+						"value": "/dist/nespresso/solothurn/images/uploads/np-solothurn.jpg",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "url",
+						"value": "https://www.google.ch/maps/place/MANOR+Solothurn/@47.2081634,7.5338092,17z/data=!3m1!4b1!4m5!3m4!1s0x4791d7f8f29ac0f9:0x595610ec84dabd6b!8m2!3d47.2081598!4d7.5359979",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "url-mobile",
+						"value": "https://www.google.ch/maps/place/MANOR+Solothurn/@47.2081634,7.5338092,17z/data=!3m1!4b1!4m5!3m4!1s0x4791d7f8f29ac0f9:0x595610ec84dabd6b!8m2!3d47.2081598!4d7.5359979",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-06-1531232586882",
+		"languages": [
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "color",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "<p class=\"fontArial\">Die <strong class=\"fontsize16 fontArial\">Nespresso</strong> Kapseln* sind neu auch bei Manor Solothurn erh&auml;ltlich! Lassen Sie sich dabei zu einem Augenblick reinsten Kaffeegenusses verf&uuml;hren und besuchen Sie uns im Manor Solothurn.</p>",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-11-1531232696809",
+		"languages": [
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "url",
+						"value": "https://www.google.ch/maps/place/MANOR+Solothurn/@47.2081634,7.5338092,17z/data=!3m1!4b1!4m5!3m4!1s0x4791d7f8f29ac0f9:0x595610ec84dabd6b!8m2!3d47.2081598!4d7.5359979",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img",
+						"value": "/dist/nespresso/solothurn/images/uploads/map-solothurn.jpg",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "link",
+						"value": "Hier finden Sie uns",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-10-1531232709707",
+		"languages": [
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img",
+						"value": "/dist/nespresso/solothurn/images/uploads/machine.jpg",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "<p class=\"fontArial\">Bestellen Sie Ihren Kaffee &uuml;ber das <strong class=\"fontsize16 fontArial\">Nespresso</strong> Terminal und erhalten Sie Ihre Kaffeekapseln direkt vor Ort. Halten Sie daf&uuml;r Ihre Kundenkarte oder Ihre Kundennummer bereit.</p>",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "link",
+						"value": "",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "footer-01-1531233403989",
+		"languages": [
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "title",
+						"value": "<p class=\"fontArial\">ENTDECKEN SIE DIE WELT DER <strong class=\"fontsize25 fontArial\">NESPRESSO</strong> SERVICES</p>",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "items",
+						"value": [
+							[
+								{
+									"name": "url",
+									"value": "https://www.nespresso.com/ch/de/services?utm_id=48c30322-4784-4b44-930d-2a5ca4fd9149&did=#!/order/on-mobile-app",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "/dist/nespresso/solothurn/images/uploads/footer-mobile.png",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "60",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "NESPRESSO APP",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "https://www.nespresso.com/ch/de/services?utm_id=48c30322-4784-4b44-930d-2a5ca4fd9149&did=#!/order/by-internet",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "/dist/nespresso/solothurn/images/uploads/footer-web.png",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "60",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "INTERNET",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "https://www.nespresso.com/ch/de/services?utm_id=48c30322-4784-4b44-930d-2a5ca4fd9149&did=#!/order/by-phone",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "/dist/nespresso/solothurn/images/uploads/footer-mobile.png",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "60",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "TELEFON 24/7",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "https://www.nespresso.com/ch/de/services?utm_id=48c30322-4784-4b44-930d-2a5ca4fd9149&did=#!/delivery/24h-delivery",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "/dist/nespresso/solothurn/images/uploads/footer-delivery.png",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "60",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "LIEFERUNG",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "https://www.nespresso.com/ch/de/services?utm_id=48c30322-4784-4b44-930d-2a5ca4fd9149&did=#!/customer-care/assistance-24-7",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "/dist/nespresso/solothurn/images/uploads/footer-service.png",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "60",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "DIENSTE",
+									"copiedFromMaster": false
+								}
+							]
+						]
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "footer-03-1531234970723",
+		"languages": [
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "logoUrl",
+						"value": "http://www.nespresso.com/",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "<p class=\"fontArial\">*Die Limited Editions von <strong class=\"fontsize12 fontArial\">Nespresso</strong> sind von der Auswahl ausgeschlossen. Sie haben diese E-Mail als Nespresso Kunde erhalten. Wenn Sie diese Informationen abbestellen m&ouml;chten, <a class=\"fontArial\" href=\"http://cloud.cross-systems.ch/w/emails/nespresso/popups/[[UNSUB_LINK_FR]]\" style=\"color: #f9f7f3; font-size: 12px; line-height: 18px;\">klicken Sie bitte hier</a>. Um eine E-Mail an <strong class=\"fontsize12 fontArial\">Nespresso</strong> zu schicken, verwenden Sie bitte unser Kontaktformular auf unserer Webseite <a class=\"fontArial\" href=\"http://www.nespresso.com\" style=\"color: #f9f7f3; font-size: 12px; line-height: 18px;\">www.nespresso.com</a> oder kontaktieren Sie uns unter <a class=\"fontArial\" href=\"tel:0800555253\" style=\"color: #f9f7f3; font-size: 12px; line-height: 18px;\">0800 55 52 53</a> (kostenlose Nummer). Nestl&eacute; <strong class=\"fontsize12 fontArial\">Nespresso</strong> S.A.</p>",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "socials",
+						"value": [
+							[
+								{
+									"name": "url",
+									"value": "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "/dist/nespresso/solothurn/images/uploads/socialiconfacebook.png",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "/dist/nespresso/solothurn/images/uploads/socialicontwitter.png",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "/dist/nespresso/solothurn/images/uploads/socialiconyoutube.png",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "/dist/nespresso/solothurn/images/uploads/socialiconinstagram.png",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "/dist/nespresso/solothurn/images/uploads/socialicongoogleplus.png",
+									"copiedFromMaster": false
+								}
+							]
+						]
+					}
+				],
+				"display": true
+			}
+		]
+	}
+]

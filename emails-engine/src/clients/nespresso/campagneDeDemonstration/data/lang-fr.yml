@@ -5,25 +5,25 @@
 #
 
 header-01-1530859818196:
-    text: Texte du header
-    linkText: Ceci est un lien
-    linkUrl: http://www.nespresso.com
+    text: "Texte du header"
+    linkText: "Ceci est un lien"
+    linkUrl: "http://www.nespresso.com"
 header-02-1530859821674:
-    img: /dist/nespresso/campagneDeDemonstration/images/uploads/Logo-Nespresso.png
-    url: http://www.nespresso.com
+    img: "/dist/nespresso/campagneDeDemonstration/images/uploads/Logo-Nespresso.png"
+    url: "http://www.nespresso.com"
 block-20-1530859838201:
-    linkUrl: http://www.google.ch
-    linkText: Lien vers Google
-    img: /dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_17_43_38_Pro.jpg
-    title: Titre du bloc en FR
-    text: Texte du bloc en FR
+    linkUrl: "http://www.google.ch"
+    linkText: "Lien vers Google"
+    img: "/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_16_38_23_Pro.jpg"
+    title: "Titre du bloc en FR"
+    text: "Texte du bloc en FR"
 block-19-1530859843541:
-    linkUrl: http://www.wideagency.ch
-    linkText: Lien vers le site WIDE
-    img: /dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_17_49_36_Pro.jpg
-    title: Titre du bloc FR
-    text: Ceci est le texte du bloc en français.
+    linkUrl: "http://www.wideagency.ch"
+    linkText: "Lien vers le site WIDE"
+    img: "/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_17_49_36_Pro.jpg"
+    title: "Titre du bloc FR"
+    text: "Ceci est le texte du bloc en français."
 block-06-1531071824770:
-    bgcolor: '#582828'
-    color: '#723a3a'
-    text: <p>asd asd <strong>asdsad </strong>asd da sd</p><p><br></p><p>asd <em>asd sdf sdf sd df</em></p><p><br></p><p>sd as d</p><p>as d</p>
+    bgcolor: "'#582828'"
+    color: "'#723a3a'"
+    text: "<p>asd asd <strong>asdsad </strong>asd da sd</p><p><br></p><p>asd <em>asd sdf sdf sd df</em></p><p><br></p><p>sd as d</p><p>as d</p>"

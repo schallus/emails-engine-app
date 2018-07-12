@@ -67,6 +67,9 @@ const hbs = exphbs.create({
                     .filter(el => el.lang == masterLang)[0].properties
                     .filter(el => el.name == propertyName)[0].value;
             }      
+        },
+        escape: function(variable) {
+            return variable.replace(/([\\"])/g, '\\$1');
         }
     }
 });

@@ -42,5 +42,10 @@
 		"name": "demoGeneve1",
 		"displayName": "Demo Genève",
 		"createdAt": "2018-07-09T08:32:17.352Z"
+	},
+	{
+		"name": "solothurn",
+		"displayName": "Solothurn",
+		"createdAt": "2018-07-10T14:11:24.148Z"
 	}
 ]

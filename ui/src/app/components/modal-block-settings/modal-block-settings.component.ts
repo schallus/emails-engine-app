@@ -14,6 +14,8 @@ import { UploadService } from '../../services/upload.service';
 import { BlockPosition } from '../../models/block-position';
 import { Block } from '../../models/block';
 
+declare const $: any;
+
 @Component({
   selector: 'app-modal-block-settings',
   templateUrl: './modal-block-settings.component.html',
@@ -40,25 +42,7 @@ export class ModalBlockSettingsComponent implements OnInit {
 
   serverUrl: string;
 
-  // Options for Quill WYSIWYG Editor
-  quillOptions = {
-    toolbar: [
-      ['bold', 'italic'],                                 // toggled buttons
-      // ['blockquote', 'code-block'],
-      // [{ 'header': 1 }, { 'header': 2 }],              // custom button values
-      [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-      [{ 'script': 'sub'}, { 'script': 'super' }],        // superscript/subscript
-      // [{ 'indent': '-1'}, { 'indent': '+1' }],         // outdent/indent
-      // [{ 'direction': 'rtl' }],                        // text direction
-      // [{ 'size': ['small', false, 'large', 'huge'] }], // custom dropdown
-      [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-      // [{ 'color': [] }, { 'background': [] }],         // dropdown with defaults from theme
-      // [{ 'font': [] }],
-      [{ 'align': [] }],
-      ['clean'],                                          // remove formatting button
-      ['link', /*'image', 'video'*/]                      // link and image, video
-    ]
-  };
+  editorOptions: any;
 
   @Output() valid = new EventEmitter<any>();
 
@@ -76,6 +60,8 @@ export class ModalBlockSettingsComponent implements OnInit {
     // Get url parameters
     this.brandName = this.route.snapshot.paramMap.get('brandName');
     this.campaignName = this.route.snapshot.paramMap.get('campaignName');
+
+    this.initWYSIWYG();
 
     // Get blocks available
     this.apiService.getBlocks(this.brandName).subscribe(blocks => {
@@ -318,6 +304,81 @@ export class ModalBlockSettingsComponent implements OnInit {
       this.modalBlockSettings.hide();
     }, err => {
       this.toastrService.error('Une erreur s\'est produite lors de l\'enregistrement du bloc.');
+    });
+  }
+
+  initWYSIWYG() {
+    this.editorOptions = {
+      events : {
+        'froalaEditor.contentChanged' : (e, editor) => {
+          const html = editor.html.get();
+          const elements = $(html);
+          // Add class to all parent elements
+          elements.addClass('fontArial');
+          // Add class to all children elements
+          elements.find('*').not('br').addClass('fontArial');
+          // Convert the selector back to a string
+          let newHtml = '';
+          elements.each(function() {
+            newHtml += $(this).wrap('<div/>').parent().html();
+          });
+          // Change the editor content
+          editor.html.set(newHtml);
+          
+          const propertyName = e.target['data-propertyName'];
+          const lang = e.target['data-lang'];
+          
+          if (e.target['data-parentPropertyName'] && e.target['data-index']) {
+            const parentPropertyName = e.target['data-parentPropertyName'];
+            const index = e.target['data-index'];
+            this.setPropertyValue(propertyName, lang, { html: editor.html.get() }, parentPropertyName, index);
+          } else {
+            this.setPropertyValue(propertyName, lang, { html: editor.html.get() });
+          }
+        }
+      },
+      toolbarButtons: [
+        'bold_dropdown',
+        'italic', 
+        '|',
+        'paragraphFormat',
+        'clearFormatting',
+        '|',
+        'formatOL', 
+        'formatUL', 
+        '|',
+        'undo', 
+        'redo',
+        '|',
+        'insertLink',
+        '|',
+        'html'
+      ]
+    };
+
+    // Add bold icon
+    const editor = $.FroalaEditor;
+
+    editor.DefineIcon('bold_dropdown', {NAME: 'bold'});
+    editor.RegisterCommand('bold_dropdown', {
+      title: 'Bold',
+      type: 'dropdown',
+      focus: false,
+      undo: false,
+      refreshAfterCallback: true,
+      options: {
+        'fontsize12': 'fontsize12',
+        'fontsize16': 'fontsize16',
+        'fontsize22': 'fontsize22',
+        'fontsize25': 'fontsize25',
+        'fontsize30': 'fontsize30',
+        'fontsize52': 'fontsize52'
+      },
+      callback: function (cmd, val) {
+        let txt = this.selection.text();
+        if (txt === undefined || txt === '') return;
+        this.format.toggle('strong', { class: val });
+      }
     });
   }
 }

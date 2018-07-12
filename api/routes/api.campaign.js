@@ -6,6 +6,8 @@ const spawn = require('cross-spawn');
 const utils = require('../lib/utils');
 const textUtils = require('../lib/text');
 const fileUtils = require('../lib/fs');
+const snapshot = require('../lib/snapshot');
+
 
 // ----- GLOBAL VARIABLES -----
 const distPath = path.normalize(__dirname + '../../../emails-engine/dist');
@@ -792,6 +794,19 @@ campaign.buildCampaign = (req, res, next) => {
 
             req.previewLinks = result;
             next();
+            /*snapshot.capture(`${distPath}/${req.params.brandSlug}/${req.params.campaignSlug}/index-${campaignConfig.masterLang}.html`, req.params.brandSlug, req.params.campaignSlug, () => {
+                const campaignLanguages = Object.keys(campaignConfig.lang);
+                result = campaignLanguages.map((lang) => {
+                    return {
+                        path: `${distPath}/${req.params.brandSlug}/${req.params.campaignSlug}/index-${lang}.html`,
+                        url: `${req.protocol}://${req.get('host')}/dist/${req.params.brandSlug}/${req.params.campaignSlug}/index-${lang}.html`,
+                        lang: lang
+                    }
+                });
+
+                req.previewLinks = result;
+                next();
+            });*/
         } else {
             // ERROR
             return next({
