@@ -69,7 +69,10 @@ const hbs = exphbs.create({
             }      
         },
         escape: function(variable) {
-            return variable.replace(/([\\"])/g, '\\$1');
+            if (variable) {
+                return variable.replace(/([\\"])/g, '\\$1');
+            }
+            return null;
         }
     }
 });

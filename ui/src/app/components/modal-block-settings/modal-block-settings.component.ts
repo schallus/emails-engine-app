@@ -353,7 +353,11 @@ export class ModalBlockSettingsComponent implements OnInit {
         'insertLink',
         '|',
         'html'
-      ]
+      ],
+      linkStyles: {
+        linkFooter: 'linkFooter',
+        linkContent: 'linkContent'
+      },
     };
 
     // Add bold icon

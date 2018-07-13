@@ -57,9 +57,7 @@ router.route('/brands/:brandSlug/campaigns/:campaignSlug/images')
 
 // ----- brand -----
 router.route('/brands')
-    .get(timeout('5s'), brandCtrl.readBrands, brandCtrl.listBrands)
-    .post(timeout('5s'), brandCtrl.readBrands, brandCtrl.addBrand);
-
+    .get(timeout('5s'), brandCtrl.readBrands, brandCtrl.listBrands);
 // ----- email campaigns -----
 router.route('/brands/:brandSlug/campaigns')
     .get(timeout('5s'), campaignCtrl.readCampaigns, campaignCtrl.listCampaigns)

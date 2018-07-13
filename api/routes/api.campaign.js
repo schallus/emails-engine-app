@@ -23,6 +23,20 @@ const renderView = (res, view, data, callback) => {
 };
 
 // ----- MIDDLEWARES
+/**
+ * @apiDefine BrandNotFound
+ *
+ * @apiError (404) {Object} BrandNotFound The brand given in the url does not exist.
+ *
+ * @apiErrorExample Error-Brand-Not-Found:
+ *     HTTP/1.1 404 Not Found
+ *     {
+ *       "error": {
+ *          "status": 404,
+ *          "message": "The brand '%brandName%' does not exist."
+ *       }
+ *     }
+ */
 campaign.readCampaigns = (req, res, next) => {
     const brandSlug = req.params.brandSlug;
     res.brandPath = `${clientsPath}/${brandSlug}`;
@@ -46,10 +60,66 @@ campaign.readCampaigns = (req, res, next) => {
 
 // ----- ROUTES -----
 
+/**
+ * @api {get} /brands/:brandSlug/campaigns List all the campaigns
+ * @apiName GetCampaignsList
+ * @apiGroup Campaigns
+ * @apiDescription Return the list of all the campaigns.
+ * No parameters are required for this endpoint. 
+ *
+ * @apiSuccess {Campaign[]} Object Array of campaigns
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  [
+ *    {
+ *       "name": "campagneDeDemonstration",
+ *        "displayName": "Campagne de démonstration",
+ *        "createdAt": "2018-07-06T06:49:37.531Z"
+ *    },
+ *    {
+ *        "name": "nouvelleNewsletter",
+ *        "displayName": "Nouvelle Newsletter",
+ *        "createdAt": "2018-07-10T14:11:24.148Z"
+ *    },
+ *  ]
+ * 
+ * @apiUse ServerTimeout
+ * 
+ */
 campaign.listCampaigns = (req, res, next) => {    
     res.status(200).json(res.campaigns);
 };
 
+
+/**
+ * @api {get} /brands/:brandSlug/campaigns List all the campaigns
+ * @apiName GetCampaignsList
+ * @apiGroup Campaigns
+ * @apiDescription Return the list of all the campaigns.
+ * No parameters are required for this endpoint. 
+ *
+ * @apiSuccess {Campaign[]} Object Array of campaigns
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  [
+ *    {
+ *       "name": "campagneDeDemonstration",
+ *        "displayName": "Campagne de démonstration",
+ *        "createdAt": "2018-07-06T06:49:37.531Z"
+ *    },
+ *    {
+ *        "name": "nouvelleNewsletter",
+ *        "displayName": "Nouvelle Newsletter",
+ *        "createdAt": "2018-07-10T14:11:24.148Z"
+ *    },
+ *  ]
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 campaign.getBrandBlocks = (req, res, next) => {
     try {
         blocks = JSON.parse(fs.readFileSync(`${res.brandPath}/blocks.json`, 'utf8'));
@@ -738,10 +808,13 @@ campaign.compileJSONIntoYaml = (req, res, next) => {
             masterLang: campaignConfig.masterLang,
             dataLang: campaignData
         }, (err, data) => {
-            if(err) return next({
-                status: 500,
-                message: "Something unexpected happened while rendering the campaign data files."
-            });
+            if(err) {
+                console.log(err);
+                return next({
+                    status: 500,
+                    message: "Something unexpected happened while rendering the campaign data files."
+                });
+            }
 
             try {
                 fs.writeFileSync(`${dataDir}/lang-${lang}.yml`, data, 'utf8');

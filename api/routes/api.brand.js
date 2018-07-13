@@ -34,8 +34,10 @@ brand.readBrands = (req, res, next) => {
  * @api {get} /brands List all the brands
  * @apiName GetBrandsList
  * @apiGroup Brand
+ * @apiDescription Return the list of all the brands.
+ * No parameters are required for this endpoint. 
  *
- * @apiSuccess {Object} brand Brand object
+ * @apiSuccess {Brand[]} Object Array of brands
  * 
  * @apiSuccessExample {json} Success-Response:
  *  HTTP/1.1 200 OK
@@ -58,50 +60,6 @@ brand.readBrands = (req, res, next) => {
  */
 brand.listBrands = (req, res, next) => {    
     res.status(200).send(res.brands);
-};
-
-brand.addBrand = (req, res, next) => {
-    req.checkBody("name", "Enter a valid name.").isAlphanumeric().isLength({min:3, max: undefined});
-    req.checkBody("displayName", "Enter a valid displayName.").isLength({min:3, max: undefined});
-    req.checkBody("logoUrl", "Enter a valid logoUrl.").optional().isURL();
-
-    if (req.validationErrors()) return next();
-
-    const brands = res.brands;
-
-    // Check if this brand already exists
-    if(brands.filter(brand => (brand.name === req.body.name)).length) {
-        return next({
-            status: 409,
-            message: `A brand with the name '${req.body.name}' already exists.`
-        });
-    }
-
-    // no error -> normal processing here
-
-    const newBrand = {
-        name: req.body.name,
-        displayName: req.body.displayName,
-        logoUrl: req.body.logoUrl
-    };
-
-    brands.push(newBrand);
-
-    const fileData = JSON.stringify(brands, null, "\t");
-    try {
-        fs.writeFileSync(brandsListPath, fileData, 'utf8');
-    } catch (err) {
-        if (err.code === 'ENOENT') {
-            return next({
-                status: 500,
-                message: `The file 'brands.json' does not exist.`
-            });
-        } else {
-            return next();
-        }
-    }
-
-    res.status(200).json(newBrand);
 };
 
 module.exports = brand;

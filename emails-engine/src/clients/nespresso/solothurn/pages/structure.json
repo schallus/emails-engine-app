@@ -27,7 +27,7 @@
 		"blockType": "block-02",
 		"position": 4,
 		"name": "block-02-1531232473029",
-		"valid": false
+		"valid": true
 	},
 	{
 		"blockType": "spacer",
@@ -51,7 +51,7 @@
 		"blockType": "block-11",
 		"position": 8,
 		"name": "block-11-1531232696809",
-		"valid": false
+		"valid": true
 	},
 	{
 		"blockType": "spacer",
@@ -75,12 +75,12 @@
 		"blockType": "footer-01",
 		"position": 12,
 		"name": "footer-01-1531233403989",
-		"valid": false
+		"valid": true
 	},
 	{
 		"blockType": "footer-03",
 		"position": 13,
 		"name": "footer-03-1531234970723",
-		"valid": false
+		"valid": true
 	}
 ]

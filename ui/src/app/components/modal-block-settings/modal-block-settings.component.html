@@ -59,7 +59,7 @@
                       type="text"
                       [id]="property.name+'-'+lang" 
                       [name]="property.name+'-'+lang" 
-                      pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" 
+                      pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" 
                       [mdbValidate]="false" 
                       [ngModel]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value : ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value" 
                       appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)" 
@@ -145,42 +145,6 @@
                       [data-lang]="lang"
                     >
                     </textarea >
-                    <!--quill-editor
-                      [modules]="quillOptions"
-                      [id]="property.name+'-'+lang" 
-                      [name]="property.name+'-'+lang"
-                      [placeholder]="property.displayName"
-                      [ngModel]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value : ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value" 
-                      appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)"
-                      [required]="property.required"
-                      [readOnly]="((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster ? true : false">
-                      <div quill-editor-toolbar>
-                        <span class="ql-formats">
-                          <button class="ql-bold" [title]="'Bold'"></button>
-                          <button class="ql-italic" [title]="'Italic'"></button>
-                        </span>
-                        <span class="ql-formats">
-                          <select class="ql-align" [title]="'Aligment'">
-                            <option selected></option>
-                            <option value="center"></option>
-                            <option value="right"></option>
-                            <option value="justify"></option>
-                          </select>
-                        </span>
-                        <span class="ql-formats">
-                          <button type="button" class="show-source-code" [title]="'code source'" (click)="showSourceCode = !showSourceCode">[code source]</button>
-                        </span>
-                      </div>
-                    </quill-editor>
-                    <div class="wysiwyg-source-code" *ngIf="showSourceCode">
-                      <textarea
-                        [id]="property.name+'-'+lang+'-source'" 
-                        [name]="property.name+'-'+lang+'-source'"
-                        [ngModel]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value : ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value" 
-                        appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)"
-                        [attr.disabled]="((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster ? 'disabled' : null">
-                      </textarea>
-                    </div-->
                     <span class="input-group-append copied-from-master mt-2" *ngIf="campaignOptions.masterLang !== lang">
                       <input type="checkbox" [id]="'copyFromMaster-' + property.name+'-'+lang" [name]="'copyFromMaster-' + property.name+'-'+lang" [checked]="((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster" (change)="copyFromMaster(property.name, lang)">
                       <label [for]="'copyFromMaster-' + property.name+'-'+lang">Copier de master</label>
@@ -233,7 +197,7 @@
                                 type="text"
                                 [id]="property1.name+'-'+lang+'-'+key" 
                                 [name]="property1.name+'-'+lang+'-'+key"
-                                pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" 
+                                pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" 
                                 [mdbValidate]="false" 
                                 [ngModel]="((propValue | filter: 'name':property1.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value : (propValue | filter: 'name':property1.name)?.value" 
                                 appDebounceChange (debounceChange)="setPropertyValue(property1.name, lang, $event, property.name, key)"

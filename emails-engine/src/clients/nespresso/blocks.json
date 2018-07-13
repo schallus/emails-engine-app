@@ -102,7 +102,7 @@
                 "name": "bgcolor",
                 "displayName": "Couleur de fond",
                 "type": "color",
-                "required": true
+                "required": false
             },
             {
                 "name": "img",
