@@ -1388,20 +1388,74 @@ campaign.addBlockData = (req, res, next) => {
     res.status(201).json(newBlockData);
 };
 
+/**
+ * @api {put} /brands/:brandSlug/campaigns/:campaignSlug/blocks Set blocks data
+ * @apiName setBlocksData
+ * @apiGroup Campaigns
+ * @apiDescription Set blocks data. Be aware, this function will overide all the data previously saved.
+ * 
+ * @apiParam {BlockData[]} blocksData Blocks data
+ * 
+ * @apiSuccess {BlockData[]} Object Blocks data
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  [
+ *      {
+ *          "blockName": "header-02-1531231935137",
+ *          "languages": [
+ *              {
+ *                  "lang": "fr",
+ *                  "properties": [
+ *                      {
+ *                          "name": "img",
+ *                          "value": "/dist/brandName/demo/images/uploads/logo.png",
+ *                          "copiedFromMaster": false
+ *                      },
+ *                      {
+ *                          "name": "url",
+ *                          "value": "http://www.wideagency.com/",
+ *                          "copiedFromMaster": false
+ *                      }
+ *                  ],
+ *                  "display": true
+ *              }
+ *          ]
+ *      },
+ *      {...}
+ *  ]
+ * 
+ * @apiError (Error 4xx) {422} WrongParameter You must pass an array of blocks data in the body.
+ *
+ * @apiErrorExample WrongParameter:
+ *  HTTP/1.1 422 Unprocessable Entity
+ *   {
+ *       "error": {
+ *           "status": 422,
+ *           "message": [
+ *               "You must pass an array of blocks data in the body."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 campaign.setBlocksData = (req, res, next) => {
     const newBlocksData = req.body;
 
     if(!Array.isArray(newBlocksData)) {
         return next({
             status: 422,
-            message: "You must pass an array of block data in the body."
+            message: "You must pass an array of blocks data in the body."
         }); 
     } else {
         for (newBlockData of newBlocksData) {
             if(!newBlockData.blockName || !Array.isArray(newBlockData.languages)) {
                 return next({
                     status: 422,
-                    message: "You must pass an array of block data in the body."
+                    message: "You must pass an array of blocks data in the body."
                 });
             }
         }
@@ -1416,6 +1470,47 @@ campaign.setBlocksData = (req, res, next) => {
     res.status(200).json(newBlocksData);
 };
 
+/**
+ * @api {delete} /brands/:brandSlug/campaigns/:campaignSlug/blocks/:blockName Remove block data
+ * @apiName removeBlockData
+ * @apiGroup Campaigns
+ * @apiDescription Remove the block data.
+ * 
+ * @apiSuccess {HttpRequestSuccess} Success Success 200
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ * 
+ * @apiError (Error 5xx) {500} ErrorReadingData Something unexpected happened while reading the campaign data file.
+ *
+ * @apiErrorExample ErrorReadingData:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while reading the campaign data file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 4xx) {404} BlockNotFound The block you are trying to remove does not exist.
+ *
+ * @apiErrorExample BlockNotFound:
+ *  HTTP/1.1 404 Not Found
+ *   {
+ *       "error": {
+ *           "status": 404,
+ *           "message": [
+ *               "The block you are trying to remove does not exist."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 campaign.removeBlockData = (req, res, next) => {
     try {
         campaignData = JSON.parse(fs.readFileSync(`${res.brandPath}/${req.params.campaignSlug}/data/data-lang.json`, 'utf8'));
@@ -1456,6 +1551,114 @@ campaign.getPreviewLinks = (req, res) => {
     return res.status(200).json(req.previewLinks);
 }
 
+/**
+ * @apiDefine compileJSON
+ * 
+ * @apiError (Error 5xx) {500} CompilationError Something unexpected happened while reading the campaign configuration file.
+ *
+ * @apiErrorExample CompilationError:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while reading the campaign configuration file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorReadingStructure Something unexpected happened while reading the campaign structure file.
+ *
+ * @apiErrorExample ErrorReadingStructure:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while reading the campaign structure file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorReadingData Something unexpected happened while reading the campaign data file.
+ *
+ * @apiErrorExample ErrorReadingData:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while reading the campaign data file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorRenderingStructure Something unexpected happened while rendering the campaign structure file.
+ *
+ * @apiErrorExample ErrorRenderingStructure:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while rendering the campaign structure file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorRenderingStructure Something unexpected happened while rendering the campaign structure file.
+ *
+ * @apiErrorExample ErrorRenderingStructure:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while rendering the campaign structure file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorSavingStructure Something unexpected happened while writing the file 'index-%lang%.html'.
+ *
+ * @apiErrorExample ErrorSavingStructure:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while writing the file 'index-%lang%.html'."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorRenderingData Something unexpected happened while rendering the campaign data files.
+ *
+ * @apiErrorExample ErrorRenderingData:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while rendering the campaign data files."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorSavingData Something unexpected happened while writing the file  'lang-%lang%.yml'.
+ *
+ * @apiErrorExample ErrorSavingData:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while writing the file  'lang-%lang%.yml'."
+ *           ]
+ *       }
+ *   }
+ * 
+ */
 campaign.compileJSONIntoYaml = (req, res, next) => {
     console.log('Compiling campaign files...');
     try {
@@ -1559,7 +1762,7 @@ campaign.compileJSONIntoYaml = (req, res, next) => {
                 if (err.code === 'ENOENT') {
                     return next({
                         status: 500,
-                        message: `Something unexpected happened while writing the file  'index-${lang}.html'.`
+                        message: `Something unexpected happened while writing the file 'index-${lang}.html'.`
                     });
                 } else {
                     return next();
@@ -1600,6 +1803,55 @@ campaign.compileJSONIntoYaml = (req, res, next) => {
     next();
 };
 
+/**
+ * @api {post} /brands/:brandSlug/campaigns/:campaignSlug/build Build the campaign
+ * @apiName buildCampaign
+ * @apiGroup Campaigns
+ * @apiDescription Build the campaign.
+ * 
+ * @apiSuccess {Object[]} Object Links to the previews
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  [
+ *      {
+ *          "url": "http://yourserverurl.com/dist/brand/campaign/index-fr.html",
+ *          "lang": "fr"    
+ *      },
+ *      {...}
+ *  ]
+ * 
+ * @apiError (Error 5xx) {500} TaskExecutionErrorWithCode Something unexpected happened while executing the task. The task closed with error code '%code%'
+ *
+ * @apiErrorExample TaskExecutionErrorWithCode:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while executing the task. The task closed with error code '%code%'"
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} TaskExecutionError Something unexpected happened while executing the task.
+ *
+ * @apiErrorExample TaskExecutionError:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while executing the task."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiUse compileJSON
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 campaign.buildCampaign = (req, res, next) => {
 
     console.log('Build in progress...');
@@ -1665,6 +1917,51 @@ campaign.buildCampaign = (req, res, next) => {
     });
 };
 
+/**
+ * @api {post} /brands/:brandSlug/campaigns/:campaignSlug/zip Zip the campaign
+ * @apiName zipCampaign
+ * @apiGroup Campaigns
+ * @apiDescription Zip the campaign.
+ * 
+ * @apiSuccess {Object} Object Link to the zip file
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  {
+ *      "zipLink": "http://yourserverurl.com/dist/brand_campaign.zip"
+ *  }
+ * 
+ * @apiError (Error 5xx) {500} TaskExecutionErrorWithCode Something unexpected happened while executing the task. The task closed with error code '%code%'
+ *
+ * @apiErrorExample TaskExecutionErrorWithCode:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while executing the task. The task closed with error code '%code%'"
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} TaskExecutionError Something unexpected happened while executing the task.
+ *
+ * @apiErrorExample TaskExecutionError:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while executing the task."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiUse compileJSON
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 campaign.zipCampaign = (req, res, next) => {
     console.log('Zip creation in progress...');
 

@@ -532,6 +532,184 @@ define({ "api": [
     "groupTitle": "Campaigns"
   },
   {
+    "type": "post",
+    "url": "/brands/:brandSlug/campaigns/:campaignSlug/build",
+    "title": "Build the campaign",
+    "name": "buildCampaign",
+    "group": "Campaigns",
+    "description": "<p>Build the campaign.</p>",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "Object",
+            "description": "<p>Links to the previews</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n    {\n        \"url\": \"http://yourserverurl.com/dist/brand/campaign/index-fr.html\",\n        \"lang\": \"fr\"    \n    },\n    {...}\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "TaskExecutionErrorWithCode",
+            "description": "<p>Something unexpected happened while executing the task. The task closed with error code '%code%'</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "TaskExecutionError",
+            "description": "<p>Something unexpected happened while executing the task.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "CompilationError",
+            "description": "<p>Something unexpected happened while reading the campaign configuration file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorReadingStructure",
+            "description": "<p>Something unexpected happened while reading the campaign structure file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorReadingData",
+            "description": "<p>Something unexpected happened while reading the campaign data file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorRenderingStructure",
+            "description": "<p>Something unexpected happened while rendering the campaign structure file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorSavingStructure",
+            "description": "<p>Something unexpected happened while writing the file 'index-%lang%.html'.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorRenderingData",
+            "description": "<p>Something unexpected happened while rendering the campaign data files.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorSavingData",
+            "description": "<p>Something unexpected happened while writing the file  'lang-%lang%.yml'.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "522",
+            "optional": false,
+            "field": "ConnectionTimeOut",
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
+          }
+        ],
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BrandNotFound",
+            "description": "<p>The brand given in the url does not exist.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "TaskExecutionErrorWithCode:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while executing the task. The task closed with error code '%code%'\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "TaskExecutionError:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while executing the task.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "CompilationError:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while reading the campaign configuration file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorReadingStructure:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while reading the campaign structure file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorReadingData:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while reading the campaign data file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorRenderingStructure:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while rendering the campaign structure file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorRenderingStructure:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while rendering the campaign structure file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorSavingStructure:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while writing the file 'index-%lang%.html'.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorRenderingData:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while rendering the campaign data files.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorSavingData:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while writing the file  'lang-%lang%.yml'.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ConnectionTimeOut:",
+          "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "BrandNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The brand '%brandName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/api.campaign.js",
+    "groupTitle": "Campaigns"
+  },
+  {
     "type": "delete",
     "url": "/brands/:brandSlug/campaigns/:campaignSlug/delete",
     "title": "Delete a campaign",
@@ -1079,6 +1257,95 @@ define({ "api": [
     "groupTitle": "Campaigns"
   },
   {
+    "type": "delete",
+    "url": "/brands/:brandSlug/campaigns/:campaignSlug/blocks/:blockName",
+    "title": "Remove block data",
+    "name": "removeBlockData",
+    "group": "Campaigns",
+    "description": "<p>Remove the block data.</p>",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "HttpRequestSuccess",
+            "optional": false,
+            "field": "Success",
+            "description": "<p>Success 200</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorReadingData",
+            "description": "<p>Something unexpected happened while reading the campaign data file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "522",
+            "optional": false,
+            "field": "ConnectionTimeOut",
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
+          }
+        ],
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BlockNotFound",
+            "description": "<p>The block you are trying to remove does not exist.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BrandNotFound",
+            "description": "<p>The brand given in the url does not exist.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "ErrorReadingData:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while reading the campaign data file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "BlockNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n     \"error\": {\n         \"status\": 404,\n         \"message\": [\n             \"The block you are trying to remove does not exist.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ConnectionTimeOut:",
+          "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "BrandNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The brand '%brandName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/api.campaign.js",
+    "groupTitle": "Campaigns"
+  },
+  {
     "type": "patch",
     "url": "/brands/:brandSlug/campaigns",
     "title": "Rename a campaign",
@@ -1184,6 +1451,96 @@ define({ "api": [
         {
           "title": "CampaignNotFound:",
           "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The campaign with the name '%campaignName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/api.campaign.js",
+    "groupTitle": "Campaigns"
+  },
+  {
+    "type": "put",
+    "url": "/brands/:brandSlug/campaigns/:campaignSlug/blocks",
+    "title": "Set blocks data",
+    "name": "setBlocksData",
+    "group": "Campaigns",
+    "description": "<p>Set blocks data. Be aware, this function will overide all the data previously saved.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "BlockData[]",
+            "optional": false,
+            "field": "blocksData",
+            "description": "<p>Blocks data</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "BlockData[]",
+            "optional": false,
+            "field": "Object",
+            "description": "<p>Blocks data</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n    {\n        \"blockName\": \"header-02-1531231935137\",\n        \"languages\": [\n            {\n                \"lang\": \"fr\",\n                \"properties\": [\n                    {\n                        \"name\": \"img\",\n                        \"value\": \"/dist/brandName/demo/images/uploads/logo.png\",\n                        \"copiedFromMaster\": false\n                    },\n                    {\n                        \"name\": \"url\",\n                        \"value\": \"http://www.wideagency.com/\",\n                        \"copiedFromMaster\": false\n                    }\n                ],\n                \"display\": true\n            }\n        ]\n    },\n    {...}\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "422",
+            "optional": false,
+            "field": "WrongParameter",
+            "description": "<p>You must pass an array of blocks data in the body.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BrandNotFound",
+            "description": "<p>The brand given in the url does not exist.</p>"
+          }
+        ],
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "type": "522",
+            "optional": false,
+            "field": "ConnectionTimeOut",
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "WrongParameter:",
+          "content": "HTTP/1.1 422 Unprocessable Entity\n {\n     \"error\": {\n         \"status\": 422,\n         \"message\": [\n             \"You must pass an array of blocks data in the body.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ConnectionTimeOut:",
+          "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "BrandNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The brand '%brandName%' does not exist.\"\n   }\n }",
           "type": "json"
         }
       ]
@@ -1426,6 +1783,184 @@ define({ "api": [
         {
           "title": "ErrorWritingStructureFile:",
           "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while writing the campaign structure file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ConnectionTimeOut:",
+          "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "BrandNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The brand '%brandName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/api.campaign.js",
+    "groupTitle": "Campaigns"
+  },
+  {
+    "type": "post",
+    "url": "/brands/:brandSlug/campaigns/:campaignSlug/zip",
+    "title": "Zip the campaign",
+    "name": "zipCampaign",
+    "group": "Campaigns",
+    "description": "<p>Zip the campaign.</p>",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "Object",
+            "description": "<p>Link to the zip file</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"zipLink\": \"http://yourserverurl.com/dist/brand_campaign.zip\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "TaskExecutionErrorWithCode",
+            "description": "<p>Something unexpected happened while executing the task. The task closed with error code '%code%'</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "TaskExecutionError",
+            "description": "<p>Something unexpected happened while executing the task.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "CompilationError",
+            "description": "<p>Something unexpected happened while reading the campaign configuration file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorReadingStructure",
+            "description": "<p>Something unexpected happened while reading the campaign structure file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorReadingData",
+            "description": "<p>Something unexpected happened while reading the campaign data file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorRenderingStructure",
+            "description": "<p>Something unexpected happened while rendering the campaign structure file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorSavingStructure",
+            "description": "<p>Something unexpected happened while writing the file 'index-%lang%.html'.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorRenderingData",
+            "description": "<p>Something unexpected happened while rendering the campaign data files.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorSavingData",
+            "description": "<p>Something unexpected happened while writing the file  'lang-%lang%.yml'.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "522",
+            "optional": false,
+            "field": "ConnectionTimeOut",
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
+          }
+        ],
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BrandNotFound",
+            "description": "<p>The brand given in the url does not exist.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "TaskExecutionErrorWithCode:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while executing the task. The task closed with error code '%code%'\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "TaskExecutionError:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while executing the task.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "CompilationError:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while reading the campaign configuration file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorReadingStructure:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while reading the campaign structure file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorReadingData:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while reading the campaign data file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorRenderingStructure:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while rendering the campaign structure file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorRenderingStructure:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while rendering the campaign structure file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorSavingStructure:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while writing the file 'index-%lang%.html'.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorRenderingData:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while rendering the campaign data files.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorSavingData:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while writing the file  'lang-%lang%.yml'.\"\n         ]\n     }\n }",
           "type": "json"
         },
         {
