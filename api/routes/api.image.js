@@ -42,6 +42,61 @@ const upload = multer(multerOptions);
 const uploadImage = upload.single('image');
 
 // ----- ROUTES -----
+
+/**
+ * @api {post} /brands/:brandSlug/campaigns/:campaignSlug/images Upload an image
+ * @apiName uploadImage
+ * @apiGroup Images
+ * @apiDescription Upload an image and return its public link.
+ * 
+ * @apiParam {File} image Image to upload to the server.
+ *
+ * @apiSuccess {Object} Object Public link to the uploaded image
+ *  
+ * @apiSuccessExample {text} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  {
+ *      imageUrl: '/dist/brand/campaign/images/uploads/imageName.jpg'
+ *  }
+ * 
+ * @apiError (Error 5xx) {500} ErrorUpload An error occured when uploading the file.
+ *
+ * @apiErrorExample ErrorUpload:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": "An error occured when uploading the file."
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} FormatInvalid Image format invalid or nothing was sent.
+ *
+ * @apiErrorExample FormatInvalid:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": "Image format invalid or nothing was sent."
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} MkDirError Could not create the image folder.
+ *
+ * @apiErrorExample MkDirError:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": "Could not create the image folder."
+ *       }
+ *   }
+ * 
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 image.addImage = (req, res, next) => {
 
     const brandSlug = req.params.brandSlug;
@@ -108,7 +163,7 @@ image.addImage = (req, res, next) => {
     });    
 };
 
-image.removeImage = (req, res, next) => {
+/*image.removeImage = (req, res, next) => {
 
     const brandSlug = req.params.brandSlug;
     const campaignSlug = req.params.campaignSlug;
@@ -130,6 +185,6 @@ image.removeImage = (req, res, next) => {
         });
         res.sendStatus(200);
     });
-};
+};*/
 
 module.exports = image;

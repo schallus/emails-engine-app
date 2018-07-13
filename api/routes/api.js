@@ -52,8 +52,8 @@ router.use(bodyParser.json({
 
 // ----- image -----
 router.route('/brands/:brandSlug/campaigns/:campaignSlug/images')
-    .post(timeout('30s'), imageCtrl.addImage)
-    .delete(timeout('5s'), imageCtrl.removeImage);
+    .post(timeout('30s'), imageCtrl.addImage);
+//    .delete(timeout('5s'), imageCtrl.removeImage);
 
 // ----- brand -----
 router.route('/brands')

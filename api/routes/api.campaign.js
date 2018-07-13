@@ -1546,6 +1546,31 @@ campaign.removeBlockData = (req, res, next) => {
     res.status(200).send();
 };
 
+
+/**
+ * @api {post} /brands/:brandSlug/campaigns/:campaignSlug/build Build the campaign
+ * @apiName buildCampaign
+ * @apiGroup Campaigns
+ * @apiDescription Build the campaign.
+ * 
+ * @apiSuccess {Object[]} Object Links to the previews
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  [
+ *      {
+ *          "url": "http://yourserverurl.com/dist/brand/campaign/index-fr.html",
+ *          "lang": "fr"    
+ *      },
+ *      {...}
+ *  ]
+ * 
+ * @apiUse buildCampaign
+ * @apiUse compileJSON
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 campaign.getPreviewLinks = (req, res) => {
     req.previewLinks.forEach(el => delete el.path );
     return res.status(200).json(req.previewLinks);
@@ -1804,22 +1829,7 @@ campaign.compileJSONIntoYaml = (req, res, next) => {
 };
 
 /**
- * @api {post} /brands/:brandSlug/campaigns/:campaignSlug/build Build the campaign
- * @apiName buildCampaign
- * @apiGroup Campaigns
- * @apiDescription Build the campaign.
- * 
- * @apiSuccess {Object[]} Object Links to the previews
- * 
- * @apiSuccessExample {json} Success-Response:
- *  HTTP/1.1 200 OK
- *  [
- *      {
- *          "url": "http://yourserverurl.com/dist/brand/campaign/index-fr.html",
- *          "lang": "fr"    
- *      },
- *      {...}
- *  ]
+ * @apiDefine buildCampaign
  * 
  * @apiError (Error 5xx) {500} TaskExecutionErrorWithCode Something unexpected happened while executing the task. The task closed with error code '%code%'
  *
@@ -1846,10 +1856,6 @@ campaign.compileJSONIntoYaml = (req, res, next) => {
  *           ]
  *       }
  *   }
- * 
- * @apiUse compileJSON
- * @apiUse ServerTimeout
- * @apiUse BrandNotFound
  * 
  */
 campaign.buildCampaign = (req, res, next) => {
