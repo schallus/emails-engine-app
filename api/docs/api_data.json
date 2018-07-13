@@ -31,24 +31,101 @@
     "groupTitle": "Brand",
     "error": {
       "fields": {
-        "522": [
+        "Error 5xx": [
           {
-            "group": "522",
-            "type": "Object",
+            "group": "Error 5xx",
+            "type": "522",
             "optional": false,
             "field": "ConnectionTimeOut",
-            "description": "<p>Connection Timed Out after 5 seconds.</p>"
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Timed-Out:",
+          "title": "ConnectionTimeOut:",
           "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
           "type": "json"
         }
       ]
     }
+  },
+  {
+    "type": "get",
+    "url": "/brands/:brandSlug/blocks",
+    "title": "Get brand blocks",
+    "name": "GetBrandBlocks",
+    "group": "Campaigns",
+    "description": "<p>Return the list of all the blocks in the brand. No parameters are required for this endpoint.</p>",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Blocks[]",
+            "optional": false,
+            "field": "Object",
+            "description": "<p>Array of blocks</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n    {\n        \"name\": \"blockName\",\n        \"displayName\": \"Block Name\",\n        \"thumbnailUrl\": \"/public/brand/images/img.jpg\",\n        \"properties\": [...]\n    },\n    {...}\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorReadingBlocks",
+            "description": "<p>Something unexpected happened while reading the blocks configuration file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "522",
+            "optional": false,
+            "field": "ConnectionTimeOut",
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
+          }
+        ],
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BrandNotFound",
+            "description": "<p>The brand given in the url does not exist.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "ErrorReadingBlocks:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": \"Something unexpected happened while reading the blocks configuration file.\"\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ConnectionTimeOut:",
+          "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "BrandNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The brand '%brandName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/api.campaign.js",
+    "groupTitle": "Campaigns"
   },
   {
     "type": "get",
@@ -82,19 +159,19 @@
     "groupTitle": "Campaigns",
     "error": {
       "fields": {
-        "522": [
+        "Error 5xx": [
           {
-            "group": "522",
-            "type": "Object",
+            "group": "Error 5xx",
+            "type": "522",
             "optional": false,
             "field": "ConnectionTimeOut",
-            "description": "<p>Connection Timed Out after 5 seconds.</p>"
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Timed-Out:",
+          "title": "ConnectionTimeOut:",
           "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
           "type": "json"
         }
@@ -102,68 +179,1269 @@
     }
   },
   {
-    "type": "get",
-    "url": "/brands/:brandSlug/campaigns",
-    "title": "List all the campaigns",
-    "name": "GetCampaignsList",
+    "type": "post",
+    "url": "/brands/:brandSlug/campaigns/:campaignSlug/blocks",
+    "title": "Add block data",
+    "name": "addBlockData",
     "group": "Campaigns",
-    "description": "<p>Return the list of all the campaigns. No parameters are required for this endpoint.</p>",
+    "description": "<p>Add block data to the campaign.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "BlockData",
+            "optional": false,
+            "field": "blockData",
+            "description": "<p>Block data</p>"
+          }
+        ]
+      }
+    },
     "success": {
       "fields": {
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "Campaign[]",
+            "type": "BlockData",
             "optional": false,
             "field": "Object",
-            "description": "<p>Array of campaigns</p>"
+            "description": "<p>Block data</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n[\n  {\n     \"name\": \"campagneDeDemonstration\",\n      \"displayName\": \"Campagne de démonstration\",\n      \"createdAt\": \"2018-07-06T06:49:37.531Z\"\n  },\n  {\n      \"name\": \"nouvelleNewsletter\",\n      \"displayName\": \"Nouvelle Newsletter\",\n      \"createdAt\": \"2018-07-10T14:11:24.148Z\"\n  },\n]",
+          "content": "HTTP/1.1 200 OK\n{\n    \"blockName\": \"header-02-1531231935137\",\n    \"languages\": [\n        {\n            \"lang\": \"fr\",\n            \"properties\": [\n                {\n                    \"name\": \"img\",\n                    \"value\": \"/dist/brandName/demo/images/uploads/logo.png\",\n                    \"copiedFromMaster\": false\n                },\n                {\n                    \"name\": \"url\",\n                    \"value\": \"http://www.wideagency.com/\",\n                    \"copiedFromMaster\": false\n                }\n            ],\n            \"display\": true\n        }\n    ]\n}",
           "type": "json"
         }
       ]
     },
-    "version": "0.0.0",
-    "filename": "routes/api.campaign.js",
-    "groupTitle": "Campaigns",
     "error": {
       "fields": {
-        "404": [
+        "Error 4xx": [
           {
-            "group": "404",
-            "type": "Object",
+            "group": "Error 4xx",
+            "type": "422",
+            "optional": false,
+            "field": "WrongParameter",
+            "description": "<p>You must pass the block data in the body.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BlockNotFound",
+            "description": "<p>The block you are trying to update does not exist.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "404",
             "optional": false,
             "field": "BrandNotFound",
             "description": "<p>The brand given in the url does not exist.</p>"
           }
         ],
-        "522": [
+        "Error 5xx": [
           {
-            "group": "522",
-            "type": "Object",
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorReadingDataFile",
+            "description": "<p>Something unexpected happened while reading the campaign data file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "522",
             "optional": false,
             "field": "ConnectionTimeOut",
-            "description": "<p>Connection Timed Out after 5 seconds.</p>"
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Error-Timed-Out:",
+          "title": "WrongParameter:",
+          "content": "HTTP/1.1 422 Unprocessable Entity\n {\n     \"error\": {\n         \"status\": 422,\n         \"message\": [\n             \"You must pass the block data in the body.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorReadingDataFile:",
+          "content": "HTTP/1.1 500 internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while reading the campaign data file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "BlockNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n     \"error\": {\n         \"status\": 404,\n         \"message\": [\n             \"The block you are trying to update does not exist.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ConnectionTimeOut:",
           "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
           "type": "json"
         },
         {
-          "title": "Error-Brand-Not-Found:",
-          "content": "HTTP/1.1 404 Not Found\n{\n  \"error\": {\n     \"status\": 404,\n     \"message\": \"The brand '%brandName%' does not exist.\"\n  }\n}",
+          "title": "BrandNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The brand '%brandName%' does not exist.\"\n   }\n }",
           "type": "json"
         }
       ]
-    }
+    },
+    "version": "0.0.0",
+    "filename": "routes/api.campaign.js",
+    "groupTitle": "Campaigns"
+  },
+  {
+    "type": "post",
+    "url": "/brands/:brandSlug/campaigns",
+    "title": "Add a new campaign",
+    "name": "addCampaign",
+    "group": "Campaigns",
+    "description": "<p>Add a new campaign.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "displayName",
+            "description": "<p>Name of the campaign to be created.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Campaign",
+            "optional": false,
+            "field": "Object",
+            "description": "<p>Campaign created</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"name\": \"nouvelleNewsletter\",\n    \"displayName\": \"Nouvelle Newsletter\",\n    \"createdAt\": \"2018-07-10T14:11:24.148Z\"\n},",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "422",
+            "optional": false,
+            "field": "DisplayNameInvalid",
+            "description": "<p>Enter a valid display name.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BrandNotFound",
+            "description": "<p>The brand given in the url does not exist.</p>"
+          }
+        ],
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "MasterDuplicationError",
+            "description": "<p>An error occured while trying to duplicate the master template.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "CampainsFileNotFound",
+            "description": "<p>The file 'campaigns.json' does not exist.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "RenamingStylesheetError",
+            "description": "<p>An error occured while renaming the scss file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorReadingLayoutFile",
+            "description": "<p>An error occured while reading the layout file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorWritingLayoutFile",
+            "description": "<p>An error occured while writing the layout file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "522",
+            "optional": false,
+            "field": "ConnectionTimeOut",
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "DisplayNameInvalid:",
+          "content": "HTTP/1.1 422 Unprocessable Entity\n {\n     \"error\": {\n         \"status\": 422,\n         \"message\": [\n             \"Enter a valid displayName.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "MasterDuplicationError:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"An error occured while trying to duplicate the master template.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "CampainsFileNotFound:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"The file 'campaigns.json' does not exist.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "RenamingStylesheetError:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"An error occured while renaming the scss file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorReadingLayoutFile:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"An error occured while reading the layout file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorWritingLayoutFile:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"An error occured while writing the layout file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ConnectionTimeOut:",
+          "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "BrandNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The brand '%brandName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/api.campaign.js",
+    "groupTitle": "Campaigns"
+  },
+  {
+    "type": "delete",
+    "url": "/brands/:brandSlug/campaigns/:campaignSlug/archive",
+    "title": "Archive a campaign",
+    "name": "archiveCampaign",
+    "group": "Campaigns",
+    "description": "<p>Archive a campaign. An archived campaign can be restored. If you want to restore an archived campaign, please contact the server administrator.</p>",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "HttpRequestSuccess",
+            "optional": false,
+            "field": "Success",
+            "description": "<p>Success 200</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "text"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorArchive",
+            "description": "<p>Something unexpected happened while moving the campaign to the archive folder.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorWritingCampaignFile",
+            "description": "<p>An error occured while writing the campaigns file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "522",
+            "optional": false,
+            "field": "ConnectionTimeOut",
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
+          }
+        ],
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BrandNotFound",
+            "description": "<p>The brand given in the url does not exist.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "ErrorArchive:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while moving the campaign to the archive folder.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorWritingCampaignFile:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"An error occured while writing the campaigns file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ConnectionTimeOut:",
+          "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "BrandNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The brand '%brandName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/api.campaign.js",
+    "groupTitle": "Campaigns"
+  },
+  {
+    "type": "delete",
+    "url": "/brands/:brandSlug/campaigns/:campaignSlug/delete",
+    "title": "Delete a campaign",
+    "name": "deleteCampaign",
+    "group": "Campaigns",
+    "description": "<p>Delete a campaign. Be aware, a deleted campaign cannot be restored.</p>",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "HttpRequestSuccess",
+            "optional": false,
+            "field": "Success",
+            "description": "<p>Success 200</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK",
+          "type": "text"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorWritingCampaignFile",
+            "description": "<p>An error occured while writing the campaigns file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "522",
+            "optional": false,
+            "field": "ConnectionTimeOut",
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
+          }
+        ],
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BrandNotFound",
+            "description": "<p>The brand given in the url does not exist.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "ErrorWritingCampaignFile:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"An error occured while writing the campaigns file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ConnectionTimeOut:",
+          "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "BrandNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The brand '%brandName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/api.campaign.js",
+    "groupTitle": "Campaigns"
+  },
+  {
+    "type": "post",
+    "url": "/brands/:brandSlug/campaigns/:campaignSlug/duplicate",
+    "title": "Duplicate a campaign",
+    "name": "duplicateCampaign",
+    "group": "Campaigns",
+    "description": "<p>Duplicate a campaign.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "displayName",
+            "description": "<p>Name of the campaign duplicate.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Campaign",
+            "optional": false,
+            "field": "Object",
+            "description": "<p>New campaign created</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"name\": \"duplicateACampaign\",\n    \"displayName\": \" Duplicate a campaign\",\n    \"createdAt\": \"2018-07-10T14:11:24.148Z\"\n},",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "422",
+            "optional": false,
+            "field": "DisplayNameInvalid",
+            "description": "<p>Enter a valid display name.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BrandNotFound",
+            "description": "<p>The brand given in the url does not exist.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "CampaignNotFound",
+            "description": "<p>The campaign given in the url does not exist.</p>"
+          }
+        ],
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "DuplicateCampaignError",
+            "description": "<p>An error occured while trying to duplicate the campaign.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "CampainsFileNotFound",
+            "description": "<p>The file 'campaigns.json' does not exist.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "RenamingStylesheetError",
+            "description": "<p>An error occured while renaming the scss file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorReadingLayoutFile",
+            "description": "<p>An error occured while reading the layout file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorWritingLayoutFile",
+            "description": "<p>An error occured while writing the layout file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "522",
+            "optional": false,
+            "field": "ConnectionTimeOut",
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "DisplayNameInvalid:",
+          "content": "HTTP/1.1 422 Unprocessable Entity\n {\n     \"error\": {\n         \"status\": 422,\n         \"message\": [\n             \"Enter a valid displayName.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "DuplicateCampaignError:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"An error occured while trying to duplicate the campaign.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "CampainsFileNotFound:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"The file 'campaigns.json' does not exist.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "RenamingStylesheetError:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"An error occured while renaming the scss file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorReadingLayoutFile:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"An error occured while reading the layout file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorWritingLayoutFile:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"An error occured while writing the layout file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ConnectionTimeOut:",
+          "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "BrandNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The brand '%brandName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        },
+        {
+          "title": "CampaignNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The campaign with the name '%campaignName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/api.campaign.js",
+    "groupTitle": "Campaigns"
+  },
+  {
+    "type": "get",
+    "url": "/brands/:brandSlug/campaigns/:campaignSlug/blocks/:blockName",
+    "title": "Get block data by name",
+    "name": "getBlockDataByName",
+    "group": "Campaigns",
+    "description": "<p>Get the block data for a certain block.</p>",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "BlockData",
+            "optional": false,
+            "field": "Object",
+            "description": "<p>Block data</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"blockName\": \"header-02-1531231935137\",\n    \"languages\": [\n        {\n            \"lang\": \"fr\",\n            \"properties\": [\n                {\n                    \"name\": \"img\",\n                    \"value\": \"/dist/brandName/demo/images/uploads/logo.png\",\n                    \"copiedFromMaster\": false\n                },\n                {\n                    \"name\": \"url\",\n                    \"value\": \"http://www.wideagency.com/\",\n                    \"copiedFromMaster\": false\n                }\n            ],\n            \"display\": true\n        }\n    ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorReadingDataFile",
+            "description": "<p>Something unexpected happened while reading the campaign data file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "522",
+            "optional": false,
+            "field": "ConnectionTimeOut",
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
+          }
+        ],
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BrandNotFound",
+            "description": "<p>The brand given in the url does not exist.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "ErrorReadingDataFile:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while reading the campaign data file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ConnectionTimeOut:",
+          "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "BrandNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The brand '%brandName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/api.campaign.js",
+    "groupTitle": "Campaigns"
+  },
+  {
+    "type": "get",
+    "url": "/brands/:brandSlug/campaigns/:campaignSlug/blocks",
+    "title": "Get campaign blocks data",
+    "name": "getCampaignBlocksData",
+    "group": "Campaigns",
+    "description": "<p>Get the data from all the blocks in the campaign.</p>",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "BlockData[]",
+            "optional": false,
+            "field": "Object",
+            "description": "<p>Data of the newsletter</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n    {\n        \"blockName\": \"header-02-1531231935137\",\n        \"languages\": [\n            {\n                \"lang\": \"fr\",\n                \"properties\": [\n                    {\n                        \"name\": \"img\",\n                        \"value\": \"/dist/brandName/demo/images/uploads/logo.png\",\n                        \"copiedFromMaster\": false\n                    },\n                    {\n                        \"name\": \"url\",\n                        \"value\": \"http://www.wideagency.com/\",\n                        \"copiedFromMaster\": false\n                    }\n                ],\n                \"display\": true\n            }\n        ]\n    },\n    {...}\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorReadingDataFile",
+            "description": "<p>Something unexpected happened while reading the campaign data file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "522",
+            "optional": false,
+            "field": "ConnectionTimeOut",
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
+          }
+        ],
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BrandNotFound",
+            "description": "<p>The brand given in the url does not exist.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "ErrorReadingDataFile:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while reading the campaign data file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ConnectionTimeOut:",
+          "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "BrandNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The brand '%brandName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/api.campaign.js",
+    "groupTitle": "Campaigns"
+  },
+  {
+    "type": "get",
+    "url": "/brands/:brandSlug/campaigns/:campaignSlug",
+    "title": "Get campaign config",
+    "name": "getCampaignConfig",
+    "group": "Campaigns",
+    "description": "<p>Get the campaign configuration such as the campaign languages, the emails subjects, etc.</p>",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "CampaignConfig",
+            "optional": false,
+            "field": "Object",
+            "description": "<p>Campaign configuration</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"lang\": {\n        \"fr\": {\n            \"subject\": \"Sujet en FR\"\n        },\n        \"de\": {\n            \"subject\": \"Sujet en DE\"\n        },\n        \"fr-CH\": {\n            \"subject\": \"Sujet en fr-CH\"\n        }\n    },\n    \"customLang\": ['fr-CH'],\n    \"masterLang\": \"fr\",\n    \"layout\": \"default\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorReadingConfigurationFile",
+            "description": "<p>An error occured while reading the campaign configuration file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "522",
+            "optional": false,
+            "field": "ConnectionTimeOut",
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
+          }
+        ],
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BrandNotFound",
+            "description": "<p>The brand given in the url does not exist.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "ErrorReadingConfigurationFile:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while reading the campaign configuration file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ConnectionTimeOut:",
+          "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "BrandNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The brand '%brandName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/api.campaign.js",
+    "groupTitle": "Campaigns"
+  },
+  {
+    "type": "get",
+    "url": "/brands/:brandSlug/campaigns/:campaignSlug/structure",
+    "title": "Get campaign structure",
+    "name": "getCampaignStructure",
+    "group": "Campaigns",
+    "description": "<p>Get the campaign structure</p>",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "BlockPosition[]",
+            "optional": false,
+            "field": "Object",
+            "description": "<p>Structure of the newsletter</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n    {\n        \"blockType\": \"header-01\",\n        \"position\": 0,\n        \"name\": \"header-01-1531231933395\",\n        \"valid\": true\n    },\n    {\n        \"blockType\": \"header-02\",\n        \"position\": 1,\n        \"name\": \"header-02-1531231935137\",\n        \"valid\": true\n    },\n    {...}\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorReadingStructureFile",
+            "description": "<p>Something unexpected happened while reading the campaign structure file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "522",
+            "optional": false,
+            "field": "ConnectionTimeOut",
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
+          }
+        ],
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BrandNotFound",
+            "description": "<p>The brand given in the url does not exist.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "ErrorReadingStructureFile:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while reading the campaign structure file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ConnectionTimeOut:",
+          "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "BrandNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The brand '%brandName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/api.campaign.js",
+    "groupTitle": "Campaigns"
+  },
+  {
+    "type": "patch",
+    "url": "/brands/:brandSlug/campaigns",
+    "title": "Rename a campaign",
+    "name": "renameCampaign",
+    "group": "Campaigns",
+    "description": "<p>Rename an existing campaign.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "displayName",
+            "description": "<p>New name of the campaign.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Campaign",
+            "optional": false,
+            "field": "Object",
+            "description": "<p>Campaign updated</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"name\": \"nouvelleNewsletter\",\n    \"displayName\": \"Nouveau nom de la campagne\",\n    \"createdAt\": \"2018-07-10T14:11:24.148Z\"\n},",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "422",
+            "optional": false,
+            "field": "DisplayNameInvalid",
+            "description": "<p>Enter a valid display name.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BrandNotFound",
+            "description": "<p>The brand given in the url does not exist.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "CampaignNotFound",
+            "description": "<p>The campaign given in the url does not exist.</p>"
+          }
+        ],
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorWritingCampaignFile",
+            "description": "<p>An error occured while writing the campaign file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "522",
+            "optional": false,
+            "field": "ConnectionTimeOut",
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "DisplayNameInvalid:",
+          "content": "HTTP/1.1 422 Unprocessable Entity\n {\n     \"error\": {\n         \"status\": 422,\n         \"message\": [\n             \"Enter a valid displayName.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorWritingCampaignFile:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"An error occured while writing the campaign file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ConnectionTimeOut:",
+          "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "BrandNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The brand '%brandName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        },
+        {
+          "title": "CampaignNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The campaign with the name '%campaignName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/api.campaign.js",
+    "groupTitle": "Campaigns"
+  },
+  {
+    "type": "post",
+    "url": "/brands/:brandSlug/campaigns/:campaignSlug",
+    "title": "Set campaign config",
+    "name": "setCampaignConfig",
+    "group": "Campaigns",
+    "description": "<p>Set the campaign configuration such as the campaign languages, the emails subjects, etc.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "campaignConfig",
+            "description": "<p>Campaign configuration</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "CampaignConfig",
+            "optional": false,
+            "field": "Object",
+            "description": "<p>New campaign configuration</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n    \"lang\": {\n        \"fr\": {\n            \"subject\": \"Sujet en FR\"\n        },\n        \"de\": {\n            \"subject\": \"Sujet en DE\"\n        },\n        \"fr-CH\": {\n            \"subject\": \"Sujet en fr-CH\"\n        }\n    },\n    \"customLang\": ['fr-CH'],\n    \"masterLang\": \"fr\",\n    \"layout\": \"default\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorWritingConfigurationFile",
+            "description": "<p>Something unexpected happened while writing the campaign configuration file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "522",
+            "optional": false,
+            "field": "ConnectionTimeOut",
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
+          }
+        ],
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BrandNotFound",
+            "description": "<p>The brand given in the url does not exist.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "ErrorWritingConfigurationFile:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while writing the campaign configuration file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ConnectionTimeOut:",
+          "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "BrandNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The brand '%brandName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/api.campaign.js",
+    "groupTitle": "Campaigns"
+  },
+  {
+    "type": "post",
+    "url": "/brands/:brandSlug/campaigns/:campaignSlug/structure",
+    "title": "Set the campaign structure",
+    "name": "setCampaignStructure",
+    "group": "Campaigns",
+    "description": "<p>Set the campaign structure</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "BlockPosition[]",
+            "optional": false,
+            "field": "campaignStructure",
+            "description": "<p>Structure of the newsletter</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "BlockPosition[]",
+            "optional": false,
+            "field": "Object",
+            "description": "<p>Structure of the newsletter</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[\n    {\n        \"blockType\": \"header-01\",\n        \"position\": 0,\n        \"name\": \"header-01-1531231933395\",\n        \"valid\": true\n    },\n    {\n        \"blockType\": \"header-02\",\n        \"position\": 1,\n        \"name\": \"header-02-1531231935137\",\n        \"valid\": true\n    },\n    {...}\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "422",
+            "optional": false,
+            "field": "WrongParameter",
+            "description": "<p>You must pass an array of Object in the request body.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "422",
+            "optional": false,
+            "field": "BlockNotFound",
+            "description": "<p>The block does not exist.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "422",
+            "optional": false,
+            "field": "BlockPositionError",
+            "description": "<p>Two blocks are at the same position.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "422",
+            "optional": false,
+            "field": "BlockUniqueIdentifierError",
+            "description": "<p>Two blocks have the same name.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BrandNotFound",
+            "description": "<p>The brand given in the url does not exist.</p>"
+          }
+        ],
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorReadingBlocksConfig",
+            "description": "<p>Something unexpected happened while reading the blocks configuration file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorReadingCampaignConfig",
+            "description": "<p>Something unexpected happened while reading the campaign configuration file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorWritingStructureFile",
+            "description": "<p>Something unexpected happened while writing the campaign structure file.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "522",
+            "optional": false,
+            "field": "ConnectionTimeOut",
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "WrongParameter:",
+          "content": "HTTP/1.1 422 Unprocessable Entity\n {\n     \"error\": {\n         \"status\": 422,\n         \"message\": [\n             \"You must pass an array of Object in the request body.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorReadingBlocksConfig:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while reading the blocks configuration file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorReadingCampaignConfig:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while reading the campaign configuration file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "BlockNotFound:",
+          "content": "HTTP/1.1 422 Unprocessable Entity\n {\n     \"error\": {\n         \"status\": 422,\n         \"message\": [\n             \"The block '%blockName%' does not exist.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "BlockPositionError:",
+          "content": "HTTP/1.1 422 Unprocessable Entity\n {\n     \"error\": {\n         \"status\": 422,\n         \"message\": [\n             \"Two blocks are at the same position.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "BlockUniqueIdentifierError:",
+          "content": "HTTP/1.1 422 Unprocessable Entity\n {\n     \"error\": {\n         \"status\": 422,\n         \"message\": [\n             \"Two blocks have the same name.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorWritingStructureFile:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": [\n             \"Something unexpected happened while writing the campaign structure file.\"\n         ]\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ConnectionTimeOut:",
+          "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "BrandNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The brand '%brandName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/api.campaign.js",
+    "groupTitle": "Campaigns"
   }
 ]

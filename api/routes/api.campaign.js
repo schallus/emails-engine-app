@@ -22,20 +22,34 @@ const renderView = (res, view, data, callback) => {
     }, callback);
 };
 
-// ----- MIDDLEWARES
 /**
  * @apiDefine BrandNotFound
  *
- * @apiError (404) {Object} BrandNotFound The brand given in the url does not exist.
+ * @apiError (Error 4xx) {404} BrandNotFound The brand given in the url does not exist.
  *
- * @apiErrorExample Error-Brand-Not-Found:
- *     HTTP/1.1 404 Not Found
- *     {
- *       "error": {
- *          "status": 404,
- *          "message": "The brand '%brandName%' does not exist."
- *       }
+ * @apiErrorExample BrandNotFound:
+ *  HTTP/1.1 404 Not Found
+ *   {
+ *     "error": {
+ *        "status": 404,
+ *        "message": "The brand '%brandName%' does not exist."
  *     }
+ *   }
+ */
+
+ /**
+ * @apiDefine CampaignNotFound
+ *
+ * @apiError (Error 4xx) {404} CampaignNotFound The campaign given in the url does not exist.
+ *
+ * @apiErrorExample CampaignNotFound:
+ *  HTTP/1.1 404 Not Found
+ *   {
+ *     "error": {
+ *        "status": 404,
+ *        "message": "The campaign with the name '%campaignName%' does not exist."
+ *     }
+ *   }
  */
 campaign.readCampaigns = (req, res, next) => {
     const brandSlug = req.params.brandSlug;
@@ -93,28 +107,36 @@ campaign.listCampaigns = (req, res, next) => {
 
 
 /**
- * @api {get} /brands/:brandSlug/campaigns List all the campaigns
- * @apiName GetCampaignsList
+ * @api {get} /brands/:brandSlug/blocks Get brand blocks
+ * @apiName GetBrandBlocks
  * @apiGroup Campaigns
- * @apiDescription Return the list of all the campaigns.
+ * @apiDescription Return the list of all the blocks in the brand.
  * No parameters are required for this endpoint. 
  *
- * @apiSuccess {Campaign[]} Object Array of campaigns
+ * @apiSuccess {Blocks[]} Object Array of blocks
  * 
  * @apiSuccessExample {json} Success-Response:
  *  HTTP/1.1 200 OK
  *  [
- *    {
- *       "name": "campagneDeDemonstration",
- *        "displayName": "Campagne de démonstration",
- *        "createdAt": "2018-07-06T06:49:37.531Z"
- *    },
- *    {
- *        "name": "nouvelleNewsletter",
- *        "displayName": "Nouvelle Newsletter",
- *        "createdAt": "2018-07-10T14:11:24.148Z"
- *    },
+ *      {
+ *          "name": "blockName",
+ *          "displayName": "Block Name",
+ *          "thumbnailUrl": "/public/brand/images/img.jpg",
+ *          "properties": [...]
+ *      },
+ *      {...}
  *  ]
+ * 
+ * @apiError (Error 5xx) {500} ErrorReadingBlocks Something unexpected happened while reading the blocks configuration file.
+ *
+ * @apiErrorExample ErrorReadingBlocks:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": "Something unexpected happened while reading the blocks configuration file."
+ *       }
+ *   }
  * 
  * @apiUse ServerTimeout
  * @apiUse BrandNotFound
@@ -136,6 +158,156 @@ campaign.getBrandBlocks = (req, res, next) => {
     res.status(200).json(blocks);
 };
 
+/**
+ * @api {post} /brands/:brandSlug/campaigns Add a new campaign
+ * @apiName addCampaign
+ * @apiGroup Campaigns
+ * @apiDescription Add a new campaign.
+ * 
+ * @apiParam {String} displayName  Name of the campaign to be created.
+ *
+ * @apiSuccess {Campaign} Object Campaign created
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  {
+ *      "name": "nouvelleNewsletter",
+ *      "displayName": "Nouvelle Newsletter",
+ *      "createdAt": "2018-07-10T14:11:24.148Z"
+ *  },
+ * 
+ * @apiError (Error 4xx) {422} DisplayNameInvalid Enter a valid display name.
+ *
+ * @apiErrorExample DisplayNameInvalid:
+ *  HTTP/1.1 422 Unprocessable Entity
+ *   {
+ *       "error": {
+ *           "status": 422,
+ *           "message": [
+ *               "Enter a valid displayName."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} MasterDuplicationError An error occured while trying to duplicate the master template.
+ *
+ * @apiErrorExample MasterDuplicationError:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "An error occured while trying to duplicate the master template."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} CampainsFileNotFound The file 'campaigns.json' does not exist.
+ *
+ * @apiErrorExample CampainsFileNotFound:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "The file 'campaigns.json' does not exist."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} RenamingStylesheetError An error occured while renaming the scss file.
+ *
+ * @apiErrorExample RenamingStylesheetError:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "An error occured while renaming the scss file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorReadingLayoutFile An error occured while reading the layout file.
+ *
+ * @apiErrorExample ErrorReadingLayoutFile:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "An error occured while reading the layout file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorWritingLayoutFile An error occured while writing the layout file.
+ *
+ * @apiErrorExample ErrorWritingLayoutFile:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "An error occured while writing the layout file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
+
+ /**
+ * @api {patch} /brands/:brandSlug/campaigns Rename a campaign
+ * @apiName renameCampaign
+ * @apiGroup Campaigns
+ * @apiDescription Rename an existing campaign.
+ * 
+ * @apiParam {String} displayName  New name of the campaign.
+ *
+ * @apiSuccess {Campaign} Object Campaign updated
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  {
+ *      "name": "nouvelleNewsletter",
+ *      "displayName": "Nouveau nom de la campagne",
+ *      "createdAt": "2018-07-10T14:11:24.148Z"
+ *  },
+ * 
+ * @apiError (Error 4xx) {422} DisplayNameInvalid Enter a valid display name.
+ *
+ * @apiErrorExample DisplayNameInvalid:
+ *  HTTP/1.1 422 Unprocessable Entity
+ *   {
+ *       "error": {
+ *           "status": 422,
+ *           "message": [
+ *               "Enter a valid displayName."
+ *           ]
+ *       }
+ *   }
+ *
+ * @apiError (Error 5xx) {500} ErrorWritingCampaignFile An error occured while writing the campaign file.
+ * 
+ * @apiErrorExample ErrorWritingCampaignFile:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "An error occured while writing the campaign file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * @apiUse CampaignNotFound
+ * 
+ */
 campaign.addCampaign = (req, res, next) => {
 
     let edit = false;
@@ -150,7 +322,7 @@ campaign.addCampaign = (req, res, next) => {
     // If edition mode and campaign does not exist
     if(edit && !campaigns.filter(campaign => (campaign.name === req.params.campaignSlug)).length == 1) {
         return next({
-            status: 409,
+            status: 404,
             message: `The campaign with the name '${req.params.campaignSlug}' does not exist.`
         });
     }
@@ -253,6 +425,48 @@ campaign.addCampaign = (req, res, next) => {
     }
 };
 
+
+/**
+ * @api {delete} /brands/:brandSlug/campaigns/:campaignSlug/archive Archive a campaign
+ * @apiName archiveCampaign
+ * @apiGroup Campaigns
+ * @apiDescription Archive a campaign. An archived campaign can be restored. If you want to restore an archived campaign, please contact the server administrator.
+ *
+ * @apiSuccess {HttpRequestSuccess} Success Success 200
+ * 
+ * @apiSuccessExample {text} Success-Response:
+ *  HTTP/1.1 200 OK
+ * 
+ * @apiError (Error 5xx) {500} ErrorArchive Something unexpected happened while moving the campaign to the archive folder.
+ *
+ * @apiErrorExample ErrorArchive:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while moving the campaign to the archive folder."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorWritingCampaignFile An error occured while writing the campaigns file.
+ *
+ * @apiErrorExample ErrorWritingCampaignFile:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "An error occured while writing the campaigns file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 campaign.archiveCampaign = (req, res, next) => {
     fileUtils.moveFolder(`${res.brandPath}/${req.params.campaignSlug}`, `${res.brandPath}/archives/${req.params.campaignSlug}`, (err) => {
         if (err) return next({
@@ -278,6 +492,34 @@ campaign.archiveCampaign = (req, res, next) => {
     });
 };
 
+/**
+ * @api {delete} /brands/:brandSlug/campaigns/:campaignSlug/delete Delete a campaign
+ * @apiName deleteCampaign
+ * @apiGroup Campaigns
+ * @apiDescription Delete a campaign. Be aware, a deleted campaign cannot be restored.
+ *
+ * @apiSuccess {HttpRequestSuccess} Success Success 200
+ * 
+ * @apiSuccessExample {text} Success-Response:
+ *  HTTP/1.1 200 OK
+ * 
+ * @apiError (Error 5xx) {500} ErrorWritingCampaignFile An error occured while writing the campaigns file.
+ *
+ * @apiErrorExample ErrorWritingCampaignFile:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "An error occured while writing the campaigns file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 campaign.deleteCampaign = (req, res, next) => {
     // Delete from src/clients folder
     fileUtils.deleteFolderRecursive(`${res.brandPath}/${req.params.campaignSlug}`);
@@ -298,6 +540,107 @@ campaign.deleteCampaign = (req, res, next) => {
     });
 };
 
+/**
+ * @api {post} /brands/:brandSlug/campaigns/:campaignSlug/duplicate Duplicate a campaign
+ * @apiName duplicateCampaign
+ * @apiGroup Campaigns
+ * @apiDescription Duplicate a campaign.
+ * 
+ * @apiParam {String} displayName  Name of the campaign duplicate.
+ *
+ * @apiSuccess {Campaign} Object New campaign created
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  {
+ *      "name": "duplicateACampaign",
+ *      "displayName": " Duplicate a campaign",
+ *      "createdAt": "2018-07-10T14:11:24.148Z"
+ *  },
+ * 
+ * @apiError (Error 4xx) {422} DisplayNameInvalid Enter a valid display name.
+ *
+ * @apiErrorExample DisplayNameInvalid:
+ *  HTTP/1.1 422 Unprocessable Entity
+ *   {
+ *       "error": {
+ *           "status": 422,
+ *           "message": [
+ *               "Enter a valid displayName."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} DuplicateCampaignError An error occured while trying to duplicate the campaign.
+ *
+ * @apiErrorExample DuplicateCampaignError:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "An error occured while trying to duplicate the campaign."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} CampainsFileNotFound The file 'campaigns.json' does not exist.
+ *
+ * @apiErrorExample CampainsFileNotFound:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "The file 'campaigns.json' does not exist."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} RenamingStylesheetError An error occured while renaming the scss file.
+ *
+ * @apiErrorExample RenamingStylesheetError:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "An error occured while renaming the scss file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorReadingLayoutFile An error occured while reading the layout file.
+ *
+ * @apiErrorExample ErrorReadingLayoutFile:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "An error occured while reading the layout file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorWritingLayoutFile An error occured while writing the layout file.
+ *
+ * @apiErrorExample ErrorWritingLayoutFile:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "An error occured while writing the layout file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * @apiUse CampaignNotFound
+ * 
+ */
 campaign.duplicateCampaign = (req, res, next) => {
 
     req.checkBody("displayName", "Enter a valid displayName.").isLength({min:3, max: undefined});
@@ -390,6 +733,51 @@ campaign.duplicateCampaign = (req, res, next) => {
     });
 };
 
+
+/**
+ * @api {get} /brands/:brandSlug/campaigns/:campaignSlug Get campaign config
+ * @apiName getCampaignConfig
+ * @apiGroup Campaigns
+ * @apiDescription Get the campaign configuration such as the campaign languages, the emails subjects, etc.
+ *
+ * @apiSuccess {CampaignConfig} Object Campaign configuration
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  {
+ *      "lang": {
+ *          "fr": {
+ *              "subject": "Sujet en FR"
+ *          },
+ *          "de": {
+ *              "subject": "Sujet en DE"
+ *          },
+ *          "fr-CH": {
+ *              "subject": "Sujet en fr-CH"
+ *          }
+ *      },
+ *      "customLang": ['fr-CH'],
+ *      "masterLang": "fr",
+ *      "layout": "default"
+ *  }
+ * 
+ * @apiError (Error 5xx) {500} ErrorReadingConfigurationFile An error occured while reading the campaign configuration file.
+ *
+ * @apiErrorExample ErrorReadingConfigurationFile:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while reading the campaign configuration file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 campaign.getCampaignConfig = (req, res, next) => {
     try {
         campaignConfig = JSON.parse(fs.readFileSync(`${res.brandPath}/${req.params.campaignSlug}/config.json`, 'utf8'));
@@ -406,6 +794,52 @@ campaign.getCampaignConfig = (req, res, next) => {
     res.status(200).json(campaignConfig);
 };
 
+/**
+ * @api {post} /brands/:brandSlug/campaigns/:campaignSlug Set campaign config
+ * @apiName setCampaignConfig
+ * @apiGroup Campaigns
+ * @apiDescription Set the campaign configuration such as the campaign languages, the emails subjects, etc.
+ *
+ * @apiParam {Object} campaignConfig Campaign configuration
+ * 
+ * @apiSuccess {CampaignConfig} Object New campaign configuration
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  {
+ *      "lang": {
+ *          "fr": {
+ *              "subject": "Sujet en FR"
+ *          },
+ *          "de": {
+ *              "subject": "Sujet en DE"
+ *          },
+ *          "fr-CH": {
+ *              "subject": "Sujet en fr-CH"
+ *          }
+ *      },
+ *      "customLang": ['fr-CH'],
+ *      "masterLang": "fr",
+ *      "layout": "default"
+ *  }
+ * 
+ * @apiError (Error 5xx) {500} ErrorWritingConfigurationFile Something unexpected happened while writing the campaign configuration file.
+ *
+ * @apiErrorExample ErrorWritingConfigurationFile:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while writing the campaign configuration file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 campaign.setCampaignConfig = (req, res, next) => {
 
     const newCampaignConfig = req.body;
@@ -427,6 +861,49 @@ campaign.setCampaignConfig = (req, res, next) => {
     res.status(200).json(newCampaignConfig);
 };
 
+/**
+ * @api {get} /brands/:brandSlug/campaigns/:campaignSlug/structure Get campaign structure
+ * @apiName getCampaignStructure
+ * @apiGroup Campaigns
+ * @apiDescription Get the campaign structure
+ * 
+ * @apiSuccess {BlockPosition[]} Object Structure of the newsletter
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  [
+ *      {
+ *          "blockType": "header-01",
+ *          "position": 0,
+ *          "name": "header-01-1531231933395",
+ *          "valid": true
+ *      },
+ *      {
+ *          "blockType": "header-02",
+ *          "position": 1,
+ *          "name": "header-02-1531231935137",
+ *          "valid": true
+ *      },
+ *      {...}
+ *  ]
+ * 
+ * @apiError (Error 5xx) {500} ErrorReadingStructureFile Something unexpected happened while reading the campaign structure file.
+ *
+ * @apiErrorExample ErrorReadingStructureFile:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while reading the campaign structure file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 campaign.getCampaignStructure = (req, res, next) => {
     try {
         campaignStructure = JSON.parse(fs.readFileSync(`${res.brandPath}/${req.params.campaignSlug}/pages/structure.json`, 'utf8'));
@@ -440,22 +917,132 @@ campaign.getCampaignStructure = (req, res, next) => {
             return next();
         }
     }
-
-    try {
-        campaignConfig = JSON.parse(fs.readFileSync(`${res.brandPath}/${req.params.campaignSlug}/config.json`, 'utf8'));
-    } catch (err) {
-        if (err.code === 'ENOENT') {
-            return next({
-                status: 500,
-                message: "Something unexpected happened while reading the campaign configuration file."
-            });
-        } else {
-            return next();
-        }
-    }
     res.status(200).json(campaignStructure);
 };
 
+/**
+ * @api {post} /brands/:brandSlug/campaigns/:campaignSlug/structure Set the campaign structure
+ * @apiName setCampaignStructure
+ * @apiGroup Campaigns
+ * @apiDescription Set the campaign structure
+ * 
+ * @apiParam {BlockPosition[]} campaignStructure Structure of the newsletter
+ * 
+ * @apiSuccess {BlockPosition[]} Object Structure of the newsletter
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  [
+ *      {
+ *          "blockType": "header-01",
+ *          "position": 0,
+ *          "name": "header-01-1531231933395",
+ *          "valid": true
+ *      },
+ *      {
+ *          "blockType": "header-02",
+ *          "position": 1,
+ *          "name": "header-02-1531231935137",
+ *          "valid": true
+ *      },
+ *      {...}
+ *  ]
+ * 
+ * @apiError (Error 4xx) {422} WrongParameter You must pass an array of Object in the request body.
+ *
+ * @apiErrorExample WrongParameter:
+ *  HTTP/1.1 422 Unprocessable Entity
+ *   {
+ *       "error": {
+ *           "status": 422,
+ *           "message": [
+ *               "You must pass an array of Object in the request body."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorReadingBlocksConfig Something unexpected happened while reading the blocks configuration file.
+ *
+ * @apiErrorExample ErrorReadingBlocksConfig:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while reading the blocks configuration file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorReadingCampaignConfig Something unexpected happened while reading the campaign configuration file.
+ *
+ * @apiErrorExample ErrorReadingCampaignConfig:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while reading the campaign configuration file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 4xx) {422} BlockNotFound The block does not exist.
+ *
+ * @apiErrorExample BlockNotFound:
+ *  HTTP/1.1 422 Unprocessable Entity
+ *   {
+ *       "error": {
+ *           "status": 422,
+ *           "message": [
+ *               "The block '%blockName%' does not exist."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 4xx) {422} BlockPositionError Two blocks are at the same position.
+ *
+ * @apiErrorExample BlockPositionError:
+ *  HTTP/1.1 422 Unprocessable Entity
+ *   {
+ *       "error": {
+ *           "status": 422,
+ *           "message": [
+ *               "Two blocks are at the same position."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 4xx) {422} BlockUniqueIdentifierError Two blocks have the same name.
+ *
+ * @apiErrorExample BlockUniqueIdentifierError:
+ *  HTTP/1.1 422 Unprocessable Entity
+ *   {
+ *       "error": {
+ *           "status": 422,
+ *           "message": [
+ *               "Two blocks have the same name."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorWritingStructureFile Something unexpected happened while writing the campaign structure file.
+ *
+ * @apiErrorExample ErrorWritingStructureFile:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while writing the campaign structure file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 campaign.setCampaignStructure = (req, res, next) => {
 
     const newCampaignStructure = req.body;
@@ -544,6 +1131,108 @@ campaign.setCampaignStructure = (req, res, next) => {
     res.status(200).json(newCampaignStructure);
 };
 
+/**
+ * @api {get} /brands/:brandSlug/campaigns/:campaignSlug/blocks Get campaign blocks data
+ * @apiName getCampaignBlocksData
+ * @apiGroup Campaigns
+ * @apiDescription Get the data from all the blocks in the campaign.
+ * 
+ * @apiSuccess {BlockData[]} Object Data of the newsletter
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  [
+ *      {
+ *          "blockName": "header-02-1531231935137",
+ *          "languages": [
+ *              {
+ *                  "lang": "fr",
+ *                  "properties": [
+ *                      {
+ *                          "name": "img",
+ *                          "value": "/dist/brandName/demo/images/uploads/logo.png",
+ *                          "copiedFromMaster": false
+ *                      },
+ *                      {
+ *                          "name": "url",
+ *                          "value": "http://www.wideagency.com/",
+ *                          "copiedFromMaster": false
+ *                      }
+ *                  ],
+ *                  "display": true
+ *              }
+ *          ]
+ *      },
+ *      {...}
+ *  ]
+ * 
+ * @apiError (Error 5xx) {500} ErrorReadingDataFile Something unexpected happened while reading the campaign data file.
+ *
+ * @apiErrorExample ErrorReadingDataFile:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while reading the campaign data file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
+
+ /**
+ * @api {get} /brands/:brandSlug/campaigns/:campaignSlug/blocks/:blockName Get block data by name
+ * @apiName getBlockDataByName
+ * @apiGroup Campaigns
+ * @apiDescription Get the block data for a certain block.
+ * 
+ * @apiSuccess {BlockData} Object Block data
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  {
+ *      "blockName": "header-02-1531231935137",
+ *      "languages": [
+ *          {
+ *              "lang": "fr",
+ *              "properties": [
+ *                  {
+ *                      "name": "img",
+ *                      "value": "/dist/brandName/demo/images/uploads/logo.png",
+ *                      "copiedFromMaster": false
+ *                  },
+ *                  {
+ *                      "name": "url",
+ *                      "value": "http://www.wideagency.com/",
+ *                      "copiedFromMaster": false
+ *                  }
+ *              ],
+ *              "display": true
+ *          }
+ *      ]
+ *  }
+ * 
+ * @apiError (Error 5xx) {500} ErrorReadingDataFile Something unexpected happened while reading the campaign data file.
+ *
+ * @apiErrorExample ErrorReadingDataFile:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while reading the campaign data file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 campaign.getBlocksData = (req, res, next) => {
     try {
         campaignData = JSON.parse(fs.readFileSync(`${res.brandPath}/${req.params.campaignSlug}/data/data-lang.json`, 'utf8'));
@@ -569,6 +1258,83 @@ campaign.getBlocksData = (req, res, next) => {
     }
 };
 
+/**
+ * @api {post} /brands/:brandSlug/campaigns/:campaignSlug/blocks Add block data
+ * @apiName addBlockData
+ * @apiGroup Campaigns
+ * @apiDescription Add block data to the campaign.
+ * 
+ * @apiParam {BlockData} blockData Block data
+ * 
+ * @apiSuccess {BlockData} Object Block data
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  {
+ *      "blockName": "header-02-1531231935137",
+ *      "languages": [
+ *          {
+ *              "lang": "fr",
+ *              "properties": [
+ *                  {
+ *                      "name": "img",
+ *                      "value": "/dist/brandName/demo/images/uploads/logo.png",
+ *                      "copiedFromMaster": false
+ *                  },
+ *                  {
+ *                      "name": "url",
+ *                      "value": "http://www.wideagency.com/",
+ *                      "copiedFromMaster": false
+ *                  }
+ *              ],
+ *              "display": true
+ *          }
+ *      ]
+ *  }
+ * 
+ * @apiError (Error 4xx) {422} WrongParameter You must pass the block data in the body.
+ *
+ * @apiErrorExample WrongParameter:
+ *  HTTP/1.1 422 Unprocessable Entity
+ *   {
+ *       "error": {
+ *           "status": 422,
+ *           "message": [
+ *               "You must pass the block data in the body."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorReadingDataFile Something unexpected happened while reading the campaign data file.
+ *
+ * @apiErrorExample ErrorReadingDataFile:
+ *  HTTP/1.1 500 internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": [
+ *               "Something unexpected happened while reading the campaign data file."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiError (Error 4xx) {404} BlockNotFound The block you are trying to update does not exist.
+ *
+ * @apiErrorExample BlockNotFound:
+ *  HTTP/1.1 404 Not Found
+ *   {
+ *       "error": {
+ *           "status": 404,
+ *           "message": [
+ *               "The block you are trying to update does not exist."
+ *           ]
+ *       }
+ *   }
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 campaign.addBlockData = (req, res, next) => {
     const newBlockData = req.body;
 

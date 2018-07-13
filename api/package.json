@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node server.js",
     "debug": "supervisor server.js",
-    "apidoc": "apidoc -i routes -o docs"
+    "apidoc": "apidoc -i routes -o docs --verbose"
   },
   "private": true,
   "dependencies": {

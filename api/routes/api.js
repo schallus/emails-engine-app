@@ -36,9 +36,9 @@ router.use(bodyParser.json({
 /**
  * @apiDefine ServerTimeout
  *
- * @apiError (522) {Object} ConnectionTimeOut Connection Timed Out after 5 seconds.
+ * @apiError (Error 5xx) {522} ConnectionTimeOut Connection Timed Out after a few seconds.
  *
- * @apiErrorExample Error-Timed-Out:
+ * @apiErrorExample ConnectionTimeOut:
  *     HTTP/1.1 522 Connection Timed Out
  *     {
  *       "error": {
