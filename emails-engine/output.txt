@@ -1,0 +1,108 @@
+|   gulpfile.babel.js
+|   package.json
+|   README.md
+|   
++---dist (dossier dans lequel les emails générés sont enregistrés)
+|   |   index-xx.html
+|   |   brandName_campaignName.zip
+|   |   ...
+|   |   
+|   \---brandName
+|       \---campaignName
+|           |   index-xx.html
+|           |   ...
+|           |   
+|           +---css
+|           |       app_brandName_campaignName.css
+|           |       
+|           +---fonts
+|           |   |   ...
+|           |   |   
+|           |           
+|           +---images
+|           |   |   logo.png
+|           |   |   ...
+|           |   |   
+|           |   \---uploads
+|           |           paysage.jpg
+|           |           ...
+|           |           
+|           \---plain_text
+|                   index-xx.txt
+|                   ...
+|                                      
++---node_modules (dépendances lié à la génération des emails)          
++---public
+|   \---brandName
+|       \---images (images des blocs utilisés par le générateur de newsletter)
+|               block-01.jpg
+|               footer-01.jpg
+|               header-01.jpg
+|               ...
+|               
+\---src
+    |   
+    +---clients
+    |   |   brands.json
+    |   |   
+    |   +---brandName
+    |   |   |   blocks.json
+    |   |   |   campaigns.json
+    |   |   |   recipients.json
+    |   |   |   
+    |   |   +---archives
+    |   |   +---campaignName
+    |   |   |   |   config.json
+    |   |   |   |   
+    |   |   |   +---data
+    |   |   |   |       data-lang.json
+    |   |   |   |       lang-xx.yml
+    |   |   |   |       lang-xx.yml
+    |   |   |   |       ...
+    |   |   |   |       
+    |   |   |   +---fonts
+    |   |   |   |   +---Font1
+    |   |   |   |   |       Font1.eot
+    |   |   |   |   |       Font1.svg
+    |   |   |   |   |       ...
+    |   |   |   |   |       
+    |   |   |   |   \---Font2
+    |   |   |   |           
+    |   |   |   +---images
+    |   |   |   |   |   logo.png (images que nous allons utiliser sur pour toutes les campagnes de la marque)
+    |   |   |   |   |   ...
+    |   |   |   |   |   
+    |   |   |   |   \---uploads
+    |   |   |   |           paysage.jpg (images uploadés depuis l'éditeur d'email)
+    |   |   |   |           ...
+    |   |   |   |           
+    |   |   |   +---layouts
+    |   |   |   |       default.html
+    |   |   |   |       
+    |   |   |   +---pages
+    |   |   |   |       index-xx.html
+    |   |   |   |       index-xx.html
+    |   |   |   |       ...
+    |   |   |   |       structure.json
+    |   |   |   |       
+    |   |   |   \---scss
+    |   |   |           app_brandName_campaignName.scss
+    |   |   |                      
+    |   |   +---master (contient la structure d'une campagne vide qui sera utilisé lors de la création d'une nouvelle newsletter)           
+    |   |   +---partials (templates des blocs de la marque)
+    |   |   |       block-01.html
+    |   |   |       footer-01.html
+    |   |   |       header-01.html
+    |   |   |       ...
+    |   |   |                 
+    |   |   \---scss (styles globaux à la marque)
+    |   |           _base.scss
+    |   |           _fonts.scss
+    |   |           _master.scss
+    |   |           _mobile.scss
+    |   |           _variables.scss
+    |   |           
+    |   \---brand2
+    |       
+    \---helpers (helpers functions)
+            
