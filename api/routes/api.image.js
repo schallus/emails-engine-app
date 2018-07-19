@@ -213,15 +213,20 @@ image.removeImage = (req, res, next) => {
         });
     }
 
-    const imagePath = `${distPath}/${brandSlug}/${campaignSlug}/images/uploads`;
+    const imagesToRemove = [
+        `${distPath}/${brandSlug}/${campaignSlug}/images/uploads`,
+        `${clientsPath}/${brandSlug}/${campaignSlug}/images/uploads`
+    ];
 
-    fs.unlink(path.join(imagePath, imageFileName), err => {
-        if (err) return next({
-            status: 404,
-            message: 'Couldn\'t remove the image. Either the image name, the brand name or the campaign name is incorrect.'
+    for (let imagePath of imagesToRemove) {
+        fs.unlink(path.join(imagePath, imageFileName), err => {
+            if (err) return next({
+                status: 404,
+                message: 'Couldn\'t remove the image. Either the image name, the brand name or the campaign name is incorrect.'
+            });
         });
-        res.sendStatus(200);
-    });
+    }
+    res.sendStatus(200);
 };
 
 module.exports = image;

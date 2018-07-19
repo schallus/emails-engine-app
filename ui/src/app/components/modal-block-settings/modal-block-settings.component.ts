@@ -218,6 +218,17 @@ export class ModalBlockSettingsComponent implements OnInit {
       // If there is a file attached to the input
       const image = event.target.files[0];
 
+      // Delete the previous image from the server
+      if (parentPropertyName && index !== undefined && this.blockData.languages
+        .filter(el => el.lang === lang)[0].properties
+        .filter(el => el.name === parentPropertyName)[0].value[index]
+        .filter(el => el.name === propertyName)[0].value !== '') 
+      {
+        this.removeImage(propertyName, lang, parentPropertyName, index);
+      } else if(this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value !== '') {
+        this.removeImage(propertyName, lang);
+      }
+      
       // We upload the image to the server using an API endpoint
       this.uploadService.uploadImage(this.brandName, this.campaignName, image).subscribe((data) => {
         if (data && data.imageUrl) {
@@ -255,9 +266,11 @@ export class ModalBlockSettingsComponent implements OnInit {
       oldImage = this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value;
       this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = '';
     }
-    const filename = oldImage.substring(oldImage.lastIndexOf('/')+1);
-    console.log('remove image', filename);
-    this.uploadService.removeImage(this.brandName, this.campaignName, filename).subscribe();
+
+    if (oldImage !== '') {
+      const filename = oldImage.substring(oldImage.lastIndexOf('/')+1);
+      this.uploadService.removeImage(this.brandName, this.campaignName, filename).subscribe();
+    }
   }
 
   // Toggle the visibility of a block in the lang given as a parameter

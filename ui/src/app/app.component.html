@@ -1,7 +1,7 @@
 <!-- Image and text -->
 <mdb-navbar SideClass="navbar navbar-dark secondary-color mb-3">
   <logo>
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand" [routerLink]="['brands']">
       <i class="fa fa-envelope"></i> 
       WIDE Email Engine
     </a>
@@ -14,7 +14,7 @@
 </div>
 <!-- Footer -->
 <footer class="footer-stepper mt-4">
-  <app-stepper [currentStep]="currentStep"></app-stepper>
+  <app-stepper></app-stepper>
 </footer>
 <!-- Footer -->
 

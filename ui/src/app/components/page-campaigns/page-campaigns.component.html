@@ -1,3 +1,9 @@
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-lg secondary-color" mdbWavesEffect (click)="modalNew.show()">
+    <i class="fa fa-plus"></i>
+  </a>
+</div>
+
 <div class="row">
   <div class="col">
     <div class="card mb-3">
@@ -17,8 +23,9 @@
           
           <thead>
             <tr>
-              <th class="align-top">Nom <mdb-icon icon="sort" (click)="sortBy(filteredCampaigns, 'displayName')"></mdb-icon></th>
-              <th class="align-top">Date modification <mdb-icon icon="sort" (click)="sortBy(filteredCampaigns, 'createdAt')"></mdb-icon></th>
+              <th class="align-top">Nom</th>
+              <th class="align-top">Date modification</th>
+              <th class="align-top">Langues</th>
               <th class="text-right actions align-top">Actions</th>
             </tr>
           </thead>
@@ -28,6 +35,7 @@
             <tr *ngFor="let campaign of filteredCampaigns">
               <td class="align-middle"><a [routerLink]="['/brands', brand.name, 'campaigns', campaign.name, 'options']">{{ campaign.displayName }}</a></td>
               <td class="align-middle">{{ campaign.updatedAt || campaign.createdAt | date:'dd/MM/yyyy' }}</td>
+              <td></td>
               <td class="text-right align-middle actions">
                 <a [routerLink]="['/brands', brand.name, 'campaigns', campaign.name, 'options']" class="btn-floating btn-sm btn-secondary waves-light mr-1" mdbTooltip="Editer" placement="top" mdbWavesEffect><i class="fa fa-edit"></i></a>
                 <a class="btn-floating btn-sm btn-secondary waves-light mr-1" (click)="showCloneConfirmation(campaign.name)" mdbTooltip="Dupliquer" placement="top" mdbWavesEffect><i class="fa fa-clone"></i></a>
@@ -57,17 +65,6 @@
             </li>
           </ul>
         </nav>
-      </div>
-    </div>
-  </div>
-
-  <div class="col">
-    <div class="card">
-      <div class="card-header secondary-color white-text">
-        Nouvelle campagne
-      </div>
-      <div class="card-body d-flex justify-content-center">
-        <a class="btn btn-grey btn-rounded" mdbWavesEffect (click)="modalNew.show()">Créer une nouvelle campagne</a>
       </div>
     </div>
   </div>

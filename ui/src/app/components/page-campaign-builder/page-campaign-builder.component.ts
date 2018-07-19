@@ -50,7 +50,6 @@ export class PageCampaignBuilderComponent implements OnInit {
   blockData: any;
 
   blocksFixed: boolean;
-  blocksFixedWidth: number;
 
   previewLinks: Array<{url: string, lang: string}>;
   buildInProgress: boolean;
@@ -111,15 +110,7 @@ export class PageCampaignBuilderComponent implements OnInit {
 
   ngOnInit() {
 
-    try {
-      this.blocksFixedWidth = parseInt(window.getComputedStyle(this.dragNDropBlocksList.nativeElement, null).getPropertyValue('width'));
-    } catch(e) {
-      // IE Fix
-      this.blocksFixedWidth = this.dragNDropBlocksList.nativeElement.currentStyle.width;
-    }
-
-    this.blocksFixedWidth-=30; // Remove padding
-    this.dragNDropBlocksList.nativeElement.querySelector('.fixed').style.width = `${this.blocksFixedWidth}px`;
+    this.setBlocksSize();
 
     // Get url parameters
     const brandName = this.route.snapshot.paramMap.get('brandName');
@@ -231,6 +222,27 @@ export class PageCampaignBuilderComponent implements OnInit {
         });
       }
     });
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event) {
+    this.setBlocksSize();
+  }
+
+  setBlocksSize() {
+    let blocksFixedWidth;
+    let blocksFixedMaxHeight = window.innerHeight - 260;
+    
+    try {
+      blocksFixedWidth = parseInt(window.getComputedStyle(this.dragNDropBlocksList.nativeElement, null).getPropertyValue('width'));
+    } catch(e) {
+      // IE Fix
+      blocksFixedWidth = this.dragNDropBlocksList.nativeElement.currentStyle.width;
+    }
+
+    blocksFixedWidth-=30; // Remove padding
+    this.dragNDropBlocksList.nativeElement.querySelector('.fixed').style.width = `${blocksFixedWidth}px`;
+    this.dragNDropBlocksList.nativeElement.querySelector('#builderBlockList').style.maxHeight = `${blocksFixedMaxHeight}px`;
   }
 
   removeBlock(block: BlockPosition) {

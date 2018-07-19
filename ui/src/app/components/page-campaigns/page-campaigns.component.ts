@@ -59,32 +59,12 @@ export class PageCampaignsComponent implements OnInit {
     });
   }
 
-  sortBy(array: any[], by: string | any): void {
-    array.sort((a: any, b: any) => {
-      if (typeof a[by] === 'string' && typeof b[by] === 'string') {
-        if (a[by].toLowerCase() < b[by].toLowerCase()) {
-          return this.sorted ? 1 : -1;
-        }
-        if (a[by].toLowerCase() > b[by].toLowerCase()) {
-          return this.sorted ? -1 : 1;
-        }
-      } else {
-        if (a[by] < b[by]) {
-          return this.sorted ? 1 : -1;
-        }
-        if (a[by] > b[by]) {
-          return this.sorted ? -1 : 1;
-        }
-      }
-      return 0;
-    });
-    this.sorted = !this.sorted;
-  }
-
   getCampaigns(cb?: () => void) {
     this.apiService.getCampaigns(this.brand.name).subscribe(campaigns => {
+      campaigns.sort((a, b) => {
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+      });
       this.campaigns = campaigns;
-      this.sortBy(this.campaigns, 'displayName');
       this.numberOfPage = Math.ceil(this.campaigns.length / this.itemsPerPage);
       this.setPage(1);
       if (cb) {

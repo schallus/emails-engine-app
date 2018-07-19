@@ -48,14 +48,8 @@
 		"valid": true
 	},
 	{
-		"blockType": "footer-03",
-		"position": 8,
-		"name": "footer-03-1531920857866",
-		"valid": false
-	},
-	{
 		"blockType": "block-14-ambassador",
-		"position": 9,
+		"position": 8,
 		"name": "block-14-ambassador-1530859864355",
 		"valid": true
 	}
