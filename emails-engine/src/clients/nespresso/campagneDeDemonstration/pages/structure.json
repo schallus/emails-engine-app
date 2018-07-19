@@ -30,20 +30,26 @@
 		"valid": true
 	},
 	{
-		"blockType": "block-19",
+		"blockType": "block-04",
 		"position": 5,
+		"name": "block-04-1531831355982",
+		"valid": true
+	},
+	{
+		"blockType": "block-19",
+		"position": 6,
 		"name": "block-19-1530859843541",
 		"valid": true
 	},
 	{
 		"blockType": "block-06",
-		"position": 6,
+		"position": 7,
 		"name": "block-06-1531071824770",
 		"valid": true
 	},
 	{
 		"blockType": "block-14-ambassador",
-		"position": 7,
+		"position": 8,
 		"name": "block-14-ambassador-1530859864355",
 		"valid": true
 	}

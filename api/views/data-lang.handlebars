@@ -19,7 +19,7 @@
                                 {{#ifEquals ../../../../../data.lang ../../../../../data.masterLang}}
       - {{{this.name}}}: "{{{escape this.value}}}"
                                 {{else}}
-      - {{{this.name}}}: "{{{escape masterValue ../../../../this.blockName ../../../../../data.masterLang this.name ../../this.name @../key}}}"
+      - {{{this.name}}}: "{{{escape (masterValue ../../../../this.blockName ../../../../../data.masterLang this.name ../../this.name @../key)}}}"
                                 {{/ifEquals}}
                             {{else}}
       - {{{this.name}}}: "{{{escape this.value}}}"
@@ -29,7 +29,7 @@
                                 {{#ifEquals ../../../../../data.lang ../../../../../data.masterLang}}
         {{{this.name}}}: "{{{escape this.value}}}"
                                 {{else}}
-        {{{this.name}}}: "{{{escape masterValue ../../../../this.blockName ../../../../../data.masterLang this.name ../../this.name @../key}}}"
+        {{{this.name}}}: "{{{escape (masterValue ../../../../this.blockName ../../../../../data.masterLang this.name ../../this.name @../key)}}}"
                                 {{/ifEquals}}
                             {{else}}
         {{{this.name}}}: "{{{escape this.value}}}"
@@ -41,7 +41,7 @@
                         {{#ifEquals ../../../data.lang ../../../data.masterLang}}
     {{{this.name}}}: "{{{escape this.value}}}"
                         {{else}}
-    {{{this.name}}}: "{{{escape masterValue ../../this.blockName ../../../data.masterLang this.name null null}}}"
+    {{{this.name}}}: "{{{escape (masterValue ../../this.blockName ../../../data.masterLang this.name null null)}}}"
                         {{/ifEquals}}
                     {{else}}
     {{{this.name}}}: "{{{escape this.value}}}"

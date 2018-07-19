@@ -26,6 +26,41 @@ const email = {};
 
 // ----- ROUTES -----
 
+/**
+ * @api {get} /brands/:brandSlug/recipients Get recipients list
+ * @apiName getRecipientsList
+ * @apiGroup Emails
+ * @apiDescription Return the brand's recipients list.
+ * No parameters are required for this endpoint. 
+ *
+ * @apiSuccess {Recipient[]} Object Array of recipients
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  [
+ *      {
+ *          "firstname": "John",
+ *          "lastname": "Doe",
+ *          "email": "john.doe@domain.com"
+ *      },
+ *      {...}
+ *  ]
+ * 
+ * @apiError (Error 5xx) {500} ErrorReadingRecipients Something unexpected happened while reading the brand recipients file.
+ *
+ * @apiErrorExample ErrorReadingRecipients:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": "Something unexpected happened while reading the brand recipients file."
+ *       }
+ *   }
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 email.getRecipients = (req, res, next) => {
     try {
         recipients = JSON.parse(fs.readFileSync(`${res.brandPath}/recipients.json`, 'utf8'));
@@ -43,6 +78,61 @@ email.getRecipients = (req, res, next) => {
     res.status(200).json(recipients);
 };
 
+/**
+ * @api {post} /brands/:brandSlug/recipients Add a recipient
+ * @apiName addRecipient
+ * @apiGroup Emails
+ * @apiDescription Return the recipient created.
+ * 
+ * @apiParam {Recipient} recipient  Recipient to be created.
+ *
+ * @apiSuccess {Recipient} Object Recipient created
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  {
+ *      "firstname": "John",
+ *      "lastname": "Doe",
+ *      "email": "john.doe@domain.com"
+ *  }
+ * 
+ * @apiError (Error 4xx) {422} WrongParameter Please send a recipient in the body parameters.
+ *
+ * @apiErrorExample WrongParameter:
+ *  HTTP/1.1 422 Unprocessable Entity
+ *   {
+ *       "error": {
+ *           "status": 422,
+ *           "message": "Please send a recipient in the body parameters."
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorReadingRecipients Something unexpected happened while reading the brand recipients file.
+ *
+ * @apiErrorExample ErrorReadingRecipients:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": "Something unexpected happened while reading the brand recipients file."
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorWritingRecipients Something unexpected happened while writing the brand recipients file.
+ *
+ * @apiErrorExample ErrorWritingRecipients:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": "Something unexpected happened while writing the brand recipients file."
+ *       }
+ *   }
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 email.addRecipient = (req, res, next) => {
     if(!req.body.firstname || !req.body.lastname || !req.body.email) {
         return next({
@@ -86,6 +176,64 @@ email.addRecipient = (req, res, next) => {
     res.status(200).json(recipient);
 }
 
+/**
+ * @api {put} /brands/:brandSlug/recipients Update the recipients list
+ * @apiName setRecipients
+ * @apiGroup Emails
+ * @apiDescription Update the recipients list. Be aware, this function will overide all the recipients previously added to the brand.
+ * 
+ * @apiParam {Recipient[]} recipients New recipients list
+ *
+ * @apiSuccess {Recipient} Object New recipients list
+ * 
+ * @apiSuccessExample {json} Success-Response:
+ *  HTTP/1.1 200 OK
+ *  [
+ *      {
+ *          "firstname": "John",
+ *          "lastname": "Doe",
+ *          "email": "john.doe@domain.com"
+ *      },
+ *      {...}
+ *  ]
+ * 
+ * @apiError (Error 4xx) {422} WrongParameter Please send a recipient in the body parameters.
+ *
+ * @apiErrorExample WrongParameter:
+ *  HTTP/1.1 422 Unprocessable Entity
+ *   {
+ *       "error": {
+ *           "status": 422,
+ *           "message": "Please send a recipient in the body parameters."
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorReadingRecipients Something unexpected happened while reading the brand recipients file.
+ *
+ * @apiErrorExample ErrorReadingRecipients:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": "Something unexpected happened while reading the brand recipients file."
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorWritingRecipients Something unexpected happened while writing the brand recipients file.
+ *
+ * @apiErrorExample ErrorWritingRecipients:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": "Something unexpected happened while writing the brand recipients file."
+ *       }
+ *   }
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 email.setRecipients = (req, res, next) => {
     if(!Array.isArray(req.body) || !req.body[0].firstname || !req.body[0].lastname || !req.body[0].email) {
         return next({
@@ -113,6 +261,91 @@ email.setRecipients = (req, res, next) => {
     res.status(200).json(recipients);
 }
 
+/**
+ * @api {post} /brands/:brandSlug/campaigns/:campaignSlug/send Send a campaign
+ * @apiName sendCampaign
+ * @apiGroup Emails
+ * @apiDescription Build a campaign and send it by email to the selected recipients in the given languages.
+ * 
+ * @apiParam {string[]} recipients Array of recipients email addresses
+ *
+ * @apiSuccess {HttpRequestSuccess} Success Success 200
+ * 
+ * @apiSuccessExample {text} Success-Response:
+ *  HTTP/1.1 200 OK
+ * 
+ * @apiError (Error 4xx) {422} WrongParameter Please send the recipients in the body parameters.
+ *
+ * @apiErrorExample WrongParameter:
+ *  HTTP/1.1 422 Unprocessable Entity
+ *   {
+ *       "error": {
+ *           "status": 422,
+ *           "message": "Please send the recipients in the body parameters."
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorReadingConfig Something unexpected happened while reading the campaign configuration file.
+ *
+ * @apiErrorExample ErrorReadingConfig:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": "Something unexpected happened while reading the campaign configuration file."
+ *       }
+ *   }
+ * 
+ * @apiError (Error 4xx) {422} InvalidLanguages Some of the languages given in the body parameters are invalid.
+ *
+ * @apiErrorExample InvalidLanguages:
+ *  HTTP/1.1 422 Unprocessable Entity
+ *   {
+ *       "error": {
+ *           "status": 422,
+ *           "message": "Some of the languages given in the body parameters are invalid."
+ *       }
+ *   }
+ * 
+ * @apiError (Error 4xx) {422} InvalidEmails The email addresses provided are invalid.
+ *
+ * @apiErrorExample InvalidEmails:
+ *  HTTP/1.1 422 Unprocessable Entity
+ *   {
+ *       "error": {
+ *           "status": 422,
+ *           "message": "The email addresses provided are invalid."
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorReadingHtmlFile Something unexpected happened while reading the email html file.
+ *
+ * @apiErrorExample ErrorReadingHtmlFile:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": "Something unexpected happened while reading the email html file."
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorSendingEmails Something unexpected happened while sending the test emails. Please try again later.
+ *
+ * @apiErrorExample ErrorSendingEmails:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": "Something unexpected happened while sending the test emails. Please try again later."
+ *       }
+ *   }
+ * 
+ * @apiUse buildCampaign
+ * @apiUse compileJSON
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
 email.sendTest = (req, res, next) => {
     const brandSlug = req.params.brandSlug;
     const campaignSlug = req.params.campaignSlug;

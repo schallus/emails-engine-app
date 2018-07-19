@@ -25,7 +25,6 @@ export class PageCampaignsComponent implements OnInit {
   filtered: boolean;
   campaign: string;
   brand: Brand;
-  breadcrumbs: Array<{title: string, path?: string}>;
   duplicateName: string;
   newCampaignName: string;
   private sorted = false;
@@ -56,33 +55,22 @@ export class PageCampaignsComponent implements OnInit {
         this.brand = brands.filter(el => el.name == brandName)[0];
 
         this.getCampaigns();
-
-        this.breadcrumbs = [
-          { title: 'Marques', path: `/brands` },
-          { title: this.brand.displayName, path: `/brands/${this.brand.name}/campaigns` },
-          { title: 'Campagnes' },
-        ];
       }
     });
-  }
-
-  sortBy(array: any[], by: string | any): void {
-    array.sort((a: any, b: any) => {
-      if (a[by].toLowerCase() < b[by].toLowerCase()) {
-        return this.sorted ? 1 : -1;
-      }
-      if (a[by].toLowerCase() > b[by].toLowerCase()) {
-        return this.sorted ? -1 : 1;
-      }
-      return 0;
-    });
-    this.sorted = !this.sorted;
   }
 
   getCampaigns(cb?: () => void) {
     this.apiService.getCampaigns(this.brand.name).subscribe(campaigns => {
+      campaigns.sort((a, b) => {
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
+      });
       this.campaigns = campaigns;
-      this.sortBy(this.campaigns, 'displayName');
+      this.campaigns.map(campaign => {
+        // Get campaign options
+        this.apiService.getCampaignOptions(this.brand.name, campaign.name).subscribe(options => {
+          campaign.languages = Object.keys(options.lang);
+        });
+      });
       this.numberOfPage = Math.ceil(this.campaigns.length / this.itemsPerPage);
       this.setPage(1);
       if (cb) {

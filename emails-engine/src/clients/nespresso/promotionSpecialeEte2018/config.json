@@ -1,10 +1,10 @@
 {
 	"lang": {
-		"fr": {
-			"subject": "Sujet de l'email en FR"
-		},
 		"de": {
 			"subject": "Sujet DE"
+		},
+		"fr": {
+			"subject": "Sujet de l'email en FR"
 		},
 		"it": {
 			"subject": "Ceci est l'objet du mail en IT"

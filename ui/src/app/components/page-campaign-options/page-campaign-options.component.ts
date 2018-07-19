@@ -26,7 +26,6 @@ export class PageCampaignOptionsComponent implements OnInit {
   brand: Brand;
   campaignName: string;
   campaign: Campaign;
-  breadcrumbs: Array<{title: string, path?: string}>;
   languages: LangSelected[];
   filteredLanguages: LangSelected[];
   campaignOptions: CampaignOptions;
@@ -61,13 +60,6 @@ export class PageCampaignOptionsComponent implements OnInit {
             this.redirect404();
           } else {
             this.campaign = campaigns.filter(el => el.name == campaignName)[0];
-
-            this.breadcrumbs = [
-              { title: 'Marques', path: `/brands` },
-              { title: this.brand.displayName, path: `/brands/${this.brand.name}/campaigns` },
-              { title: this.campaign.displayName, path: `/brands/${this.brand.name}/campaigns/${this.campaign.name}/options` },
-              { title: 'Options' },
-            ];
 
             // Get campaign options
             this.apiService.getCampaignOptions(this.brand.name, this.campaign.name).subscribe(options => {
@@ -174,7 +166,7 @@ export class PageCampaignOptionsComponent implements OnInit {
   onNewLangFormSubmit = (form: NgForm) => {
     if (form.valid) {
       // Check if a lang with the same code already exists
-      if (this.languages.filter(lang => lang.code === form.value.code).length > 0) {
+      if (this.languages.filter(lang => lang.code.toLowerCase() === form.value.code.toLowerCase()).length > 0) {
         // diplay the error with toastr
         this.toastrService.error('Une langue avec le même code existe déjà.');
         form.controls['code'].setErrors({'incorrect': true});

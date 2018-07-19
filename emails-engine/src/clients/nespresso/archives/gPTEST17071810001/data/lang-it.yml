@@ -1,0 +1,82 @@
+#
+# brand: nespresso
+# campaign: gPTEST17071810001
+# lang: it
+#
+
+header-03-1531814638481:
+    text: "<p>Estate 2018</p>"
+block-02-1531814587133:
+    bgcolor: "'#000000'"
+    img: "/dist/nespresso/gPTEST1707181000/images/uploads/1_MSuvPR0U18NJNjxq0SlyyA.png"
+    img-w: "640"
+    img-h: "200"
+    img-mobile: ""
+    url: "http://www.txt.ch"
+    url-mobile: ""
+header-02-1531814648004:
+    img: "/dist/nespresso/gPTEST1707181000/images/uploads/Nespresso_logo.png"
+    url: "https://www.google.com"
+block-06-1531814616282:
+    bgcolor: "#271c1a"
+    color: "#ffffff"
+    text: "<p>Le <strong class=\"fontsize22\">Lorem Ipsum</strong> est simplement du faux texte employ&eacute; dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l&#39;imprimerie depuis les ann&eacute;es 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour r&eacute;aliser un livre sp&eacute;cimen de polices de texte. Il n&#39;a pas fait que survivre cinq si&egrave;cles, mais s&#39;est aussi adapt&eacute; &agrave; la bureautique informatique, sans que son contenu n&#39;en soit modifi&eacute;. Il a &eacute;t&eacute; popularis&eacute; dans les ann&eacute;es 1960 gr&acirc;ce &agrave; la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus r&eacute;cemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker. dsdsdsdsd dsdsdsdsdsd</p>"
+block-05-1531814607323:
+    text: "A découvrire maintenant dans nos magasins partenaires"
+block-11-1531816910354:
+    url: "http://www.epfl.ch"
+    img: "/dist/nespresso/gPTEST1707181000/images/uploads/Nespresso-Rechargeable-Capsule-pour-Machine-Caf-Nespresso-R-utilisable-Capsules-Inoxydable-Maille-Couvercle-Recharge-Nespresso-Capsule.jpg_640x640.jpg"
+    title: "<p>NOUVEAUTE 2018</p>"
+    text: "Découvrez nos capsules rechargeables!"
+    link: "En savoir plus"
+block-04-1531827682049:
+    bgcolor: "'#ffffff'"
+    color: "'#000000'"
+    colorSep: "'#ff0000'"
+    text: "Coucou les loulous"
+block-04-1531814599943:
+    bgcolor: "#271c1a"
+    color: "#ffffff"
+    colorSep: "#271c1a"
+    text: "ANNONCE AU CEBIT 2017"
+block-01-1531828034096:
+    title: "Offre d'été 2018"
+    img: "/dist/nespresso/gPTEST1707181000/images/uploads/the-best-nespresso-machines-1.jpg"
+    text: "Voici le texte avec les offres qui peut être super long, voir même trop trop long, et sans éditeur de texte avec ni bold, ni italic, ni rien. De plus le champ est trop court, ne vas pas sur une ligne, n'est pas limité en nombre de caractères...  c'est lourd à la longue, surtout que je me trompe de langue, ici c'est de l'anglais qui est demandé."
+    linkUrl: "http://www.apple.com"
+    linkText: "Cliquez ici"
+footer-03-02-1531832149546:
+    logoUrl: "http://www.microsoft.com"
+    text: "<p>&copy; 1998-2018 UEFA. All rights reserved.</p><p>The UEFA word, the UEFA logo and all marks related to UEFA competitions, are protected by trademarks and/or copyright of UEFA. No use for commercial purposes may be made of such trademarks. Use of UEFA.com signifies your agreement to the Terms and Conditions and <a href=\"http://www.latin.ch\" rel=\"noopener noreferrer\" target=\"_blank\">Privacy Policy. &nbsp;</a></p>"
+    facebookUrl: "http://www.facebook.com"
+    twitterUrl: "http://www.twitter.com"
+    youtudeUrl: ""
+    instagramUrl: ""
+    googlePlusUrl: ""
+footer-01-1531834970549:
+    title: "<p>MUlticolonne ici</p>"
+    items:
+      - url: "http://www.uefa.com"
+        img: "/dist/nespresso/gPTEST1707181000/images/uploads/il_570xN.1273614639_b9fj.jpg"
+        width: "60"
+        text: "Café with passion"
+      - url: ""
+        img: ""
+        width: ""
+        text: ""
+      - url: ""
+        img: ""
+        width: ""
+        text: ""
+      - url: ""
+        img: ""
+        width: ""
+        text: ""
+      - url: ""
+        img: ""
+        width: ""
+        text: ""
+header-01-1531840597907:
+    text: "WELCOME IN NESPRESSO LAND"
+    linkText: "ONLINE SHOP"
+    linkUrl: "http://www.nespresso.com"

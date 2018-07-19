@@ -1,0 +1,36 @@
+.stepper {
+    margin-bottom:0px;
+
+    li {
+        &:hover {
+            background-color: transparent !important;;
+        }
+
+        &.active {
+            a .circle {
+                background-color:#F02435 !important;
+            }
+        }
+
+        &.completed {
+            a {
+                span.label {
+                    font-weight: 300;
+                }
+                .circle {
+                    background-color:#388E3C !important;
+                }
+            }
+        }
+
+        &.disabled {
+            a .circle {
+                background-color:#616161 !important;
+            }
+        }
+
+        a {
+            padding: 12px 24px 20px 24px;
+        }
+    }
+}

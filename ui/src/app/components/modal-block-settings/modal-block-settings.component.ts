@@ -171,6 +171,8 @@ export class ModalBlockSettingsComponent implements OnInit {
 
   // Set a property value
   setPropertyValue(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
+    const isColor = (color) => new RegExp("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$").test(color);
+
     if (parentPropertyName && index !== undefined) {
       // If it's a child attribute
       if (event.html && !this.blockData.languages
@@ -183,20 +185,30 @@ export class ModalBlockSettingsComponent implements OnInit {
           .filter(el => el.lang === lang)[0].properties
           .filter(el => el.name === parentPropertyName)[0].value[index]
           .filter(el => el.name === propertyName)[0].value = event.html;
-      } else if(event.target && event.target.value) {
+      } else if(event.target) {
         // Input change event
+        const newValue = (event.target.value) ? event.target.value : '';
         this.blockData.languages
           .filter(el => el.lang === lang)[0].properties
           .filter(el => el.name === parentPropertyName)[0].value[index]
-          .filter(el => el.name === propertyName)[0].value = event.target.value;
+          .filter(el => el.name === propertyName)[0].value = newValue;
+      } else if(isColor(event)) {
+        // Its a color
+        this.blockData.languages
+          .filter(el => el.lang === lang)[0].properties
+          .filter(el => el.name === parentPropertyName)[0].value[index]
+          .filter(el => el.name === propertyName)[0].value = event;
       }
     } else {
       if (event.html && !this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].copiedFromMaster) {
         // If it's a WYSIWYG event
         this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = event.html;
-      } else if(event.target && event.target.value) {
+      } else if(event.target) {
         // Input change event
-        this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = event.target.value;
+        const newValue = (event.target.value) ? event.target.value : '';
+        this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = newValue;
+      } else if(isColor(event)) {
+        this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = event;
       }
     }
   }
@@ -206,6 +218,17 @@ export class ModalBlockSettingsComponent implements OnInit {
       // If there is a file attached to the input
       const image = event.target.files[0];
 
+      // Delete the previous image from the server
+      if (parentPropertyName && index !== undefined && this.blockData.languages
+        .filter(el => el.lang === lang)[0].properties
+        .filter(el => el.name === parentPropertyName)[0].value[index]
+        .filter(el => el.name === propertyName)[0].value !== '') 
+      {
+        this.removeImage(propertyName, lang, parentPropertyName, index);
+      } else if(this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value !== '') {
+        this.removeImage(propertyName, lang);
+      }
+      
       // We upload the image to the server using an API endpoint
       this.uploadService.uploadImage(this.brandName, this.campaignName, image).subscribe((data) => {
         if (data && data.imageUrl) {
@@ -223,6 +246,30 @@ export class ModalBlockSettingsComponent implements OnInit {
       }, err => {
         this.toastrService.error('Une erreur s\'est produite lors de l\'upload de l\'image.');
       });
+    }
+  }
+  
+  removeImage(propertyName: string, lang: string, parentPropertyName?: string, index?: number) {
+    
+    let oldImage = '';
+
+    if (parentPropertyName && index !== undefined) {
+      oldImage = this.blockData.languages
+        .filter(el => el.lang === lang)[0].properties
+        .filter(el => el.name === parentPropertyName)[0].value[index]
+        .filter(el => el.name === propertyName)[0].value;
+      this.blockData.languages
+        .filter(el => el.lang === lang)[0].properties
+        .filter(el => el.name === parentPropertyName)[0].value[index]
+        .filter(el => el.name === propertyName)[0].value = '';
+    } else {
+      oldImage = this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value;
+      this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = '';
+    }
+
+    if (oldImage !== '') {
+      const filename = oldImage.substring(oldImage.lastIndexOf('/')+1);
+      this.uploadService.removeImage(this.brandName, this.campaignName, filename).subscribe();
     }
   }
 
@@ -255,18 +302,6 @@ export class ModalBlockSettingsComponent implements OnInit {
     } else {
       const propertyValue = this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0];
       propertyValue.copiedFromMaster = !propertyValue.copiedFromMaster;
-    }
-  }
-
-  // Function called when we change the value of a color picker
-  colorPickerChange(propertyName: string, lang: string, color: any, parentPropertyName?: string, index?: number) {
-    if (parentPropertyName && index !== undefined) {
-      this.blockData.languages
-        .filter(el => el.lang === lang)[0].properties
-        .filter(el => el.name === parentPropertyName)[0].value[index]
-        .filter(el => el.name === propertyName)[0].value = `'${color}'`;
-    } else {
-      this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = `'${color}'`;
     }
   }
 
@@ -309,6 +344,7 @@ export class ModalBlockSettingsComponent implements OnInit {
 
   initWYSIWYG() {
     this.editorOptions = {
+      key: environment.froalaEditorKey,
       events : {
         'froalaEditor.contentChanged' : (e, editor) => {
           const html = editor.html.get();
@@ -322,9 +358,7 @@ export class ModalBlockSettingsComponent implements OnInit {
           elements.each(function() {
             newHtml += $(this).wrap('<div/>').parent().html();
           });
-          // Change the editor content
-          editor.html.set(newHtml);
-          
+
           const propertyName = e.target['data-propertyName'];
           const lang = e.target['data-lang'];
           
@@ -358,6 +392,7 @@ export class ModalBlockSettingsComponent implements OnInit {
         linkFooter: 'linkFooter',
         linkContent: 'linkContent'
       },
+      pluginsEnabled: ["align", "charCounter", "codeBeautifier", "codeView", "colors", "draggable", "entities", "fontFamily", "fontSize", "inlineStyle", "link", "lists", "paragraphFormat", "paragraphStyle", "quote", "save", "url", "wordPaste"],
     };
 
     // Add bold icon

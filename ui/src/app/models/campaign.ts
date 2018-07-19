@@ -3,4 +3,5 @@ export class Campaign {
     displayName: string;
     createdAt: Date;
     updatedAt?: Date;
+    languages?: string[];
 }

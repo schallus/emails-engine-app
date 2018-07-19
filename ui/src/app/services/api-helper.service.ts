@@ -28,7 +28,7 @@ export class ApiHelperService {
       error = {status: 500, message: 'An unexpected error occurred. Please reload the page.'};
     }
 
-    if(isDevMode()) console.error('error', error.message);
+    if (isDevMode()) console.error('error', error.message);
     return Observable.throw(error);
   }
 

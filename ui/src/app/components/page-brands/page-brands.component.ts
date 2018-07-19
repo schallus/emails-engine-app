@@ -16,7 +16,6 @@ export class PageBrandsComponent implements OnInit {
 
   @ViewChild('recipientsModal') recipientsModal;
 
-  breadcrumbs: Array<{title: string, path: string}>;
   brands: Brand[];
   filteredBrands: Brand[];
 
@@ -24,10 +23,6 @@ export class PageBrandsComponent implements OnInit {
     private apiService: ApiService,
     private toastrService: ToastService
   ) {
-    this.breadcrumbs = [
-      { title: 'Marques', path: '/brands' }
-    ];
-
     this.apiService.getBrands().subscribe(brands => {
       this.brands = brands;
       this.filteredBrands = this.brands;

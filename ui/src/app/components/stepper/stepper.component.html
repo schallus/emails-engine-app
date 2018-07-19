@@ -1,0 +1,11 @@
+<ul class="stepper stepper-horizontal container">
+  <li *ngFor="let step of steps; index as key" [class.completed]="key<currentStep" [class.active]="key==currentStep" [class.disabled]="key>currentStep">
+    <a [routerLink]="step.route">
+      <span class="circle">
+        <i *ngIf="step.icon" [class]="'fa ' + step.icon"></i>
+        <span *ngIf="!step.icon">{{key+1}}</span>
+      </span>
+      <span class="label">{{step.name}}</span>
+    </a>
+  </li>
+</ul>

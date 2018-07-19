@@ -11,13 +11,14 @@ const appRoutes: Routes = [
   {
     path: 'brands',
     component: PageBrandsComponent,
-    data: { title: 'Marques' }
+    data: { title: 'Marques', step: 0 }
   },
   {
     path: 'brands/:brandName/campaigns',
     component: PageCampaignsComponent,
     data: {
       title: 'Campagnes',
+      step: 1
     },
   },
   {
@@ -25,6 +26,7 @@ const appRoutes: Routes = [
     component: PageCampaignOptionsComponent,
     data: {
       title: 'Options',
+      step: 2
     },
   },
   {
@@ -32,6 +34,7 @@ const appRoutes: Routes = [
     component: PageCampaignOptionsComponent,
     data: {
       title: 'Options',
+      step: 2
     },
   },
   {
@@ -39,6 +42,7 @@ const appRoutes: Routes = [
     component: PageCampaignBuilderComponent,
     data: {
       title: 'Editeur d\'email',
+      step: 3
     },
   },
   { path: '404', component: PageNotFoundComponent },

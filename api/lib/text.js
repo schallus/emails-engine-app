@@ -1,14 +1,26 @@
+const MAX_FILENAME_SIZE = 200;
+
 const text = {};
 
 // Function which format the file name
 text.formatFilename = (str) => {
-    return removeDiacritics(str).replace(/[^A-Z0-9_.-]+/ig, "_");
+    return truncate(removeDiacritics(str).replace(/[^A-Z0-9_.-]+/ig, "_"), 200);
 }
 
 // Function which build the campaign name
 text.formatCampaignName = (str) => {
     return camelize(removeDiacritics(str)).replace(/[^0-9a-z]/gi, '');
 }
+
+const truncate = (n, len) => {
+    const ext = n.substring(n.lastIndexOf(".") + 1, n.length).toLowerCase();
+    let filename = n.replace('.' + ext,'');
+    if (filename.length <= len) {
+        return n;
+    }
+    filename = filename.substr(0, len);
+    return filename + '.' + ext;
+};
 
 // Function which removes diacritics
 const removeDiacritics = (str) => {
