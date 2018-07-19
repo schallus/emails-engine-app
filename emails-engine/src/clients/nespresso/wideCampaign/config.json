@@ -1,16 +1,16 @@
 {
 	"lang": {
 		"fr": {
-			"subject": ""
+			"subject": "asdasd"
 		},
 		"de": {
-			"subject": ""
+			"subject": "asdasd"
 		},
 		"it": {
-			"subject": ""
+			"subject": "asdasdasd"
 		}
 	},
 	"customLang": [],
 	"layout": "default",
-	"masterLang": ""
+	"masterLang": "fr"
 }

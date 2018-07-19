@@ -119,3 +119,7 @@ mdb-navbar nav.navbar {
 b, strong {
     font-weight: bold;
 }
+
+.fixed-action-btn .btn-floating.disabled {
+    opacity: 0.65;
+}
