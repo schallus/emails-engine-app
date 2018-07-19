@@ -1,0 +1,379 @@
+[
+	{
+		"blockName": "block-01-1531813946952",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "title",
+						"value": "Summers deals 2018",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "Here you will have the full deals for next summer",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkUrl",
+						"value": "www.apple.com",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkText",
+						"value": "See more...",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "title",
+						"value": "Offres d'été",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "Le text d'intro est ici",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "En savoir plus...",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-03-1531814240639",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "url",
+						"value": "www.google.com",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "url-mobile",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img-mobile",
+						"value": "",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-02-1531814231547",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img-w",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img-h",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img-mobile",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "url-mobile",
+						"value": "",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-w",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-h",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-w",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-h",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-04-1531814385319",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "color",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "colorSep",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "color",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "colorSep",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "color",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "colorSep",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	}
+]
