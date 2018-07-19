@@ -65,6 +65,12 @@ export class PageCampaignsComponent implements OnInit {
         return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
       });
       this.campaigns = campaigns;
+      this.campaigns.map(campaign => {
+        // Get campaign options
+        this.apiService.getCampaignOptions(this.brand.name, campaign.name).subscribe(options => {
+          campaign.languages = Object.keys(options.lang);
+        });
+      });
       this.numberOfPage = Math.ceil(this.campaigns.length / this.itemsPerPage);
       this.setPage(1);
       if (cb) {

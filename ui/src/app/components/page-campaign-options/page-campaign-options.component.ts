@@ -166,7 +166,7 @@ export class PageCampaignOptionsComponent implements OnInit {
   onNewLangFormSubmit = (form: NgForm) => {
     if (form.valid) {
       // Check if a lang with the same code already exists
-      if (this.languages.filter(lang => lang.code === form.value.code).length > 0) {
+      if (this.languages.filter(lang => lang.code.toLowerCase() === form.value.code.toLowerCase()).length > 0) {
         // diplay the error with toastr
         this.toastrService.error('Une langue avec le même code existe déjà.');
         form.controls['code'].setErrors({'incorrect': true});
