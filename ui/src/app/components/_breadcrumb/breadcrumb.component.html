@@ -1,8 +1,0 @@
-<div class="row mb-3">
-  <ol class="breadcrumb">
-    <li *ngFor="let breadcrumb of breadcrumbs; last as isLast" class="breadcrumb-item">
-      <a *ngIf="!isLast" [routerLink]="[breadcrumb.path]">{{breadcrumb.title}}</a>
-      <span *ngIf="isLast"><strong>{{breadcrumb.title}}</strong></span>
-    </li>
-  </ol>
-</div>
