@@ -5,7 +5,7 @@
 #
 
 header-01-1530859818196:
-    text: "Texte du header"
+    text: "Texte du header 123"
     linkText: "Ceci est un lien"
     linkUrl: "http://www.nespresso.com"
 header-02-1530859821674:
@@ -14,7 +14,7 @@ header-02-1530859821674:
 block-20-1530859838201:
     linkUrl: "http://www.google.ch"
     linkText: "Lien vers Google"
-    img: "/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_16_38_23_Pro.jpg"
+    img: "/dist/nespresso/campagneDeDemonstration/images/uploads/paysage.jpg"
     title: "Ceci est le titre en Allemand"
     text: "Texte du bloc en FR"
 block-19-1530859843541:
@@ -25,5 +25,10 @@ block-19-1530859843541:
     text: "Ceci est le texte du bloc en français."
 block-06-1531071824770:
     bgcolor: ""
-    color: "'#723a3a'"
-    text: "<p>Test</p>"
+    color: "#493c3c"
+    text: "<p class=\"fontArial\">asd asd <strong class=\"fontArial\">asdsad&nbsp;</strong>asd da sd</p><p class=\"fontArial\">asd <em class=\"fontArial\">asd sdf sdf sd df</em></p><p class=\"fontArial\">sd as d</p><p class=\"fontArial\">as d</p>"
+block-04-1531831355982:
+    bgcolor: "#722c2c"
+    color: "#683c3c"
+    colorSep: "#b55c5c"
+    text: "Test"

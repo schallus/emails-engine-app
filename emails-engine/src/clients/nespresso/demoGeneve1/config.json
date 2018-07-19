@@ -1,5 +1,8 @@
 {
 	"lang": {
+		"fr-CH": {
+			"subject": "sdf sdf "
+		},
 		"fr": {
 			"subject": "sdfdf gdg "
 		},
@@ -8,15 +11,13 @@
 		},
 		"it": {
 			"subject": "qsdfg gsdf"
-		},
-		"fr-CH": {
-			"subject": "sdf sdf "
 		}
 	},
 	"customLang": [
 		{
 			"name": "Français(Suisse)",
-			"code": "fr-CH"
+			"code": "fr-CH",
+			"selected": true
 		}
 	],
 	"layout": "default",

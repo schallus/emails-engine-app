@@ -1,35 +1,40 @@
-<div class="row">
-  <div class="col">
-    <app-breadcrumb [breadcrumbs]=breadcrumbs></app-breadcrumb>
-  </div>
-  <div class="builder-actions text-right col">
-    <button type="button" class="btn btn-secondary btn-rounded waves-light" (click)="showPreview()" mdbWavesEffect>Aperçu</button>
-    <button type="button" class="btn btn-secondary btn-rounded waves-light" mdbWavesEffect>Litmus</button>
-    <button type="button" class="btn btn-secondary btn-rounded waves-light" (click)="modalSendEmails.show()" mdbWavesEffect>Envoi</button>
-    <button type="button" class="btn btn-secondary btn-rounded waves-light" (click)="exportEmails()" mdbWavesEffect>Exporter</button>
+<div class="fixed-action-btn">
+  <a class="btn-floating btn-lg red" mdbWavesEffect (click)="fixed.toggle($event)">
+    <i class="fa fa-cog"></i>
+  </a>
+
+  <div class="fixed_collapse" [mdbCollapse]="true" #fixed="bs-collapse">
+    <a class="btn-floating red waves-light" (click)="showPreview()" mdbWavesEffect><i class="fa fa-search"></i></a>
+    <a class="btn-floating yellow darken-1 waves-light disabled" mdbWavesEffect><i class="fa fa-list-alt"></i></a>
+    <a class="btn-floating green waves-light" (click)="modalSendEmails.show()" mdbWavesEffect><i class="fa fa-paper-plane"></i></a>
+    <a class="btn-floating blue waves-light" (click)="exportEmails()" mdbWavesEffect><i class="fa fa-download"></i></a>
   </div>
 </div>
+
 <div class="row">
-  <div class="col-5">
-    <div class="card" #dragNDropBlocksList [ngClass]="{'fixed': blocksFixed}">
+  <div class="col-5" #dragNDropBlocksList>
+    <div class="card fixed">
       <div class="card-header secondary-color white-text">
         Blocs
       </div>
       <div class="card-body row">
-        <div class="input-group mb-3 col-12" *ngIf="blocks">
-          <div class="input-group-prepend">
-            <span class="input-group-text secondary-color"><i class="fa fa-filter text-white" aria-hidden="true"></i></span>
-          </div>
-          <input class="form-control my-0 py-1" type="text" placeholder="Filtrer" aria-label="Filtrer" appDebounceChange (debounceChange)="filterBlocks($event)">
-        </div>
-        <div class="col-12" [sortablejs]="filteredBlocks" [sortablejsOptions]="blockLibraryOptions" id="builderBlockList">
-          <div class="alert alert-danger" *ngIf="filteredBlocks?.length==0">Il n'y a aucun bloc à afficher</div>
-          <div *ngFor="let block of filteredBlocks" [class]="'card block text-center mb-3 ' + block?.name" [blockData]="block">
-            <img class="img-fluid" [src]="serverUrl + block?.thumbnailUrl" [alt]="block?.displayName">
-            <div class="card-body">
-              <h4 class="card-title">{{ block.displayName }}</h4>
-            </div>
-          </div>
+        <div class="col-12" id="builderBlockList">
+          <div class="alert alert-danger" *ngIf="!categorizedBlocks">Il n'y a aucun bloc à afficher</div>
+          <mdb-squeezebox [multiple]="false" aria-multiselectable="false" *ngIf="categorizedBlocks">
+            <mdb-item  [collapsed]="true" *ngFor="let category in categorizedBlocks">
+              <mdb-item-head> {{ category | uppercase }} </mdb-item-head>
+              <mdb-item-body>
+                <div [sortablejs]="categorizedBlocks" [sortablejsOptions]="blockLibraryOptions">
+                  <div *ngFor="let block of categorizedBlocks[category]" [class]="'card block text-center mb-3 ' + block?.name" [blockData]="block">
+                    <img class="img-fluid" [src]="serverUrl + block?.thumbnailUrl" [alt]="block?.displayName">
+                    <div class="card-body">
+                      <h4 class="card-title">{{ block.displayName }}</h4>
+                    </div>
+                  </div>
+                </div>
+              </mdb-item-body>
+            </mdb-item>
+          </mdb-squeezebox>
         </div>
       </div>
     </div>

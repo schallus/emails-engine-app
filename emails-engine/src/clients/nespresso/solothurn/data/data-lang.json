@@ -422,5 +422,51 @@
 				"display": true
 			}
 		]
+	},
+	{
+		"blockName": "footer-03-02-1531819992754",
+		"languages": [
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "logoUrl",
+						"value": "http://nespresso.com",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "<p>Tasds ad</p><p><strong class=\"fontsize12\">asd&nbsp;</strong></p><p>asd asd asd sad</p><p>sad &nbsp;asdsad sad</p><p>sad </p>",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "facebookUrl",
+						"value": "http://facebook.com",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "twitterUrl",
+						"value": "http://twitter.com",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "youtudeUrl",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "instagramUrl",
+						"value": "http://instagram.com",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "googlePlusUrl",
+						"value": "",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			}
+		]
 	}
 ]

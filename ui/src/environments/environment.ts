@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   apiBaseUrl: 'http://localhost:3000/api',
-  serverUrl: 'http://localhost:3000'
+  serverUrl: 'http://localhost:3000',
+  froalaEditorKey: 'hD2B2D2D2yD4C3C2B3C4C1D1H4B1C3ltF-11rB-8yeB3opE-11E-11A-9zH-8qcxE5f1l=='
 };
 
 /*

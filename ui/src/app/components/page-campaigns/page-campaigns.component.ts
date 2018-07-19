@@ -25,7 +25,6 @@ export class PageCampaignsComponent implements OnInit {
   filtered: boolean;
   campaign: string;
   brand: Brand;
-  breadcrumbs: Array<{title: string, path?: string}>;
   duplicateName: string;
   newCampaignName: string;
   private sorted = false;
@@ -56,23 +55,26 @@ export class PageCampaignsComponent implements OnInit {
         this.brand = brands.filter(el => el.name == brandName)[0];
 
         this.getCampaigns();
-
-        this.breadcrumbs = [
-          { title: 'Marques', path: `/brands` },
-          { title: this.brand.displayName, path: `/brands/${this.brand.name}/campaigns` },
-          { title: 'Campagnes' },
-        ];
       }
     });
   }
 
   sortBy(array: any[], by: string | any): void {
     array.sort((a: any, b: any) => {
-      if (a[by].toLowerCase() < b[by].toLowerCase()) {
-        return this.sorted ? 1 : -1;
-      }
-      if (a[by].toLowerCase() > b[by].toLowerCase()) {
-        return this.sorted ? -1 : 1;
+      if (typeof a[by] === 'string' && typeof b[by] === 'string') {
+        if (a[by].toLowerCase() < b[by].toLowerCase()) {
+          return this.sorted ? 1 : -1;
+        }
+        if (a[by].toLowerCase() > b[by].toLowerCase()) {
+          return this.sorted ? -1 : 1;
+        }
+      } else {
+        if (a[by] < b[by]) {
+          return this.sorted ? 1 : -1;
+        }
+        if (a[by] > b[by]) {
+          return this.sorted ? -1 : 1;
+        }
       }
       return 0;
     });

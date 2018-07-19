@@ -1,10 +1,15 @@
 /* The sticky class is added to the blocks list with JS when it reaches its scroll position */
 .fixed {
     position: fixed !important;
-    bottom: 80px !important;
+    top: 80px !important;
     z-index: 1000;
 }
 
 .card.invalid {
     background-color: lightcoral;
+}
+
+.fixed-action-btn {
+    bottom: 80px; 
+    right: 24px;
 }

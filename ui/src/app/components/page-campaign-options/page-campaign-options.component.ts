@@ -26,7 +26,6 @@ export class PageCampaignOptionsComponent implements OnInit {
   brand: Brand;
   campaignName: string;
   campaign: Campaign;
-  breadcrumbs: Array<{title: string, path?: string}>;
   languages: LangSelected[];
   filteredLanguages: LangSelected[];
   campaignOptions: CampaignOptions;
@@ -61,13 +60,6 @@ export class PageCampaignOptionsComponent implements OnInit {
             this.redirect404();
           } else {
             this.campaign = campaigns.filter(el => el.name == campaignName)[0];
-
-            this.breadcrumbs = [
-              { title: 'Marques', path: `/brands` },
-              { title: this.brand.displayName, path: `/brands/${this.brand.name}/campaigns` },
-              { title: this.campaign.displayName, path: `/brands/${this.brand.name}/campaigns/${this.campaign.name}/options` },
-              { title: 'Options' },
-            ];
 
             // Get campaign options
             this.apiService.getCampaignOptions(this.brand.name, this.campaign.name).subscribe(options => {

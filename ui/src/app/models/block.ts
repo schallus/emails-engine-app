@@ -1,6 +1,7 @@
 export class Block {
     name: string;
     displayName: string;
+    category: string;
     thumbnailUrl: string;
     properties: BlockProperty[];
 }

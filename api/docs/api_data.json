@@ -2548,6 +2548,101 @@
     "groupTitle": "Emails"
   },
   {
+    "type": "delete",
+    "url": "/brands/:brandSlug/campaigns/:campaignSlug/images",
+    "title": "Delete an image",
+    "name": "deleteImage",
+    "group": "Images",
+    "description": "<p>Delete an image by file name.</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "imageFileName",
+            "description": "<p>Image file name to be deleted from the campaign.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "HttpRequestSuccess",
+            "optional": false,
+            "field": "Success",
+            "description": "<p>Success 200</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "422",
+            "optional": false,
+            "field": "WrongParameters",
+            "description": "<p>Please send the image url to be removed in the body parameters.</p>"
+          },
+          {
+            "group": "Error 4xx",
+            "type": "404",
+            "optional": false,
+            "field": "BrandNotFound",
+            "description": "<p>The brand given in the url does not exist.</p>"
+          }
+        ],
+        "Error 5xx": [
+          {
+            "group": "Error 5xx",
+            "type": "500",
+            "optional": false,
+            "field": "ErrorRemovingFile",
+            "description": "<p>Couldn't remove the image. Either the image name, the brand name or the campaign name is incorrect.</p>"
+          },
+          {
+            "group": "Error 5xx",
+            "type": "522",
+            "optional": false,
+            "field": "ConnectionTimeOut",
+            "description": "<p>Connection Timed Out after a few seconds.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "WrongParameters:",
+          "content": "HTTP/1.1 422 Unprocessable Entity\n {\n     \"error\": {\n         \"status\": 422,\n         \"message\": \"Please send the image url to be removed in the body parameters.\"\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ErrorRemovingFile:",
+          "content": "HTTP/1.1 500 Internal Server Error\n {\n     \"error\": {\n         \"status\": 500,\n         \"message\": \"Couldn't remove the image. Either the image name, the brand name or the campaign name is incorrect.\"\n     }\n }",
+          "type": "json"
+        },
+        {
+          "title": "ConnectionTimeOut:",
+          "content": "HTTP/1.1 522 Connection Timed Out\n{\n  \"error\": {\n     \"status\": 522,\n     \"message\": \"Connection Timed Out.\"\n  }\n}",
+          "type": "json"
+        },
+        {
+          "title": "BrandNotFound:",
+          "content": "HTTP/1.1 404 Not Found\n {\n   \"error\": {\n      \"status\": 404,\n      \"message\": \"The brand '%brandName%' does not exist.\"\n   }\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "routes/api.image.js",
+    "groupTitle": "Images"
+  },
+  {
     "type": "post",
     "url": "/brands/:brandSlug/campaigns/:campaignSlug/images",
     "title": "Upload an image",

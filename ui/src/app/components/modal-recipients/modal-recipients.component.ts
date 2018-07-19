@@ -60,11 +60,11 @@ export class ModalRecipientsComponent implements OnInit {
   edit(property: string, event: any, email?: string) {
     if(email) {
       // Edit mode
-      this.recipients.filter(recipient => recipient.email == email)[0][property] = event.srcElement.innerText.trim();
+      this.recipients.filter(recipient => recipient.email == email)[0][property] = event.target.innerText.trim();
     } else {
       // Add new recipient
       this.error = false;
-      this.newRecipient[property] = event.srcElement.innerText.trim();
+      this.newRecipient[property] = event.target.innerText.trim();
     }
   }
 

@@ -7,6 +7,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const timeout = require('connect-timeout');
 const validator = require('express-validator');
+const morgan = require('morgan');     // Log requests
 
 // custom
 const brandCtrl = require('./api.brand');
@@ -26,6 +27,9 @@ router.use(bodyParser.urlencoded({
 router.use(bodyParser.json({
     limit: '5mb'
 }));
+
+// Log all the API Requests
+router.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
 
 /**
  * @apiDefine DataFormUrlencoded
@@ -52,8 +56,8 @@ router.use(bodyParser.json({
 
 // ----- image -----
 router.route('/brands/:brandSlug/campaigns/:campaignSlug/images')
-    .post(timeout('30s'), imageCtrl.addImage);
-//    .delete(timeout('5s'), imageCtrl.removeImage);
+    .post(timeout('30s'), imageCtrl.addImage)
+    .delete(timeout('5s'), imageCtrl.removeImage);
 
 // ----- brand -----
 router.route('/brands')

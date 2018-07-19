@@ -82,5 +82,11 @@
 		"position": 13,
 		"name": "footer-03-1531234970723",
 		"valid": true
+	},
+	{
+		"blockType": "footer-03-02",
+		"position": 14,
+		"name": "footer-03-02-1531819992754",
+		"valid": true
 	}
 ]

@@ -26,7 +26,8 @@
                   <input class="form-check-input d-none" type="checkbox" [checked]="recipient.selected ? 'checked' : null" autocomplete="off" (change)="recipient.selected = !recipient.selected" [value]="recipient.email" > {{ recipient.firstname }} {{ recipient.lastname }} <{{ recipient.email }}>
                 </label>
               </div>
-              <a class="btn btn-grey btn-rounded" (click)="recipientsModal.show(brand)">Gérer les destinataires</a>
+              <a class="btn btn-grey btn-rounded" (click)="recipientsModal.show(brand)">Gérer</a>
+              <a class="btn btn-grey btn-rounded" (click)="selectAllRecipients()">Tout sélectionner</a>
           </div>
         </div>
       </div>

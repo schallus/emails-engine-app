@@ -59,7 +59,7 @@
                       type="text"
                       [id]="property.name+'-'+lang" 
                       [name]="property.name+'-'+lang" 
-                      pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" 
+                      pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" 
                       [mdbValidate]="false" 
                       [ngModel]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value : ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value" 
                       appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)" 
@@ -74,6 +74,9 @@
                   </div>
                   <div *ngSwitchCase="'img'" class="file-field md-form">
                     <div class="col-6 img-preview">
+                      <a class="btn-floating btn-sm btn-secondary waves-light remove-image" (click)="removeImage(property.name, lang, $event)" mdbTooltip="Supprimer" placement="top" mdbWavesEffect>
+                        <i class="fa fa-trash"></i>
+                      </a>
                       <img [src]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value) ? serverUrl + ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value : 'assets/img/placeholder.jpg' : (((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value) ? serverUrl + ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value : 'assets/img/placeholder.jpg'" class="img-fluid">
                     </div>
                     <div class="col-6 img-button">
@@ -94,18 +97,22 @@
                     </div>
                   </div>
                   <div *ngSwitchCase="'color'" class="md-form input-group">
-                    <span class="color-preview prefix mr-1 rounded" [style.background]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value?.substring(1, 8) : ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value?.substring(1, 8)"></span>
+                    <span class="color-preview prefix mr-1 rounded" [style.background]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value : ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value"></span>
                     <input mdbInputDirective [mdbValidate]="false" type="text" class="form-control color" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" [required]="property.required"
-                      (colorPickerSelect)="colorPickerChange(property.name, lang, $event)"
+                      (colorPickerSelect)="setPropertyValue(property.name, lang, $event)"
                       [cpCancelButton]="true"
                       [cpCancelButtonClass]= "'btn btn-secondary btn-sm mr-1'"
+                      [cpCancelButtonText]="'Annuler'"
                       [cpOKButton]="true"
+                      [cpOKButtonText]="'Valider'"
                       [cpSaveClickOutside]="false"
                       [cpOKButtonClass]= "'btn btn-green btn-sm'"
+                      [id]="property.name+'-'+lang" 
+                      [name]="property.name+'-'+lang"
+                      [ngModel]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value : ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value"
+                      [required]="property.required"
                       pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-                      ngModel
-                      [value]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value?.substring(1, 8) : ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value?.substring(1, 8)"
-                      [colorPicker]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value?.substring(1, 8) : ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value?.substring(1, 8)"
+                      [colorPicker]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value : ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value"
                       [attr.disabled]="((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster ? 'disabled' : null"
                     />
                     <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
@@ -155,7 +162,7 @@
                     <p>{{ property.displayName }}<sup *ngIf="property.required">*</sup></p>
                     <mdb-squeezebox [id]="'accordion-'+property.name" [multiple]="false" aria-multiselectable="false">
                       <mdb-item class="propertyAccordion" [collapsed]="true" *ngFor="let propValue of ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value; index as key; first as isFirst">
-                        <mdb-item-head class="btn btn-outline-secondary">{{ property.name }} #{{ key }}</mdb-item-head>
+                        <mdb-item-head>{{ property.name }} #{{ key }}</mdb-item-head>
                         <mdb-item-body>
                           <div *ngFor="let property1 of property.properties" [ngSwitch]="property1.type">
                             <div *ngSwitchCase="'text'" class="md-form input-group">
@@ -197,7 +204,7 @@
                                 type="text"
                                 [id]="property1.name+'-'+lang+'-'+key" 
                                 [name]="property1.name+'-'+lang+'-'+key"
-                                pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$" 
+                                pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" 
                                 [mdbValidate]="false" 
                                 [ngModel]="((propValue | filter: 'name':property1.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value : (propValue | filter: 'name':property1.name)?.value" 
                                 appDebounceChange (debounceChange)="setPropertyValue(property1.name, lang, $event, property.name, key)"
@@ -232,24 +239,28 @@
                               </div>
                             </div>
                             <div *ngSwitchCase="'color'" class="md-form input-group">
-                              <span class="color-preview prefix mr-1 rounded" [style.background]="((propValue | filter: 'name':property1.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value?.substring(1, 8) : (propValue | filter: 'name':property1.name)?.value?.substring(1, 8)"></span>
+                              <span class="color-preview prefix mr-1 rounded" [style.background]="((propValue | filter: 'name':property1.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value : (propValue | filter: 'name':property1.name)?.value"></span>
                               <input mdbInputDirective [mdbValidate]="false" type="text" class="form-control color" [id]="property.name+'-'+lang" [name]="property.name+'-'+lang" [required]="property.required"
-                                (colorPickerSelect)="colorPickerChange(property1.name, lang, $event, property.name, key)"
+                                (colorPickerSelect)="setPropertyValue(property1.name, lang, $event, property.name, key)"
                                 [cpCancelButton]="true"
                                 [cpCancelButtonClass]= "'btn btn-secondary btn-sm mr-1'"
+                                [cpCancelButtonText]="'Annuler'"
                                 [cpOKButton]="true"
+                                [cpOKButtonText]="'Valider'"
                                 [cpSaveClickOutside]="false"
                                 [cpOKButtonClass]= "'btn btn-green btn-sm'"
-                                ngModel
+                                [id]="property1.name+'-'+lang+'-'+key" 
+                                [name]="property1.name+'-'+lang+'-'+key"
+                                [ngModel]="((propValue | filter: 'name':property1.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value : (propValue | filter: 'name':property1.name)?.value"
+                                [colorPicker]="((propValue | filter: 'name':property1.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value : (propValue | filter: 'name':property1.name)?.value"
+                                [required]="property1.required"
                                 pattern="^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"
-                                [value]="((propValue | filter: 'name':property1.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value?.substring(1, 8) : (propValue | filter: 'name':property1.name)?.value?.substring(1, 8)"
-                                [colorPicker]="((propValue | filter: 'name':property1.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value?.substring(1, 8) : (propValue | filter: 'name':property1.name)?.value?.substring(1, 8)"
                                 [attr.disabled]="(propValue | filter: 'name':property1.name)?.copiedFromMaster ? 'disabled' : null"
                               />
-                              <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
+                              <label [for]="property1.name+'-'+lang+'-'+key">{{ property1.displayName }}<sup *ngIf="property.required">*</sup></label>
                               <span class="input-group-append copied-from-master" *ngIf="campaignOptions.masterLang !== lang">
-                                <input type="checkbox" [id]="'copyFromMaster-' + property.name+'-'+lang" [name]="'copyFromMaster-' + property.name+'-'+lang" [checked]="((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster" (change)="copyFromMaster(property.name, lang)">
-                                <label [for]="'copyFromMaster-' + property.name+'-'+lang">Copier de master</label>
+                                <input type="checkbox" [id]="'copyFromMaster-' + property1.name+'-'+lang+'-'+key" [name]="'copyFromMaster-' + property1.name+'-'+lang+'-'+key" [checked]="(propValue | filter: 'name':property1.name)?.copiedFromMaster" (change)="copyFromMaster(property1.name, lang, property.name, key)">
+                                <label [for]="'copyFromMaster-' + property1.name+'-'+lang+'-'+key">Copier de master</label>
                               </span>
                             </div>
                             <div *ngSwitchCase="'textarea'" class="md-form input-group">
@@ -264,7 +275,7 @@
                                 appDebounceChange (debounceChange)="setPropertyValue(property1.name, lang, $event, property.name, key)"
                                 [attr.disabled]="(propValue | filter: 'name':property1.name)?.copiedFromMaster ? 'disabled' : null">
                               </textarea>
-                              <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
+                              <label [for]="property1.name+'-'+lang+'-'+key">{{ property1.displayName }}<sup *ngIf="property.required">*</sup></label>
                               <span class="input-group-append copied-from-master d-block" *ngIf="campaignOptions.masterLang !== lang">
                                 <input type="checkbox" [id]="'copyFromMaster-' + property1.name+'-'+lang+'-'+key" [name]="'copyFromMaster-' + property1.name+'-'+lang+'-'+key" [checked]="(propValue | filter: 'name':property1.name)?.copiedFromMaster" (change)="copyFromMaster(property1.name, lang, property.name, key)">
                                 <label [for]="'copyFromMaster-' + property1.name+'-'+lang+'-'+key">Copier de master</label>
@@ -272,19 +283,22 @@
                             </div>
                             <div *ngSwitchCase="'wysiwyg'">
                               <label [for]="property.name+'-'+lang">{{ property.displayName }}<sup *ngIf="property.required">*</sup></label>
-                              <quill-editor 
-                                [modules]="quillOptions"
+                              <textarea
                                 [id]="property1.name+'-'+lang+'-'+key" 
-                                [name]="property1.name+'-'+lang+'-'+key" 
-                                [placeholder]="property1.displayName"
-                                [ngModel]="((propValue | filter: 'name':property1.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value : (propValue | filter: 'name':property1.name)?.value" 
-                                appDebounceChange (debounceChange)="setPropertyValue(property1.name, lang, $event, property.name, key)"
+                                [name]="property1.name+'-'+lang+'-'+key"
                                 [required]="property1.required"
-                                [readOnly]="(propValue | filter: 'name':property1.name)?.copiedFromMaster ? true : false">
-                              </quill-editor>
-                              <span class="input-group-append copied-from-master mt-2" *ngIf="campaignOptions.masterLang !== lang">
-                                <input type="checkbox" [id]="'copyFromMaster-' + property.name+'-'+lang" [name]="'copyFromMaster-' + property.name+'-'+lang" [checked]="((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster" (change)="copyFromMaster(property.name, lang)">
-                                <label [for]="'copyFromMaster-' + property.name+'-'+lang">Copier de master</label>
+                                [attr.disabled]="(propValue | filter: 'name':property1.name)?.copiedFromMaster ? true : false"
+                                [froalaEditor]='editorOptions' 
+                                [froalaModel]="((propValue | filter: 'name':property1.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value : (propValue | filter: 'name':property1.name)?.value"
+                                [data-propertyName]="property1.name"
+                                [data-lang]="lang"
+                                [data-parentPropertyName]="property.name"
+                                [data-index]="key"
+                              >
+                              </textarea>
+                              <span class="input-group-append copied-from-master d-block" *ngIf="campaignOptions.masterLang !== lang">
+                                <input type="checkbox" [id]="'copyFromMaster-' + property1.name+'-'+lang+'-'+key" [name]="'copyFromMaster-' + property1.name+'-'+lang+'-'+key" [checked]="(propValue | filter: 'name':property1.name)?.copiedFromMaster" (change)="copyFromMaster(property1.name, lang, property.name, key)">
+                                <label [for]="'copyFromMaster-' + property1.name+'-'+lang+'-'+key">Copier de master</label>
                               </span>
                             </div>
                           </div>

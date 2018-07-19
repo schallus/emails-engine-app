@@ -38,7 +38,7 @@ export class ModalSendTestComponent implements OnInit {
   getRecipients(brandName: string, cb?: Function) {
     this.apiService.getRecipients(brandName).subscribe(recipients => {
       this.recipients = recipients.map(recipient => {
-        recipient.selected = true;
+        recipient.selected = false;
         return recipient;
       });
       if(cb) {
@@ -72,6 +72,10 @@ export class ModalSendTestComponent implements OnInit {
     }, err => {
       this.toastrService.error('Une erreur s\'est produite lors du chargement de la marque.');
     });
+  }
+
+  selectAllRecipients() {
+    this.recipients.map(recipient => recipient.selected = true);
   }
 
   // Send the emails

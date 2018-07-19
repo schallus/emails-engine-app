@@ -33,12 +33,9 @@ export class PageCampaignBuilderComponent implements OnInit {
   brand: Brand;
   campaign: Campaign;
 
-  // Breadcrumbs
-  breadcrumbs: Array<{title: string, path?: string}>;
-
   // Liste des blocs
   blocks: Block[];
-  filteredBlocks: Block[];
+  categorizedBlocks: any;
 
   // Options de la campagne
   campaignStructure: BlockPosition[];
@@ -113,7 +110,16 @@ export class PageCampaignBuilderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.blocksFixedWidth = this.dragNDropBlocksList.nativeElement.clientWidth;
+
+    try {
+      this.blocksFixedWidth = parseInt(window.getComputedStyle(this.dragNDropBlocksList.nativeElement, null).getPropertyValue('width'));
+    } catch(e) {
+      // IE Fix
+      this.blocksFixedWidth = this.dragNDropBlocksList.nativeElement.currentStyle.width;
+    }
+
+    this.blocksFixedWidth-=30; // Remove padding
+    this.dragNDropBlocksList.nativeElement.querySelector('.fixed').style.width = `${this.blocksFixedWidth}px`;
 
     // Get url parameters
     const brandName = this.route.snapshot.paramMap.get('brandName');
@@ -131,17 +137,14 @@ export class PageCampaignBuilderComponent implements OnInit {
           } else {
             this.campaign = campaigns.filter(el => el.name == campaignName)[0];
 
-            this.breadcrumbs = [
-              { title: 'Marques', path: `/brands` },
-              { title: this.brand.displayName, path: `/brands/${this.brand.name}/campaigns` },
-              { title: this.campaign.displayName, path: `/brands/${this.brand.name}/campaigns/${this.campaign.name}/options` },
-              { title: 'Editeur d\'email' }
-            ];
-
             // Get list of blocks available
             this.apiService.getBlocks(this.brand.name).subscribe(blocks => {
-              this.blocks = blocks.sort((a, b) => (a.displayName > b.displayName) ? 1 : ((b.displayName > a.displayName) ? -1 : 0));
-              this.filteredBlocks = this.blocks;
+              this.blocks = blocks;
+              const result = blocks.reduce((h, a) => Object.assign(h, { [a.category]:( h[a.category] || [] ).concat(a) }), {});
+              for (let category in result) {
+                result[category] = result[category].sort((a, b) => (a.displayName > b.displayName) ? 1 : ((b.displayName > a.displayName) ? -1 : 0));
+              }
+              this.categorizedBlocks = result;
             }, err => {
               this.toastrService.error('Une erreur s\'est produite lors du chargement des blocs.');
             });
@@ -230,19 +233,6 @@ export class PageCampaignBuilderComponent implements OnInit {
     });
   }
 
-  @HostListener('window:scroll', ['$event'])
-  onWindowScroll(e: any) {
-    if (!this.blocksFixed && window.pageYOffset > 185) {
-      this.blocksFixed = true;
-      this.dragNDropBlocksList.nativeElement.style.width = `${this.blocksFixedWidth}px`;
-      this.dragNDropBlocksList.nativeElement.querySelector('#builderBlockList').style.maxHeight = `${window.innerHeight - 300}px`;
-    } else if (this.blocksFixed && window.pageYOffset < 185) {
-      this.blocksFixed = false;
-      this.dragNDropBlocksList.nativeElement.style.width = `auto`;
-      this.dragNDropBlocksList.nativeElement.querySelector('#builderBlockList').style.maxHeight = `500px`;
-    }
-  }
-
   removeBlock(block: BlockPosition) {
     this.campaignStructure = this.campaignStructure.filter(el => el !== block);
     this.saveCampaignStructure();
@@ -261,10 +251,6 @@ export class PageCampaignBuilderComponent implements OnInit {
     this.apiService.setCampaignStructure(this.brand.name, this.campaign.name, this.campaignStructure).subscribe(() => {}, err => {
       this.toastrService.error('Erreur lors de l\'enregistrement de la structure.');
     });
-  }
-
-  filterBlocks(event: any) {
-    this.filteredBlocks = this.blocks.filter(block => block.displayName.toLowerCase().indexOf(event.target.value.toLowerCase()) > -1);
   }
 
   getBlockTypeInfo(blockType: string) {

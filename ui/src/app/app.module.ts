@@ -18,7 +18,7 @@ import { PageCampaignOptionsComponent } from './components/page-campaign-options
 import { PageCampaignBuilderComponent } from './components/page-campaign-builder/page-campaign-builder.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
-import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { StepperComponent } from './components/stepper/stepper.component';
 
 import { ModalRecipientsComponent } from './components/modal-recipients/modal-recipients.component';
 import { ModalSendTestComponent } from './components/modal-send-test/modal-send-test.component';
@@ -32,6 +32,7 @@ import { ApiHelperService } from './services/api-helper.service';
 import { UploadService } from './services/upload.service';
 
 import { DebounceChangeDirective } from './directives/debounce-change.directive';
+import { NgForIn } from './directives/ng-for-in.directive';
 
 @NgModule({
   declarations: [
@@ -41,13 +42,14 @@ import { DebounceChangeDirective } from './directives/debounce-change.directive'
     PageCampaignOptionsComponent,
     PageCampaignBuilderComponent,
     PageNotFoundComponent,
-    BreadcrumbComponent,
+    StepperComponent,
     ModalRecipientsComponent,
+    ModalSendTestComponent,
+    ModalBlockSettingsComponent,
     FilterSelectedPipe,
     FilterPipe,
     DebounceChangeDirective,
-    ModalSendTestComponent,
-    ModalBlockSettingsComponent
+    NgForIn
   ],
   imports: [
     BrowserModule,

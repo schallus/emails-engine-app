@@ -2,12 +2,14 @@
     {
         "name": "spacer",
         "displayName": "Spacer",
+        "category": "content",
         "thumbnailUrl": "/public/nespresso/images/block-27.jpg",
         "properties": []
     },
     {
         "name": "header-01",
         "displayName": "Header 1",
+        "category": "header",
         "thumbnailUrl": "/public/nespresso/images/header-01.jpg",
         "properties": [
             {
@@ -33,6 +35,7 @@
     {
         "name": "header-02",
         "displayName": "Header 2",
+        "category": "header",
         "thumbnailUrl": "/public/nespresso/images/header-02.jpg",
         "properties": [
             {
@@ -52,6 +55,7 @@
     {
         "name": "header-03",
         "displayName": "Header 3",
+        "category": "header",
         "thumbnailUrl": "/public/nespresso/images/header-03.jpg",
         "properties": [
             {
@@ -65,12 +69,19 @@
     {
         "name": "block-01",
         "displayName": "Block 01",
+        "category": "content",
         "thumbnailUrl": "/public/nespresso/images/block-01.jpg",
         "properties": [
             {
                 "name": "title",
                 "displayName": "Titre",
                 "type": "text",
+                "required": true
+            },
+            {
+                "name": "img",
+                "displayName": "Image de fond",
+                "type": "img",
                 "required": true
             },
             {
@@ -96,6 +107,7 @@
     {
         "name": "block-02",
         "displayName": "Block 02",
+        "category": "content",
         "thumbnailUrl": "/public/nespresso/images/block-02.jpg",
         "properties": [
             {
@@ -145,6 +157,7 @@
     {
         "name": "block-03",
         "displayName": "Block 03",
+        "category": "content",
         "thumbnailUrl": "/public/nespresso/images/block-03.jpg",
         "properties": [
             {
@@ -176,6 +189,7 @@
     {
         "name": "block-04",
         "displayName": "Block 04",
+        "category": "content",
         "thumbnailUrl": "/public/nespresso/images/block-04.jpg",
         "properties": [
             {
@@ -207,6 +221,7 @@
     {
         "name": "block-05",
         "displayName": "Block 05",
+        "category": "content",
         "thumbnailUrl": "/public/nespresso/images/block-05.jpg",
         "properties": [
             {
@@ -220,6 +235,7 @@
     {
         "name": "block-06",
         "displayName": "Block 06",
+        "category": "content",
         "thumbnailUrl": "/public/nespresso/images/block-06.jpg",
         "properties": [
             {
@@ -245,6 +261,7 @@
     {
         "name": "block-07",
         "displayName": "Block 07",
+        "category": "content",
         "thumbnailUrl": "/public/nespresso/images/block-07.jpg",
         "properties": [
             {
@@ -276,6 +293,7 @@
     {
         "name": "block-10",
         "displayName": "Block 10",
+        "category": "content",
         "thumbnailUrl": "/public/nespresso/images/block-10.jpg",
         "properties": [
             {
@@ -313,6 +331,7 @@
     {
         "name": "block-11",
         "displayName": "Block 11",
+        "category": "content",
         "thumbnailUrl": "/public/nespresso/images/block-11.jpg",
         "properties": [
             {
@@ -350,24 +369,28 @@
     {
         "name": "block-14-ambassador",
         "displayName": "Block 14 - Ambassador",
+        "category": "content",
         "thumbnailUrl": "/public/nespresso/images/block-14.jpg",
         "properties": []
     },
     {
         "name": "block-14-connoisseur",
         "displayName": "Block 14 - Connoisseur",
+        "category": "content",
         "thumbnailUrl": "/public/nespresso/images/block-14.jpg",
         "properties": []
     },
     {
         "name": "block-14-expert",
         "displayName": "Block 14 - Expert",
+        "category": "content",
         "thumbnailUrl": "/public/nespresso/images/block-14.jpg",
         "properties": []
     },
     {
         "name": "block-19",
         "displayName": "Block 19",
+        "category": "content",
         "thumbnailUrl": "/public/nespresso/images/block-19.jpg",
         "properties": [
             {
@@ -405,6 +428,7 @@
     {
         "name": "block-20",
         "displayName": "Block 20",
+        "category": "content",
         "thumbnailUrl": "/public/nespresso/images/block-20.jpg",
         "properties": [
             {
@@ -442,6 +466,7 @@
     {
         "name": "footer-01",
         "displayName": "Footer 01",
+        "category": "footer",
         "thumbnailUrl": "/public/nespresso/images/footer-01.jpg",
         "properties": [
             {
@@ -488,6 +513,7 @@
     {
         "name": "footer-03",
         "displayName": "Footer 03",
+        "category": "footer",
         "thumbnailUrl": "/public/nespresso/images/footer-03.jpg",
         "properties": [
             {
@@ -522,6 +548,56 @@
                         "required": true
                     }
                 ]
+            }
+        ]
+    },
+    {
+        "name": "footer-03-02",
+        "displayName": "Footer 03 socials",
+        "category": "footer",
+        "thumbnailUrl": "/public/nespresso/images/footer-03.jpg",
+        "properties": [
+            {
+                "name": "logoUrl",
+                "displayName": "Lien sur logo",
+                "type": "url",
+                "required": true
+            },
+            {
+                "name": "text",
+                "displayName": "Texte du footer",
+                "type": "wysiwyg",
+                "required": true
+            },
+            {
+                "name": "facebookUrl",
+                "displayName": "Lien Facebook",
+                "type": "url",
+                "required": false
+            },
+            {
+                "name": "twitterUrl",
+                "displayName": "Lien Twitter",
+                "type": "url",
+                "required": false
+            },
+            {
+                "name": "youtudeUrl",
+                "displayName": "Lien Youtube",
+                "type": "url",
+                "required": false
+            },
+            {
+                "name": "instagramUrl",
+                "displayName": "Lien Instagram",
+                "type": "url",
+                "required": false
+            },
+            {
+                "name": "googlePlusUrl",
+                "displayName": "Lien Google+",
+                "type": "url",
+                "required": false
             }
         ]
     }

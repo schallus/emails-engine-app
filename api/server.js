@@ -8,11 +8,11 @@ require('dotenv').config();
 
 // vendor
 const express = require('express');
-const helmet = require('helmet'); // Helps you secure your Express apps
-// by setting various HTTP headers
-const cors = require('cors'); // Enable All CORS Requests
-// templating engine
-const exphbs  = require('express-handlebars');
+const helmet = require('helmet');   // Helps you secure your Express apps
+                                    // by setting various HTTP headers
+const cors = require('cors');       // Enable All CORS Requests
+
+const exphbs  = require('express-handlebars');  // templating engine
 const path = require('path');
 
 // custom

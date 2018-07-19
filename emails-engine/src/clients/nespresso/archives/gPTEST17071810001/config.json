@@ -1,0 +1,16 @@
+{
+	"lang": {
+		"en": {
+			"subject": "Summer 2018"
+		},
+		"fr": {
+			"subject": "Eté 2018"
+		},
+		"it": {
+			"subject": "Estate 2018"
+		}
+	},
+	"customLang": [],
+	"layout": "default",
+	"masterLang": "en"
+}

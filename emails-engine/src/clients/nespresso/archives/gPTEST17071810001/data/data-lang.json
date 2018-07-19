@@ -1,0 +1,1268 @@
+[
+	{
+		"blockName": "header-03-1531814638481",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "text",
+						"value": "<p class=\"fontArial\">Summer 2018</p>",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "text",
+						"value": "<p class=\"fontArial\">&Eacute;t&eacute; 2018</p>",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "text",
+						"value": "<p>Estate 2018</p>",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-02-1531814587133",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "'#000000'",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img",
+						"value": "/dist/nespresso/gPTEST1707181000/images/uploads/1_MSuvPR0U18NJNjxq0SlyyA.png",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img-w",
+						"value": "640",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img-h",
+						"value": "200",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img-mobile",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "url",
+						"value": "http://www.txt.ch",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "url-mobile",
+						"value": "",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-w",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-h",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-w",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-h",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "header-02-1531814648004",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "img",
+						"value": "/dist/nespresso/gPTEST1707181000/images/uploads/Nespresso_logo.png",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "url",
+						"value": "https://www.google.com",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-06-1531814616282",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "#271c1a",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "color",
+						"value": "#ffffff",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "<p>Le <strong class=\"fontsize22\">Lorem Ipsum</strong> est simplement du faux texte employ&eacute; dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l&#39;imprimerie depuis les ann&eacute;es 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour r&eacute;aliser un livre sp&eacute;cimen de polices de texte. Il n&#39;a pas fait que survivre cinq si&egrave;cles, mais s&#39;est aussi adapt&eacute; &agrave; la bureautique informatique, sans que son contenu n&#39;en soit modifi&eacute;. Il a &eacute;t&eacute; popularis&eacute; dans les ann&eacute;es 1960 gr&acirc;ce &agrave; la vente de feuilles Letraset contenant des passages du Lorem Ipsum, et, plus r&eacute;cemment, par son inclusion dans des applications de mise en page de texte, comme Aldus PageMaker. dsdsdsdsd dsdsdsdsdsd</p>",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "color",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "color",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-05-1531814607323",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "text",
+						"value": "A découvrire maintenant dans nos magasins partenaires",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-11-1531816910354",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "url",
+						"value": "http://www.epfl.ch",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img",
+						"value": "/dist/nespresso/gPTEST1707181000/images/uploads/Nespresso-Rechargeable-Capsule-pour-Machine-Caf-Nespresso-R-utilisable-Capsules-Inoxydable-Maille-Couvercle-Recharge-Nespresso-Capsule.jpg_640x640.jpg",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "title",
+						"value": "<p>NOUVEAUTE 2018</p>",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "Découvrez nos capsules rechargeables!",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "link",
+						"value": "En savoir plus",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "link",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "link",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-04-1531827682049",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "'#ffffff'",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "color",
+						"value": "'#000000'",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "colorSep",
+						"value": "'#ff0000'",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "Coucou les loulous",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "color",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "colorSep",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "color",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "colorSep",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-04-1531814599943",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "#271c1a",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "color",
+						"value": "#ffffff",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "colorSep",
+						"value": "#271c1a",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "ANNONCE AU CEBIT 2017",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "color",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "colorSep",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "color",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "colorSep",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-01-1531828034096",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "title",
+						"value": "Offre d'été 2018",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img",
+						"value": "/dist/nespresso/gPTEST1707181000/images/uploads/the-best-nespresso-machines-1.jpg",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "Voici le texte avec les offres qui peut être super long, voir même trop trop long, et sans éditeur de texte avec ni bold, ni italic, ni rien. De plus le champ est trop court, ne vas pas sur une ligne, n'est pas limité en nombre de caractères...  c'est lourd à la longue, surtout que je me trompe de langue, ici c'est de l'anglais qui est demandé.",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkUrl",
+						"value": "http://www.apple.com",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkText",
+						"value": "Cliquez ici",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "footer-03-02-1531832149546",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "logoUrl",
+						"value": "http://www.microsoft.com",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "<p>&copy; 1998-2018 UEFA. All rights reserved.</p><p>The UEFA word, the UEFA logo and all marks related to UEFA competitions, are protected by trademarks and/or copyright of UEFA. No use for commercial purposes may be made of such trademarks. Use of UEFA.com signifies your agreement to the Terms and Conditions and <a href=\"http://www.latin.ch\" rel=\"noopener noreferrer\" target=\"_blank\">Privacy Policy. &nbsp;</a></p>",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "facebookUrl",
+						"value": "http://www.facebook.com",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "twitterUrl",
+						"value": "http://www.twitter.com",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "youtudeUrl",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "instagramUrl",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "googlePlusUrl",
+						"value": "",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "logoUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "facebookUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "twitterUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "youtudeUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "instagramUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "googlePlusUrl",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "logoUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "facebookUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "twitterUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "youtudeUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "instagramUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "googlePlusUrl",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "footer-01-1531834970549",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "title",
+						"value": "<p>MUlticolonne ici</p>",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "items",
+						"value": [
+							[
+								{
+									"name": "url",
+									"value": "http://www.uefa.com",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "/dist/nespresso/gPTEST1707181000/images/uploads/il_570xN.1273614639_b9fj.jpg",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "60",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "Café with passion",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": false
+								}
+							]
+						]
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "items",
+						"value": [
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							]
+						]
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "items",
+						"value": [
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							]
+						]
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "header-01-1531840597907",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "text",
+						"value": "WELCOME IN NESPRESSO LAND",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkText",
+						"value": "ONLINE SHOP",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkUrl",
+						"value": "http://www.nespresso.com",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	}
+]

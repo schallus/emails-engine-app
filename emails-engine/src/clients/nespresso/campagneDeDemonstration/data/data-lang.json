@@ -7,7 +7,7 @@
 				"properties": [
 					{
 						"name": "text",
-						"value": "Texte du header",
+						"value": "Texte du header 123",
 						"copiedFromMaster": false
 					},
 					{
@@ -175,7 +175,7 @@
 					},
 					{
 						"name": "img",
-						"value": "/dist/nespresso/campagneDeDemonstration/images/uploads/WP_20180412_16_38_23_Pro.jpg",
+						"value": "/dist/nespresso/campagneDeDemonstration/images/uploads/paysage.jpg",
 						"copiedFromMaster": false
 					},
 					{
@@ -423,12 +423,12 @@
 				"properties": [
 					{
 						"name": "bgcolor",
-						"value": "'#582828'",
+						"value": "#7bdb94",
 						"copiedFromMaster": false
 					},
 					{
 						"name": "color",
-						"value": "'#723a3a'",
+						"value": "#493c3c",
 						"copiedFromMaster": false
 					},
 					{
@@ -498,6 +498,444 @@
 						"name": "text",
 						"value": "",
 						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-04-1531831355982",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "#722c2c",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "color",
+						"value": "#683c3c",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "colorSep",
+						"value": "#b55c5c",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "Test",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "color",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "colorSep",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr-CH",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "color",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "colorSep",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "color",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "colorSep",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "footer-03-1531920857866",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "logoUrl",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "socials",
+						"value": [
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": false
+								}
+							]
+						]
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "logoUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "socials",
+						"value": [
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							]
+						]
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr-CH",
+				"properties": [
+					{
+						"name": "logoUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "socials",
+						"value": [
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							]
+						]
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "logoUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "socials",
+						"value": [
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							]
+						]
 					}
 				],
 				"display": true

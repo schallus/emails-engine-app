@@ -163,28 +163,65 @@ image.addImage = (req, res, next) => {
     });    
 };
 
-/*image.removeImage = (req, res, next) => {
+
+/**
+ * @api {delete} /brands/:brandSlug/campaigns/:campaignSlug/images Delete an image
+ * @apiName deleteImage
+ * @apiGroup Images
+ * @apiDescription Delete an image by file name.
+ * 
+ * @apiParam {string} imageFileName Image file name to be deleted from the campaign.
+ *
+ * @apiSuccess {HttpRequestSuccess} Success Success 200
+ * 
+ * @apiError (Error 4xx) {422} WrongParameters Please send the image url to be removed in the body parameters.
+ *
+ * @apiErrorExample WrongParameters:
+ *  HTTP/1.1 422 Unprocessable Entity
+ *   {
+ *       "error": {
+ *           "status": 422,
+ *           "message": "Please send the image url to be removed in the body parameters."
+ *       }
+ *   }
+ * 
+ * @apiError (Error 5xx) {500} ErrorRemovingFile Couldn't remove the image. Either the image name, the brand name or the campaign name is incorrect.
+ *
+ * @apiErrorExample ErrorRemovingFile:
+ *  HTTP/1.1 500 Internal Server Error
+ *   {
+ *       "error": {
+ *           "status": 500,
+ *           "message": "Couldn't remove the image. Either the image name, the brand name or the campaign name is incorrect."
+ *       }
+ *   }
+ * 
+ * @apiUse ServerTimeout
+ * @apiUse BrandNotFound
+ * 
+ */
+image.removeImage = (req, res, next) => {
 
     const brandSlug = req.params.brandSlug;
     const campaignSlug = req.params.campaignSlug;
+    const imageFileName = req.body.imageFileName;
 
-    if(!req.body.url || !brandSlug || !campaignSlug) {
+    if(!imageFileName || !brandSlug || !campaignSlug) {
         return next({
             status: 422,
             message: `Please send the image url to be removed in the body parameters.`
         });
     }
 
-    const filename = req.body.url.match(/[^\/]+$/)[0];
-    const imagePath = `${distPath}/${brandSlug}/${campaignSlug}/uploads`;
+    const imagePath = `${distPath}/${brandSlug}/${campaignSlug}/images/uploads`;
 
-    fs.unlink(path.join(imagePath, filename), err => {
+    fs.unlink(path.join(imagePath, imageFileName), err => {
         if (err) return next({
             status: 404,
-            message: 'Couldn\'t remove the image. Either the file url, the brand name or the campaign name is incorrect.'
+            message: 'Couldn\'t remove the image. Either the image name, the brand name or the campaign name is incorrect.'
         });
         res.sendStatus(200);
     });
-};*/
+};
 
 module.exports = image;
