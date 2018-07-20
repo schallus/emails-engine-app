@@ -34,7 +34,11 @@ export class ModalSendTestComponent implements OnInit {
 
   ngOnInit() { }
 
-  // Get the recipient list and execute the callback function if set
+  /**
+   * Get the recipient list and execute the callback function if set
+   * @param {string} brandName Name of the brand to get the recipients from
+   * @param {Function=} cb Callback function that will be called once the recipients retrieved (optional)
+   */
   getRecipients(brandName: string, cb?: Function) {
     this.apiService.getRecipients(brandName).subscribe(recipients => {
       this.recipients = recipients.map(recipient => {
@@ -49,7 +53,9 @@ export class ModalSendTestComponent implements OnInit {
     });
   }
 
-  // Function called before to show the modal
+  /**
+   * Function called before to show the modal
+   */
   show() {
     // Get the current brand information
     this.apiService.getBrands().subscribe(brands => {
@@ -74,11 +80,16 @@ export class ModalSendTestComponent implements OnInit {
     });
   }
 
+  /**
+   * Select all the recipients
+   */
   selectAllRecipients() {
     this.recipients.map(recipient => recipient.selected = true);
   }
 
-  // Send the emails
+  /**
+   * Send the emails to the selected recipients in the chosen languages
+   */
   sendTestEmail() {
     const recipients = this.recipients.filter(el => el.selected).map(el => el.email);
     const languages = this.langSelected.filter(el => el.selected).map(el => el.code);

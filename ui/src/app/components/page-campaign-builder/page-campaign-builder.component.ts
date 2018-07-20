@@ -108,6 +108,9 @@ export class PageCampaignBuilderComponent implements OnInit {
     };
   }
 
+  /**
+   * Function called on the component initialization
+   */
   ngOnInit() {
 
     this.setBlocksSize();
@@ -224,11 +227,18 @@ export class PageCampaignBuilderComponent implements OnInit {
     });
   }
 
+  /**
+   * Function called whenever the window is resized
+   * @param {any} event
+   */
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     this.setBlocksSize();
   }
 
+  /**
+   * Set the fixed block width and height - It has to be set because the block position is fixed
+   */
   setBlocksSize() {
     let blocksFixedWidth;
     let blocksFixedMaxHeight = window.innerHeight - 260;
@@ -245,6 +255,10 @@ export class PageCampaignBuilderComponent implements OnInit {
     this.dragNDropBlocksList.nativeElement.querySelector('#builderBlockList').style.maxHeight = `${blocksFixedMaxHeight}px`;
   }
 
+  /**
+   * Remove a block from the campaign structure
+   * @param {BlockPosition} block Block to remove from the campaign structure
+   */
   removeBlock(block: BlockPosition) {
     this.campaignStructure = this.campaignStructure.filter(el => el !== block);
     this.saveCampaignStructure();
@@ -256,6 +270,9 @@ export class PageCampaignBuilderComponent implements OnInit {
     this.modalBlockRemove.hide();
   }
 
+  /**
+   * Save the campaign structure by sending the data to the API
+   */
   saveCampaignStructure() {
     for (let i = 0; i < this.campaignStructure.length; i++) {
       this.campaignStructure[i].position = i;
@@ -265,10 +282,18 @@ export class PageCampaignBuilderComponent implements OnInit {
     });
   }
 
+  /**
+   * Ge the block information by block type
+   * @param {string} blockType Block type to get the information from
+   */
   getBlockTypeInfo(blockType: string) {
     return this.blocks.filter(block => block.name === blockType)[0];
   }
 
+  /**
+   * Get the block information by block name
+   * @param {string} blockName Name of the block to get the information from
+   */
   getBlockInfo(blockName: string) {
     if (this.campaignStructure.filter(el => el.name === blockName).length>0) {
       return this.getBlockTypeInfo(this.campaignStructure.filter(el => el.name === blockName)[0].blockType);
@@ -277,11 +302,18 @@ export class PageCampaignBuilderComponent implements OnInit {
     }
   }
 
+  /**
+   * Display the block deletion confirmation modal
+   * @param {BlockPosition} block Name of the block that you want to delete
+   */
   showDeleteConfirmation(block: BlockPosition) {
     this.block = block;
     this.modalBlockRemove.show();
   }
 
+  /**
+   * Show campaign email previews
+   */
   showPreview() {
     this.buildInProgress = true;
     this.modalPreviewEmails.show();
@@ -295,6 +327,9 @@ export class PageCampaignBuilderComponent implements OnInit {
     });
   }
 
+  /**
+   * Open all previews at the same time
+   */
   openAllPreviews() {
     if (this.previewLinks) {
       for (const link of this.previewLinks) {
@@ -303,6 +338,9 @@ export class PageCampaignBuilderComponent implements OnInit {
     }
   }
 
+  /**
+   * Build the campaign emails and send a zip to client web browser
+   */
   exportEmails() {
     this.buildInProgress = true;
     this.modalExportEmails.show();
@@ -317,11 +355,18 @@ export class PageCampaignBuilderComponent implements OnInit {
     });
   }
 
+  /**
+   * Change a block status when we submit the block settings form
+   * @param {any} event Event that contains a block and says wether its valid or not
+   */
   setBlockStatus(event: any) {
     this.campaignStructure.filter(el => el.name == event.block.name)[0].valid = event.valid;
     this.saveCampaignStructure();
   }
 
+  /**
+   * Redirect the user on a 404 page
+   */
   redirect404 = () => {
     this.router.navigate([`/404`]);
   }

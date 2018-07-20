@@ -86,7 +86,10 @@ export class ModalBlockSettingsComponent implements OnInit {
     });
   }
 
-  // Function called before opening the modal window
+  /**
+   * Function called before opening the modal window
+   * @param {BlockPosition} block Block to edit
+   */
   show(block: BlockPosition) {
     this.block = block;
     this.blockInfo = this.getBlockTypeInfo(block.blockType);
@@ -166,12 +169,22 @@ export class ModalBlockSettingsComponent implements OnInit {
     });
   }
 
-  // Get the bloc informations (properties, etc.) by block type
+  /**
+   * Get the bloc informations (properties, etc.) by block type
+   * @param {string} blockType Block type to get information from
+   */
   getBlockTypeInfo(blockType: string) {
     return this.blocks.filter(block => block.name === blockType)[0];
   }
 
-  // Set a property value
+  /**
+   * Set a block property value
+   * @param {string} propertyName Name of the property that you want to edit
+   * @param {string} lang Lang to edit
+   * @param {any} event Event that contain new value
+   * @param {string=} parentPropertyName Parent property name if child property (optional)
+   * @param {number=} index Children index (optional)
+   */
   setPropertyValue(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
     const isColor = (color) => new RegExp("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$").test(color);
 
@@ -217,6 +230,14 @@ export class ModalBlockSettingsComponent implements OnInit {
     }
   }
 
+  /**
+   * Upload a file and set data url
+   * @param {string} propertyName Name of the property that you want to edit
+   * @param {string} lang Lang to edit
+   * @param {any} event Event must contain a file
+   * @param {string=} parentPropertyName Parent property name if child property (optional)
+   * @param {number=} index Children index (optional)
+   */
   uploadFile(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
     if (event.target.files.length > 0) {
       this.fileUploading = true;
@@ -258,6 +279,13 @@ export class ModalBlockSettingsComponent implements OnInit {
     }
   }
   
+  /**
+   * Delete an image from the server
+   * @param {string} propertyName Name of the property that you want to edit
+   * @param {string} lang Lang to edit
+   * @param {string=} parentPropertyName Parent property name if child property (optional)
+   * @param {number=} index Children index (optional)
+   */
   removeImage(propertyName: string, lang: string, parentPropertyName?: string, index?: number) {
     
     let oldImage = '';
@@ -282,7 +310,10 @@ export class ModalBlockSettingsComponent implements OnInit {
     }
   }
 
-  // Toggle the visibility of a block in the lang given as a parameter
+  /**
+   * Toggle the visibility of a block in the lang given as a parameter
+   * @param {string} lang Lang in which you want to toggle the block visibility
+   */
   toggleVisibility(lang: string) {
     if (this.blockData) {
       this.blockData.languages.filter(
@@ -291,7 +322,10 @@ export class ModalBlockSettingsComponent implements OnInit {
     }
   }
 
-  // Return true if the block is visible in the lang given as a parameter
+  /**
+   * Return true if the block is visible in the lang given as a parameter
+   * @param {string} lang Lang in which you want to get the block visibility
+   */
   isVisible(lang: string) {
     if (this.blockData) {
       return this.blockData.languages.filter(
@@ -300,7 +334,13 @@ export class ModalBlockSettingsComponent implements OnInit {
     }
   }
 
-  // Function called when we change the "Copy from master" checkbox 
+  /**
+   * Function called when we change the "Copy from master" checkbox 
+   * @param {string} propertyName Name of the property that you want to copy to
+   * @param {string} lang Destination lang
+   * @param {string=} parentPropertyName Parent property name if child property (optional)
+   * @param {number=} index Children index (optional)
+   */
   copyFromMaster(propertyName: string, lang: string, parentPropertyName?: string, index?: number) {
     if (parentPropertyName && index !== undefined) {
       const propertyValue = this.blockData.languages
@@ -314,7 +354,10 @@ export class ModalBlockSettingsComponent implements OnInit {
     }
   }
 
-  // Function called when we save a block
+  /**
+   * Function called when we save a block - Checks if the block is valid and save the block data to the API
+   * @param {NgForm} form Block settings form
+   */
   onBlockSettingsFormSubmit(form: NgForm) {
     if (!form.valid) {
       // If the form is invalid, we open a modal
@@ -331,14 +374,18 @@ export class ModalBlockSettingsComponent implements OnInit {
     }
   }
 
-  // When we click on the cancel button, we discard the changes and close the modals
+  /**
+   * When we click on the cancel button, we discard the changes and close the modals
+   */
   discardBlockSettings() {
     this.blockData = null;
     this.modalWarningSave.hide();
     this.modalBlockSettings.hide();
   }
 
-  // Function called when the user click "Save the block" on the warning modal despite the errors
+  /**
+   * Function called when the user click "Save the block" on the warning modal despite the errors
+   */
   saveBlockSettings() {
     this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe(() => {
       // Emit an event to tell the parent component that the block is invalid
@@ -351,6 +398,9 @@ export class ModalBlockSettingsComponent implements OnInit {
     });
   }
 
+  /**
+   * Function that initialize Froala WYSIWYG Editor - It defines which element should be shown in the toolbar, etc.
+   */
   initWYSIWYG() {
     this.editorOptions = {
       key: environment.froalaEditorKey,
@@ -419,6 +469,9 @@ export class ModalBlockSettingsComponent implements OnInit {
     });
   }
 
+  /**
+   * Function executed when changing WYSIWYG block data - This function add a class to all html element for email compatibility purpose
+   */
   updateWYSIWYGHtml(html: string) : string {
     const elements = $(html);
     // Add class to all parent elements

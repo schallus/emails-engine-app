@@ -33,9 +33,14 @@ export class ModalRecipientsComponent implements OnInit {
 
   @Output() updated = new EventEmitter();
 
+  /**
+   * Function called on the component initialization
+   */
   ngOnInit() { }
 
-  // Get the recipient list and execute the callback function if set
+  /**
+   * Get the recipient list and execute the callback function if set
+   */
   getRecipients(brandName: string, cb?: Function) {
     this.apiService.getRecipients(brandName).subscribe(recipients => {
       this.recipients = recipients;
@@ -47,7 +52,10 @@ export class ModalRecipientsComponent implements OnInit {
     });
   }
 
-  // Function called before to open the modal
+  /**
+   * Get the recipient list and execute the callback function if set
+   * @param {Brand} brand Brand to get the recipients list from
+   */
   show(brand: Brand) {
     this.brand = brand;
     // Get the recipients before to open the modal
@@ -56,7 +64,12 @@ export class ModalRecipientsComponent implements OnInit {
     });
   }
 
-  // Function called when we add or update a recipient
+  /**
+   * Add or update a recipient
+   * @param {string} property Property to add or edit
+   * @param {any} event Event that contain the new value
+   * @param {string=} email Email of the recipient to update (optional)
+   */
   edit(property: string, event: any, email?: string) {
     if(email) {
       // Edit mode
@@ -68,12 +81,17 @@ export class ModalRecipientsComponent implements OnInit {
     }
   }
 
-  // Remove a recipient from the list
+  /**
+   * Remove a recipient from the list
+   * @param {string} email Email of the recipient to remove
+   */
   remove(email: string) {
     this.recipients = this.recipients.filter(recipient => recipient.email !== email);
   }
 
-  // Add a new recipient to the list
+  /**
+   * Add a new recipient to the list
+   */
   add() {
     // Check that all the fields are set correctly
     if(
@@ -91,7 +109,9 @@ export class ModalRecipientsComponent implements OnInit {
     }
   }
 
-  // Save the new recipients list by sending it to the API
+  /**
+   * Save the new recipients list by sending it to the API
+   */
   save() {
     this.apiService.setRecipients(this.brand.name, this.recipients).subscribe(() => {
       // Emit an event so that the parent knows when the recipients list gets updated
@@ -103,7 +123,10 @@ export class ModalRecipientsComponent implements OnInit {
     });
   }
 
-  // Check if an email is valid and return true if so
+  /**
+   * Check if an email is valid and return true if so
+   * @param {string} email Email to be checked
+   */
   isEmailValid(email) {
     const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
