@@ -24,7 +24,7 @@ block-02-1531232473029:
 block-06-1531232586882:
     bgcolor: ""
     color: ""
-    text: "<p class=\"fontArial\">Die <strong class=\"fontsize16 fontArial\">Nespresso</strong> Kapseln* sind neu auch bei Manor Solothurn erh&auml;ltlich! Lassen Sie sich dabei zu einem Augenblick reinsten Kaffeegenusses verf&uuml;hren und besuchen Sie uns im Manor Solothurn.</p>"
+    text: "<p class=\"fontArial\">Die <strong class=\"fontsize16 fontArial\">Nespresso</strong> Kapseln* sind neu auch bei Manor Solothurn erhältlich! Lassen Sie sich dabei zu einem Augenblick reinsten Kaffeegenusses verführen und besuchen Sie uns im Manor Solothurn.</p>"
 block-11-1531232696809:
     url: "https://www.google.ch/maps/place/MANOR+Solothurn/@47.2081634,7.5338092,17z/data=!3m1!4b1!4m5!3m4!1s0x4791d7f8f29ac0f9:0x595610ec84dabd6b!8m2!3d47.2081598!4d7.5359979"
     img: "/dist/nespresso/solothurn/images/uploads/map-solothurn.jpg"
@@ -60,23 +60,9 @@ footer-01-1531233403989:
         img: "/dist/nespresso/solothurn/images/uploads/footer-service.png"
         width: "60"
         text: "DIENSTE"
-footer-03-1531234970723:
-    logoUrl: "http://www.nespresso.com/"
-    text: "<p class=\"fontArial\">*Die Limited Editions von <strong class=\"fontsize12 fontArial\">Nespresso</strong> sind von der Auswahl ausgeschlossen. Sie haben diese E-Mail als Nespresso Kunde erhalten. Wenn Sie diese Informationen abbestellen m&ouml;chten, <a class=\"fontArial linkFooter\" href=\"http://cloud.cross-systems.ch/w/emails/nespresso/popups/[[UNSUB_LINK_FR]]\">klicken Sie bitte hier</a>. Um eine E-Mail an <strong class=\"fontsize12 fontArial\">Nespresso</strong> zu schicken, verwenden Sie bitte unser Kontaktformular auf unserer Webseite <a class=\"fontArial linkFooter\" href=\"http://www.nespresso.com\">www.nespresso.com</a> oder kontaktieren Sie uns unter <a class=\"fontArial linkFooter\" href=\"tel:0800555253\">0800 55 52 53</a> (kostenlose Nummer). Nestl&eacute; <strong class=\"fontsize12 fontArial\">Nespresso</strong> S.A.</p>"
-    socials:
-      - url: "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056"
-        img: "/dist/nespresso/solothurn/images/uploads/socialiconfacebook.png"
-      - url: "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056"
-        img: "/dist/nespresso/solothurn/images/uploads/socialicontwitter.png"
-      - url: "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056"
-        img: "/dist/nespresso/solothurn/images/uploads/socialiconyoutube.png"
-      - url: "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056"
-        img: "/dist/nespresso/solothurn/images/uploads/socialiconinstagram.png"
-      - url: "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056"
-        img: "/dist/nespresso/solothurn/images/uploads/socialicongoogleplus.png"
 footer-03-02-1531819992754:
     logoUrl: "http://nespresso.com"
-    text: "<p>Tasds ad</p><p><strong class=\"fontsize12\">asd&nbsp;</strong></p><p>asd asd asd sad</p><p>sad &nbsp;asdsad sad</p><p>sad </p>"
+    text: "<p class=\"fontArial\"><strong class=\"fontsize22 fontArial\">Testsdfsd&nbsp;</strong>f</p><p class=\"fontArial\">df sdf</p><p class=\"fontArial\">asdasdasd asd asd as das dasd asd a</p><p class=\"fontArial\">asd as dsa as da d asdasd asd&nbsp;</p><p class=\"fontArial\">asd asd as asd asd asd as das d</p><p class=\"fontArial\">asdasdasd asd as sa d a sa&nbsp;</p><p class=\"fontArial\">asdasdasdas</p>"
     facebookUrl: "http://facebook.com"
     twitterUrl: "http://twitter.com"
     youtudeUrl: ""

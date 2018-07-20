@@ -1,13 +1,13 @@
 {
 	"lang": {
-		"fr-CH": {
-			"subject": "Sujet en FR-CH"
+		"de": {
+			"subject": "Sujet en DE"
 		},
 		"fr": {
 			"subject": "Sujet en FR"
 		},
-		"de": {
-			"subject": "Sujet en DE"
+		"fr-CH": {
+			"subject": "Sujet en FR-CH"
 		},
 		"it": {
 			"subject": "Sujet différent en IT"

@@ -7,7 +7,7 @@
 				"properties": [
 					{
 						"name": "text",
-						"value": "<p class=\"fontArial\">Summer 2018</p>",
+						"value": "",
 						"copiedFromMaster": false
 					}
 				],
@@ -45,7 +45,7 @@
 				"properties": [
 					{
 						"name": "bgcolor",
-						"value": "'#000000'",
+						"value": "#000000",
 						"copiedFromMaster": false
 					},
 					{
@@ -822,7 +822,7 @@
 				"properties": [
 					{
 						"name": "title",
-						"value": "<p>MUlticolonne ici</p>",
+						"value": "<p>dsfs df sdf sdf sdfs dfsdf sdf sd</p><p>sdf ds</p><p>fs d</p><p>fdsf</p>",
 						"copiedFromMaster": false
 					},
 					{

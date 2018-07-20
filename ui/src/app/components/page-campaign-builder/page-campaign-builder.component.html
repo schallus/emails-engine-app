@@ -43,23 +43,23 @@
   <div class="col-7">
     <div class="card">
       <div class="card-header secondary-color white-text">
-        Edition de l'email - {{ campaign.displayName }} ({{ brand.displayName }})
+        Edition de l'email - {{ campaign?.displayName }} ({{ brand?.displayName }})
       </div>
       <div class="card-body">
         <div class="alert grey white-text" role="alert" *ngIf="campaignStructure?.length<=0">Déposer les blocs ici.</div>
         <div sortablejs [sortablejsOptions]="dropZoneOptions" id="blockDropZone">
           <div *ngFor="let block of campaignStructure" [class]="'card block mb-3 ' + block.name" [class.invalid]="block.valid==false">
-            <img class="img-fluid" [src]="serverUrl + getBlockTypeInfo(block.blockType).thumbnailUrl" [alt]="getBlockTypeInfo(block.blockType).displayName">
+            <img class="img-fluid" [src]="serverUrl + getBlockTypeInfo(block?.blockType)?.thumbnailUrl" [alt]="getBlockTypeInfo(block?.blockType)?.displayName">
             <div class="card-body row">
                 <div class="text col-sm-8">
-                  <h4 class="card-title">{{ getBlockTypeInfo(block.blockType).displayName }}</h4>
+                  <h4 class="card-title">{{ getBlockTypeInfo(block?.blockType)?.displayName }}</h4>
                   <p>#ID: {{ block.name }}</p>
                 </div>
                 <div class="actions col-sm-4 text-right">
                     <a class="btn-floating btn-sm btn-secondary waves-light mr-1" (click)="showDeleteConfirmation(block)" mdbTooltip="Supprimer" placement="top" mdbWavesEffect>
                       <i class="fa fa-trash"></i>
                     </a>
-                    <a class="btn-floating btn-sm btn-secondary waves-light" (click)="modalBlockSettings.show(block)" mdbTooltip="Options" placement="top" mdbWavesEffect *ngIf="getBlockTypeInfo(block.blockType).properties.length>0">
+                    <a class="btn-floating btn-sm btn-secondary waves-light" (click)="modalBlockSettings.show(block)" mdbTooltip="Options" placement="top" mdbWavesEffect *ngIf="getBlockTypeInfo(block?.blockType)?.properties.length>0">
                       <i class="fa fa-cog"></i>
                     </a>
                 </div>

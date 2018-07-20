@@ -511,49 +511,8 @@
         ]
     },
     {
-        "name": "footer-03",
-        "displayName": "Footer 03",
-        "category": "footer",
-        "thumbnailUrl": "/public/nespresso/images/footer-03.jpg",
-        "properties": [
-            {
-                "name": "logoUrl",
-                "displayName": "Lien sur logo",
-                "type": "url",
-                "required": true
-            },
-            {
-                "name": "text",
-                "displayName": "Texte du footer",
-                "type": "wysiwyg",
-                "required": true
-            },
-            {
-                "name": "socials",
-                "displayName": "Icônes réseaux sociaux",
-                "type": "properties",
-                "required": true,
-                "numberItems": 5,
-                "properties": [
-                    {
-                        "name": "url",
-                        "displayName": "URL",
-                        "type": "url",
-                        "required": true
-                    },
-                    {
-                        "name": "img",
-                        "displayName": "Image",
-                        "type": "img",
-                        "required": true
-                    }
-                ]
-            }
-        ]
-    },
-    {
         "name": "footer-03-02",
-        "displayName": "Footer 03 socials",
+        "displayName": "Footer 03",
         "category": "footer",
         "thumbnailUrl": "/public/nespresso/images/footer-03.jpg",
         "properties": [

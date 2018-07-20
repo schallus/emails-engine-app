@@ -168,7 +168,6 @@ export class ModalBlockSettingsComponent implements OnInit {
     return this.blocks.filter(block => block.name === blockType)[0];
   }
 
-
   // Set a property value
   setPropertyValue(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
     const isColor = (color) => new RegExp("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$").test(color);
@@ -181,6 +180,7 @@ export class ModalBlockSettingsComponent implements OnInit {
         .filter(el => el.name === propertyName)[0].copiedFromMaster
       ) {
         // If it's a WYSIWYG event
+        event.html = this.updateWYSIWYGHtml(event.html);
         this.blockData.languages
           .filter(el => el.lang === lang)[0].properties
           .filter(el => el.name === parentPropertyName)[0].value[index]
@@ -202,6 +202,7 @@ export class ModalBlockSettingsComponent implements OnInit {
     } else {
       if (event.html && !this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].copiedFromMaster) {
         // If it's a WYSIWYG event
+        event.html = this.updateWYSIWYGHtml(event.html);
         this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = event.html;
       } else if(event.target) {
         // Input change event
@@ -348,26 +349,15 @@ export class ModalBlockSettingsComponent implements OnInit {
       events : {
         'froalaEditor.contentChanged' : (e, editor) => {
           const html = editor.html.get();
-          const elements = $(html);
-          // Add class to all parent elements
-          elements.addClass('fontArial');
-          // Add class to all children elements
-          elements.find('*').not('br').addClass('fontArial');
-          // Convert the selector back to a string
-          let newHtml = '';
-          elements.each(function() {
-            newHtml += $(this).wrap('<div/>').parent().html();
-          });
-
           const propertyName = e.target['data-propertyName'];
           const lang = e.target['data-lang'];
           
           if (e.target['data-parentPropertyName'] && e.target['data-index']) {
             const parentPropertyName = e.target['data-parentPropertyName'];
             const index = e.target['data-index'];
-            this.setPropertyValue(propertyName, lang, { html: editor.html.get() }, parentPropertyName, index);
+            this.setPropertyValue(propertyName, lang, { html: html }, parentPropertyName, index);
           } else {
-            this.setPropertyValue(propertyName, lang, { html: editor.html.get() });
+            this.setPropertyValue(propertyName, lang, { html: html });
           }
         }
       },
@@ -419,5 +409,20 @@ export class ModalBlockSettingsComponent implements OnInit {
         this.format.toggle('strong', { class: val });
       }
     });
+  }
+
+  updateWYSIWYGHtml(html: string) : string {
+    const elements = $(html);
+    // Add class to all parent elements
+    elements.addClass('fontArial');
+    // Add class to all children elements
+    elements.find('*').not('br').addClass('fontArial');
+    // Convert the selector back to a string
+    let newHtml = '';
+    elements.each(function() {
+      newHtml += $(this).wrap('<div/>').parent().html();
+    });
+    // Return the new html
+    return newHtml;
   }
 }

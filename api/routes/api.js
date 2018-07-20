@@ -99,10 +99,10 @@ router.route('/brands/:brandSlug/campaigns/:campaignSlug/blocks/:blockName')
     .delete(timeout('5s'), campaignCtrl.readCampaigns, campaignCtrl.removeBlockData);
 
 router.route('/brands/:brandSlug/campaigns/:campaignSlug/build')
-    .post(timeout('60s'), campaignCtrl.readCampaigns, campaignCtrl.compileJSONIntoYaml, campaignCtrl.buildCampaign, campaignCtrl.getPreviewLinks);
+    .post(timeout('120s'), campaignCtrl.readCampaigns, campaignCtrl.compileJSONIntoYaml, campaignCtrl.buildCampaign, campaignCtrl.getPreviewLinks);
 
 router.route('/brands/:brandSlug/campaigns/:campaignSlug/zip')
-    .post(timeout('60s'), campaignCtrl.readCampaigns, campaignCtrl.compileJSONIntoYaml, campaignCtrl.zipCampaign);
+    .post(timeout('120s'), campaignCtrl.readCampaigns, campaignCtrl.compileJSONIntoYaml, campaignCtrl.zipCampaign);
 
 router.route('/brands/:brandSlug/recipients')
     .get(timeout('5s'), campaignCtrl.readCampaigns, emailCtrl.getRecipients)
@@ -110,7 +110,7 @@ router.route('/brands/:brandSlug/recipients')
     .put(timeout('5s'), campaignCtrl.readCampaigns, emailCtrl.setRecipients);
 
 router.route('/brands/:brandSlug/campaigns/:campaignSlug/send')
-    .post(timeout('60s'), campaignCtrl.readCampaigns, campaignCtrl.compileJSONIntoYaml, campaignCtrl.buildCampaign, emailCtrl.sendTest);
+    .post(timeout('120s'), campaignCtrl.readCampaigns, campaignCtrl.compileJSONIntoYaml, campaignCtrl.buildCampaign, emailCtrl.sendTest);
     
 
 router.all('*', (req, res, next) => {

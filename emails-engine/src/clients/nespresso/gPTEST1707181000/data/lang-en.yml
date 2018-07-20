@@ -5,9 +5,9 @@
 #
 
 header-03-1531814638481:
-    text: "<p class=\"fontArial\">Summer 2018</p>"
+    text: ""
 block-02-1531814587133:
-    bgcolor: "'#000000'"
+    bgcolor: "#000000"
     img: "/dist/nespresso/gPTEST1707181000/images/uploads/1_MSuvPR0U18NJNjxq0SlyyA.png"
     img-w: "640"
     img-h: "200"
@@ -54,7 +54,7 @@ footer-03-02-1531832149546:
     instagramUrl: ""
     googlePlusUrl: ""
 footer-01-1531834970549:
-    title: "<p>MUlticolonne ici</p>"
+    title: "<p>dsfs df sdf sdf sdfs dfsdf sdf sd</p><p>sdf ds</p><p>fs d</p><p>fdsf</p>"
     items:
       - url: "http://www.uefa.com"
         img: "/dist/nespresso/gPTEST1707181000/images/uploads/il_570xN.1273614639_b9fj.jpg"

@@ -126,7 +126,7 @@
 					},
 					{
 						"name": "text",
-						"value": "<p class=\"fontArial\">Die <strong class=\"fontsize16 fontArial\">Nespresso</strong> Kapseln* sind neu auch bei Manor Solothurn erh&auml;ltlich! Lassen Sie sich dabei zu einem Augenblick reinsten Kaffeegenusses verf&uuml;hren und besuchen Sie uns im Manor Solothurn.</p>",
+						"value": "<p class=\"fontArial\">Die <strong class=\"fontsize16 fontArial\">Nespresso</strong> Kapseln* sind neu auch bei Manor Solothurn erhältlich! Lassen Sie sich dabei zu einem Augenblick reinsten Kaffeegenusses verführen und besuchen Sie uns im Manor Solothurn.</p>",
 						"copiedFromMaster": false
 					}
 				],
@@ -338,92 +338,6 @@
 		]
 	},
 	{
-		"blockName": "footer-03-1531234970723",
-		"languages": [
-			{
-				"lang": "de",
-				"properties": [
-					{
-						"name": "logoUrl",
-						"value": "http://www.nespresso.com/",
-						"copiedFromMaster": false
-					},
-					{
-						"name": "text",
-						"value": "<p class=\"fontArial\">*Die Limited Editions von <strong class=\"fontsize12 fontArial\">Nespresso</strong> sind von der Auswahl ausgeschlossen. Sie haben diese E-Mail als Nespresso Kunde erhalten. Wenn Sie diese Informationen abbestellen m&ouml;chten, <a class=\"fontArial linkFooter\" href=\"http://cloud.cross-systems.ch/w/emails/nespresso/popups/[[UNSUB_LINK_FR]]\">klicken Sie bitte hier</a>. Um eine E-Mail an <strong class=\"fontsize12 fontArial\">Nespresso</strong> zu schicken, verwenden Sie bitte unser Kontaktformular auf unserer Webseite <a class=\"fontArial linkFooter\" href=\"http://www.nespresso.com\">www.nespresso.com</a> oder kontaktieren Sie uns unter <a class=\"fontArial linkFooter\" href=\"tel:0800555253\">0800 55 52 53</a> (kostenlose Nummer). Nestl&eacute; <strong class=\"fontsize12 fontArial\">Nespresso</strong> S.A.</p>",
-						"copiedFromMaster": false
-					},
-					{
-						"name": "socials",
-						"value": [
-							[
-								{
-									"name": "url",
-									"value": "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056",
-									"copiedFromMaster": false
-								},
-								{
-									"name": "img",
-									"value": "/dist/nespresso/solothurn/images/uploads/socialiconfacebook.png",
-									"copiedFromMaster": false
-								}
-							],
-							[
-								{
-									"name": "url",
-									"value": "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056",
-									"copiedFromMaster": false
-								},
-								{
-									"name": "img",
-									"value": "/dist/nespresso/solothurn/images/uploads/socialicontwitter.png",
-									"copiedFromMaster": false
-								}
-							],
-							[
-								{
-									"name": "url",
-									"value": "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056",
-									"copiedFromMaster": false
-								},
-								{
-									"name": "img",
-									"value": "/dist/nespresso/solothurn/images/uploads/socialiconyoutube.png",
-									"copiedFromMaster": false
-								}
-							],
-							[
-								{
-									"name": "url",
-									"value": "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056",
-									"copiedFromMaster": false
-								},
-								{
-									"name": "img",
-									"value": "/dist/nespresso/solothurn/images/uploads/socialiconinstagram.png",
-									"copiedFromMaster": false
-								}
-							],
-							[
-								{
-									"name": "url",
-									"value": "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056",
-									"copiedFromMaster": false
-								},
-								{
-									"name": "img",
-									"value": "/dist/nespresso/solothurn/images/uploads/socialicongoogleplus.png",
-									"copiedFromMaster": false
-								}
-							]
-						]
-					}
-				],
-				"display": true
-			}
-		]
-	},
-	{
 		"blockName": "footer-03-02-1531819992754",
 		"languages": [
 			{
@@ -436,7 +350,7 @@
 					},
 					{
 						"name": "text",
-						"value": "<p>Tasds ad</p><p><strong class=\"fontsize12\">asd&nbsp;</strong></p><p>asd asd asd sad</p><p>sad &nbsp;asdsad sad</p><p>sad </p>",
+						"value": "<p class=\"fontArial\"><strong class=\"fontsize22 fontArial\">Testsdfsd&nbsp;</strong>f</p><p class=\"fontArial\">df sdf</p><p class=\"fontArial\">asdasdasd asd asd as das dasd asd a</p><p class=\"fontArial\">asd as dsa as da d asdasd asd&nbsp;</p><p class=\"fontArial\">asd asd as asd asd asd as das d</p><p class=\"fontArial\">asdasdasd asd as sa d a sa&nbsp;</p><p class=\"fontArial\">asdasdasdas</p>",
 						"copiedFromMaster": false
 					},
 					{
