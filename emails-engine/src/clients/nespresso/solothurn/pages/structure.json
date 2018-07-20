@@ -27,7 +27,7 @@
 		"blockType": "block-02",
 		"position": 4,
 		"name": "block-02-1531232473029",
-		"valid": true
+		"valid": false
 	},
 	{
 		"blockType": "spacer",
@@ -51,7 +51,7 @@
 		"blockType": "block-11",
 		"position": 8,
 		"name": "block-11-1531232696809",
-		"valid": true
+		"valid": false
 	},
 	{
 		"blockType": "spacer",

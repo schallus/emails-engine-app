@@ -7,7 +7,7 @@
 				"properties": [
 					{
 						"name": "text",
-						"value": "<p class=\"fontArial\">asdasd asd asda sdasd as</p>",
+						"value": "<p class=\"fontArial\">Summer 2018</p>",
 						"copiedFromMaster": false
 					}
 				],
@@ -633,7 +633,7 @@
 					{
 						"name": "img",
 						"value": "",
-						"copiedFromMaster": false
+						"copiedFromMaster": true
 					},
 					{
 						"name": "text",
@@ -822,7 +822,7 @@
 				"properties": [
 					{
 						"name": "title",
-						"value": "<p>dsfs df sdf sdf sdfs dfsdf sdf sd</p><p>sdf ds</p><p>fs d</p><p>fdsf</p>",
+						"value": "<p class=\"fontArial\">dsfs df sdf sdf sdfs dfsdf sdf sd</p><p class=\"fontArial\">sdf ds</p><p class=\"fontArial\">fs d</p><p class=\"fontArial\">fdsf</p>",
 						"copiedFromMaster": false
 					},
 					{

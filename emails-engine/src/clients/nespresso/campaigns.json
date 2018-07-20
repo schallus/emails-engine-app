@@ -1,49 +1,5 @@
 [
 	{
-		"name": "nouvelleCampagneDeTest",
-		"displayName": "Nouvelle campagne de test",
-		"createdAt": "2018-07-02T06:58:24.228Z",
-		"updatedAt": "2018-07-05T11:35:42.450Z"
-	},
-	{
-		"name": "promotionSpecialeEte2018",
-		"displayName": "Promotion spéciale été 2018",
-		"createdAt": "2018-07-03T08:24:05.048Z",
-		"updatedAt": "2018-07-05T06:51:27.075Z"
-	},
-	{
-		"name": "nomDeLaCampagne",
-		"displayName": "nom de la campagne",
-		"createdAt": "2018-07-03T09:25:38.621Z",
-		"updatedAt": "2018-07-05T06:46:50.476Z"
-	},
-	{
-		"name": "pedroGonzales",
-		"displayName": "Pedro Gonzales",
-		"createdAt": "2018-07-05T09:41:53.625Z",
-		"updatedAt": "2018-07-05T09:43:59.112Z"
-	},
-	{
-		"name": "wideCampaign",
-		"displayName": "Wide campaign",
-		"createdAt": "2018-07-05T15:36:18.131Z"
-	},
-	{
-		"name": "campagneDeDemonstration",
-		"displayName": "Campagne de démonstration",
-		"createdAt": "2018-07-06T06:49:37.531Z"
-	},
-	{
-		"name": "demoGeneve",
-		"displayName": "Démo Genève",
-		"createdAt": "2018-07-08T18:19:41.000Z"
-	},
-	{
-		"name": "demoGeneve1",
-		"displayName": "Demo Genève",
-		"createdAt": "2018-07-09T08:32:17.352Z"
-	},
-	{
 		"name": "solothurn",
 		"displayName": "Solothurn",
 		"createdAt": "2018-07-10T14:11:24.148Z"

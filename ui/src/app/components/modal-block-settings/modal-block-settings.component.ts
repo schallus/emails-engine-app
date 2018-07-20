@@ -56,6 +56,9 @@ export class ModalBlockSettingsComponent implements OnInit {
     this.fileUploading = false;
   }
 
+  /**
+   * Function called on the component initialization
+   */
   ngOnInit() { 
     // Get url parameters
     this.brandName = this.route.snapshot.paramMap.get('brandName');
