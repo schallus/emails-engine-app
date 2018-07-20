@@ -38,11 +38,11 @@ export class ModalBlockSettingsComponent implements OnInit {
   campaignOptions: any;
   campaignLanguages: string[];
 
-  showSourceCode: boolean;
-
   serverUrl: string;
 
   editorOptions: any;
+
+  fileUploading: boolean;
 
   @Output() valid = new EventEmitter<any>();
 
@@ -52,8 +52,8 @@ export class ModalBlockSettingsComponent implements OnInit {
     private uploadService: UploadService,
     private toastrService: ToastService
   ) {
-    this.showSourceCode = false;
     this.serverUrl = environment.serverUrl;
+    this.fileUploading = false;
   }
 
   ngOnInit() { 
@@ -216,6 +216,8 @@ export class ModalBlockSettingsComponent implements OnInit {
 
   uploadFile(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
     if (event.target.files.length > 0) {
+      this.fileUploading = true;
+
       // If there is a file attached to the input
       const image = event.target.files[0];
 
@@ -240,11 +242,14 @@ export class ModalBlockSettingsComponent implements OnInit {
               .filter(el => el.lang === lang)[0].properties
               .filter(el => el.name === parentPropertyName)[0].value[index]
               .filter(el => el.name === propertyName)[0].value = data.imageUrl;
+            this.fileUploading = false;
           } else {
             this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value = data.imageUrl;
+            this.fileUploading = false;
           }
         }
       }, err => {
+        this.fileUploading = false;
         this.toastrService.error('Une erreur s\'est produite lors de l\'upload de l\'image.');
       });
     }

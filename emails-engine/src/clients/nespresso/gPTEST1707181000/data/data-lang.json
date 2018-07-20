@@ -7,7 +7,7 @@
 				"properties": [
 					{
 						"name": "text",
-						"value": "",
+						"value": "<p class=\"fontArial\">asdasd asd asda sdasd as</p>",
 						"copiedFromMaster": false
 					}
 				],
@@ -601,7 +601,7 @@
 					},
 					{
 						"name": "img",
-						"value": "/dist/nespresso/gPTEST1707181000/images/uploads/the-best-nespresso-machines-1.jpg",
+						"value": "/dist/nespresso/gPTEST1707181000/images/uploads/paysage.jpg",
 						"copiedFromMaster": false
 					},
 					{
@@ -633,7 +633,7 @@
 					{
 						"name": "img",
 						"value": "",
-						"copiedFromMaster": true
+						"copiedFromMaster": false
 					},
 					{
 						"name": "text",

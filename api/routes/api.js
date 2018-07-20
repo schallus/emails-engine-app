@@ -56,7 +56,7 @@ router.use(morgan(':method :url :status :res[content-length] - :response-time ms
 
 // ----- image -----
 router.route('/brands/:brandSlug/campaigns/:campaignSlug/images')
-    .post(timeout('30s'), imageCtrl.addImage)
+    .post(timeout('120s'), imageCtrl.addImage)
     .delete(timeout('5s'), imageCtrl.removeImage);
 
 // ----- brand -----

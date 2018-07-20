@@ -74,10 +74,13 @@
                   </div>
                   <div *ngSwitchCase="'img'" class="file-field md-form">
                     <div class="col-6 img-preview">
-                      <a class="btn-floating btn-sm btn-secondary waves-light remove-image" (click)="removeImage(property.name, lang, $event)" mdbTooltip="Supprimer" placement="top" mdbWavesEffect>
-                        <i class="fa fa-trash"></i>
-                      </a>
-                      <img [src]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value) ? serverUrl + ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value : 'assets/img/placeholder.jpg' : (((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value) ? serverUrl + ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value : 'assets/img/placeholder.jpg'" class="img-fluid">
+                      <mdb-spinner *ngIf="fileUploading" spinnerColor="red"></mdb-spinner>
+                      <div *ngIf="!fileUploading">
+                          <a class="btn-floating btn-sm btn-secondary waves-light remove-image" (click)="removeImage(property.name, lang, $event)" mdbTooltip="Supprimer" placement="top" mdbWavesEffect>
+                            <i class="fa fa-trash"></i>
+                          </a>
+                          <img [src]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value) ? serverUrl + ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value : 'assets/img/placeholder.jpg' : (((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value) ? serverUrl + ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value : 'assets/img/placeholder.jpg'" class="img-fluid">
+                      </div>
                     </div>
                     <div class="col-6 img-button">
                       <div class="btn btn-secondary btn-rounded" mdbWavesEffect role="button" [class.disabled]="((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster">
