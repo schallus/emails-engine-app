@@ -8,5 +8,25 @@
 		"name": "gPTEST1707181000",
 		"displayName": "GP_TEST_170718_1000",
 		"createdAt": "2018-07-17T08:01:52.977Z"
+	},
+	{
+		"name": "promotionSpecialEte2018",
+		"displayName": "Promotion spécial été 2018",
+		"createdAt": "2018-07-23T09:34:57.323Z"
+	},
+	{
+		"name": "promotionFetesDeNoel",
+		"displayName": "Promotion fêtes de Noël",
+		"createdAt": "2018-07-23T09:37:10.529Z"
+	},
+	{
+		"name": "lesNouveautesNespresso",
+		"displayName": "Les nouveautés Nespresso",
+		"createdAt": "2018-07-23T09:37:55.570Z"
+	},
+	{
+		"name": "decouvrezNosGammesDeCafes",
+		"displayName": "Découvrez nos gammes de cafés",
+		"createdAt": "2018-07-23T09:38:59.548Z"
 	}
 ]

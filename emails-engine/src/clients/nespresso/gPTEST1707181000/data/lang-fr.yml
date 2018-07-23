@@ -41,7 +41,7 @@ block-04-1531814599943:
     text: "ANNONCE AU CEBIT 2017"
 block-01-1531828034096:
     title: "Offre d'été 2018"
-    img: ""
+    img: "/dist/nespresso/gPTEST1707181000/images/uploads/paysage.jpg"
     text: "Voici le texte avec les offres qui peut être super long, voir même trop trop long, et sans éditeur de texte avec ni bold, ni italic, ni rien. De plus le champ est trop court, ne vas pas sur une ligne, n'est pas limité en nombre de caractères...  c'est lourd à la longue, surtout que je me trompe de langue, ici c'est de l'anglais qui est demandé."
     linkUrl: "http://www.apple.com"
     linkText: "Cliquez ici"
@@ -54,7 +54,7 @@ footer-03-02-1531832149546:
     instagramUrl: ""
     googlePlusUrl: ""
 footer-01-1531834970549:
-    title: "<p>dsfs df sdf sdf sdfs dfsdf sdf sd</p><p>sdf ds</p><p>fs d</p><p>fdsf</p>"
+    title: "<p class=\"fontArial\">dsfs df sdf sdf sdfs dfsdf sdf sd</p><p class=\"fontArial\">sdf ds</p><p class=\"fontArial\">fs d</p><p class=\"fontArial\">fdsf</p>"
     items:
       - url: "http://www.uefa.com"
         img: "/dist/nespresso/gPTEST1707181000/images/uploads/il_570xN.1273614639_b9fj.jpg"
