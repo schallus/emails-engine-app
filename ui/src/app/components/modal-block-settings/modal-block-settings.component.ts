@@ -52,7 +52,6 @@ export class ModalBlockSettingsComponent implements OnInit {
     private uploadService: UploadService,
     private toastrService: ToastService
   ) {
-    this.serverUrl = environment.serverUrl;
     this.fileUploading = false;
   }
 
@@ -63,6 +62,8 @@ export class ModalBlockSettingsComponent implements OnInit {
     // Get url parameters
     this.brandName = this.route.snapshot.paramMap.get('brandName');
     this.campaignName = this.route.snapshot.paramMap.get('campaignName');
+
+    this.serverUrl = `${environment.serverUrl}/dist/${this.brandName}/${this.campaignName}/`;
 
     this.initWYSIWYG();
 

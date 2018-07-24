@@ -1776,10 +1776,13 @@ campaign.compileJSONIntoYaml = (req, res, next) => {
             structure: sortedStructure,
             data: campaignData
         }, (err, structure) => {
-            if(err) return next({
-                status: 500,
-                message: "Something unexpected happened while rendering the campaign structure file."
-            });
+            if(err) {
+                console.log(err);
+                return next({
+                    status: 500,
+                    message: "Something unexpected happened while rendering the campaign structure file."
+                });
+            }
             
             try {
                 fs.writeFileSync(`${res.brandPath}/${req.params.campaignSlug}/pages/index-${lang}.html`, structure, 'utf8');

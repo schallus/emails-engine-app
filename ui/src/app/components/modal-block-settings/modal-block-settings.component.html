@@ -14,7 +14,7 @@
                 <div class="switch danger-switch">
                   <label>
                     Cacher
-                    <input type="checkbox" [id]="'show-block-'+lang" [name]="'show-block-'+lang" [ngModel]="isVisible(lang)" [checked]="isVisible(lang)" (change)="toggleVisibility(lang)">
+                    <input type="checkbox" [id]="'show-block-'+lang" [name]="'show-block-'+lang" [ngModel]="(blockData?.languages | filter: 'lang':lang)?.display" [checked]="(blockData?.languages | filter: 'lang':lang)?.display" (change)="toggleVisibility(lang)">
                     <span class="lever"></span>
                     Afficher
                   </label>

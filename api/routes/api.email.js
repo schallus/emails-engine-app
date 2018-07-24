@@ -416,6 +416,17 @@ email.sendTest = (req, res, next) => {
             }
         }
 
+        // Get server full URL
+        const serverUrl = `${req.protocol}://${req.get('host')}`;
+
+        // Replace img links
+        const imageFolderUrl = `${serverUrl}/dist/${brandSlug}/${campaignSlug}/images`;
+        emailHtmlData = replaceImgLinks(emailHtmlData, imageFolderUrl);
+
+        // Replace font links
+        const fontsFolderUrl = `${serverUrl}/dist/${brandSlug}/${campaignSlug}/fonts`;
+        emailHtmlData = replaceFontLinks(emailHtmlData, fontsFolderUrl);
+
         // setup email data with unicode symbols
         const mailOptions = {
             from: '"WIDE Email Engine" <no-reply@wideagency.com>', // sender address
@@ -442,6 +453,18 @@ email.sendTest = (req, res, next) => {
 const validateEmail = (email) => {
     var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
+}
+
+// replace img by the ones in the cdn
+const replaceImgLinks = (htmlSource, imageFolderUrl) => {
+    return htmlSource.replace(/background=('|")(.?\/?images)/g, "background=$1"+ imageFolderUrl)
+        .replace(/src=('|")(.?\/?images)/g, "src=$1"+ imageFolderUrl)
+        .replace(/url[(](\/?..\/images)/g, "url("+ imageFolderUrl);
+}
+  
+// replace fonts by the ones in the cdn
+const replaceFontLinks = (htmlSource, fontsFolderUrl) => {
+    return htmlSource.replace(/url[(]("\/?(..\/)?fonts)/g, "url(\""+ fontsFolderUrl);
 }
 
 module.exports = email;

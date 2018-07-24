@@ -6,11 +6,20 @@
 		"fr": {
 			"subject": "Eté 2018"
 		},
+		"fr-CH": {
+			"subject": "Eté en Suisse Romande"
+		},
 		"it": {
 			"subject": "Estate 2018"
 		}
 	},
-	"customLang": [],
+	"customLang": [
+		{
+			"name": "Français (Suisse)",
+			"code": "fr-CH",
+			"selected": true
+		}
+	],
 	"layout": "default",
 	"masterLang": "en"
 }

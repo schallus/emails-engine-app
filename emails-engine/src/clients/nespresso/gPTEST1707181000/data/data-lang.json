@@ -34,6 +34,17 @@
 					}
 				],
 				"display": true
+			},
+			{
+				"lang": "fr-CH",
+				"properties": [
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
 			}
 		]
 	},
@@ -50,7 +61,7 @@
 					},
 					{
 						"name": "img",
-						"value": "/dist/nespresso/gPTEST1707181000/images/uploads/1_MSuvPR0U18NJNjxq0SlyyA.png",
+						"value": "images/uploads/mark-harpur-748500-unsplash.jpg",
 						"copiedFromMaster": false
 					},
 					{
@@ -162,6 +173,47 @@
 					}
 				],
 				"display": true
+			},
+			{
+				"lang": "fr-CH",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-w",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-h",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url-mobile",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
 			}
 		]
 	},
@@ -173,7 +225,7 @@
 				"properties": [
 					{
 						"name": "img",
-						"value": "/dist/nespresso/gPTEST1707181000/images/uploads/Nespresso_logo.png",
+						"value": "images/uploads/Nespresso_logo.png",
 						"copiedFromMaster": false
 					},
 					{
@@ -202,6 +254,22 @@
 			},
 			{
 				"lang": "it",
+				"properties": [
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr-CH",
 				"properties": [
 					{
 						"name": "img",
@@ -283,6 +351,27 @@
 					}
 				],
 				"display": true
+			},
+			{
+				"lang": "fr-CH",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "color",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
 			}
 		]
 	},
@@ -321,6 +410,17 @@
 					}
 				],
 				"display": true
+			},
+			{
+				"lang": "fr-CH",
+				"properties": [
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
 			}
 		]
 	},
@@ -337,7 +437,7 @@
 					},
 					{
 						"name": "img",
-						"value": "/dist/nespresso/gPTEST1707181000/images/uploads/Nespresso-Rechargeable-Capsule-pour-Machine-Caf-Nespresso-R-utilisable-Capsules-Inoxydable-Maille-Couvercle-Recharge-Nespresso-Capsule.jpg_640x640.jpg",
+						"value": "images/uploads/Nespresso-Rechargeable-Capsule-pour-Machine-Caf-Nespresso-R-utilisable-Capsules-Inoxydable-Maille-Couvercle-Recharge-Nespresso-Capsule.jpg_640x640.jpg",
 						"copiedFromMaster": false
 					},
 					{
@@ -391,6 +491,37 @@
 			},
 			{
 				"lang": "it",
+				"properties": [
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "link",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr-CH",
 				"properties": [
 					{
 						"name": "url",
@@ -585,6 +716,32 @@
 					}
 				],
 				"display": true
+			},
+			{
+				"lang": "fr-CH",
+				"properties": [
+					{
+						"name": "bgcolor",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "color",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "colorSep",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
 			}
 		]
 	},
@@ -601,7 +758,7 @@
 					},
 					{
 						"name": "img",
-						"value": "/dist/nespresso/gPTEST1707181000/images/uploads/paysage.jpg",
+						"value": "images/uploads/paysage.jpg",
 						"copiedFromMaster": false
 					},
 					{
@@ -655,6 +812,37 @@
 			},
 			{
 				"lang": "it",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr-CH",
 				"properties": [
 					{
 						"name": "title",
@@ -811,6 +999,47 @@
 					}
 				],
 				"display": true
+			},
+			{
+				"lang": "fr-CH",
+				"properties": [
+					{
+						"name": "logoUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "facebookUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "twitterUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "youtudeUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "instagramUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "googlePlusUrl",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
 			}
 		]
 	},
@@ -836,7 +1065,7 @@
 								},
 								{
 									"name": "img",
-									"value": "/dist/nespresso/gPTEST1707181000/images/uploads/il_570xN.1273614639_b9fj.jpg",
+									"value": "images/uploads/il_570xN.1273614639_b9fj.jpg",
 									"copiedFromMaster": false
 								},
 								{
@@ -1071,6 +1300,132 @@
 			},
 			{
 				"lang": "it",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "items",
+						"value": [
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							]
+						]
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr-CH",
 				"properties": [
 					{
 						"name": "title",

@@ -8,14 +8,14 @@ header-03-1531814638481:
     text: "<p class=\"fontArial\">Summer 2018</p>"
 block-02-1531814587133:
     bgcolor: "#000000"
-    img: "/dist/nespresso/gPTEST1707181000/images/uploads/1_MSuvPR0U18NJNjxq0SlyyA.png"
+    img: "images/uploads/mark-harpur-748500-unsplash.jpg"
     img-w: "640"
     img-h: "200"
     img-mobile: ""
     url: "http://www.txt.ch"
     url-mobile: ""
 header-02-1531814648004:
-    img: "/dist/nespresso/gPTEST1707181000/images/uploads/Nespresso_logo.png"
+    img: "images/uploads/Nespresso_logo.png"
     url: "https://www.google.com"
 block-06-1531814616282:
     bgcolor: "#271c1a"
@@ -25,7 +25,7 @@ block-05-1531814607323:
     text: "A découvrire maintenant dans nos magasins partenaires"
 block-11-1531816910354:
     url: "http://www.epfl.ch"
-    img: "/dist/nespresso/gPTEST1707181000/images/uploads/Nespresso-Rechargeable-Capsule-pour-Machine-Caf-Nespresso-R-utilisable-Capsules-Inoxydable-Maille-Couvercle-Recharge-Nespresso-Capsule.jpg_640x640.jpg"
+    img: "images/uploads/Nespresso-Rechargeable-Capsule-pour-Machine-Caf-Nespresso-R-utilisable-Capsules-Inoxydable-Maille-Couvercle-Recharge-Nespresso-Capsule.jpg_640x640.jpg"
     title: "<p>NOUVEAUTE 2018</p>"
     text: "Découvrez nos capsules rechargeables!"
     link: "En savoir plus"
@@ -41,7 +41,7 @@ block-04-1531814599943:
     text: "ANNONCE AU CEBIT 2017"
 block-01-1531828034096:
     title: "Offre d'été 2018"
-    img: "/dist/nespresso/gPTEST1707181000/images/uploads/paysage.jpg"
+    img: "images/uploads/paysage.jpg"
     text: "Voici le texte avec les offres qui peut être super long, voir même trop trop long, et sans éditeur de texte avec ni bold, ni italic, ni rien. De plus le champ est trop court, ne vas pas sur une ligne, n'est pas limité en nombre de caractères...  c'est lourd à la longue, surtout que je me trompe de langue, ici c'est de l'anglais qui est demandé."
     linkUrl: "http://www.apple.com"
     linkText: "Cliquez ici"
@@ -57,7 +57,7 @@ footer-01-1531834970549:
     title: "<p class=\"fontArial\">dsfs df sdf sdf sdfs dfsdf sdf sd</p><p class=\"fontArial\">sdf ds</p><p class=\"fontArial\">fs d</p><p class=\"fontArial\">fdsf</p>"
     items:
       - url: "http://www.uefa.com"
-        img: "/dist/nespresso/gPTEST1707181000/images/uploads/il_570xN.1273614639_b9fj.jpg"
+        img: "images/uploads/il_570xN.1273614639_b9fj.jpg"
         width: "60"
         text: "Café with passion"
       - url: ""

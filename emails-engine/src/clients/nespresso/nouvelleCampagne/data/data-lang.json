@@ -1,0 +1,100 @@
+[
+	{
+		"blockName": "block-01-1532415540504",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "title",
+						"value": "Titre du bloc",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img",
+						"value": "images/uploads/paysage.jpg",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "Texte",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkUrl",
+						"value": "http://www.google.com",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkText",
+						"value": "Texte du lien",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	}
+]

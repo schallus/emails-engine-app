@@ -160,61 +160,63 @@ export class PageCampaignBuilderComponent implements OnInit {
                 for (let i = 0; i < blocksData.length; i++) {
                   const blockInfo = this.getBlockInfo(blocksData[i].blockName);
 
-                  // Remove lang from campaign data if deselected
-                  blocksData[i].languages = blocksData[i].languages.filter((item) => {
-                    return this.campaignLanguages.indexOf(item.lang) > -1;
-                  });
+                  if(blockInfo) {
+                    // Remove lang from campaign data if deselected
+                    blocksData[i].languages = blocksData[i].languages.filter((item) => {
+                      return this.campaignLanguages.indexOf(item.lang) > -1;
+                    });
 
-                  // Add new lang data if lang added to campaign
-                  const langToAdd = this.campaignLanguages.filter((item) => {
-                    return blocksData[i].languages.map(el => el.lang).indexOf(item) === -1;
-                  });
+                    // Add new lang data if lang added to campaign
+                    const langToAdd = this.campaignLanguages.filter((item) => {
+                      return blocksData[i].languages.map(el => el.lang).indexOf(item) === -1;
+                    });
 
-                  for (const lang of langToAdd) {
-                    const el = {
-                      lang: lang,
-                      properties: [],
-                      display: true
-                    };
+                    for (const lang of langToAdd) {
+                      const el = {
+                        lang: lang,
+                        properties: [],
+                        display: true
+                      };
 
-                    const isMaster = lang == this.campaignOptions.masterLang;
+                      const isMaster = lang == this.campaignOptions.masterLang;
 
-                    for (const blockProperty of blockInfo.properties) {
-                      if (blockProperty.type === 'properties') {
+                      for (const blockProperty of blockInfo.properties) {
+                        if (blockProperty.type === 'properties') {
 
-                        const element = [];
-                        const subProperties = [];
-                        for (let j = 0; j < blockProperty.properties.length; j++) {
-                          subProperties.push({
-                            name: blockProperty.properties[j].name,
+                          const element = [];
+                          const subProperties = [];
+                          for (let j = 0; j < blockProperty.properties.length; j++) {
+                            subProperties.push({
+                              name: blockProperty.properties[j].name,
+                              value: '',
+                              copiedFromMaster: !isMaster
+                            });
+                          }
+
+                          for (let i = 0; i < blockProperty.numberItems; i++) {
+                            element.push(subProperties);
+                          }
+
+                          el.properties.push({
+                            name: blockProperty.name,
+                            value: element
+                          });
+                        } else {
+                          el.properties.push({
+                            name: blockProperty.name,
                             value: '',
                             copiedFromMaster: !isMaster
                           });
                         }
-
-                        for (let i = 0; i < blockProperty.numberItems; i++) {
-                          element.push(subProperties);
-                        }
-
-                        el.properties.push({
-                          name: blockProperty.name,
-                          value: element
-                        });
-                      } else {
-                        el.properties.push({
-                          name: blockProperty.name,
-                          value: '',
-                          copiedFromMaster: !isMaster
-                        });
                       }
-                    }
 
-                    blocksData[i].languages.push(el);
+                      blocksData[i].languages.push(el);
+                    }
                   }
+                  this.apiService.setBlocksData(this.brand.name, this.campaign.name, blocksData).subscribe(() => {}, err => {
+                    this.toastrService.error('Erreur lors de l\'enregistrement des données des blocs.');
+                  });
                 }
-                this.apiService.setBlocksData(this.brand.name, this.campaign.name, blocksData).subscribe(() => {}, err => {
-                  this.toastrService.error('Erreur lors de l\'enregistrement des données des blocs.');
-                });
               }, err => {
                 this.toastrService.error('Erreur lors du chargement des données des blocs.');
               });

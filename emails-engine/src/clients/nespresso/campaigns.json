@@ -28,5 +28,10 @@
 		"name": "decouvrezNosGammesDeCafes",
 		"displayName": "Découvrez nos gammes de cafés",
 		"createdAt": "2018-07-23T09:38:59.548Z"
+	},
+	{
+		"name": "nouvelleCampagne",
+		"displayName": "Nouvelle campagne",
+		"createdAt": "2018-07-24T06:58:41.019Z"
 	}
 ]

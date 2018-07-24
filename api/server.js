@@ -38,7 +38,7 @@ const hbs = exphbs.create({
         ifDisplayLang: function(lang, blocksData, blockName, options) {
             const blockData = blocksData.filter(block => block.blockName === blockName)[0];
             if(blockData) {
-                const display = blockData.languages.filter(el => el.lang === lang)[0].display;
+                const display = (blockData.languages.filter(el => el.lang === lang)[0]) ? blockData.languages.filter(el => el.lang === lang)[0].display : false;
                 return (display) ? options.fn(this) : options.inverse(this);
             }
             return options.fn(this);

@@ -1,0 +1,12 @@
+#
+# brand: nespresso
+# campaign: nouvelleCampagne
+# lang: fr
+#
+
+block-01-1532415540504:
+    title: "Titre du bloc"
+    img: "images/uploads/paysage.jpg"
+    text: "Texte"
+    linkUrl: "http://www.google.com"
+    linkText: "Texte du lien"
