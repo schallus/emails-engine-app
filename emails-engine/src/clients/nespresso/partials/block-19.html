@@ -19,7 +19,7 @@
                     <tr>
                       <td>
                         <a href="{{data.linkUrl}}">
-                          <img src="{{data.img}}" width="310" height="306" border="0" alt="" style="display:block;"
+                          <img src="{{data.img}}" width="{{#if data.img-w}}{{data.img-w}}{{else}}310{{/if}}" height="{{#if data.img-h}}{{data.img-h}}{{else}}200{{/if}}" border="0" alt="" style="display:block;"
                             class="w100pc">
                         </a>
                       </td>
@@ -30,7 +30,7 @@
                   </table>
 
                 </td>
-                <td width="330" class="colsplit" bgcolor="#f8f7f3">
+                <td width="330" class="colsplit" bgcolor="{{#if data.bgColor}}{{data.bgColor}}{{else}}#f8f7f3{{/if}}">
 
                   <table role="presentation" width="100%" border="0" cellspacing="0" cellpadding="0">
                     <tr>
@@ -40,19 +40,19 @@
                         <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
                           {{#if data.title}}
                           <tr>
-                            <td valign="top" style="font-size: 22px; font-family: 'Nespresso Lucas',  Arial, sans-serif; line-height: 26px; color: #231f20; text-decoration: none; padding: 0 0 16px 0; text-align: left; font-weight: normal!important;"
+                            <td valign="top" style="font-size: 22px; font-family: 'Nespresso Lucas',  Arial, sans-serif; line-height: 26px; color: #231f20; text-decoration: none; padding: 0 0 16px 0; text-align: {{#if data.align}}{{data.align}}{{else}}left{{/if}}; font-weight: normal!important;"
                                 class="fontsize22"><span class="fontArial">{{{data.title}}}</span></td>
                           </tr>
                           {{/if}}
                           {{#if data.text}}
                           <tr>
-                            <td valign="top" style="font-size: 17px; font-family: 'Nespresso Lucas Light',  Arial, sans-serif; line-height: 22px; color: #231f20; text-decoration: none; {{#if data.linkText}}padding: 0 0 20px 0;{{/if}} text-align: left; font-weight: normal!important;"
+                            <td valign="top" style="font-size: 17px; font-family: 'Nespresso Lucas Light',  Arial, sans-serif; line-height: 22px; color: #231f20; text-decoration: none; {{#if data.linkText}}padding: 0 0 20px 0;{{/if}} text-align: {{#if data.align}}{{data.align}}{{else}}left{{/if}}; font-weight: normal!important;"
                               class="fontsize16"><span class="fontArial fontsize16">{{{data.text}}}</span></td>
                           </tr>
                           {{/if}}
                           {{#if data.linkText}}
                           <tr>
-                            <td>
+                            <td align="{{#if data.align}}{{data.align}}{{else}}center{{/if}}">
 
                               <table border="0" cellspacing="0" cellpadding="0" class="w100pc">
                                 <tr>

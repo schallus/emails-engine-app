@@ -6,11 +6,11 @@
       <table role="presentation" width="670" border="0" align="center" cellpadding="0" cellspacing="0" class="w100pc">
         <tr>
           <td width="15"></td>
-          <td align="center" valign="top">
+          <td align="center" valign="top" {{#if data.bgColor}}bgcolor="{{data.bgColor}}"{{/if}}>
 
             <table role="presentation" width="500" border="0" align="center" cellpadding="0" cellspacing="0" class="w100pc">
               <tr>
-                <td valign="top" align="center" class="fontArial" style="font-size: 22px; font-family: 'Nespresso Lucas', Arial, sans-serif; line-height: 34px; color: #231f20; text-decoration: none; padding: 0 0 18px 0; text-transform: uppercase;">
+                <td valign="top" align="center" class="fontArial" style="font-size: 22px; font-family: 'Nespresso Lucas', Arial, sans-serif; line-height: 34px; color: {{#if data.color}}{{data.color}}{{else}}#231f20{{/if}}; text-decoration: none; padding: 0 0 18px 0; text-transform: uppercase;">
                   <span class="fontArial">{{{data.text}}}</span>
                 </td>
               </tr>

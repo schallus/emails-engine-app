@@ -1,33 +1,33 @@
 [
 	{
-		"blockName": "block-01-1532415540504",
+		"blockName": "block-01-1532438838211",
 		"languages": [
 			{
 				"lang": "fr",
 				"properties": [
 					{
 						"name": "title",
-						"value": "Titre du bloc",
+						"value": "Test",
 						"copiedFromMaster": false
 					},
 					{
 						"name": "img",
-						"value": "images/uploads/paysage.jpg",
+						"value": "images/uploads/AfficheHelvet.jpg",
 						"copiedFromMaster": false
 					},
 					{
 						"name": "text",
-						"value": "Texte",
+						"value": "",
 						"copiedFromMaster": false
 					},
 					{
 						"name": "linkUrl",
-						"value": "http://www.google.com",
+						"value": "",
 						"copiedFromMaster": false
 					},
 					{
 						"name": "linkText",
-						"value": "Texte du lien",
+						"value": "",
 						"copiedFromMaster": false
 					}
 				],

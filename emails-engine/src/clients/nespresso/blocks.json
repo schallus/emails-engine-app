@@ -67,6 +67,48 @@
         ]
     },
     {
+        "name": "header-03-connoisseur",
+        "displayName": "Header 3 Connoisseur",
+        "category": "header",
+        "thumbnailUrl": "/public/nespresso/images/header-03-connoisseur.jpg",
+        "properties": [
+            {
+                "name": "text",
+                "displayName": "Texte",
+                "type": "wysiwyg",
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "header-03-expert",
+        "displayName": "Header 3 Expert",
+        "category": "header",
+        "thumbnailUrl": "/public/nespresso/images/header-03-expert.jpg",
+        "properties": [
+            {
+                "name": "text",
+                "displayName": "Texte",
+                "type": "wysiwyg",
+                "required": true
+            }
+        ]
+    },
+    {
+        "name": "header-03-ambassador",
+        "displayName": "Header 3 Ambassador",
+        "category": "header",
+        "thumbnailUrl": "/public/nespresso/images/header-03-ambassador.jpg",
+        "properties": [
+            {
+                "name": "text",
+                "displayName": "Texte",
+                "type": "wysiwyg",
+                "required": true
+            }
+        ]
+    },
+    {
         "name": "block-01",
         "displayName": "Block 01",
         "category": "content",
@@ -229,6 +271,18 @@
                 "displayName": "Texte",
                 "type": "text",
                 "required": true
+            },
+            {
+                "name": "color",
+                "displayName": "Couleur du texte",
+                "type": "color",
+                "required": false
+            },
+            {
+                "name": "bgColor",
+                "displayName": "Couleur de fond",
+                "type": "color",
+                "required": false
             }
         ]
     },
@@ -255,6 +309,12 @@
                 "displayName": "Texte",
                 "type": "wysiwyg",
                 "required": true
+            },
+            {
+                "name": "align",
+                "displayName": "Alignement du texte (left, right, center)",
+                "type": "text",
+                "required": false
             }
         ]
     },
@@ -267,6 +327,12 @@
             {
                 "name": "color",
                 "displayName": "Couleur du texte",
+                "type": "color",
+                "required": false
+            },
+            {
+                "name": "bgcolor",
+                "displayName": "Couleur de fond",
                 "type": "color",
                 "required": false
             },
@@ -284,9 +350,9 @@
             },
             {
                 "name": "url-mobile",
-                "displayName": "URL sur mobile",
+                "displayName": "URL sur mobile (copié depuis URL si vide)",
                 "type": "url",
-                "required": true
+                "required": false
             }
         ]
     },
@@ -309,6 +375,18 @@
                 "required": true
             },
             {
+                "name": "img-w",
+                "displayName": "Largeur de l'image (valeur par défaut: 310)",
+                "type": "number",
+                "required": false
+            },
+            {
+                "name": "img-h",
+                "displayName": "Hauteur de l'image (valeur par défaut: 200)",
+                "type": "number",
+                "required": false
+            },
+            {
                 "name": "title",
                 "displayName": "Titre",
                 "type": "text",
@@ -324,6 +402,18 @@
                 "name": "link",
                 "displayName": "Texte du lien",
                 "type": "text",
+                "required": false
+            },
+            {
+                "name": "align",
+                "displayName": "Alignement du texte (left, right, center)",
+                "type": "text",
+                "required": false
+            },
+            {
+                "name": "bgColor",
+                "displayName": "Couleur de fond (valeur par défaut: #f8f7f3)",
+                "type": "color",
                 "required": false
             }
         ]
@@ -347,6 +437,18 @@
                 "required": true
             },
             {
+                "name": "img-w",
+                "displayName": "Largeur de l'image (valeur par défaut: 310)",
+                "type": "number",
+                "required": false
+            },
+            {
+                "name": "img-h",
+                "displayName": "Hauteur de l'image (valeur par défaut: 200)",
+                "type": "number",
+                "required": false
+            },
+            {
                 "name": "title",
                 "displayName": "Titre",
                 "type": "wysiwyg",
@@ -362,6 +464,18 @@
                 "name": "link",
                 "displayName": "Texte du lien",
                 "type": "text",
+                "required": false
+            },
+            {
+                "name": "align",
+                "displayName": "Alignement du texte (left, right, center)",
+                "type": "text",
+                "required": false
+            },
+            {
+                "name": "bgColor",
+                "displayName": "Couleur de fond (valeur par défaut: #f8f7f3)",
+                "type": "color",
                 "required": false
             }
         ]
@@ -412,6 +526,18 @@
                 "required": true
             },
             {
+                "name": "img-w",
+                "displayName": "Largeur de l'image (valeur par défaut: 310)",
+                "type": "number",
+                "required": false
+            },
+            {
+                "name": "img-h",
+                "displayName": "Hauteur de l'image (valeur par défaut: 200)",
+                "type": "number",
+                "required": false
+            },
+            {
                 "name": "title",
                 "displayName": "Titre",
                 "type": "text",
@@ -421,6 +547,18 @@
                 "name": "text",
                 "displayName": "Texte",
                 "type": "text",
+                "required": false
+            },
+            {
+                "name": "align",
+                "displayName": "Alignement du texte (left, right, center)",
+                "type": "text",
+                "required": false
+            },
+            {
+                "name": "bgColor",
+                "displayName": "Couleur de fond (valeur par défaut: #f8f7f3)",
+                "type": "color",
                 "required": false
             }
         ]
@@ -450,6 +588,18 @@
                 "required": true
             },
             {
+                "name": "img-w",
+                "displayName": "Largeur de l'image (valeur par défaut: 310)",
+                "type": "number",
+                "required": false
+            },
+            {
+                "name": "img-h",
+                "displayName": "Hauteur de l'image (valeur par défaut: 200)",
+                "type": "number",
+                "required": false
+            },
+            {
                 "name": "title",
                 "displayName": "Titre",
                 "type": "text",
@@ -459,6 +609,18 @@
                 "name": "text",
                 "displayName": "Texte",
                 "type": "text",
+                "required": false
+            },
+            {
+                "name": "align",
+                "displayName": "Alignement du texte (left, right, center)",
+                "type": "text",
+                "required": false
+            },
+            {
+                "name": "bgColor",
+                "displayName": "Couleur de fond (valeur par défaut: #f8f7f3)",
+                "type": "color",
                 "required": false
             }
         ]
@@ -501,8 +663,14 @@
                         "required": true
                     },
                     {
+                        "name": "title",
+                        "displayName": "Titre (mise en forme: bold / uppercase)",
+                        "type": "text",
+                        "required": false
+                    },
+                    {
                         "name": "text",
-                        "displayName": "Texte",
+                        "displayName": "Seconde ligne de texte",
                         "type": "text",
                         "required": false
                     }

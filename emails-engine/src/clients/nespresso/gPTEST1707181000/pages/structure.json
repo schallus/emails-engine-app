@@ -12,68 +12,98 @@
 		"valid": true
 	},
 	{
-		"blockType": "block-01",
+		"blockType": "header-03-connoisseur",
 		"position": 2,
+		"name": "header-03-connoisseur-1532420928139",
+		"valid": true
+	},
+	{
+		"blockType": "header-03-expert",
+		"position": 3,
+		"name": "header-03-expert-1532420931323",
+		"valid": true
+	},
+	{
+		"blockType": "header-03-ambassador",
+		"position": 4,
+		"name": "header-03-ambassador-1532420926263",
+		"valid": true
+	},
+	{
+		"blockType": "block-01",
+		"position": 5,
 		"name": "block-01-1531828034096",
 		"valid": true
 	},
 	{
 		"blockType": "spacer",
-		"position": 3,
+		"position": 6,
 		"name": "spacer-1531920796152",
 		"valid": true
 	},
 	{
 		"blockType": "block-02",
-		"position": 4,
+		"position": 7,
 		"name": "block-02-1531814587133",
 		"valid": true
 	},
 	{
 		"blockType": "spacer",
-		"position": 5,
+		"position": 8,
 		"name": "spacer-1531830966011",
 		"valid": true
 	},
 	{
+		"blockType": "block-07",
+		"position": 9,
+		"name": "block-07-1532424688071",
+		"valid": true
+	},
+	{
 		"blockType": "block-04",
-		"position": 6,
+		"position": 10,
 		"name": "block-04-1531814599943",
 		"valid": true
 	},
 	{
-		"blockType": "block-11",
-		"position": 7,
-		"name": "block-11-1531816910354",
-		"valid": true
-	},
-	{
-		"blockType": "block-05",
-		"position": 8,
-		"name": "block-05-1531814607323",
+		"blockType": "block-10",
+		"position": 11,
+		"name": "block-10-1532427138762",
 		"valid": true
 	},
 	{
 		"blockType": "block-14-connoisseur",
-		"position": 9,
+		"position": 12,
 		"name": "block-14-connoisseur-1531834997514",
 		"valid": true
 	},
 	{
+		"blockType": "block-19",
+		"position": 13,
+		"name": "block-19-1532430439357",
+		"valid": true
+	},
+	{
+		"blockType": "block-05",
+		"position": 14,
+		"name": "block-05-1532423495808",
+		"valid": true
+	},
+	{
 		"blockType": "block-06",
-		"position": 10,
-		"name": "block-06-1531814616282",
+		"position": 15,
+		"name": "block-06-1532424163587",
 		"valid": true
 	},
 	{
 		"blockType": "footer-01",
-		"position": 11,
-		"name": "footer-01-1531834970549",
+		"position": 16,
+		"name": "footer-01-1532433868165",
 		"valid": false
 	},
 	{
 		"blockType": "footer-03-02",
-		"position": 12,
+		"position": 17,
 		"name": "footer-03-02-1531832149546",
 		"valid": true
 	}

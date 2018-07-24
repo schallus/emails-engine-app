@@ -1,37 +1,32 @@
 [
 	{
-		"name": "solothurn",
-		"displayName": "Solothurn",
-		"createdAt": "2018-07-10T14:11:24.148Z"
-	},
-	{
 		"name": "gPTEST1707181000",
 		"displayName": "GP_TEST_170718_1000",
 		"createdAt": "2018-07-17T08:01:52.977Z"
 	},
 	{
-		"name": "promotionSpecialEte2018",
-		"displayName": "Promotion spécial été 2018",
-		"createdAt": "2018-07-23T09:34:57.323Z"
-	},
-	{
-		"name": "promotionFetesDeNoel",
-		"displayName": "Promotion fêtes de Noël",
-		"createdAt": "2018-07-23T09:37:10.529Z"
-	},
-	{
-		"name": "lesNouveautesNespresso",
-		"displayName": "Les nouveautés Nespresso",
-		"createdAt": "2018-07-23T09:37:55.570Z"
-	},
-	{
-		"name": "decouvrezNosGammesDeCafes",
-		"displayName": "Découvrez nos gammes de cafés",
-		"createdAt": "2018-07-23T09:38:59.548Z"
-	},
-	{
 		"name": "nouvelleCampagne",
 		"displayName": "Nouvelle campagne",
 		"createdAt": "2018-07-24T06:58:41.019Z"
+	},
+	{
+		"name": "promotionFeteDeNoel",
+		"displayName": "Promotion fête de Noël",
+		"createdAt": "2018-07-24T12:40:18.681Z"
+	},
+	{
+		"name": "campagneDeTest",
+		"displayName": "Campagne de test",
+		"createdAt": "2018-07-24T12:40:29.865Z"
+	},
+	{
+		"name": "ma5eCampagne",
+		"displayName": "ma 5e campagne",
+		"createdAt": "2018-07-24T12:40:41.110Z"
+	},
+	{
+		"name": "nouveautesNespresso",
+		"displayName": "Nouveautés Nespresso",
+		"createdAt": "2018-07-24T12:41:21.422Z"
 	}
 ]

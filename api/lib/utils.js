@@ -3,6 +3,8 @@
 // ----- DEPENDENCIES
 const path = require('path'); 
 const fs = require('fs');
+//const util = require('util');
+//const moment = require('moment');
 
 // ----- PRIVATE METHODS -----
 
@@ -43,5 +45,14 @@ utils.flatten = (arr) => {
         return flat.concat(Array.isArray(toFlatten) ? utils.flatten(toFlatten) : toFlatten);
     }, []);
 }
+
+// Log to file
+/*utils.logFileStream = fs.createWriteStream(path.normalize(__dirname + '/../logs/debug.log', {flags : 'a'}));
+utils.logConsoleStream = process.stdout;
+
+utils.log = (message) => {
+    utils.logFileStream.write(moment().format() + util.format(message) + '\n');
+    utils.logConsoleStream.write(moment().format() + util.format(message) + '\n');
+}*/
 
 module.exports = utils;

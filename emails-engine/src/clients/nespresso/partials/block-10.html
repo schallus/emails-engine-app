@@ -8,7 +8,7 @@
           <td width="15"></td>
           <td align="center" valign="top">
 
-            <table role="presentation" width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#f8f7f3">
+            <table role="presentation" width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="{{#if data.bgColor}}{{data.bgColor}}{{else}}#f8f7f3{{/if}}">
               <tr>
                 <td width="310" valign="bottom" class="colsplit-bottom">
 
@@ -17,10 +17,10 @@
                       <td>
                         {{#if data.url}}
                           <a href="{{data.url}}">
-                            <img src="{{data.img}}" width="310" height="311" border="0" alt="" style="display:block;" class="w100pc">
+                            <img src="{{data.img}}" width="{{#if data.img-w}}{{data.img-w}}{{else}}310{{/if}}" height="{{#if data.img-h}}{{data.img-h}}{{else}}200{{/if}}" border="0" alt="" style="display:block;" class="w100pc">
                           </a>
                         {{else}}
-                          <img src="{{data.img}}" width="310" height="311" border="0" alt="" style="display:block;" class="w100pc">
+                          <img src="{{data.img}}" width="{{#if data.img-w}}{{data.img-w}}{{else}}310{{/if}}" height="{{#if data.img-h}}{{data.img-h}}{{else}}200{{/if}}" border="0" alt="" style="display:block;" class="w100pc">
                         {{/if}}
                       </td>
                     </tr>
@@ -37,19 +37,19 @@
                         <table width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
                           {{#if data.title}}
                           <tr>
-                            <td valign="top" align="center" style="font-size: 22px; font-family: 'Nespresso Lucas',  Arial, sans-serif; line-height: 26px; color: #231f20; text-decoration: none; padding: 0 0 16px 0; text-align: center; font-weight: normal!important;"
+                            <td valign="top" align="center" style="font-size: 22px; font-family: 'Nespresso Lucas',  Arial, sans-serif; line-height: 26px; color: #231f20; text-decoration: none; padding: 0 0 16px 0; text-align: {{#if data.align}}{{data.align}}{{else}}center{{/if}}; font-weight: normal!important;"
                                 class="fontsize22 fontArial"><span class="fontArial fontsize22">{{{data.title}}}</span></td>
                           </tr>
                           {{/if}}
                           {{#if data.text}}
                           <tr>
-                            <td valign="top" align="center" style="font-size: 17px; font-family: 'Nespresso Lucas Light',  Arial, sans-serif; line-height: 22px; color: #231f20; text-decoration: none; {{#if data.link}}padding: 0 0 20px 0;{{/if}} text-align: center; font-weight: normal!important;"
+                            <td valign="top" align="center" style="font-size: 17px; font-family: 'Nespresso Lucas Light',  Arial, sans-serif; line-height: 22px; color: #231f20; text-decoration: none; {{#if data.link}}padding: 0 0 20px 0;{{/if}} text-align: {{#if data.align}}{{data.align}}{{else}}center{{/if}}; font-weight: normal!important;"
                                 class="fontsize16 fontArial"><span class="fontArial fontsize16">{{{data.text}}}</span></td>
                           </tr>
                           {{/if}}
                           {{#if data.link}}
                           <tr>
-                            <td align="center">
+                            <td align="{{#if data.align}}{{data.align}}{{else}}center{{/if}}">
                               <table border="0" cellspacing="0" cellpadding="0" class="w100pc">
                                 <tr>
                                   <td align="center" valign="top">

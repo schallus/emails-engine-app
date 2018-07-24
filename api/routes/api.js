@@ -8,6 +8,7 @@ const bodyParser = require('body-parser');
 const timeout = require('connect-timeout');
 const validator = require('express-validator');
 const morgan = require('morgan');     // Log requests
+const utils = require('../lib/utils');
 
 // custom
 const brandCtrl = require('./api.brand');
@@ -29,7 +30,7 @@ router.use(bodyParser.json({
 }));
 
 // Log all the API Requests
-router.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
+router.use(morgan(`:method :url :status :res[content-length] - :response-time ms`));
 
 /**
  * @apiDefine DataFormUrlencoded
@@ -123,7 +124,7 @@ router.all('*', (req, res, next) => {
 // ----- ERROR MIDDLEWARE -----
 
 router.use((err, req, res, next) => {
-    console.log(err);
+    utils.log(err);
     if (req.validationErrors()) {
         return res.status(422).json({
             error: {

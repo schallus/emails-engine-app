@@ -247,12 +247,14 @@ export class ModalBlockSettingsComponent implements OnInit {
       const image = event.target.files[0];
 
       // Delete the previous image from the server
-      if (parentPropertyName && index !== undefined && this.blockData.languages
-        .filter(el => el.lang === lang)[0].properties
-        .filter(el => el.name === parentPropertyName)[0].value[index]
-        .filter(el => el.name === propertyName)[0].value !== '') 
-      {
-        this.removeImage(propertyName, lang, parentPropertyName, index);
+      if (parentPropertyName && index !== undefined) { 
+        if(this.blockData.languages
+          .filter(el => el.lang === lang)[0].properties
+          .filter(el => el.name === parentPropertyName)[0].value[index]
+          .filter(el => el.name === propertyName)[0].value !== ''
+        ) {
+          this.removeImage(propertyName, lang, parentPropertyName, index);
+        }
       } else if(this.blockData.languages.filter(el => el.lang === lang)[0].properties.filter(el => el.name === propertyName)[0].value !== '') {
         this.removeImage(propertyName, lang);
       }

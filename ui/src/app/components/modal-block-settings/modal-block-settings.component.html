@@ -59,7 +59,7 @@
                       type="text"
                       [id]="property.name+'-'+lang" 
                       [name]="property.name+'-'+lang" 
-                      pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" 
+                      pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?!&//=]*)" 
                       [mdbValidate]="false" 
                       [ngModel]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value : ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value" 
                       appDebounceChange (debounceChange)="setPropertyValue(property.name, lang, $event)" 
@@ -76,7 +76,7 @@
                     <div class="col-6 img-preview">
                       <mdb-spinner *ngIf="fileUploading" spinnerColor="red"></mdb-spinner>
                       <div *ngIf="!fileUploading">
-                          <a class="btn-floating btn-sm btn-secondary waves-light remove-image" (click)="removeImage(property.name, lang, $event)" mdbTooltip="Supprimer" placement="top" mdbWavesEffect>
+                          <a class="btn-floating btn-sm btn-secondary waves-light remove-image" (click)="removeImage(property.name, lang)" mdbTooltip="Supprimer" placement="top" mdbWavesEffect>
                             <i class="fa fa-trash"></i>
                           </a>
                           <img [src]="(((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value) ? serverUrl + ((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value : 'assets/img/placeholder.jpg' : (((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value) ? serverUrl + ((blockData?.languages | filter: 'lang':lang)?.properties | filter: 'name':property.name)?.value : 'assets/img/placeholder.jpg'" class="img-fluid">
@@ -207,7 +207,7 @@
                                 type="text"
                                 [id]="property1.name+'-'+lang+'-'+key" 
                                 [name]="property1.name+'-'+lang+'-'+key"
-                                pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)" 
+                                pattern="https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?!&//=]*)" 
                                 [mdbValidate]="false" 
                                 [ngModel]="((propValue | filter: 'name':property1.name)?.copiedFromMaster) ? (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value : (propValue | filter: 'name':property1.name)?.value" 
                                 appDebounceChange (debounceChange)="setPropertyValue(property1.name, lang, $event, property.name, key)"
@@ -222,7 +222,13 @@
                             </div>
                             <div *ngSwitchCase="'img'" class="file-field md-form">
                               <div class="col-6 img-preview">
-                                <img [src]="((propValue | filter: 'name':property1.name)?.copiedFromMaster) ? ((((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value) ? serverUrl + (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value : 'assets/img/placeholder.jpg' : ((propValue | filter: 'name':property1.name)?.value) ? serverUrl + (propValue | filter: 'name':property1.name)?.value : 'assets/img/placeholder.jpg'" class="img-fluid">
+                                <mdb-spinner *ngIf="fileUploading" spinnerColor="red"></mdb-spinner>
+                                <div *ngIf="!fileUploading">
+                                  <a class="btn-floating btn-sm btn-secondary waves-light remove-image" (click)="removeImage(property1.name, lang, property.name, key)" mdbTooltip="Supprimer" placement="top" mdbWavesEffect>
+                                    <i class="fa fa-trash"></i>
+                                  </a>
+                                  <img [src]="((propValue | filter: 'name':property1.name)?.copiedFromMaster) ? ((((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value) ? serverUrl + (((blockData?.languages | filter: 'lang':campaignOptions.masterLang)?.properties | filter: 'name':property.name)?.value[key] | filter: 'name':property1.name)?.value : 'assets/img/placeholder.jpg' : ((propValue | filter: 'name':property1.name)?.value) ? serverUrl + (propValue | filter: 'name':property1.name)?.value : 'assets/img/placeholder.jpg'" class="img-fluid">
+                                </div>
                               </div>
                               <div class="col-6 img-button">
                                 <div class="btn btn-secondary btn-rounded" mdbWavesEffect role="button" [class.disabled]="(propValue | filter: 'name':property1.name)?.copiedFromMaster">
