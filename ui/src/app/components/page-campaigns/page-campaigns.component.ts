@@ -27,7 +27,6 @@ export class PageCampaignsComponent implements OnInit {
   brand: Brand;
   duplicateName: string;
   newCampaignName: string;
-  private sorted = false;
   itemsPerPage: number = 5;
   numberOfPage: number;
   pageActive: number;
@@ -45,6 +44,9 @@ export class PageCampaignsComponent implements OnInit {
     this.filtered = false;
   }
 
+  /**
+   * Function called on the component initialization
+   */
   ngOnInit() {
     const brandName = this.route.snapshot.paramMap.get('brandName');
 
@@ -59,6 +61,10 @@ export class PageCampaignsComponent implements OnInit {
     });
   }
 
+  /**
+   * Get the campaigns list from the API
+   * @param {Function} cb Callback executed once the data retrieved from the API. (optional)
+   */
   getCampaigns(cb?: () => void) {
     this.apiService.getCampaigns(this.brand.name).subscribe(campaigns => {
       campaigns.sort((a, b) => {
@@ -82,12 +88,20 @@ export class PageCampaignsComponent implements OnInit {
     });
   }
 
+  /**
+   * Set the pagination page number and filter the campaigns to display in the specified page
+   * @param {number} pageNumber Number of the page
+   */
   setPage(pageNumber: number) {
     this.filteredCampaigns = this.campaigns;
     this.filteredCampaigns = this.filteredCampaigns.slice((pageNumber-1)*this.itemsPerPage, pageNumber*this.itemsPerPage);
     this.pageActive = pageNumber;
   }
 
+  /**
+   * Filter the campaign displayed by campaign display name
+   * @param {any} event Event that contains the input value
+   */
   filterCampaigns(event: any) {
     if (event.target.value) {
       this.filtered = true;
@@ -100,16 +114,28 @@ export class PageCampaignsComponent implements OnInit {
     }
   }
 
+  /**
+   * Show the archive / delete confirmation modal
+   * @param {string} campaign Name of the campaign to archive or delete
+   */
   showArchiveConfirmation(campaign: string) {
     this.campaign = campaign;
     this.modalArchive.show();
   }
 
+  /**
+   * Show the clone confirmation modal
+   * @param {string} campaign Name of the campaign to be cloned
+   */
   showCloneConfirmation(campaign: string) {
     this.campaign = campaign;
     this.modalClone.show();
   }
 
+  /**
+   * Archive a campaign
+   * @param {string} campaignName Name of the campaign to archive
+   */
   archiveCampaign(campaignName: string) {
     this.apiService.archiveCampaign(this.brand.name, campaignName).subscribe(() => {
       this.getCampaigns(() => this.modalArchive.hide());
@@ -119,6 +145,10 @@ export class PageCampaignsComponent implements OnInit {
     });
   }
 
+  /**
+   * Delete a campaign
+   * @param {string} campaignName Name of the campaign to delete
+   */
   deleteCampaign(campaignName: string) {
     this.apiService.deleteCampaign(this.brand.name, campaignName).subscribe(() => {
       this.getCampaigns(() => this.modalArchive.hide());
@@ -128,6 +158,10 @@ export class PageCampaignsComponent implements OnInit {
     });
   }
 
+  /**
+   * Clone a campaign
+   * @param {string} campaignName Name of the campaign to be cloned
+   */
   cloneCampaign(campaignName: string) {
     this.apiService.duplicateCampaign(this.brand.name, campaignName, this.duplicateName).subscribe(() => {
       this.duplicateName = '';
@@ -138,6 +172,9 @@ export class PageCampaignsComponent implements OnInit {
     });
   }
 
+  /**
+   * Create a new campaign and navigate to the options page
+   */
   newCampaign() {
     this.apiService.addCampaign(this.brand.name, this.newCampaignName).subscribe((newCampaign) => {
       this.newCampaignName = '';
@@ -149,6 +186,9 @@ export class PageCampaignsComponent implements OnInit {
     });
   }
 
+  /**
+   * Redirect the user to a '404 Page Not Found' page
+   */
   redirect404 = () => {
     this.router.navigate([`/404`]);
   }

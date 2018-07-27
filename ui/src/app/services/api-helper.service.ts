@@ -14,6 +14,11 @@ export class ApiHelperService {
 
   constructor() {}
 
+  /**
+   * Function everytime an API request return an error
+   * Its goal is to handle those errors by logging the error if we are in dev mode.
+   * In production, it's gonna throw an error which will be caught by the component and it will display a custom error message
+   */
   handleError(res) {
     let error: APIError;
     if (res instanceof HttpErrorResponse) {
@@ -32,6 +37,9 @@ export class ApiHelperService {
     return Observable.throw(error);
   }
 
+  /**
+   * Extract the JSON data from a API request
+   */
   extractData(res: Response) {
     const body = res.json();
     return body.result;

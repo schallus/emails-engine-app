@@ -25,6 +25,10 @@ export class ApiService {
 
   private apiBaseUrl: string;
   private brandsUrl: string;
+
+  /**
+   * The functions below are used to build the API request URL
+   */
   private campaignsUrl = (brandName: string) => `${this.brandsUrl}/${brandName}/campaigns`;
   private blocksUrl = (brandName: string) => `${this.brandsUrl}/${brandName}/blocks`;
   private recipientsUrl = (brandName: string) => `${this.brandsUrl}/${brandName}/recipients`;
@@ -56,6 +60,14 @@ export class ApiService {
     this.apiBaseUrl = environment.apiBaseUrl;
     this.brandsUrl = `${this.apiBaseUrl}/brands`;
   }
+
+  /**
+   * The functions below are used to send a request to the API
+   * It an error is returned, it delegates the handling of the error to another service
+   * If everything went well, it returns an observable containing the JSON data
+   * To get the data, it's necessary to subscribe to the Observables
+   * See this documentation http://reactivex.io/documentation/observable.html if you want to know more about the Observable pattern
+   */
 
   getBrands() {
     return this.http.get<Brand[]>(this.brandsUrl)

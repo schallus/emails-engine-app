@@ -1,22 +1,31 @@
-# Wide -Emails engine
+# WIDE Emails Engine
 
 ## Installation
 
-- Dépendance: Node.js 0.12
+Dépendance: 
+  - Node.js 8.10
+  - NPM 6.1.0
+  - forever `npm install forever -g`
 
-Télécharger le projet avec Git (change username):
+
+Télécharger le projet avec Git :
 
 ```bash
-git clone http://username@git.cross-systems.ch/wide/emails-engine.git
+git clone http://git.cross-systems.ch/wide/emails-engine-app.git
 ```
 
 Ensuite, ouvrir le dossier et installer les dépendances:
 
 ```bash
-cd emails-engine
+cd emails-engine-app
 npm install
 ```
 
+Vous pouvez ensuite démarrer le serveur
+
+```bash
+cd api && forever server.js
+```
 
 ## Structure
 
@@ -72,7 +81,7 @@ Certains éléments peuvents être communs à plusieurs projets, ils sont à pla
 
 ## Build Commands
 
-Run `npm start client/projet` pour lancer le serveur, un nouvel onglet pointant sur le projetva s'ouvrir.
+Run `npm start client/projet` pour lancer le serveur, un nouvel onglet pointant sur le projet va s'ouvrir.
 
 Run `npm run build client/projet` pour lancer le build process, HTML minifié et CSS inline.
 

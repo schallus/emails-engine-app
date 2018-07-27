@@ -16,14 +16,12 @@ export class StepperComponent implements OnInit {
 
   constructor(private router: Router) { 
     this.currentStep = 0;
-    this.steps = [
-      { name: 'Marques', route: ['brands']},
-      { name: 'Campagnes', route: ['brands', this.brandName, 'campaigns']},
-      { name: 'Options', route: ['brands', this.brandName, 'campaigns', this.campaignName, 'options'], icon: 'fa-cog' },
-      { name: 'Design', route: ['brands', this.brandName, 'campaigns', this.campaignName, 'builder'], icon: 'fa-download' }
-    ];
   }
 
+  /**
+   * Function called on the component initialization which goal is to update 
+   * the stepper data everytime the route changes
+   */
   ngOnInit() {
     this.router.events.subscribe((data) => {
       if (data instanceof RoutesRecognized) {

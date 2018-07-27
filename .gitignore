@@ -12,3 +12,4 @@ api/temp/*
 !api/temp/.gitkeep
 .idea*
 .vscode*
+.sonarlint*

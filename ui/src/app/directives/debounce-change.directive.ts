@@ -3,6 +3,11 @@ import { Subject } from 'rxjs/Subject';
 import { Subscription } from 'rxjs/Subscription';
 import { debounceTime } from 'rxjs/operators';
 
+/**
+ * This directive is used to wait for half a second before to throw the change event
+ * Its goal is not to send too many request while the user is typing in an input field
+ * This directive is used many times in the block settings template
+ */
 @Directive({
   selector: '[appDebounceChange]'
 })

@@ -46,6 +46,9 @@ export class PageCampaignOptionsComponent implements OnInit {
     });
   }
 
+  /**
+   * Function called on the component initialization
+   */
   ngOnInit() {
     const brandName = this.route.snapshot.paramMap.get('brandName');
     const campaignName = this.route.snapshot.paramMap.get('campaignName');
@@ -98,6 +101,9 @@ export class PageCampaignOptionsComponent implements OnInit {
     });
   }
 
+  /**
+   * Sort the languages array by name
+   */
   sortLanguages = () => {
     this.languages.sort((a,b) => {
       if (a.name.toLowerCase() < b.name.toLowerCase())
@@ -108,6 +114,10 @@ export class PageCampaignOptionsComponent implements OnInit {
     });
   }
 
+  /**
+   * Function called whenever we select or deselect a lang
+   * @param {LangSelected} language Lang that the user selected or deselected
+   */
   onCheckBoxChange = (language: LangSelected) => {
     if(language.code !== this.masterLang) {
       language.selected = !language.selected;
@@ -122,6 +132,12 @@ export class PageCampaignOptionsComponent implements OnInit {
     }
   }
 
+  /**
+   * Function called when we hit the next button
+   * It checks whether the form is valid and submit the data to the API
+   * Then it navigates to the email builder page
+   * @param {NgForm} form Options form that was submitted
+   */
   onOptionsFormSubmit = (form: NgForm) => {
     if (form.valid) {
       if (this.campaign.displayName !== form.value.campaignDisplayName) {
@@ -163,6 +179,11 @@ export class PageCampaignOptionsComponent implements OnInit {
     }
   }
 
+  /**
+   * Function called when we create new lang
+   * Check if the form is valid, then add the new lang to the languages list
+   * @param {NgForm} form New lang form that was submitted
+   */
   onNewLangFormSubmit = (form: NgForm) => {
     if (form.valid) {
       // Check if a lang with the same code already exists
@@ -188,10 +209,19 @@ export class PageCampaignOptionsComponent implements OnInit {
     }
   }
 
+  /**
+   * Return the selected languages
+   * @returns {Lang[]} Selected languages
+   */
   getLanguagesSelected = () => {
     return this.languages.filter(lang => lang.selected);
   }
 
+  /**
+   * Return the subject in the given lang
+   * @param {string} languageCode
+   * @returns {Lang[]} Selected languages
+   */
   getSubject = (languageCode: string): string => {
     if (this.campaignOptions.lang[languageCode]) {
       return this.campaignOptions.lang[languageCode].subject;
@@ -200,16 +230,26 @@ export class PageCampaignOptionsComponent implements OnInit {
     }
   }
 
+  /**
+   * Return the subject in the given lang
+   * @param {any} event Event that contains the input value
+   */
   filterLanguages = (event:any) => {
     this.filteredLanguages = this.languages.filter(
       lang => lang.name.toLowerCase().indexOf(event.target.value.toLowerCase()) > -1
     );
   }
 
+  /**
+   * Navigate to the builder page
+   */
   gotoBuilder = () => {
     this.router.navigate([`/brands/${this.brand.name}/campaigns/${this.campaign.name}/builder`]);
   }
 
+  /**
+   * Redirect to 404 page
+   */
   redirect404 = () => {
     this.router.navigate([`/404`]);
   }

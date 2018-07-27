@@ -5,7 +5,12 @@ interface NgForInChanges extends SimpleChanges {
     ngForIn?: SimpleChange;
     ngForOf?: SimpleChange;
 }
-  
+
+/**
+ * This directive allow the developper to use the for in loop in the template.
+ * Normally, only the for of loop is allowed.
+ * In some case, it use useful to have the objects keys and value
+ */
 @Directive({
     selector: '[ngFor][ngForIn]'
 })
