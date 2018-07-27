@@ -43,7 +43,7 @@ header-03-expert-1532420931323:
 header-03-ambassador-1532420926263:
     text: "<p class=\"fontArial\">N° de client : <strong class=\"fontsize12 fontArial\">50012532</strong></p>"
 block-05-1532423495808:
-    text: "A découvrire maintenant dans nos magasins partenaires"
+    text: "<p class=\"fontArial\">A découvrir maintenant dans nos <strong class=\"fontsize22 fontArial\">magasins partenaires</strong></p>"
     color: "#ec1919"
     bgColor: "#44dd6b"
 block-06-1532424163587:
@@ -62,7 +62,7 @@ block-10-1532427138762:
     img: "images/uploads/Nespresso-Rechargeable-Capsule-pour-Machine-Caf-Nespresso-R-utilisable-Capsules-Inoxydable-Maille-Couvercle-Recharge-Nespresso-Capsule.jpg_6.jpg"
     img-w: ""
     img-h: "300"
-    bgColor: "#cc3636"
+    bgColor: "#7d7474"
     title: "Découvrez nos capsules rechargeables!"
     text: "<p class=\"fontArial\">Texte de <strong class=\"fontsize12 fontArial\">test </strong></p>"
     link: "Ceci est un lien CTA"

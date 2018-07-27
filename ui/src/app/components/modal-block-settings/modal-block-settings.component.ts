@@ -187,9 +187,11 @@ export class ModalBlockSettingsComponent implements OnInit {
    * @param {number=} index Children index (optional)
    */
   setPropertyValue(propertyName: string, lang: string, event: any, parentPropertyName?: string, index?: number) {
+    //console.log('this.blockData', this.blockData);
     const isColor = (color) => new RegExp("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$").test(color);
 
     if (parentPropertyName && index !== undefined) {
+
       // If it's a child attribute
       if (event.html && !this.blockData.languages
         .filter(el => el.lang === lang)[0].properties
@@ -203,12 +205,14 @@ export class ModalBlockSettingsComponent implements OnInit {
           .filter(el => el.name === parentPropertyName)[0].value[index]
           .filter(el => el.name === propertyName)[0].value = event.html;
       } else if(event.target) {
+        console.log('update value', index);
         // Input change event
         const newValue = (event.target.value) ? event.target.value : '';
         this.blockData.languages
           .filter(el => el.lang === lang)[0].properties
           .filter(el => el.name === parentPropertyName)[0].value[index]
           .filter(el => el.name === propertyName)[0].value = newValue;
+        //console.log('newBlockData', this.blockData);
       } else if(isColor(event)) {
         // Its a color
         this.blockData.languages
@@ -390,6 +394,7 @@ export class ModalBlockSettingsComponent implements OnInit {
    * Function called when the user click "Save the block" on the warning modal despite the errors
    */
   saveBlockSettings() {
+    console.log('saveBlockSettings', this.blockData);
     this.apiService.changeBlockData(this.brandName, this.campaignName, this.blockData.blockName, this.blockData).subscribe(() => {
       // Emit an event to tell the parent component that the block is invalid
       this.valid.emit({ block: this.block, valid: false });

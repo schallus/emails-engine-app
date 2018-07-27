@@ -931,7 +931,7 @@
 				"properties": [
 					{
 						"name": "text",
-						"value": "A découvrire maintenant dans nos magasins partenaires",
+						"value": "<p class=\"fontArial\">A découvrir maintenant dans nos <strong class=\"fontsize22 fontArial\">magasins partenaires</strong></p>",
 						"copiedFromMaster": false
 					},
 					{
@@ -1685,7 +1685,7 @@
 							[
 								{
 									"name": "url",
-									"value": "http://www.nespresso.com",
+									"value": "http://www.nespresso.com#1",
 									"copiedFromMaster": false
 								},
 								{
@@ -1799,6 +1799,615 @@
 								{
 									"name": "img",
 									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": false
+								}
+							]
+						]
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "items",
+						"value": [
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							]
+						]
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "fr-CH",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "items",
+						"value": [
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							]
+						]
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "items",
+						"value": [
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							]
+						]
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "footer-01-1532678787926",
+		"languages": [
+			{
+				"lang": "en",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "items",
+						"value": [
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "images/uploads/agnieszka-kowalczyk-749444-unsplash.jpg",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "images/uploads/agnieszka-kowalczyk-749444-unsplash.jpg",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "images/uploads/agnieszka-kowalczyk-749444-unsplash.jpg",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "images/uploads/agnieszka-kowalczyk-749444-unsplash.jpg",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "images/uploads/agnieszka-kowalczyk-749444-unsplash.jpg",
 									"copiedFromMaster": false
 								},
 								{

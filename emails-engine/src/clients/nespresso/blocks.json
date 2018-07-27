@@ -269,7 +269,7 @@
             {
                 "name": "text",
                 "displayName": "Texte",
-                "type": "text",
+                "type": "wysiwyg",
                 "required": true
             },
             {
