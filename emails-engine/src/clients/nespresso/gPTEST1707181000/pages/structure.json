@@ -98,18 +98,12 @@
 	{
 		"blockType": "footer-01",
 		"position": 16,
-		"name": "footer-01-1532678787926",
-		"valid": false
-	},
-	{
-		"blockType": "footer-01",
-		"position": 17,
 		"name": "footer-01-1532433868165",
 		"valid": false
 	},
 	{
 		"blockType": "footer-03-02",
-		"position": 18,
+		"position": 17,
 		"name": "footer-03-02-1531832149546",
 		"valid": true
 	}

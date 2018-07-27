@@ -1,0 +1,74 @@
+[
+	{
+		"blockType": "header-01",
+		"position": 0,
+		"name": "header-01-1532690525456",
+		"valid": true
+	},
+	{
+		"blockType": "header-02",
+		"position": 1,
+		"name": "header-02-1532690531405",
+		"valid": true
+	},
+	{
+		"blockType": "header-03-connoisseur",
+		"position": 2,
+		"name": "header-03-connoisseur-1532690535489",
+		"valid": true
+	},
+	{
+		"blockType": "spacer",
+		"position": 3,
+		"name": "spacer-1532690588085",
+		"valid": true
+	},
+	{
+		"blockType": "block-01",
+		"position": 4,
+		"name": "block-01-1532690563512",
+		"valid": true
+	},
+	{
+		"blockType": "spacer",
+		"position": 5,
+		"name": "spacer-1532690593305",
+		"valid": true
+	},
+	{
+		"blockType": "block-20",
+		"position": 6,
+		"name": "block-20-1532690602234",
+		"valid": true
+	},
+	{
+		"blockType": "spacer",
+		"position": 7,
+		"name": "spacer-1532690607263",
+		"valid": true
+	},
+	{
+		"blockType": "block-19",
+		"position": 8,
+		"name": "block-19-1532690597136",
+		"valid": true
+	},
+	{
+		"blockType": "spacer",
+		"position": 9,
+		"name": "spacer-1532690609522",
+		"valid": true
+	},
+	{
+		"blockType": "footer-01",
+		"position": 10,
+		"name": "footer-01-1532690548829",
+		"valid": true
+	},
+	{
+		"blockType": "footer-03-02",
+		"position": 11,
+		"name": "footer-03-02-1532690553066",
+		"valid": true
+	}
+]

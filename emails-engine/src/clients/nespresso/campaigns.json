@@ -28,5 +28,10 @@
 		"name": "nouveautesNespresso",
 		"displayName": "Nouveautés Nespresso",
 		"createdAt": "2018-07-24T12:41:21.422Z"
+	},
+	{
+		"name": "encoreUneCampagne",
+		"displayName": "Encore une campagne",
+		"createdAt": "2018-07-27T11:46:53.492Z"
 	}
 ]

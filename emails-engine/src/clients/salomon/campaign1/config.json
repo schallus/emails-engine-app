@@ -1,10 +1,10 @@
 {
 	"lang": {
-		"fr": {
-			"subject": "Sujet FR"
-		},
 		"de": {
 			"subject": "Sujet DE"
+		},
+		"fr": {
+			"subject": "Sujet FR"
 		},
 		"it": {
 			"subject": "Sujet IT"

@@ -1,16 +1,16 @@
 {
 	"lang": {
-		"fr": {
-			"subject": ""
-		},
 		"de": {
-			"subject": ""
+			"subject": "Nespresso Nachrichten"
+		},
+		"fr": {
+			"subject": "Nouveautés Nespresso"
 		},
 		"it": {
-			"subject": ""
+			"subject": "Notizie Nespresso"
 		}
 	},
 	"customLang": [],
 	"layout": "default",
-	"masterLang": ""
+	"masterLang": "fr"
 }

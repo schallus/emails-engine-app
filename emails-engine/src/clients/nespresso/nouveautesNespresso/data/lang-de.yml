@@ -1,0 +1,77 @@
+#
+# brand: nespresso
+# campaign: nouveautesNespresso
+# lang: de
+#
+
+header-01-1532690525456:
+    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    linkText: "Se désinscrire"
+    linkUrl: "http://www.nespresso.com"
+header-02-1532690531405:
+    img: "images/uploads/logo.png"
+    url: "http://www.nespresso.com"
+header-03-connoisseur-1532690535489:
+    text: "<p class=\"fontArial\">N° de client : <strong class=\"fontsize12 fontArial\">50012532</strong></p>"
+block-01-1532690563512:
+    title: "VOTRE CADEAU EXCLUSIF"
+    img: "images/uploads/mark-harpur-748500-unsplash.jpg"
+    text: "Cet été, découvrez ou redécouvrez nos classiques grâce à cette offre exclusive. Que vous les appréciez intenses, doux ou fruités, chauds ou glacés, tous nos cafés sauront éveiller vos sens… À moins que vous ne vous laissiez tenter par nos délicieuses gourmandises ? "
+    linkUrl: "http://www.nespresso.com"
+    linkText: "Profitez-en maintenant"
+block-20-1532690602234:
+    linkUrl: "http://www.nespresso.com"
+    linkText: "Découvrez notre assortiment"
+    img: "images/uploads/np-solothurn.jpg"
+    img-w: ""
+    img-h: ""
+    title: " LA SAVEUR DE L'ÉTÉ"
+    text: "Offrez un peu de soleil à vos amis et à votre famille avec nos cafés en Édition Limitée, inspirés par la chaleur de l'été italien."
+    align: "left"
+    bgColor: ""
+block-19-1532690597136:
+    linkUrl: "http://www.google.ch"
+    linkText: "Découvrez notre assortiment"
+    img: "images/uploads/Nespresso-Rechargeable-Capsule-pour-Machine-Caf-Nespresso-R-utilisable-Capsules-Inoxydable-Maille-Couvercle-Recharge-Nespresso-Capsule.jpg_6.jpg"
+    img-w: ""
+    img-h: "300"
+    title: " LA SAVEUR DE L'ÉTÉ"
+    text: "Offrez un peu de soleil à vos amis et à votre famille avec nos cafés en Édition Limitée, inspirés par la chaleur de l'été italien."
+    align: "right"
+    bgColor: ""
+footer-01-1532690548829:
+    title: "<p class=\"fontArial\">DÉCOUVREZ LES SERVICES <strong class=\"fontsize22 fontArial\">NESPRESSO</strong></p>"
+    items:
+      - url: "https://www.nespresso.com/ch/fr/services?utm_id=6e23c192-1f81-4b8a-adfb-af037b202000&did=#!/order/on-mobile-app"
+        img: "images/uploads/footer-mobile.png"
+        width: "60"
+        title: "MOBILE"
+        text: "24H/22 7J/7"
+      - url: "https://www.nespresso.com/ch/fr/services?utm_id=6e23c192-1f81-4b8a-adfb-af037b202000&did=#!/order/by-internet"
+        img: "images/uploads/footer-web.png"
+        width: "60"
+        title: "INTERNET"
+        text: ""
+      - url: "https://www.nespresso.com/ch/fr/services?utm_id=6e23c192-1f81-4b8a-adfb-af037b202000&did=#!/order/by-phone"
+        img: "images/uploads/footer-mobile.png"
+        width: "60"
+        title: "TÉLÉPHONE"
+        text: ""
+      - url: "https://www.nespresso.com/ch/fr/services?utm_id=6e23c192-1f81-4b8a-adfb-af037b202000&did=#!/delivery/24h-delivery"
+        img: "images/uploads/footer-delivery.png"
+        width: "60"
+        title: "LIVRAISON"
+        text: ""
+      - url: "https://www.nespresso.com/ch/fr/services?utm_id=6e23c192-1f81-4b8a-adfb-af037b202000&did=#!/customer-care/assistance-24-7"
+        img: "images/uploads/footer-service.png"
+        width: "60"
+        title: "SERVICE"
+        text: ""
+footer-03-02-1532690553066:
+    logoUrl: "http://www.nespresso.com/"
+    text: "<p class=\"fontArial\">*Offre valable sur www.nespresso.com, par téléphone au 0800 55 52 53 (numéro gratuit) ou via votre application mobile <strong class=\"fontsize12 fontArial\">Nespresso&nbsp;</strong>: disponible pour iPhone®, iPad® et Android™. Offre valable jusqu’au 08.07.2018 et dans la limite des stocks disponibles. Non cumulable avec d'autres offres promotionnelles. Le bon de réduction de Fr. 30.- est à faire valoir sur une prochaine commande jusqu'au 30.09.2018 dans les boutiques <strong class=\"fontsize12 fontArial\">Nespresso</strong>, sur www.nespresso.com, par téléphone au <a class=\"fontArial linkFooter\" href=\"tel:0800555253\">0800 55 52 53</a> (numéro gratuit) ou via votre application mobile <strong class=\"fontsize12 fontArial\">Nespresso</strong>.&nbsp;</p><p class=\"fontArial\">Vous avez reçu cet e-mail en tant que Membre du Club <strong class=\"fontsize12 fontArial\">Nespresso</strong>. Si vous ne souhaitez plus recevoir d'e-mails, cliquez ici. Si vous désirez contacter votre Club <strong class=\"fontsize12 fontArial\">Nespresso</strong>, utilisez notre formulaire de contact disponible sur notre site <a class=\"fontArial linkFooter\" href=\"http://www.nespresso.com\" rel=\"noopener noreferrer\" target=\"_blank\">www.nespresso.com</a> ou appelez le 0800 55 52 53 (numéro gratuit). Nestlé <strong class=\"fontsize12 fontArial\">Nespresso&nbsp;</strong>S.A.</p>"
+    facebookUrl: "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056"
+    twitterUrl: "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056"
+    youtudeUrl: "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056"
+    instagramUrl: "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056"
+    googlePlusUrl: "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056"

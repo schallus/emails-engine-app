@@ -85,7 +85,7 @@ block-19-1532430439357:
 footer-01-1532433868165:
     title: "<p class=\"fontArial\">Titre du bloc header 01</p>"
     items:
-      - url: "http://www.nespresso.com"
+      - url: "http://www.nespresso.com#1"
         img: "images/uploads/footer-web.png"
         width: "80"
         title: "Mobile"

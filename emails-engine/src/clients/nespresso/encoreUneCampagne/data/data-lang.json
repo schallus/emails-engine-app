@@ -1,0 +1,1161 @@
+[
+	{
+		"blockName": "header-01-1532690525456",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "text",
+						"value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkText",
+						"value": "Se désinscrire",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkUrl",
+						"value": "http://www.nespresso.com",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "header-02-1532690531405",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "img",
+						"value": "images/uploads/logo.png",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "url",
+						"value": "http://www.nespresso.com",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "url",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "header-03-connoisseur-1532690535489",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "text",
+						"value": "<p class=\"fontArial\">N° de client : <strong class=\"fontsize12 fontArial\">50012532</strong></p>",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-01-1532690563512",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "title",
+						"value": "VOTRE CADEAU EXCLUSIF",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img",
+						"value": "images/uploads/mark-harpur-748500-unsplash.jpg",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "Cet été, découvrez ou redécouvrez nos classiques grâce à cette offre exclusive. Que vous les appréciez intenses, doux ou fruités, chauds ou glacés, tous nos cafés sauront éveiller vos sens… À moins que vous ne vous laissiez tenter par nos délicieuses gourmandises ? ",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkUrl",
+						"value": "http://www.nespresso.com",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkText",
+						"value": "Profitez-en maintenant",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-20-1532690602234",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "http://www.nespresso.com",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkText",
+						"value": "Découvrez notre assortiment",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img",
+						"value": "images/uploads/np-solothurn.jpg",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img-w",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img-h",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "title",
+						"value": " LA SAVEUR DE L'ÉTÉ",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "Offrez un peu de soleil à vos amis et à votre famille avec nos cafés en Édition Limitée, inspirés par la chaleur de l'été italien.",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "align",
+						"value": "left",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "bgColor",
+						"value": "",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-w",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-h",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "align",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "bgColor",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-w",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-h",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "align",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "bgColor",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "block-19-1532690597136",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "http://www.google.ch",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "linkText",
+						"value": "Découvrez notre assortiment",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img",
+						"value": "images/uploads/Nespresso-Rechargeable-Capsule-pour-Machine-Caf-Nespresso-R-utilisable-Capsules-Inoxydable-Maille-Couvercle-Recharge-Nespresso-Capsule.jpg_6.jpg",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img-w",
+						"value": "",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "img-h",
+						"value": "300",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "title",
+						"value": " LA SAVEUR DE L'ÉTÉ",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "Offrez un peu de soleil à vos amis et à votre famille avec nos cafés en Édition Limitée, inspirés par la chaleur de l'été italien.",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "align",
+						"value": "right",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "bgColor",
+						"value": "",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-w",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-h",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "align",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "bgColor",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "linkUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "linkText",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-w",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "img-h",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "align",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "bgColor",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "footer-01-1532690548829",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "title",
+						"value": "<p class=\"fontArial\">DÉCOUVREZ LES SERVICES <strong class=\"fontsize22 fontArial\">NESPRESSO</strong></p>",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "items",
+						"value": [
+							[
+								{
+									"name": "url",
+									"value": "https://www.nespresso.com/ch/fr/services?utm_id=6e23c192-1f81-4b8a-adfb-af037b202000&did=#!/order/on-mobile-app",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "images/uploads/footer-mobile.png",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "60",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "title",
+									"value": "MOBILE",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "24H/22 7J/7",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "https://www.nespresso.com/ch/fr/services?utm_id=6e23c192-1f81-4b8a-adfb-af037b202000&did=#!/order/by-internet",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "images/uploads/footer-web.png",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "60",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "title",
+									"value": "INTERNET",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "https://www.nespresso.com/ch/fr/services?utm_id=6e23c192-1f81-4b8a-adfb-af037b202000&did=#!/order/by-phone",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "images/uploads/footer-mobile.png",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "60",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "title",
+									"value": "TÉLÉPHONE",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "https://www.nespresso.com/ch/fr/services?utm_id=6e23c192-1f81-4b8a-adfb-af037b202000&did=#!/delivery/24h-delivery",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "images/uploads/footer-delivery.png",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "60",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "title",
+									"value": "LIVRAISON",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": false
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "https://www.nespresso.com/ch/fr/services?utm_id=6e23c192-1f81-4b8a-adfb-af037b202000&did=#!/customer-care/assistance-24-7",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "img",
+									"value": "images/uploads/footer-service.png",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "width",
+									"value": "60",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "title",
+									"value": "SERVICE",
+									"copiedFromMaster": false
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": false
+								}
+							]
+						]
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "items",
+						"value": [
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							]
+						]
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "title",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "items",
+						"value": [
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							],
+							[
+								{
+									"name": "url",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "img",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "width",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "title",
+									"value": "",
+									"copiedFromMaster": true
+								},
+								{
+									"name": "text",
+									"value": "",
+									"copiedFromMaster": true
+								}
+							]
+						]
+					}
+				],
+				"display": true
+			}
+		]
+	},
+	{
+		"blockName": "footer-03-02-1532690553066",
+		"languages": [
+			{
+				"lang": "fr",
+				"properties": [
+					{
+						"name": "logoUrl",
+						"value": "http://www.nespresso.com/",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "text",
+						"value": "<p class=\"fontArial\">*Offre valable sur www.nespresso.com, par téléphone au 0800 55 52 53 (numéro gratuit) ou via votre application mobile <strong class=\"fontsize12 fontArial\">Nespresso&nbsp;</strong>: disponible pour iPhone®, iPad® et Android™. Offre valable jusqu’au 08.07.2018 et dans la limite des stocks disponibles. Non cumulable avec d'autres offres promotionnelles. Le bon de réduction de Fr. 30.- est à faire valoir sur une prochaine commande jusqu'au 30.09.2018 dans les boutiques <strong class=\"fontsize12 fontArial\">Nespresso</strong>, sur www.nespresso.com, par téléphone au <a class=\"fontArial linkFooter\" href=\"tel:0800555253\">0800 55 52 53</a> (numéro gratuit) ou via votre application mobile <strong class=\"fontsize12 fontArial\">Nespresso</strong>.&nbsp;</p><p class=\"fontArial\">Vous avez reçu cet e-mail en tant que Membre du Club <strong class=\"fontsize12 fontArial\">Nespresso</strong>. Si vous ne souhaitez plus recevoir d'e-mails, cliquez ici. Si vous désirez contacter votre Club <strong class=\"fontsize12 fontArial\">Nespresso</strong>, utilisez notre formulaire de contact disponible sur notre site <a class=\"fontArial linkFooter\" href=\"http://www.nespresso.com\" rel=\"noopener noreferrer\" target=\"_blank\">www.nespresso.com</a> ou appelez le 0800 55 52 53 (numéro gratuit). Nestlé <strong class=\"fontsize12 fontArial\">Nespresso&nbsp;</strong>S.A.</p>",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "facebookUrl",
+						"value": "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "twitterUrl",
+						"value": "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "youtudeUrl",
+						"value": "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "instagramUrl",
+						"value": "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056",
+						"copiedFromMaster": false
+					},
+					{
+						"name": "googlePlusUrl",
+						"value": "http://www.emailing.nespresso.com/r/?id=t2e5d4bc8,1aa76289,1aa77056",
+						"copiedFromMaster": false
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "de",
+				"properties": [
+					{
+						"name": "logoUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "facebookUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "twitterUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "youtudeUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "instagramUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "googlePlusUrl",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			},
+			{
+				"lang": "it",
+				"properties": [
+					{
+						"name": "logoUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "text",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "facebookUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "twitterUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "youtudeUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "instagramUrl",
+						"value": "",
+						"copiedFromMaster": true
+					},
+					{
+						"name": "googlePlusUrl",
+						"value": "",
+						"copiedFromMaster": true
+					}
+				],
+				"display": true
+			}
+		]
+	}
+]
